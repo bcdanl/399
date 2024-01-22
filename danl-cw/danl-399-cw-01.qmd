@@ -1,10 +1,6 @@
 ---
 title: Classwork 1
 subtitle: Installing the DANL Tools
-author:
-  - name: Byeong-Hak Choe
-    email: bchoe@geneseo.edu
-    affiliations: SUNY Geneseo
 date: last-modified
 
 comments:

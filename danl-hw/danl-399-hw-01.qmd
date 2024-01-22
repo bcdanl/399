@@ -1,10 +1,6 @@
 ---
 title: Homework 1
 subtitle: R/ggplot Basics and Personal Website
-author:
-  - name: Byeong-Hak Choe
-    email: bchoe@geneseo.edu
-    affiliations: SUNY Geneseo
 date: last-modified
 
 comments:
