@@ -1,0 +1,541 @@
+[
+  {
+    "objectID": "danl-hw/danl-399-hw-3.html",
+    "href": "danl-hw/danl-399-hw-3.html",
+    "title": "DANL 399: Homework Assignment 3",
+    "section": "",
+    "text": "Read the data file, custdata_rev.csv, as the data.frame object with the name, health_cust:\n\nlibrary(tidyverse)\nlibrary(skimr)\n\nhealth_cust &lt;- read_csv(\n  'https://bcdanl.github.io/data/custdata_rev.csv'\n)\n\n\n\n\n  \n\n\n \n\n\n\nThe following describes the variables in the health_cust data.frame.\n\ncustid: ID of customer\nsex: Sex\nis_employed: Employment status\n\nNA: Unknown or not applicable\nTRUE: Employed\nFALSE: Unemployed\n\nincome: Income (in $)\nmarital_status: Marital status\nhousing_type: Housing type\nrecent_move:\n\nTRUE: Recently moved\nFALSE: Not recently moved\n\nage: Age\nstate_of_res: State of residence\ngas_usage: Gas usage\n\nNA: Unknown or not applicable\n001: Included in rent or condo fee\n002: Included in electricity payment\n003: No charge or gas not used\n004-999: $4 to $999 (rounded and top-coded)\n\nhealth_ins: Health insuarance status\n\nTRUE: customer with health insuarance\nFALSE: customer without health insuarance\n\n\n\n\n\n\nReport summary statistics including a mean value for each logical variable in health_cust.\nAnswer:\n\nhealth_cust_sum &lt;- skim(health_cust)\n\nq1a &lt;- health_cust_sum[health_cust_sum$skim_type == 'logical', \n                       c('skim_variable', \n                         'n_missing', 'complete_rate',\n                         'logical.mean', 'logical.count')]\n\n\n\n\n\nUse health_cust data.frame to create a new data.frame, health_cust2, in which (1) age is greater than 0 and less than 100; and (2) income is positive.\nAnswer:\n\nhealth_cust2 &lt;- health_cust[health_cust$age &gt; 0, ]\nhealth_cust2 &lt;- health_cust2[health_cust2$age &lt; 100, ]\nhealth_cust2 &lt;- health_cust2[health_cust2$income &gt; 0, ]\nhealth_cust2_sum &lt;- skim(health_cust2)\n\n# Combining all conditions into one, which we will cover after the first midterm:\n# health_cust2 &lt;- health_cust[ ( 0 &lt; health_cust$age &lt; 100 ) &\n#                                 ( health_cust$income &gt; 0 ), ]\n\n\n\n\n\nProvide ggplot code and comments to describe the distribution of income.\nAnswer:\n\nggplot(health_cust2, aes(x = income)) +\n  geom_histogram()\n\n\n\nggplot(health_cust2, aes(x = income)) +\n  geom_histogram(bins = 100)\n\n\n\nggplot(health_cust2, aes(x = log(income))) +\n  geom_histogram(bins = 100)\n\n\n\nggplot(health_cust2, aes(x = log(income))) +\n  geom_freqpoly(bins = 100)\n\n\n\n\n\nProvide some comments\n\n\n\n\n\nProvide ggplot code and comments to describe the distribution of marital_status.\nAnswer:\n\nggplot(health_cust2,\n       aes(y = marital_status,\n           fill = marital_status)) +\n  geom_bar(show.legend = F)\n\n\n\n\n\nProvide some comments\n\n\n\n\n\nSuppose you randomly pick one customer’s observation from each state in data.frame health_cust.\nUse ggplot code to find: (1) in which state a customer is most likely to have a health insurance; and (2) in which state a customer is least likely to have a health insurance.\nAnswer:\n\nggplot(health_cust2) +\n  geom_bar(aes(y = health_ins,\n               group = 1)) +\n  facet_wrap(state_of_res ~ . , ncol = 5)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = health_ins, x = stat(prop),\n               group = 1)) +\n  facet_wrap(state_of_res ~ . , ncol = 5)\n\n\n\n\n\nThe proportional bar chart faceted by state_of_res is the one we need.\n\nAlaska customer is most likely to have health insurance.\nHawaii customer is least likely to have health insurance.\nWhy?\n\n\nThe following might mislead…\n\nggplot(health_cust2) +\n  geom_bar(aes(y = state_of_res, x = stat(prop),\n               group = 1)) +\n  facet_wrap(health_ins ~ . , ncol = 5)\n\n\n\n\n\n\n\n\nProvide ggplot code and comments to describe the relationship between age and income.\nAnswer:\n\nggplot(health_cust2,\n       aes(x = age, y = income)) +\n  geom_point(alpha = .2, size = .75) +\n  geom_smooth() +\n  geom_smooth(method = lm, color = 'red')\n\n\n\nggplot(health_cust2,\n       aes(x = age, y = income)) +\n  geom_hex() +\n  geom_smooth() +\n  geom_smooth(method = lm, color = 'red')\n\n\n\n# Considering income level below $250,000\nhealth_cust3 &lt;- health_cust2[health_cust2$income &lt; 2.5*10^5, ]\nggplot(health_cust3,\n       aes(x = age, y = income)) +\n  geom_hex() +\n  geom_smooth() +\n  geom_smooth(method = lm, color = 'red')\n\n\n\n\n\nConsidering the income group whose level is below $250,000, income is positively associated with age up to age around 55. income is then negatively associated from age around 55 to 100.\n\n\n\n\n\nProvide ggplot code and comments to describe the relationship between age and health_ins.\nAnswer:\n\nggplot(health_cust2) + \n  geom_histogram(aes(x = age), bins = 75) +\n  facet_wrap(health_ins ~.)\n\n\n\nggplot(health_cust2) + \n  geom_freqpoly(aes(x = age), bins = 75) +\n  facet_wrap(health_ins ~.)\n\n\n\n\n\n\n\n\nProvide ggplot code and comments to describe the relationship between marital_status and health_ins.\nAnswer:\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = health_ins))\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = health_ins),\n           position = \"fill\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = health_ins),\n           position = \"dodge\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status)) +\n  facet_wrap(health_ins ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               x = stat(prop), group = 1)) +\n  facet_wrap(health_ins ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = health_ins, \n               x = stat(prop), group = 1)) +\n  facet_grid(marital_status ~.)\n\n\n\n\n\n\n\n\nProvide ggplot code and comments to describe the relationship between marital_status and housing_type.\nAnswer:\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = housing_type))\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = housing_type),\n           position = \"fill\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = housing_type),\n           position = \"dodge\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status)) +\n  facet_wrap(housing_type ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               x = stat(prop), group = 1)) +\n  facet_wrap(housing_type ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = housing_type, \n               x = stat(prop), group = 1)) +\n  facet_grid(marital_status ~.)"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-3.html#variable-description-for-health_cust",
+    "href": "danl-hw/danl-399-hw-3.html#variable-description-for-health_cust",
+    "title": "DANL 399: Homework Assignment 3",
+    "section": "",
+    "text": "The following describes the variables in the health_cust data.frame.\n\ncustid: ID of customer\nsex: Sex\nis_employed: Employment status\n\nNA: Unknown or not applicable\nTRUE: Employed\nFALSE: Unemployed\n\nincome: Income (in $)\nmarital_status: Marital status\nhousing_type: Housing type\nrecent_move:\n\nTRUE: Recently moved\nFALSE: Not recently moved\n\nage: Age\nstate_of_res: State of residence\ngas_usage: Gas usage\n\nNA: Unknown or not applicable\n001: Included in rent or condo fee\n002: Included in electricity payment\n003: No charge or gas not used\n004-999: $4 to $999 (rounded and top-coded)\n\nhealth_ins: Health insuarance status\n\nTRUE: customer with health insuarance\nFALSE: customer without health insuarance"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-3.html#q1a",
+    "href": "danl-hw/danl-399-hw-3.html#q1a",
+    "title": "DANL 399: Homework Assignment 3",
+    "section": "",
+    "text": "Report summary statistics including a mean value for each logical variable in health_cust.\nAnswer:\n\nhealth_cust_sum &lt;- skim(health_cust)\n\nq1a &lt;- health_cust_sum[health_cust_sum$skim_type == 'logical', \n                       c('skim_variable', \n                         'n_missing', 'complete_rate',\n                         'logical.mean', 'logical.count')]"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-3.html#q1b",
+    "href": "danl-hw/danl-399-hw-3.html#q1b",
+    "title": "DANL 399: Homework Assignment 3",
+    "section": "",
+    "text": "Use health_cust data.frame to create a new data.frame, health_cust2, in which (1) age is greater than 0 and less than 100; and (2) income is positive.\nAnswer:\n\nhealth_cust2 &lt;- health_cust[health_cust$age &gt; 0, ]\nhealth_cust2 &lt;- health_cust2[health_cust2$age &lt; 100, ]\nhealth_cust2 &lt;- health_cust2[health_cust2$income &gt; 0, ]\nhealth_cust2_sum &lt;- skim(health_cust2)\n\n# Combining all conditions into one, which we will cover after the first midterm:\n# health_cust2 &lt;- health_cust[ ( 0 &lt; health_cust$age &lt; 100 ) &\n#                                 ( health_cust$income &gt; 0 ), ]"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-3.html#q1c",
+    "href": "danl-hw/danl-399-hw-3.html#q1c",
+    "title": "DANL 399: Homework Assignment 3",
+    "section": "",
+    "text": "Provide ggplot code and comments to describe the distribution of income.\nAnswer:\n\nggplot(health_cust2, aes(x = income)) +\n  geom_histogram()\n\n\n\nggplot(health_cust2, aes(x = income)) +\n  geom_histogram(bins = 100)\n\n\n\nggplot(health_cust2, aes(x = log(income))) +\n  geom_histogram(bins = 100)\n\n\n\nggplot(health_cust2, aes(x = log(income))) +\n  geom_freqpoly(bins = 100)\n\n\n\n\n\nProvide some comments"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-3.html#q1d",
+    "href": "danl-hw/danl-399-hw-3.html#q1d",
+    "title": "DANL 399: Homework Assignment 3",
+    "section": "",
+    "text": "Provide ggplot code and comments to describe the distribution of marital_status.\nAnswer:\n\nggplot(health_cust2,\n       aes(y = marital_status,\n           fill = marital_status)) +\n  geom_bar(show.legend = F)\n\n\n\n\n\nProvide some comments"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-3.html#q1e",
+    "href": "danl-hw/danl-399-hw-3.html#q1e",
+    "title": "DANL 399: Homework Assignment 3",
+    "section": "",
+    "text": "Suppose you randomly pick one customer’s observation from each state in data.frame health_cust.\nUse ggplot code to find: (1) in which state a customer is most likely to have a health insurance; and (2) in which state a customer is least likely to have a health insurance.\nAnswer:\n\nggplot(health_cust2) +\n  geom_bar(aes(y = health_ins,\n               group = 1)) +\n  facet_wrap(state_of_res ~ . , ncol = 5)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = health_ins, x = stat(prop),\n               group = 1)) +\n  facet_wrap(state_of_res ~ . , ncol = 5)\n\n\n\n\n\nThe proportional bar chart faceted by state_of_res is the one we need.\n\nAlaska customer is most likely to have health insurance.\nHawaii customer is least likely to have health insurance.\nWhy?\n\n\nThe following might mislead…\n\nggplot(health_cust2) +\n  geom_bar(aes(y = state_of_res, x = stat(prop),\n               group = 1)) +\n  facet_wrap(health_ins ~ . , ncol = 5)"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-3.html#q1f",
+    "href": "danl-hw/danl-399-hw-3.html#q1f",
+    "title": "DANL 399: Homework Assignment 3",
+    "section": "",
+    "text": "Provide ggplot code and comments to describe the relationship between age and income.\nAnswer:\n\nggplot(health_cust2,\n       aes(x = age, y = income)) +\n  geom_point(alpha = .2, size = .75) +\n  geom_smooth() +\n  geom_smooth(method = lm, color = 'red')\n\n\n\nggplot(health_cust2,\n       aes(x = age, y = income)) +\n  geom_hex() +\n  geom_smooth() +\n  geom_smooth(method = lm, color = 'red')\n\n\n\n# Considering income level below $250,000\nhealth_cust3 &lt;- health_cust2[health_cust2$income &lt; 2.5*10^5, ]\nggplot(health_cust3,\n       aes(x = age, y = income)) +\n  geom_hex() +\n  geom_smooth() +\n  geom_smooth(method = lm, color = 'red')\n\n\n\n\n\nConsidering the income group whose level is below $250,000, income is positively associated with age up to age around 55. income is then negatively associated from age around 55 to 100."
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-3.html#q1g",
+    "href": "danl-hw/danl-399-hw-3.html#q1g",
+    "title": "DANL 399: Homework Assignment 3",
+    "section": "",
+    "text": "Provide ggplot code and comments to describe the relationship between age and health_ins.\nAnswer:\n\nggplot(health_cust2) + \n  geom_histogram(aes(x = age), bins = 75) +\n  facet_wrap(health_ins ~.)\n\n\n\nggplot(health_cust2) + \n  geom_freqpoly(aes(x = age), bins = 75) +\n  facet_wrap(health_ins ~.)"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-3.html#q1h",
+    "href": "danl-hw/danl-399-hw-3.html#q1h",
+    "title": "DANL 399: Homework Assignment 3",
+    "section": "",
+    "text": "Provide ggplot code and comments to describe the relationship between marital_status and health_ins.\nAnswer:\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = health_ins))\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = health_ins),\n           position = \"fill\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = health_ins),\n           position = \"dodge\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status)) +\n  facet_wrap(health_ins ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               x = stat(prop), group = 1)) +\n  facet_wrap(health_ins ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = health_ins, \n               x = stat(prop), group = 1)) +\n  facet_grid(marital_status ~.)"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-3.html#q1i",
+    "href": "danl-hw/danl-399-hw-3.html#q1i",
+    "title": "DANL 399: Homework Assignment 3",
+    "section": "",
+    "text": "Provide ggplot code and comments to describe the relationship between marital_status and housing_type.\nAnswer:\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = housing_type))\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = housing_type),\n           position = \"fill\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = housing_type),\n           position = \"dodge\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status)) +\n  facet_wrap(housing_type ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               x = stat(prop), group = 1)) +\n  facet_wrap(housing_type ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = housing_type, \n               x = stat(prop), group = 1)) +\n  facet_grid(marital_status ~.)"
+  },
+  {
+    "objectID": "listing-danl-399-lec.html",
+    "href": "listing-danl-399-lec.html",
+    "title": "DANL 399 - Lecture",
+    "section": "",
+    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 1\n\n\nJanuary 14, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
+    "section": "",
+    "text": "Welcome! 👋\n\\(-\\) Explore, Learn, and Grow with the DANL! 🌟"
+  },
+  {
+    "objectID": "index.html#bullet-lecture",
+    "href": "index.html#bullet-lecture",
+    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
+    "section": "\\(\\bullet\\,\\) Lecture 🚀",
+    "text": "\\(\\bullet\\,\\) Lecture 🚀\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 1\n\n\nJanuary 14, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#bullet-q-a",
+    "href": "index.html#bullet-q-a",
+    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
+    "section": "\\(\\bullet\\,\\) Q & A ❓",
+    "text": "\\(\\bullet\\,\\) Q & A ❓\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 1 - Discussion and Q & A\n\n\nJanuary 9, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#bullet-classwork",
+    "href": "index.html#bullet-classwork",
+    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
+    "section": "\\(\\bullet\\,\\) Classwork ⌨️",
+    "text": "\\(\\bullet\\,\\) Classwork ⌨️\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nClasswork 1\n\n\nJanuary 9, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#bullet-homework",
+    "href": "index.html#bullet-homework",
+    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
+    "section": "\\(\\bullet\\,\\) Homework 💻",
+    "text": "\\(\\bullet\\,\\) Homework 💻\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nDANL 399: Homework Assignment 3\n\n\nJanuary 21, 2024\n\n\n\n\nDANL 399: Homework Assignment 2\n\n\nJanuary 21, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "listing-danl-399-qa.html",
+    "href": "listing-danl-399-qa.html",
+    "title": "DANL 399 - Lecture Discussion",
+    "section": "",
+    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 1 - Discussion and Q & A\n\n\nJanuary 9, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "listing-danl-399-hw.html",
+    "href": "listing-danl-399-hw.html",
+    "title": "DANL 399 - Homework",
+    "section": "",
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nDANL 399: Homework Assignment 3\n\n\nundefined\n\n\nJanuary 21, 2024\n\n\n\n\nDANL 399: Homework Assignment 2\n\n\nundefined\n\n\nJanuary 21, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#instructor-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#instructor-1",
+    "title": "Lecture 1",
+    "section": "Instructor",
+    "text": "Instructor\nCurrent Appointment & Education\n\nName: Byeong-Hak Choe.\nAssistant Professor of Data Analytics and Economics, School of Business at SUNY Geneseo.\nPh.D. in Economics from University of Wyoming.\nM.S. in Economics from Arizona State University.\nM.A. in Economics from SUNY Stony Brook.\nB.A. in Economics & B.S. in Applied Mathematics from Hanyang University at Ansan, South Korea.\n\nMinor in Business Administration.\nConcentration in Finance."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#instructor-2",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#instructor-2",
+    "title": "Lecture 1",
+    "section": "Instructor",
+    "text": "Instructor\nData Science and Climate Change\n\nChoe, B.H., 2021. “Social Media Campaigns, Lobbying and Legislation: Evidence from #climatechange/#globalwarming and Energy Lobbies.”\nQuestion: To what extent do social media campaigns compete with fossil fuel lobbying on climate change legislation?\nData include:\n\n5.0 million tweets with #climatechange/#globalwarming around the globe;\n12.0 million retweets/likes to those tweets;\n0.8 million Twitter users who wrote those tweets;\n1.4 million Twitter users who retweeted or liked those tweets;\n0.3 million US Twitter users with their location at a city level;\nFirm-level lobbying data (expenses, targeted bills, etc.)."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-1",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nEmail, Class & Office Hours\n\nEmail: bchoe@geneseo.edu\nClass Homepage:\n\nhttps://brightspace.geneseo.edu/\nhttp://bcdanl.github.io/geneseo-danl-module-1/\n\nOffice: South Hall 301\nOffice Hours:\n\nBy appointment via email"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-2",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-2",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nCourse Description\n\nThis course aims to provide overview of how one can collect, manipulate, process, clean, and crunch datasets with practical case studies.\nThis course will cover topics such as (1) loading, slicing, filtering, transforming, reshaping, and merging data, (2) summarizing and visualizing data, and (3) exploratory data analysis.\nWe will cover these topics to solve real-world data analysis problems with thorough, detailed examples."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-3",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-3",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nCourse Requirements\n\nLaptop: You should bring your own laptop (Mac or Windows) to the classroom.\n\nIt is recommended to have 2+ core CPU, 4+ GB RAM, and 500+ GB disk storage in your laptop for this course.\n\nHomework: There will be six homework assignments.\nExams: There will be one take-home exam."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-4",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-4",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nCourse Contents\n\nThere will be tentatively 28 class sessions:\n\n7 lectures\n1 take-home exam"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-5",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-5",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nCourse Contents"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-6",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-6",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nAssessments\n\nEach of the six homework assignments accounts for 10% of the total percentage grade.\nThe exam account for 30% of the total percentage grade.\nParticipation in discussions accounts for 10% of the total percentage grade.\n\n\\[\n\\begin{align}\n(\\text{Total Percentage Grade}) =\\quad\\, &0.60\\times(\\text{Total Homework Score})\\notag\\\\\n\\,+\\, &0.30\\times(\\text{Take-Home Exam Score})\\notag\\\\\n\\,+\\, &0.10\\times(\\text{Total Discussion Score})\\notag\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#what-is-github",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#what-is-github",
+    "title": "Lecture 1",
+    "section": "What is GitHub?",
+    "text": "What is GitHub?\n\nhttps://github.com/ is a platform for storing, managing, and sharing code.\nCourse contents will be posted not only Brightspace but also our GitHub repositories (“repos”).\nOnline discussion and Q & A will be hosted on GitHub repository.\nClicking “Sign Up” or https://github.com/signup will direct you to the sign up page."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#getting-a-github-account",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#getting-a-github-account",
+    "title": "Lecture 1",
+    "section": "Getting a GitHub account",
+    "text": "Getting a GitHub account\nGithub is useful for many reasons, but the main reason is how user friendly it makes uploading and sharing code.\nSharing and editing code for a large group is easy with Github\nIt also automatically maintains a history of all changes to the repo. You can see the history of committed changes, and even go into detail about what those changes entailed.\nYou can also revert to old versions of your repo, and all edits will be saved in this history."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#what-is-google-colab",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#what-is-google-colab",
+    "title": "Lecture 1",
+    "section": "What is Google Colab",
+    "text": "What is Google Colab\n\nhttps://colab.research.google.com/ is analogous to Google Drive, but specifically for writing and executing Python code in your browser.\n\nThe base Colab link listed above leads to a Python notebook introducing Colab and how to use it.\n\nThis video also helps get started with Colab if you are unfamiliar with the format!\n\nhttps://www.youtube.com/watch?v=inN8seMm7UI"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#why-use-colab",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#why-use-colab",
+    "title": "Lecture 1",
+    "section": "Why use Colab?",
+    "text": "Why use Colab?\n\nA key benefit of Colab is that it is entirely free to use and has many of the standard Python modules pre installed.\n\nIt allows for CPU or GPU usage, even for free users, and stores the files in Google’s servers so you can access your files from anywhere you can connect to the Internet.\n\nUsing Colab also means you can entirely avoid the process of installing Python and any dependencies onto your computer.\nColab notebooks don’t just contain Python code. They can contain text, images, and HTML!\nUltimately, they’re intuitive to use and let you jump right into the code and data analysis without needing to worry about the more cumbersome details needed to run Python notebooks on a laptop or PC."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#colab-has-github-integration",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#colab-has-github-integration",
+    "title": "Lecture 1",
+    "section": "Colab has GitHub integration!",
+    "text": "Colab has GitHub integration!"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-1",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nAnaconda\n\nAnaconda is an all-in-one Python distribution.\n\nAnaconda includes Python 3.x and its standard modules such as pip, pandas, matplotlib, etc.\nAnaconda also includes several software applications of integrated development environment (IDE), which is a software for editing codes.\nFor the Python code, we will use Spyder IDE.\n\nDo not use RStudio from Anaconda, because RStudio from Anaconda is out-dated.\n\n\nTo install Anaconda, go to the following download page:\n\nhttps://www.anaconda.com/products/distribution.\nClick the “Download” button."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-2",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-2",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nSpyder IDE\n\nIf Spyder IDE from Anaconda is lagging, consider installing it additionally.\nTo install Spyder IDE in addition to Anaconda, go to the following download page:\n\nhttps://www.spyder-ide.org.\nClick the “DOWNLOAD” menu."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-3",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-3",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nSpyder Environment\n\n\n\n\n\n\n\n\n\n\n\n\n\nRed box is Script Editor where you can create, open and edit files."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-4",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-4",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nSpyder Environment\n\n\n\n\n\n\n\n\n\n\n\n\n\nBlue box is Console Pane that allows you to interact directly with the Python interpreter and type commands where Python will immediately execute them."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-5",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-5",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nSpyder Environment\n\n\n\n\n\n\n\n\n\n\n\n\n\nYellow box is Variable Explorer where you can see the values of variables, data frames, and other objects that are currently stored in memory.\n\nDouble-clicking a variable will open a specialized viewer, allowing you to inspect its contents."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#coding-workflow",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#coding-workflow",
+    "title": "Lecture 1",
+    "section": "Coding Workflow",
+    "text": "Coding Workflow\nCode and comment style\n\nThe two main principles for coding and managing data are:\n\nMake things easier for your future self.\nDon’t trust your future self.\n\nThe # mark is Spyder’s comment character.\n\n# indicates that the rest of the line is to be ignored.\nWrite comments before the line that you want the comment to apply to.\n\nConsider using block commenting for separating code sections.\n\n# %% defines a coding block in Spyder.\n\nBreak down long lines and long algebraic expressions."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#coding-workflow-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#coding-workflow-1",
+    "title": "Lecture 1",
+    "section": "Coding Workflow",
+    "text": "Coding Workflow\nShortcuts\n\n\nMac\n\nF9 runs a current line (where the blinking cursor is) or selected lines.\ncommand + return runs a current block.\ncommand + 1 is the shortcut for #.\ncommand + 4 is the shortcut for block comment.\n\n\nWindows\n\nF9 runs a current line (where the blinking cursor is) or selected lines.\nCtrl + Enter runs a current block.\nCtrl + 1 is the shortcut for #.\nCtrl + 4 is the shortcut for block comment."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-1",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nValues, Variables, and Types\n\nA value is datum (literal) such as a number or text.\nThere are different types of values: 352.3 is known as a float or double, 22 is an integer, and “Hello World!” is a string.\nA variable is a name that refers to a value.\n\nWe can think of a variable as a box that has a value, or multiple values, packed inside it.\n\n\na = 10\nprint(a)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-2",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-2",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nValues, Variables, and Types\n\nSometimes you will hear variables referred to as objects.\nEverything that is not a literal value, such as 10, is an object."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-3",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-3",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nAssignment\n\nIn Python, we use = to assign a value to a variable.\n\n# Here we assign the integer value 5 to the variable x.\nx = 5   \n\n# Now we can use the variable x in the next line.\ny = x + 12  \ny\n\nIn math, = means equality of both sides.\nIn programs, = means assignment: assign the value on the right side to the variable on the left side."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-4",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-4",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nAssignment\n\nIn programs, everything on the right side needs to have a value.\n\nThe right side can be a literal value, or a variable that has already been assigned a value, or a combination.\n\nWhen Python reads y = x + 12, it does the following:\n\nSees the = in the middle.\nKnows that this is an assignment.\nCalculates the right side (gets the value of the object referred to by x and adds it to 12).\nAssigns the result to the left-side variable, y."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-5",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-5",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nVariables Are Names, Not Places\n\nIn Python, variables are just names.\n\n\nNames point to objects (variable a points to an integer object with value 7)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-6",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-6",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nVariables Are Names, Not Places\n\nThe most basic built-in data types that you’ll need to know about are: integers 10, floats 1.23, strings like this, booleans True, and nothing None.\nPython also has a built-in type called a list [10, 15, 20] that can contain anything, even different types\n\nlist_example = [10, 1.23, \"like this\", True, None]\nprint(list_example)\ntype(list_example)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-7",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-7",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nTypes\n\n\n\n\n\n\n\nPython’s basic data types\n\n\n\n\n\n\nThe second column (Type) contains the Python name of that type.\nThe third column (Mutable?) indicates whether the value can be changed after creation."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-8",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-8",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nBrackets\n\nThere are several kinds of brackets in Python, including [], {}, and ().\n\n\n[]{}()\n\n\n\n[] is used to denote a list or to signify accessing a position using an index.\n\nvector = ['a', 'b']\nvector[0]\n\n\n\n{} is used to denote a set or a dictionary (with key-value pairs).\n\n{'a', 'b'}\n{'first_letter': 'a', 'second_letter': 'b'}\n\n\n\n() is used to denote a tuple, or the arguments to a function, e.g., function(x) where x is the input passed to the function, or to indicate the order operations are carried out.\n\nnum_tup = (1, 2, 3)\nsum(num_tup)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-9",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-9",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nLists and Slicing\n\nLists are a really useful way to work with lots of data at once.\n\nWe can also construct them by appending entries:\n\n\nlist_example = [10, 1.23, \"like this\", True, None]\nlist_example.append(\"one more entry\")\nprint(list_example)\n\nWe can access earlier entries using an index, which begins at 0 and ends at one less than the length of the list.\n\nprint(list_example[0])\nprint(list_example[-1])"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-10",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-10",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nLists and Slicing\n\nSlicing can be even more elaborate than that because we can jump entries using a second colon.\n\n# range() produces a list of integers from the value to one less than the last\nlist_of_numbers = list(range(1, 11))\nstart = 1\nstop = -1\nstep = 2\nprint(list_of_numbers[ start : stop : step ])"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-11",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-11",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nOperators\n\nAll of the basic operators you see in mathematics are available to use: + for addition, - for subtraction, * for multiplication, ** for powers, / for division, // for integer division, and % for modulo.\n\nThese work as you’d expect on numbers.\nThese operators are sometimes defined for other built-in data types too.\n\n\nWe can ‘sum’ strings (which really concatenates them):\n\n\nstring_one = \"This is an example \"\nstring_two = \"of string concatenation\"\nstring_full = string_one + string_two\nprint(string_full)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-12",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-12",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nOperators\n\n\n\nIt works for lists too:\n\nlist_one = [\"apples\", \"oranges\"]\nlist_two = [\"pears\", \"satsumas\"]\nlist_full = list_one + list_two\nprint(list_full)\n\n\nWe can multiply strings!\n\nstring = \"apples, \"\nprint(string * 3)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-13",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-13",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nOperators\n\nWe can combine the arithmetic operators with assignment by putting the operator before the =.\n\n\n\n\nx += 1 is equivalent to x = x + 1.\n\nx = 3\nx += 1\n\n\na -= 2 is equivalent to a = a - 2.\n\na = 2\na -= 2"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-14",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-14",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nOperators\nQ. Using Python operations only, what is \\[\\frac{2^5}{7 \\cdot (4 - 2^3)} \\quad\\text{?}\\]"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-15",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-15",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nStrings\n\nFrom strings, we can access the individual characters via slicing and indexing.\n\nstring = \"cheesecake\"\nprint( string[-4:] )\n\nBoth lists and strings will allow us to use the len() command to get their length:\n\n\n\n\nx += 1 is equivalent to x = x + 1.\n\nstring = \"cheesecake\"\nprint( \"String has length:\" )\nprint( len(string) )\n\n\na -= 2 is equivalent to a = a - 2.\n\nlist_of_numbers = range(1, 20)\nprint( \"List of numbers has length:\" )\nprint( len(list_of_numbers) )"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-16",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-16",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nf-string\n\nf-string can combine a number and a string (these begin with an f for formatting):\n\nvalue = 20\nsqrt_val = 20 ** 0.5\nprint(f\"The square root of {value:d} is {sqrt_val:.2f}\")\n\nThe formatting command :d is an instruction to treat value like an integer, while :.2f is an instruction to print it like a float with 2 decimal places."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-17",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-17",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nBooleans and Conditions\n\nBoolean data have either True or False value.\nThere are two types of operation that are associated with booleans: boolean operations.\n\nExisting booleans are combined, and condition operations, which create a boolean when executed.\n\n\n\n\n\n\n\nOperator\nDescription\n\n\n\n\nx and y\nAre x and y both True?\n\n\nx or y\nIs at least one of x and y True?\n\n\nnot x\nIs x False?"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-18",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-18",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nBooleans and Conditions\nConditions are expressions that evaluate as booleans.\n\n\n\n\n\nOperator\nDescription\n\n\n\n\nx == y\nIs x equal to y?\n\n\nx != y\nIs x greater than y?\n\n\nx &gt; y\nIs x greater than or equal to y?\n\n\nx &gt;= y\nIs x greater than or equal to y?\n\n\nx &lt; y\nIs x less than y?\n\n\nx &lt;= y\nIs x less than or equal to y?\n\n\nx is y\nIs x the same object as y?"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-19",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-19",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nBooleans and Conditions\n\nThe == is an operator that compares the objects on either side and returns True if they have the same values\n\nboolean_condition1 = 10 == 20\nprint(boolean_condition1)\n\nboolean_condition2 = 10 == '10'\nprint(boolean_condition2)\nQ. What does not (not True) evaluate to?"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-20",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-20",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nBooleans and Conditions\n\nThe real power of conditions comes when we start to use them in more complex examples, such as if statements.\n\nname = \"Geneseo\"\nscore = 99\n\nif name == \"Geneseo\" and score &gt; 90:\n    print(\"Geneseo, you achieved a high score.\")\n\nif name == \"Geneseo\" or score &gt; 90:\n    print(\"You could be called Geneseo or have a high score\")\n\nif name != \"Geneseo\" and score &gt; 90:\n    print(\"You are not called Geneseo and you have a high score\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-21",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-21",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nBooleans and Conditions\n\nGiven that == and != test for equality and not equal, respectively, you may be wondering what the keyword is is for.\n\nRemember that everything in Python is an object, and that values can be assigned to objects.\n== and != compare values, while is compare objects.\n\n\n\n\nname_list = [\"Ada\", \"Adam\"]\nname_list_two = [\"Ada\", \"Adam\"]\n\n# Compare values\nprint(name_list == name_list_two)\n\n# Compare objects\nprint(name_list is name_list_two)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-22",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-22",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nBooleans and Conditions\n\nOne of the most useful conditional keywords is in.\n\nThis one must pop up ten times a day in most coders’ lives because it can pick out a variable or make sure something is where it’s supposed to be.\n\n\nname_list = [\"Lovelace\", \"Smith\", \"Hopper\", \"Babbage\"]\n\nprint(\"Lovelace\" in name_list)\n\nprint(\"Bob\" in name_list)\nQ. Check if “a” is in the string “Sun Devil Arena” using in. Is “a” in “Anyone”?"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-23",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-23",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nBooleans and Conditions\n\nOne conditional construct we’re bound to use at some point, is the if-else chain:\n\nscore = 98\n\nif score == 100:\n    print(\"Top marks!\")\nelif score &gt; 90 and score &lt; 100:\n    print(\"High score!\")\nelif score &gt; 10 and score &lt;= 90:\n    pass\nelse:\n    print(\"Better luck next time.\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-24",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-24",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nBooleans and Conditions\nQ. Create a new if-else chain that prints “well done” if a score is over 90, “good” if between 40 and 90, and “bad luck” otherwise."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-25",
+    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-25",
+    "title": "Lecture 1",
+    "section": "Python Basics",
+    "text": "Python Basics\nBooleans and Conditions\n\nWe can make multiple assignment or multiple boolean comparisons in a single line.\n\na, b = 3, 6\n\n1 &lt; a &lt; b &lt; 20"
+  },
+  {
+    "objectID": "listing-danl-399-cw.html",
+    "href": "listing-danl-399-cw.html",
+    "title": "DANL 399 - Classwork",
+    "section": "",
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nClasswork 1\n\n\nSyllabus, Course Outline, Etc.\n\n\nJanuary 9, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "danl-qa/danl-399-qa-01.html",
+    "href": "danl-qa/danl-399-qa-01.html",
+    "title": "Lecture 1 - Discussion and Q & A",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-2.html",
+    "href": "danl-hw/danl-399-hw-2.html",
+    "title": "DANL 399: Homework Assignment 2",
+    "section": "",
+    "text": "Read the data file, custdata_rev.csv, as the data.frame object with the name, health_cust:\n\nlibrary(tidyverse)\nlibrary(skimr)\n\nhealth_cust &lt;- read_csv(\n  'https://bcdanl.github.io/data/custdata_rev.csv'\n)\n\n\n\n\n  \n\n\n \n\n\n\nThe following describes the variables in the health_cust data.frame.\n\ncustid: ID of customer\nsex: Sex\nis_employed: Employment status\n\nNA: Unknown or not applicable\nTRUE: Employed\nFALSE: Unemployed\n\nincome: Income (in $)\nmarital_status: Marital status\nhousing_type: Housing type\nrecent_move:\n\nTRUE: Recently moved\nFALSE: Not recently moved\n\nage: Age\nstate_of_res: State of residence\ngas_usage: Gas usage\n\nNA: Unknown or not applicable\n001: Included in rent or condo fee\n002: Included in electricity payment\n003: No charge or gas not used\n004-999: $4 to $999 (rounded and top-coded)\n\nhealth_ins: Health insuarance status\n\nTRUE: customer with health insuarance\nFALSE: customer without health insuarance\n\n\n\n\n\n\nReport summary statistics including a mean value for each logical variable in health_cust.\nAnswer:\n\nhealth_cust_sum &lt;- skim(health_cust)\n\nq1a &lt;- health_cust_sum[health_cust_sum$skim_type == 'logical', \n                       c('skim_variable', \n                         'n_missing', 'complete_rate',\n                         'logical.mean', 'logical.count')]\n\n\n\n\n\nUse health_cust data.frame to create a new data.frame, health_cust2, in which (1) age is greater than 0 and less than 100; and (2) income is positive.\nAnswer:\n\nhealth_cust2 &lt;- health_cust[health_cust$age &gt; 0, ]\nhealth_cust2 &lt;- health_cust2[health_cust2$age &lt; 100, ]\nhealth_cust2 &lt;- health_cust2[health_cust2$income &gt; 0, ]\nhealth_cust2_sum &lt;- skim(health_cust2)\n\n# Combining all conditions into one, which we will cover after the first midterm:\n# health_cust2 &lt;- health_cust[ ( 0 &lt; health_cust$age &lt; 100 ) &\n#                                 ( health_cust$income &gt; 0 ), ]\n\n\n\n\n\nProvide ggplot code and comments to describe the distribution of income.\nAnswer:\n\nggplot(health_cust2, aes(x = income)) +\n  geom_histogram()\n\n\n\nggplot(health_cust2, aes(x = income)) +\n  geom_histogram(bins = 100)\n\n\n\nggplot(health_cust2, aes(x = log(income))) +\n  geom_histogram(bins = 100)\n\n\n\nggplot(health_cust2, aes(x = log(income))) +\n  geom_freqpoly(bins = 100)\n\n\n\n\n\nProvide some comments\n\n\n\n\n\nProvide ggplot code and comments to describe the distribution of marital_status.\nAnswer:\n\nggplot(health_cust2,\n       aes(y = marital_status,\n           fill = marital_status)) +\n  geom_bar(show.legend = F)\n\n\n\n\n\nProvide some comments\n\n\n\n\n\nSuppose you randomly pick one customer’s observation from each state in data.frame health_cust.\nUse ggplot code to find: (1) in which state a customer is most likely to have a health insurance; and (2) in which state a customer is least likely to have a health insurance.\nAnswer:\n\nggplot(health_cust2) +\n  geom_bar(aes(y = health_ins,\n               group = 1)) +\n  facet_wrap(state_of_res ~ . , ncol = 5)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = health_ins, x = stat(prop),\n               group = 1)) +\n  facet_wrap(state_of_res ~ . , ncol = 5)\n\n\n\n\n\nThe proportional bar chart faceted by state_of_res is the one we need.\n\nAlaska customer is most likely to have health insurance.\nHawaii customer is least likely to have health insurance.\nWhy?\n\n\nThe following might mislead…\n\nggplot(health_cust2) +\n  geom_bar(aes(y = state_of_res, x = stat(prop),\n               group = 1)) +\n  facet_wrap(health_ins ~ . , ncol = 5)\n\n\n\n\n\n\n\n\nProvide ggplot code and comments to describe the relationship between age and income.\nAnswer:\n\nggplot(health_cust2,\n       aes(x = age, y = income)) +\n  geom_point(alpha = .2, size = .75) +\n  geom_smooth() +\n  geom_smooth(method = lm, color = 'red')\n\n\n\nggplot(health_cust2,\n       aes(x = age, y = income)) +\n  geom_hex() +\n  geom_smooth() +\n  geom_smooth(method = lm, color = 'red')\n\n\n\n# Considering income level below $250,000\nhealth_cust3 &lt;- health_cust2[health_cust2$income &lt; 2.5*10^5, ]\nggplot(health_cust3,\n       aes(x = age, y = income)) +\n  geom_hex() +\n  geom_smooth() +\n  geom_smooth(method = lm, color = 'red')\n\n\n\n\n\nConsidering the income group whose level is below $250,000, income is positively associated with age up to age around 55. income is then negatively associated from age around 55 to 100.\n\n\n\n\n\nProvide ggplot code and comments to describe the relationship between age and health_ins.\nAnswer:\n\nggplot(health_cust2) + \n  geom_histogram(aes(x = age), bins = 75) +\n  facet_wrap(health_ins ~.)\n\n\n\nggplot(health_cust2) + \n  geom_freqpoly(aes(x = age), bins = 75) +\n  facet_wrap(health_ins ~.)\n\n\n\n\n\n\n\n\nProvide ggplot code and comments to describe the relationship between marital_status and health_ins.\nAnswer:\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = health_ins))\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = health_ins),\n           position = \"fill\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = health_ins),\n           position = \"dodge\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status)) +\n  facet_wrap(health_ins ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               x = stat(prop), group = 1)) +\n  facet_wrap(health_ins ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = health_ins, \n               x = stat(prop), group = 1)) +\n  facet_grid(marital_status ~.)\n\n\n\n\n\n\n\n\nProvide ggplot code and comments to describe the relationship between marital_status and housing_type.\nAnswer:\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = housing_type))\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = housing_type),\n           position = \"fill\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = housing_type),\n           position = \"dodge\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status)) +\n  facet_wrap(housing_type ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               x = stat(prop), group = 1)) +\n  facet_wrap(housing_type ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = housing_type, \n               x = stat(prop), group = 1)) +\n  facet_grid(marital_status ~.)"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-2.html#variable-description-for-health_cust",
+    "href": "danl-hw/danl-399-hw-2.html#variable-description-for-health_cust",
+    "title": "DANL 399: Homework Assignment 2",
+    "section": "",
+    "text": "The following describes the variables in the health_cust data.frame.\n\ncustid: ID of customer\nsex: Sex\nis_employed: Employment status\n\nNA: Unknown or not applicable\nTRUE: Employed\nFALSE: Unemployed\n\nincome: Income (in $)\nmarital_status: Marital status\nhousing_type: Housing type\nrecent_move:\n\nTRUE: Recently moved\nFALSE: Not recently moved\n\nage: Age\nstate_of_res: State of residence\ngas_usage: Gas usage\n\nNA: Unknown or not applicable\n001: Included in rent or condo fee\n002: Included in electricity payment\n003: No charge or gas not used\n004-999: $4 to $999 (rounded and top-coded)\n\nhealth_ins: Health insuarance status\n\nTRUE: customer with health insuarance\nFALSE: customer without health insuarance"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-2.html#q1a",
+    "href": "danl-hw/danl-399-hw-2.html#q1a",
+    "title": "DANL 399: Homework Assignment 2",
+    "section": "",
+    "text": "Report summary statistics including a mean value for each logical variable in health_cust.\nAnswer:\n\nhealth_cust_sum &lt;- skim(health_cust)\n\nq1a &lt;- health_cust_sum[health_cust_sum$skim_type == 'logical', \n                       c('skim_variable', \n                         'n_missing', 'complete_rate',\n                         'logical.mean', 'logical.count')]"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-2.html#q1b",
+    "href": "danl-hw/danl-399-hw-2.html#q1b",
+    "title": "DANL 399: Homework Assignment 2",
+    "section": "",
+    "text": "Use health_cust data.frame to create a new data.frame, health_cust2, in which (1) age is greater than 0 and less than 100; and (2) income is positive.\nAnswer:\n\nhealth_cust2 &lt;- health_cust[health_cust$age &gt; 0, ]\nhealth_cust2 &lt;- health_cust2[health_cust2$age &lt; 100, ]\nhealth_cust2 &lt;- health_cust2[health_cust2$income &gt; 0, ]\nhealth_cust2_sum &lt;- skim(health_cust2)\n\n# Combining all conditions into one, which we will cover after the first midterm:\n# health_cust2 &lt;- health_cust[ ( 0 &lt; health_cust$age &lt; 100 ) &\n#                                 ( health_cust$income &gt; 0 ), ]"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-2.html#q1c",
+    "href": "danl-hw/danl-399-hw-2.html#q1c",
+    "title": "DANL 399: Homework Assignment 2",
+    "section": "",
+    "text": "Provide ggplot code and comments to describe the distribution of income.\nAnswer:\n\nggplot(health_cust2, aes(x = income)) +\n  geom_histogram()\n\n\n\nggplot(health_cust2, aes(x = income)) +\n  geom_histogram(bins = 100)\n\n\n\nggplot(health_cust2, aes(x = log(income))) +\n  geom_histogram(bins = 100)\n\n\n\nggplot(health_cust2, aes(x = log(income))) +\n  geom_freqpoly(bins = 100)\n\n\n\n\n\nProvide some comments"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-2.html#q1d",
+    "href": "danl-hw/danl-399-hw-2.html#q1d",
+    "title": "DANL 399: Homework Assignment 2",
+    "section": "",
+    "text": "Provide ggplot code and comments to describe the distribution of marital_status.\nAnswer:\n\nggplot(health_cust2,\n       aes(y = marital_status,\n           fill = marital_status)) +\n  geom_bar(show.legend = F)\n\n\n\n\n\nProvide some comments"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-2.html#q1e",
+    "href": "danl-hw/danl-399-hw-2.html#q1e",
+    "title": "DANL 399: Homework Assignment 2",
+    "section": "",
+    "text": "Suppose you randomly pick one customer’s observation from each state in data.frame health_cust.\nUse ggplot code to find: (1) in which state a customer is most likely to have a health insurance; and (2) in which state a customer is least likely to have a health insurance.\nAnswer:\n\nggplot(health_cust2) +\n  geom_bar(aes(y = health_ins,\n               group = 1)) +\n  facet_wrap(state_of_res ~ . , ncol = 5)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = health_ins, x = stat(prop),\n               group = 1)) +\n  facet_wrap(state_of_res ~ . , ncol = 5)\n\n\n\n\n\nThe proportional bar chart faceted by state_of_res is the one we need.\n\nAlaska customer is most likely to have health insurance.\nHawaii customer is least likely to have health insurance.\nWhy?\n\n\nThe following might mislead…\n\nggplot(health_cust2) +\n  geom_bar(aes(y = state_of_res, x = stat(prop),\n               group = 1)) +\n  facet_wrap(health_ins ~ . , ncol = 5)"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-2.html#q1f",
+    "href": "danl-hw/danl-399-hw-2.html#q1f",
+    "title": "DANL 399: Homework Assignment 2",
+    "section": "",
+    "text": "Provide ggplot code and comments to describe the relationship between age and income.\nAnswer:\n\nggplot(health_cust2,\n       aes(x = age, y = income)) +\n  geom_point(alpha = .2, size = .75) +\n  geom_smooth() +\n  geom_smooth(method = lm, color = 'red')\n\n\n\nggplot(health_cust2,\n       aes(x = age, y = income)) +\n  geom_hex() +\n  geom_smooth() +\n  geom_smooth(method = lm, color = 'red')\n\n\n\n# Considering income level below $250,000\nhealth_cust3 &lt;- health_cust2[health_cust2$income &lt; 2.5*10^5, ]\nggplot(health_cust3,\n       aes(x = age, y = income)) +\n  geom_hex() +\n  geom_smooth() +\n  geom_smooth(method = lm, color = 'red')\n\n\n\n\n\nConsidering the income group whose level is below $250,000, income is positively associated with age up to age around 55. income is then negatively associated from age around 55 to 100."
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-2.html#q1g",
+    "href": "danl-hw/danl-399-hw-2.html#q1g",
+    "title": "DANL 399: Homework Assignment 2",
+    "section": "",
+    "text": "Provide ggplot code and comments to describe the relationship between age and health_ins.\nAnswer:\n\nggplot(health_cust2) + \n  geom_histogram(aes(x = age), bins = 75) +\n  facet_wrap(health_ins ~.)\n\n\n\nggplot(health_cust2) + \n  geom_freqpoly(aes(x = age), bins = 75) +\n  facet_wrap(health_ins ~.)"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-2.html#q1h",
+    "href": "danl-hw/danl-399-hw-2.html#q1h",
+    "title": "DANL 399: Homework Assignment 2",
+    "section": "",
+    "text": "Provide ggplot code and comments to describe the relationship between marital_status and health_ins.\nAnswer:\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = health_ins))\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = health_ins),\n           position = \"fill\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = health_ins),\n           position = \"dodge\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status)) +\n  facet_wrap(health_ins ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               x = stat(prop), group = 1)) +\n  facet_wrap(health_ins ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = health_ins, \n               x = stat(prop), group = 1)) +\n  facet_grid(marital_status ~.)"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-2.html#q1i",
+    "href": "danl-hw/danl-399-hw-2.html#q1i",
+    "title": "DANL 399: Homework Assignment 2",
+    "section": "",
+    "text": "Provide ggplot code and comments to describe the relationship between marital_status and housing_type.\nAnswer:\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = housing_type))\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = housing_type),\n           position = \"fill\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               fill = housing_type),\n           position = \"dodge\")\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status)) +\n  facet_wrap(housing_type ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = marital_status, \n               x = stat(prop), group = 1)) +\n  facet_wrap(housing_type ~.)\n\n\n\nggplot(health_cust2) +\n  geom_bar(aes(y = housing_type, \n               x = stat(prop), group = 1)) +\n  facet_grid(marital_status ~.)"
+  }
+]

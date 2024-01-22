@@ -1,0 +1,64 @@
+project: 
+  type: website
+  output-dir: "."
+  
+website:
+  title: "B.H. CHOE&nbsp;&nbsp;&nbsp;"
+  favicon: img/favicon.ico
+  description: 'SUNY Geneseo DANL 399-01, Spring 2024'
+  reader-mode: false
+  back-to-top-navigation: true
+
+  navbar:
+    background: "#1c4982" #194493 
+    logo: img/geneseo-logo-squared.png
+    pinned: true
+    right:
+      - icon: github
+        href: https://github.com/bcdanl/399
+        target: _blank
+        rel: me
+
+  sidebar:
+    title: "Welcome!"
+    style: docked
+    search: false
+    collapse-level: 0
+    pinned: true
+    border: true
+    # type: light
+    contents:
+      - text: <a href="./index.html"><font size ="6" ><b>Welcome! </b></font><font size ="5" color="#194493"><i class="fa fa-user-circle" aria-hidden="true"></i> <i class="fa fa-sun" aria-hidden="true"></i></font></a>
+      - text: &nbsp;
+      - text: <font size ="5" ><b>- Lecture </b></font><font size ="5" color="#194493">{{< fa solid laptop >}}</font>
+        href: listing-danl-399-lec.qmd
+      - text: &nbsp;
+      - text: <font size ="5" ><b>- Q & A </b></font><font size ="5" color="#194493">{{< fa solid commenting >}}</font>
+        href: listing-danl-399-qa.qmd
+      - text: &nbsp;
+      - text: <font size ="5" ><b>- Classwork </b></font><font size ="5" color="#194493">{{< fa solid keyboard >}}</font>
+        href: listing-danl-399-cw.qmd
+      - text: &nbsp;
+      - text: <font size ="5" ><b>- Homework </b></font><font size ="5" color="#194493">{{< fa solid level-up >}}</font>
+        href: listing-danl-399-hw.qmd
+
+  page-footer: 
+    border: false
+    center: |
+      <span line-height="0.2"><font size="2">powered with github, quarto, and rstudio</font></span><br><span style="display:block; margin:-5px;"></span>
+      <span line-height="0.7"><font size="2">byeong-hak choe, 2024</font></span>
+    
+format:
+  html: 
+    grid: 
+      sidebar-width: 300px
+    
+    link-external-newwindow: true
+    theme:
+      light: [flatly]  # flatly litera sandstone 'assets/scss/light.scss'
+      dark: [darkly, theme-dark.scss] # darkly cyborg slate solra superhero
+    css: [styles.css, assets/css/font.css] # , font.css
+    highlight-style: atom-one # espresso   tango
+    mainfont:  sans-serif; serif; ui-sans-serif  # Gill Sans, sans-serif;
+    toc: true
+    # include-after-body: [target-blank.html]
