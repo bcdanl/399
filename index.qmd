@@ -124,7 +124,7 @@ format:
 :::: {.columns}
 
 ::: {.column width="45%"}
-## $\bullet\,$ Lecture  :rocket:
+## $\bullet\,$ Lecture Slides :rocket:
 
 :::{#danl-399-lec}
 :::
@@ -137,7 +137,7 @@ format:
 
 
 ::: {.column width="45%"}
-## $\bullet\,$ Q & A  :question:
+## $\bullet\,$ Lecture Q & A :question:
 
 :::{#danl-399-qa}
 :::
@@ -151,7 +151,7 @@ format:
 :::: {.columns}
 
 ::: {.column width="45%"}
-## $\bullet\,$ Classwork  :keyboard:
+## $\bullet\,$ Classwork :keyboard:
 
 :::{#danl-399-cw}
 :::
@@ -164,7 +164,7 @@ format:
 
 
 ::: {.column width="45%"}
-## $\bullet\,$ Homework  :computer:
+## $\bullet\,$ Homework :computer:
 
 :::{#danl-399-hw}
 :::
