@@ -1,6 +1,6 @@
 ---
-title: Classwork 1
-subtitle: Installing the DANL Tools
+title: Homework 1
+subtitle: R/ggplot Basics and Personal Website
 author:
   - name: Byeong-Hak Choe
     email: bchoe@geneseo.edu
