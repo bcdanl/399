@@ -144,14 +144,14 @@
     "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-11",
     "title": "Lecture 1",
     "section": "Syllabus",
-    "text": "Syllabus\nCourse Contents\n\nThe first half of the course covers R basics and data visualization:"
+    "text": "Syllabus\nCourse Contents\n\nThe first half of the course covers fundamentals of data visualization:"
   },
   {
     "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-12",
     "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-12",
     "title": "Lecture 1",
     "section": "Syllabus",
-    "text": "Syllabus\nCourse Contents\n\nThe second half of the course covers data wrangling:"
+    "text": "Syllabus\nCourse Contents\n\nThe second half of the course covers advanced data visualization and Shiny apps:"
   },
   {
     "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-13",
@@ -194,27 +194,6 @@
     "title": "Lecture 1",
     "section": "Syllabus",
     "text": "Syllabus\nWell-being\n\nYou are strongly encouraged to communicate your needs to faculty and staff and seek support if you are experiencing unmanageable stress or are having difficulties with daily functioning.\nLiz Felski, the School of Business Student Advocate (felski@geneseo.edu, South Hall 303), or the Dean of Students (585-245-5706) can assist and provide direction to appropriate campus resources.\nFor more information, see https://www.geneseo.edu/dean_students."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-data-analytics",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-data-analytics",
-    "title": "Lecture 1",
-    "section": "Why Data Analytics?",
-    "text": "Why Data Analytics?\n\n\nFill in the gaps left by traditional business and economics classes.\n\nPractical skills that will benefit your future career.\nNeglected skills like how to actually find datasets in the wild and clean them.\n\nData analytics skills are largely distinct from (and complementary to) the core quantitative works familiar to business undergrads.\n\nData visualization, cleaning and wrangling; databases; machine learning; etc.\n\nIn short, we will cover things that I wish someone had taught me when I was undergraduate."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#you-at-the-end-of-this-course",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#you-at-the-end-of-this-course",
-    "title": "Lecture 1",
-    "section": "You, at the end of this course",
-    "text": "You, at the end of this course"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-data-analytics-1",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-data-analytics-1",
-    "title": "Lecture 1",
-    "section": "Why Data Analytics?",
-    "text": "Why Data Analytics?\n\nData analysts use analytical tools and techniques to extract meaningful insights from data.\n\nSkills in data analytics are also useful for business analysts or market analysts.\n\nBreau of Labor Statistics forecasts that the projected growth rate of the employment in the industry related to data analytics from 2021 to 2031 is 36%.\n\nThe average growth rate for all occupations is 5%."
   },
   {
     "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-personal-website",
@@ -285,27 +264,6 @@
     "title": "Lecture 1",
     "section": "What is GitHub?",
     "text": "What is GitHub?\n\nGitHub is a web-based hosting platform for Git repositories to store, manage, and share code.\n\n\n\nYour personal website will be hosted on a GitHub repository.\nCourse contents will be posted not only in Brightspace but also in our GitHub repositories (“repos”) and websites.\nGithub is useful for many reasons, but the main reason is how user friendly it makes uploading and sharing code."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-python",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-python",
-    "title": "Lecture 1",
-    "section": "What is Python?",
-    "text": "What is Python?\n\n\nPython is an interpreted, object-oriented, high-level programming language with dynamic semantics.\n\nIt supports multiple programming paradigms, including procedural, object-oriented, and functional programming.\nIts extensive standard library and the vast ecosystem of third-party packages make it suitable for a wide range of applications, from web development and data analysis to artificial intelligence and scientific computing."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-google-colab",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-google-colab",
-    "title": "Lecture 1",
-    "section": "What is Google Colab?",
-    "text": "What is Google Colab?\n\nhttps://colab.research.google.com/ is analogous to Google Drive, but specifically for writing and executing Python code in your browser.\n\nThe base Colab link listed above leads to a Python notebook introducing Colab and how to use it.\n\nThis video also helps get started with Colab if you are unfamiliar with the format!\n\nhttps://www.youtube.com/watch?v=inN8seMm7UI"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-use-colab",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-use-colab",
-    "title": "Lecture 1",
-    "section": "Why use Colab?",
-    "text": "Why use Colab?\n\n\nA key benefit of Colab is that it is entirely free to use and has many of the standard Python modules pre installed.\n\nIt allows for CPU or GPU usage, even for free users, and stores the files in Google’s servers so you can access your files from anywhere you can connect to the Internet.\n\nUsing Colab also means you can entirely avoid the process of installing Python and any dependencies onto your computer.\nColab notebooks don’t just contain Python code. They can contain text, images, and HTML!\nUltimately, they’re intuitive to use and let you jump right into the code and data analysis without needing to worry about the more cumbersome details needed to run Python notebooks on a personal computer."
   },
   {
     "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-anaconda",
@@ -452,7 +410,7 @@
     "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-17",
     "title": "Lecture 1",
     "section": "Installing the Tools",
-    "text": "Installing the Tools\nMarkdown\n\nPython Notebook, Quarto, and GitHub-based Discussion Boards use markdown as its underlying document syntax.\nLet’s do Classwork 2."
+    "text": "Installing the Tools\nMarkdown\n\nJupyter Notebook, Quarto, and GitHub-based Discussion Boards use markdown as its underlying document syntax.\nLet’s do Classwork 2."
   },
   {
     "objectID": "danl-cw/danl-399-cw-02.html",

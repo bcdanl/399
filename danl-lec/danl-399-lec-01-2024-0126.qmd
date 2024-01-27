@@ -293,7 +293,7 @@ knitr::knit_engines$set("markdown")
 ## Syllabus
 ### Course Contents
 
-- The first half of the course covers R basics and data visualization:
+- The first half of the course covers fundamentals of data visualization:
 ```{r, out.width='100%', fig.align='center'}
 #| eval: true
 #| echo: false
@@ -360,20 +360,19 @@ DT::datatable(text_tbl, rownames = FALSE,
 ## Syllabus
 ### Course Contents
 
-- The second half of the course covers data wrangling:
+- The second half of the course covers advanced data visualization and Shiny apps:
 ```{r, out.width='100%', fig.align='center'}
 #| eval: true
 #| echo: false
 text_tbl <- data.frame(
-  Week = c("8", "9", "10", "11-13", "14-15"),
+  Week = c("10", "11", "12-13", "14-15"),
   Contents = c(
 "Healy Ch 7. Maps with Geographic Data",
 "Interactive and Animation Plots",
-"Missing Data and Time-series Data",
 "Shiny Web Apps",
 "Shiny Dashboards and Project"
 ),
-  `HW Exam` = c("", "HW 4", "", "HW 5", "HW 6")
+  `HW Exam` = c("", "HW 4", "HW 5", "HW 6")
   )
 
 
@@ -528,41 +527,6 @@ $$
 
 
 # Prologue {background-color="#1c4982"}
-
-
-## Why Data Analytics?
-
-::: {.incremental}
-
-- Fill in the gaps left by traditional business and economics classes.
-  - Practical skills that will benefit your future career.
-  - Neglected skills like how to actually find datasets in the wild and clean them.
-
-- Data analytics skills are largely distinct from (and complementary to) the core quantitative works familiar to business undergrads.
-  - Data visualization, cleaning and wrangling; databases; machine learning; etc.
-
-- In short, we will cover things that I wish someone had taught me when I was undergraduate.
-
-:::
-
-## You, at the end of this course
-
-<p align="center">
-  <img src="lec_figs/yes-that-s-awesome.jpeg">
-</p>
-
-
-
-
-## Why Data Analytics?
-
-- **Data analysts** use analytical tools and techniques to extract meaningful insights from data.
-  - Skills in data analytics are also useful for **business analysts** or **market analysts**.
-
-
-- [Breau of Labor Statistics](https://www.bls.gov/ooh/math/data-scientists.htm) forecasts that the projected growth rate of the employment in the industry related to data analytics from 2021 to 2031 is **36%**. 
-  - The average growth rate for all occupations is **5%**.
-
 
 
 ## Why Personal Website?
@@ -780,36 +744,6 @@ $\quad$
 
 - Github is useful for many reasons, but the main reason is how user friendly it makes uploading and sharing code.
 
-:::
-
-
-## What is Python?
-
-:::{.incremental}
-- Python is an interpreted, object-oriented, high-level programming language with dynamic semantics.
-  - It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. 
-  - Its extensive standard library and the vast ecosystem of third-party packages make it suitable for a wide range of applications, from web development and data analysis to artificial intelligence and scientific computing.
-:::
-
-
-## What is Google Colab?
-- [https://colab.research.google.com/](https://colab.research.google.com/) is analogous to Google Drive, but specifically for writing and executing Python code in your browser.
-  - The base Colab link listed above leads to a Python notebook introducing Colab and how to use it.
-
-- This video also helps get started with Colab if you are unfamiliar with the format!
-  - [https://www.youtube.com/watch?v=inN8seMm7UI](https://www.youtube.com/watch?v=inN8seMm7UI)
-
-
-## Why use Colab?
-:::{.incremental}
-- A key benefit of Colab is that it is entirely free to use and has many of the standard Python modules pre installed. 
-  - It allows for CPU or GPU usage, even for free users, and stores the files in Google’s servers so you can access your files from anywhere you can connect to the Internet.
-  
-- Using Colab also means you can entirely avoid the process of installing Python and any dependencies onto your computer.
-
-- Colab notebooks don’t just contain Python code. They can contain text, images, and HTML!
-
-- Ultimately, they're intuitive to use and let you jump right into the code and data analysis without needing to worry about the more cumbersome details needed to run Python notebooks on a personal computer.
 :::
 
 
@@ -1189,7 +1123,7 @@ install.packages("reticulate")
 ## Installing the Tools
 ### Markdown
 
-- Python Notebook, Quarto, and GitHub-based Discussion Boards use **markdown** as its underlying document syntax.
+- Jupyter Notebook, Quarto, and GitHub-based Discussion Boards use **markdown** as its underlying document syntax.
 
 - Let's do [Classwork 2](https://bcdanl.github.io/399/danl-cw/danl-399-cw-02.html).
 
