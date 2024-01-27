@@ -2,13 +2,8 @@
   {
     "listing": "/listing-danl-399-cw.html",
     "items": [
+      "/danl-cw/danl-399-cw-02.html",
       "/danl-cw/danl-399-cw-01.html"
-    ]
-  },
-  {
-    "listing": "/listing-danl-399-hw.html",
-    "items": [
-      "/danl-hw/danl-399-hw-01.html"
     ]
   },
   {
@@ -18,10 +13,17 @@
     ]
   },
   {
+    "listing": "/listing-danl-399-hw.html",
+    "items": [
+      "/danl-hw/danl-399-hw-01.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
-      "/danl-lec/danl-399-lec-01-2024-0124.html",
+      "/danl-lec/danl-399-lec-01-2024-0126.html",
       "/danl-qa/danl-399-qa-01.html",
+      "/danl-cw/danl-399-cw-02.html",
       "/danl-cw/danl-399-cw-01.html",
       "/danl-hw/danl-399-hw-01.html"
     ]
@@ -29,7 +31,7 @@
   {
     "listing": "/listing-danl-399-lec.html",
     "items": [
-      "/danl-lec/danl-399-lec-01-2024-0124.html"
+      "/danl-lec/danl-399-lec-01-2024-0126.html"
     ]
   }
 ]

@@ -4,12 +4,12 @@
     "href": "danl-hw/danl-399-hw-01.html",
     "title": "Homework 1",
     "section": "",
-    "text": "Back to topReuse© 2024 Byeong-Hak Choe | This post is licensed under &lt;a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'&gt;CC BY-NC-SA 4.0&lt;/a&gt;.CitationFor attribution, please cite this work as:\nChoe, Byeong-Hak. 2024. “Homework 1.” January 22, 2024."
+    "text": "Back to topReuse© 2024 Byeong-Hak Choe | This post is licensed under &lt;a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'&gt;CC BY-NC-SA 4.0&lt;/a&gt;.CitationFor attribution, please cite this work as:\nChoe, Byeong-Hak. 2024. “Homework 1.” January 26, 2024."
   },
   {
     "objectID": "danl-qa/danl-399-qa-01.html",
     "href": "danl-qa/danl-399-qa-01.html",
-    "title": "Lecture 1 - Discussion and Q & A",
+    "title": "Lecture 1 - Q & A",
     "section": "",
     "text": "Back to top"
   },
@@ -18,343 +18,476 @@
     "href": "listing-danl-399-cw.html",
     "title": "DANL 399 - Classwork",
     "section": "",
-    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nClasswork 1\n\n\nInstalling the DANL Tools\n\n\nJanuary 22, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nClasswork 2\n\n\nMarkdown Basics\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nBuilding a Personal Website using Git, GitHub, and RStudio with Quarto\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "danl-cw/danl-399-cw-01.html",
     "href": "danl-cw/danl-399-cw-01.html",
     "title": "Classwork 1",
     "section": "",
-    "text": "Back to topReuse© 2024 Byeong-Hak Choe | This post is licensed under &lt;a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'&gt;CC BY-NC-SA 4.0&lt;/a&gt;.CitationFor attribution, please cite this work as:\nChoe, Byeong-Hak. 2024. “Classwork 1.” January 22, 2024."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#instructor-1",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#instructor-1",
-    "title": "Lecture 1",
-    "section": "Instructor",
-    "text": "Instructor\nCurrent Appointment & Education\n\nName: Byeong-Hak Choe.\nAssistant Professor of Data Analytics and Economics, School of Business at SUNY Geneseo.\nPh.D. in Economics from University of Wyoming.\nM.S. in Economics from Arizona State University.\nM.A. in Economics from SUNY Stony Brook.\nB.A. in Economics & B.S. in Applied Mathematics from Hanyang University at Ansan, South Korea.\n\nMinor in Business Administration.\nConcentration in Finance."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#instructor-2",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#instructor-2",
-    "title": "Lecture 1",
-    "section": "Instructor",
-    "text": "Instructor\nData Science and Climate Change\n\nChoe, B.H., 2021. “Social Media Campaigns, Lobbying and Legislation: Evidence from #climatechange/#globalwarming and Energy Lobbies.”\nQuestion: To what extent do social media campaigns compete with fossil fuel lobbying on climate change legislation?\nData include:\n\n5.0 million tweets with #climatechange/#globalwarming around the globe;\n12.0 million retweets/likes to those tweets;\n0.8 million Twitter users who wrote those tweets;\n1.4 million Twitter users who retweeted or liked those tweets;\n0.3 million US Twitter users with their location at a city level;\nFirm-level lobbying data (expenses, targeted bills, etc.)."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-1",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-1",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nEmail, Class & Office Hours\n\nEmail: bchoe@geneseo.edu\nClass Homepage:\n\nhttps://brightspace.geneseo.edu/\nhttp://bcdanl.github.io/geneseo-danl-module-1/\n\nOffice: South Hall 301\nOffice Hours:\n\nBy appointment via email"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-2",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-2",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nCourse Description\n\nThis course aims to provide overview of how one can collect, manipulate, process, clean, and crunch datasets with practical case studies.\nThis course will cover topics such as (1) loading, slicing, filtering, transforming, reshaping, and merging data, (2) summarizing and visualizing data, and (3) exploratory data analysis.\nWe will cover these topics to solve real-world data analysis problems with thorough, detailed examples."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-3",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-3",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nCourse Requirements\n\nLaptop: You should bring your own laptop (Mac or Windows) to the classroom.\n\nIt is recommended to have 2+ core CPU, 4+ GB RAM, and 500+ GB disk storage in your laptop for this course.\n\nHomework: There will be six homework assignments.\nExams: There will be one take-home exam."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-4",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-4",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nCourse Contents\n\nThere will be tentatively 28 class sessions:\n\n7 lectures\n1 take-home exam"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-5",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-5",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nCourse Contents"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-6",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#syllabus-6",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nAssessments\n\nEach of the six homework assignments accounts for 10% of the total percentage grade.\nThe exam account for 30% of the total percentage grade.\nParticipation in discussions accounts for 10% of the total percentage grade.\n\n\\[\n\\begin{align}\n(\\text{Total Percentage Grade}) =\\quad\\, &0.60\\times(\\text{Total Homework Score})\\notag\\\\\n\\,+\\, &0.30\\times(\\text{Take-Home Exam Score})\\notag\\\\\n\\,+\\, &0.10\\times(\\text{Total Discussion Score})\\notag\n\\end{align}\n\\]"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#what-is-github",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#what-is-github",
-    "title": "Lecture 1",
-    "section": "What is GitHub?",
-    "text": "What is GitHub?\n\nhttps://github.com/ is a platform for storing, managing, and sharing code.\nCourse contents will be posted not only Brightspace but also our GitHub repositories (“repos”).\nOnline discussion and Q & A will be hosted on GitHub repository.\nClicking “Sign Up” or https://github.com/signup will direct you to the sign up page."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#getting-a-github-account",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#getting-a-github-account",
-    "title": "Lecture 1",
-    "section": "Getting a GitHub account",
-    "text": "Getting a GitHub account\nGithub is useful for many reasons, but the main reason is how user friendly it makes uploading and sharing code.\nSharing and editing code for a large group is easy with Github\nIt also automatically maintains a history of all changes to the repo. You can see the history of committed changes, and even go into detail about what those changes entailed.\nYou can also revert to old versions of your repo, and all edits will be saved in this history."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#what-is-google-colab",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#what-is-google-colab",
-    "title": "Lecture 1",
-    "section": "What is Google Colab",
-    "text": "What is Google Colab\n\nhttps://colab.research.google.com/ is analogous to Google Drive, but specifically for writing and executing Python code in your browser.\n\nThe base Colab link listed above leads to a Python notebook introducing Colab and how to use it.\n\nThis video also helps get started with Colab if you are unfamiliar with the format!\n\nhttps://www.youtube.com/watch?v=inN8seMm7UI"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#why-use-colab",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#why-use-colab",
-    "title": "Lecture 1",
-    "section": "Why use Colab?",
-    "text": "Why use Colab?\n\nA key benefit of Colab is that it is entirely free to use and has many of the standard Python modules pre installed.\n\nIt allows for CPU or GPU usage, even for free users, and stores the files in Google’s servers so you can access your files from anywhere you can connect to the Internet.\n\nUsing Colab also means you can entirely avoid the process of installing Python and any dependencies onto your computer.\nColab notebooks don’t just contain Python code. They can contain text, images, and HTML!\nUltimately, they’re intuitive to use and let you jump right into the code and data analysis without needing to worry about the more cumbersome details needed to run Python notebooks on a laptop or PC."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#colab-has-github-integration",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#colab-has-github-integration",
-    "title": "Lecture 1",
-    "section": "Colab has GitHub integration!",
-    "text": "Colab has GitHub integration!"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-1",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-1",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nAnaconda\n\nAnaconda is an all-in-one Python distribution.\n\nAnaconda includes Python 3.x and its standard modules such as pip, pandas, matplotlib, etc.\nAnaconda also includes several software applications of integrated development environment (IDE), which is a software for editing codes.\nFor the Python code, we will use Spyder IDE.\n\nDo not use RStudio from Anaconda, because RStudio from Anaconda is out-dated.\n\n\nTo install Anaconda, go to the following download page:\n\nhttps://www.anaconda.com/products/distribution.\nClick the “Download” button."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-2",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-2",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nSpyder IDE\n\nIf Spyder IDE from Anaconda is lagging, consider installing it additionally.\nTo install Spyder IDE in addition to Anaconda, go to the following download page:\n\nhttps://www.spyder-ide.org.\nClick the “DOWNLOAD” menu."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-3",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-3",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nSpyder Environment\n\n\n\n\n\n\n\n\n\n\n\n\n\nRed box is Script Editor where you can create, open and edit files."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-4",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-4",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nSpyder Environment\n\n\n\n\n\n\n\n\n\n\n\n\n\nBlue box is Console Pane that allows you to interact directly with the Python interpreter and type commands where Python will immediately execute them."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-5",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#installing-the-tools-5",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nSpyder Environment\n\n\n\n\n\n\n\n\n\n\n\n\n\nYellow box is Variable Explorer where you can see the values of variables, data frames, and other objects that are currently stored in memory.\n\nDouble-clicking a variable will open a specialized viewer, allowing you to inspect its contents."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#coding-workflow",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#coding-workflow",
-    "title": "Lecture 1",
-    "section": "Coding Workflow",
-    "text": "Coding Workflow\nCode and comment style\n\nThe two main principles for coding and managing data are:\n\nMake things easier for your future self.\nDon’t trust your future self.\n\nThe # mark is Spyder’s comment character.\n\n# indicates that the rest of the line is to be ignored.\nWrite comments before the line that you want the comment to apply to.\n\nConsider using block commenting for separating code sections.\n\n# %% defines a coding block in Spyder.\n\nBreak down long lines and long algebraic expressions."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#coding-workflow-1",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#coding-workflow-1",
-    "title": "Lecture 1",
-    "section": "Coding Workflow",
-    "text": "Coding Workflow\nShortcuts\n\n\nMac\n\nF9 runs a current line (where the blinking cursor is) or selected lines.\ncommand + return runs a current block.\ncommand + 1 is the shortcut for #.\ncommand + 4 is the shortcut for block comment.\n\n\nWindows\n\nF9 runs a current line (where the blinking cursor is) or selected lines.\nCtrl + Enter runs a current block.\nCtrl + 1 is the shortcut for #.\nCtrl + 4 is the shortcut for block comment."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-1",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-1",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nValues, Variables, and Types\n\nA value is datum (literal) such as a number or text.\nThere are different types of values: 352.3 is known as a float or double, 22 is an integer, and “Hello World!” is a string.\nA variable is a name that refers to a value.\n\nWe can think of a variable as a box that has a value, or multiple values, packed inside it.\n\n\na = 10\nprint(a)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-2",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-2",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nValues, Variables, and Types\n\nSometimes you will hear variables referred to as objects.\nEverything that is not a literal value, such as 10, is an object."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-3",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-3",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nAssignment\n\nIn Python, we use = to assign a value to a variable.\n\n# Here we assign the integer value 5 to the variable x.\nx = 5   \n\n# Now we can use the variable x in the next line.\ny = x + 12  \ny\n\nIn math, = means equality of both sides.\nIn programs, = means assignment: assign the value on the right side to the variable on the left side."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-4",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-4",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nAssignment\n\nIn programs, everything on the right side needs to have a value.\n\nThe right side can be a literal value, or a variable that has already been assigned a value, or a combination.\n\nWhen Python reads y = x + 12, it does the following:\n\nSees the = in the middle.\nKnows that this is an assignment.\nCalculates the right side (gets the value of the object referred to by x and adds it to 12).\nAssigns the result to the left-side variable, y."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-5",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-5",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nVariables Are Names, Not Places\n\nIn Python, variables are just names.\n\n\nNames point to objects (variable a points to an integer object with value 7)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-6",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-6",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nVariables Are Names, Not Places\n\nThe most basic built-in data types that you’ll need to know about are: integers 10, floats 1.23, strings like this, booleans True, and nothing None.\nPython also has a built-in type called a list [10, 15, 20] that can contain anything, even different types\n\nlist_example = [10, 1.23, \"like this\", True, None]\nprint(list_example)\ntype(list_example)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-7",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-7",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nTypes\n\n\n\n\n\n\n\nPython’s basic data types\n\n\n\n\n\n\nThe second column (Type) contains the Python name of that type.\nThe third column (Mutable?) indicates whether the value can be changed after creation."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-8",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-8",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nBrackets\n\nThere are several kinds of brackets in Python, including [], {}, and ().\n\n\n[]{}()\n\n\n\n[] is used to denote a list or to signify accessing a position using an index.\n\nvector = ['a', 'b']\nvector[0]\n\n\n\n{} is used to denote a set or a dictionary (with key-value pairs).\n\n{'a', 'b'}\n{'first_letter': 'a', 'second_letter': 'b'}\n\n\n\n() is used to denote a tuple, or the arguments to a function, e.g., function(x) where x is the input passed to the function, or to indicate the order operations are carried out.\n\nnum_tup = (1, 2, 3)\nsum(num_tup)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-9",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-9",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nLists and Slicing\n\nLists are a really useful way to work with lots of data at once.\n\nWe can also construct them by appending entries:\n\n\nlist_example = [10, 1.23, \"like this\", True, None]\nlist_example.append(\"one more entry\")\nprint(list_example)\n\nWe can access earlier entries using an index, which begins at 0 and ends at one less than the length of the list.\n\nprint(list_example[0])\nprint(list_example[-1])"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-10",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-10",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nLists and Slicing\n\nSlicing can be even more elaborate than that because we can jump entries using a second colon.\n\n# range() produces a list of integers from the value to one less than the last\nlist_of_numbers = list(range(1, 11))\nstart = 1\nstop = -1\nstep = 2\nprint(list_of_numbers[ start : stop : step ])"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-11",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-11",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nOperators\n\nAll of the basic operators you see in mathematics are available to use: + for addition, - for subtraction, * for multiplication, ** for powers, / for division, // for integer division, and % for modulo.\n\nThese work as you’d expect on numbers.\nThese operators are sometimes defined for other built-in data types too.\n\n\nWe can ‘sum’ strings (which really concatenates them):\n\n\nstring_one = \"This is an example \"\nstring_two = \"of string concatenation\"\nstring_full = string_one + string_two\nprint(string_full)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-12",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-12",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nOperators\n\n\n\nIt works for lists too:\n\nlist_one = [\"apples\", \"oranges\"]\nlist_two = [\"pears\", \"satsumas\"]\nlist_full = list_one + list_two\nprint(list_full)\n\n\nWe can multiply strings!\n\nstring = \"apples, \"\nprint(string * 3)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-13",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-13",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nOperators\n\nWe can combine the arithmetic operators with assignment by putting the operator before the =.\n\n\n\n\nx += 1 is equivalent to x = x + 1.\n\nx = 3\nx += 1\n\n\na -= 2 is equivalent to a = a - 2.\n\na = 2\na -= 2"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-14",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-14",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nOperators\nQ. Using Python operations only, what is \\[\\frac{2^5}{7 \\cdot (4 - 2^3)} \\quad\\text{?}\\]"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-15",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-15",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nStrings\n\nFrom strings, we can access the individual characters via slicing and indexing.\n\nstring = \"cheesecake\"\nprint( string[-4:] )\n\nBoth lists and strings will allow us to use the len() command to get their length:\n\n\n\n\nx += 1 is equivalent to x = x + 1.\n\nstring = \"cheesecake\"\nprint( \"String has length:\" )\nprint( len(string) )\n\n\na -= 2 is equivalent to a = a - 2.\n\nlist_of_numbers = range(1, 20)\nprint( \"List of numbers has length:\" )\nprint( len(list_of_numbers) )"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-16",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-16",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nf-string\n\nf-string can combine a number and a string (these begin with an f for formatting):\n\nvalue = 20\nsqrt_val = 20 ** 0.5\nprint(f\"The square root of {value:d} is {sqrt_val:.2f}\")\n\nThe formatting command :d is an instruction to treat value like an integer, while :.2f is an instruction to print it like a float with 2 decimal places."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-17",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-17",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nBooleans and Conditions\n\nBoolean data have either True or False value.\nThere are two types of operation that are associated with booleans: boolean operations.\n\nExisting booleans are combined, and condition operations, which create a boolean when executed.\n\n\n\n\n\n\n\nOperator\nDescription\n\n\n\n\nx and y\nAre x and y both True?\n\n\nx or y\nIs at least one of x and y True?\n\n\nnot x\nIs x False?"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-18",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-18",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nBooleans and Conditions\nConditions are expressions that evaluate as booleans.\n\n\n\n\n\nOperator\nDescription\n\n\n\n\nx == y\nIs x equal to y?\n\n\nx != y\nIs x greater than y?\n\n\nx &gt; y\nIs x greater than or equal to y?\n\n\nx &gt;= y\nIs x greater than or equal to y?\n\n\nx &lt; y\nIs x less than y?\n\n\nx &lt;= y\nIs x less than or equal to y?\n\n\nx is y\nIs x the same object as y?"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-19",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-19",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nBooleans and Conditions\n\nThe == is an operator that compares the objects on either side and returns True if they have the same values\n\nboolean_condition1 = 10 == 20\nprint(boolean_condition1)\n\nboolean_condition2 = 10 == '10'\nprint(boolean_condition2)\nQ. What does not (not True) evaluate to?"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-20",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-20",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nBooleans and Conditions\n\nThe real power of conditions comes when we start to use them in more complex examples, such as if statements.\n\nname = \"Geneseo\"\nscore = 99\n\nif name == \"Geneseo\" and score &gt; 90:\n    print(\"Geneseo, you achieved a high score.\")\n\nif name == \"Geneseo\" or score &gt; 90:\n    print(\"You could be called Geneseo or have a high score\")\n\nif name != \"Geneseo\" and score &gt; 90:\n    print(\"You are not called Geneseo and you have a high score\")"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-21",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-21",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nBooleans and Conditions\n\nGiven that == and != test for equality and not equal, respectively, you may be wondering what the keyword is is for.\n\nRemember that everything in Python is an object, and that values can be assigned to objects.\n== and != compare values, while is compare objects.\n\n\n\n\nname_list = [\"Ada\", \"Adam\"]\nname_list_two = [\"Ada\", \"Adam\"]\n\n# Compare values\nprint(name_list == name_list_two)\n\n# Compare objects\nprint(name_list is name_list_two)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-22",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-22",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nBooleans and Conditions\n\nOne of the most useful conditional keywords is in.\n\nThis one must pop up ten times a day in most coders’ lives because it can pick out a variable or make sure something is where it’s supposed to be.\n\n\nname_list = [\"Lovelace\", \"Smith\", \"Hopper\", \"Babbage\"]\n\nprint(\"Lovelace\" in name_list)\n\nprint(\"Bob\" in name_list)\nQ. Check if “a” is in the string “Sun Devil Arena” using in. Is “a” in “Anyone”?"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-23",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-23",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nBooleans and Conditions\n\nOne conditional construct we’re bound to use at some point, is the if-else chain:\n\nscore = 98\n\nif score == 100:\n    print(\"Top marks!\")\nelif score &gt; 90 and score &lt; 100:\n    print(\"High score!\")\nelif score &gt; 10 and score &lt;= 90:\n    pass\nelse:\n    print(\"Better luck next time.\")"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-24",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-24",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nBooleans and Conditions\nQ. Create a new if-else chain that prints “well done” if a score is over 90, “good” if between 40 and 90, and “bad luck” otherwise."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-25",
-    "href": "danl-lec/danl-399-lec-01-2024-0124.html#python-basics-25",
-    "title": "Lecture 1",
-    "section": "Python Basics",
-    "text": "Python Basics\nBooleans and Conditions\n\nWe can make multiple assignment or multiple boolean comparisons in a single line.\n\na, b = 3, 6\n\n1 &lt; a &lt; b &lt; 20"
-  },
-  {
-    "objectID": "listing-danl-399-hw.html",
-    "href": "listing-danl-399-hw.html",
-    "title": "DANL 399 - Homework",
-    "section": "",
-    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nHomework 1\n\n\nR/ggplot Basics and Personal Website\n\n\nJanuary 22, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Getting a GitHub account\nStep 1. Create the GitHub account with your Geneseo email.\n\nGo to GitHub.\nClick “Sign up for GitHub”.\n\n\nChoose your GitHub username carefully:\n\nhttps://USERNAME.github.io will be the address for your website.\nByeong-Hak’s GitHub username is bcdanl, so that Byeong-Hak owns the web address https://bcdanl.github.io.\n\nIt is recommended to have a username with all lower cases.\n\n\n\n\nInstalling git if you do not have one.\nStep 2.\n\nCheck whether git is installed in your laptop.\n\n\nFrom the Console Pane in RStudio, click Terminal tab.\n\n\n\n\n\nFrom the Terminal, run the following command to check if your laptop has git installed.\n\ngit --version\n\nIf your computer has git installed, you will see the message below and you do not need to install git:\n\ngit version 2.xx\n\nIf your computer does not have git installed, you will see the message below and you need to install git:\n\n'git' is not recognized as an internal or external command\n\n\nInstall git if you do not have one. Move to the next step if you have git installed in your laptop.\n\n\n\n\nMac\n\nGo to http://git-scm.com/downloads, and download the file.\nClick “macOS”, scroll down the webpage, and then click “installer” from the Binary installer section.\nRun the downloaded file.\n\n\n\n\nWindows\n\nGo to https://gitforwindows.org, and download the file.\nRun the downloaded file.\n\n\n\n\n\nKeep clicking “Next” to complete the installation of git.\nAfter the git installation is done, close RStudio and re-open it.\n\n\n\n\nSetting up GitHub Credential on your local Git.\nStep 3. In Terminal, run the following commands one by one:\ngit config --global user.email \"YOUR_EMAIL_ADDRESS\"\ngit config --global user.name \"YOUR_USERNAME\"\nFor example, the email address for my GitHub account is bchoe@geneseo.edu, and my GitHub username is bcdanl, so that I ran below:\ngit config --global user.email \"bchoe@geneseo.edu\"\ngit config --global user.name \"bcdanl\"\n\nStep 4. Obtain a personal access token (PAT) from GitHub.\n\nIn RStudio Console, run the followings line by line:\n\ninstall.packages(\"usethis\")\nusethis::create_github_token()\n\nThen, click “Generate token” in the pop-upped web browser.\nWe can think of GitHub’s personal access token as a password that expires. You can decide how long it remains valid. My recommendation is to set its expiration for May 31, 2024, or later.\n\n\n\n\n\nThen, copy the generated PAT, and paste it to your clipboard or R script.\n\n\nStep 5. Set the GitHub credential using the PAT.\n\nIn RStudio Console, run the followings line by line:\n\ninstall.packages(\"gitcreds\")\ngitcreds::gitcreds_set()\n\nYou will be asked to provide your PAT.\nPaste your PAT to the RStudio Console, and then hit Enter.\n\n\n\n\n\n\n\nNote\n\n\n\n\nIt does not harm to create multiple PAT for one GitHub account.\nAfter the PAT expires, you should repeat the following if you want to update your GitHub website:\n\n\nCreate a new PAT:\n\nusethis::create_github_token()\n\nReplace the current PAT with the new PAT:\n\ngitcreds::gitcreds_set()\n\nSelect the option 2: Replace these credentials by typing 2 and hitting Enter on R Console.\n\n\n\n\n\n\nEstablishing the Connection between GitHub repo and your local Git\nStep 6. Login to your GitHib and make the repository.\n\nFrom https://github.com, click the plus [+] icon in the upper right corner and select “New repository”.\nName this repo USERNAME.github.io, which will be the domain for your website.\n\n\ne.g., If your GitHub username is abc9, the name of your repo should be abc9.github.io, not abc_9.github.io.\n\n\nThen, copy the web address of your GitHub repo, https://github.com/USERNAME/USERNAME.github.io\n\n\nFor example, the web address for Byeong-Hak’s GitHub repo is https://github.com/bcdanl/bcdanl.github.io.\n\n\nStep 7. Create a RStudio project with Version Control\n\n\n\n\nClick “Project (None)” at the top-right corner in RStudio.\nClick “New Project” &gt; “Version Control” &gt; “Git”\nPaste the web address of your GitHub repo to the Repository URL menu.\nClick “Browse” to select the parent directory for your local project directory (I recommend “Documents” folder.)\nClick “Create”\n\n\n\n\n\n\n\nNote\n\n\n\nIf Step 7 does not work on your laptop, try below Steps 7-1 and 7-2 instead. If Step 7 DOES work well, skip Steps 7-1 and 7-2.\n\n\nStep 7-1. Use git clone to establish the connection between GitHub repo and your local laptop:\n\nChange directory to “Documents” in Terminal using cd command.\n\ncd &lt;pathname of \"Documents\" directory&gt;\n\nHere, you need to know the pathname of “Documents” directory.\nFor example, LAPTOP_USERNAME below is not your GitHub username but one for your local laptop.\n\nMac\ncd /Users/LAPTOP_USERNAME/Documents\nWindows\ncd C:/Users/LAPTOP_USERNAME/Documents\n\nUse git clone to creates a local copy of the GitHub Repository.\n\ngit clone &lt;repository-url&gt;\n\nFor example,\n\ngit clone https://github.com/USERNAME/USERNAME.github.io\n\nStep 7-2. Create a RStudio project from Existing Directory\n\nClick “Project (None)” at the top-right corner in RStudio.\nClick “New Project” &gt; “Existing Directory”\nClick “Browse” to select the local copy of the GitHub Repository\nClick “Create Project”\n\n\n\n\nDownloading Website Template Files\nStep 8. Download the files of website template:\n\nGo to the following webpage: https://github.com/bcdanl/danl-website-template\nFrom the webpage above, click the green icon &lt; &gt; Code, and then click “Download Zip”\nExtract the Zip file you have downloaded\nIf there are the files, .gitignore, .DS_Store, or *.Rproj, in the folder, delete all of them.\nMove all the files that were compressed in the Zip file to your local project directory, USERNAME.github.io.\n\n\nSelect all the files in the danl-website-template folder (Tip: Ctrl + A (Windows) / command + A (Mac) selects all files in a directory).\nThen, Ctrl + C (Windows) / command + C (Mac) to copy them.\nThen, go to your local project directory USERNAME.github.io.\nThen, Ctrl + V (Windows) / command + V (Mac) to paste them to your local project directory USERNAME.github.io.\n\n\nRemove the danl-website-template directory from your local project directory, if you have one.\n\n\nAll the website files should be located at the same level with the R Project file (USERNAME.github.io.Rproj), shown below.\n\n\n\n\n\n\n\nPushing the Website Files to the GitHub repository\n\n\n\nStep 8. Push the files to your GitHub repository\n\nOn Terminal within RStudio, execute the following 3-step git commands, which will stage, commit, and push all the files in the local working directory to your GitHub repository:\n\n\ngit add . adds changes in your local working directory (e.g., edited files, new files, deleted files) to the staging area, which is a temporary area where you can prepare your next commit\n\ngit add .\n\ngit commit -m \"...\" records the changes in the staging area as a new snapshot in the local working directory, along with a message describing the changes.\n\ngit commit -m \"any message to describe the changes\"\n\ngit push -u origin main uploads the local changes to the online repository in GitHub.\n\ngit push -u origin main\n\n\n\n\n\n\nNote\n\n\n\nIf git push -u origin main gives error, try the following:\ngit push -u origin master\n\nThe name of the default branch in a GitHub repo is usually main, but sometimes GitHub gives master default branch instead.\n\n\n\n\nStep 9. Check whether the files are well uploaded.\n\nGo to the webpages of your GitHub repository and your website:\n\nhttps://github.com/USERNAME/USERNAME.github.io.git\nhttps://USERNAME.github.io\nRefresh the webpages (Ctrl + R for Windows users; cmd + R for Mac users)\n\n\n\n\n\n\n Back to topReuse© 2024 Byeong-Hak Choe | This post is licensed under &lt;a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'&gt;CC BY-NC-SA 4.0&lt;/a&gt;.CitationFor attribution, please cite this work as:\nChoe, Byeong-Hak. 2023. “Classwork 1.” January 26, 2023."
   },
   {
     "objectID": "listing-danl-399-qa.html",
     "href": "listing-danl-399-qa.html",
     "title": "DANL 399 - Lecture Discussion",
     "section": "",
-    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 1 - Discussion and Q & A\n\n\nJanuary 9, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 1 - Q & A\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "listing-danl-399-hw.html",
+    "href": "listing-danl-399-hw.html",
+    "title": "DANL 399 - Homework",
+    "section": "",
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nHomework 1\n\n\nR/ggplot Basics and Personal Website\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-1",
+    "title": "Lecture 1",
+    "section": "Instructor",
+    "text": "Instructor\nCurrent Appointment & Education\n\nName: Byeong-Hak Choe.\nAssistant Professor of Data Analytics and Economics, School of Business at SUNY Geneseo.\nPh.D. in Economics from University of Wyoming.\nM.S. in Economics from Arizona State University.\nM.A. in Economics from SUNY Stony Brook.\nB.A. in Economics & B.S. in Applied Mathematics from Hanyang University at Ansan, South Korea.\n\nMinor in Business Administration.\nConcentration in Finance."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-2",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-2",
+    "title": "Lecture 1",
+    "section": "Instructor",
+    "text": "Instructor\nEconomics, Data Science, and Climate Change\n\nChoe, B.H., 2021. “Social Media Campaigns, Lobbying and Legislation: Evidence from #climatechange and Energy Lobbies.”\nQuestion: To what extent do social media campaigns compete with fossil fuel lobbying on climate change legislation?\nData include:\n\n5.0 million tweets with #climatechange/#globalwarming around the globe;\n12.0 million retweets/likes to those tweets;\n0.8 million Twitter users who wrote those tweets;\n1.4 million Twitter users who retweeted or liked those tweets;\n0.3 million US Twitter users with their location at a city level;\nFirm-level lobbying data (expenses, targeted bills, etc.)."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-3",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-3",
+    "title": "Lecture 1",
+    "section": "Instructor",
+    "text": "Instructor\nEconomics, Data Science, and Climate Change\n\nChoe, B.H. and Ore-Monago, T., 2024. “Governance and Climate Finance in the Developing World”\nClimate finance refers to the financial resources allocated for mitigating and adapting to climate change, including support for initiatives that reduce greenhouse gas emissions and enhance resilience to climate impacts.\n\nWe focus on transnational financing that rich countries provide poor countries with financial resources, in order to help them adapt to climate change and mitigate greenhouse gas (GHG) emissions.\nSince the GHG emissions in developing countries are rapidly growing, it is crucial to assess the effectiveness of climate finance.\nPoor governance can be significant barriers to emissions reductions within these countries."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-4",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-4",
+    "title": "Lecture 1",
+    "section": "Instructor",
+    "text": "Instructor\nEconomics, Data Science, and Climate Change\n\nChoe, B.H. and Ore-Monago, T., 2024. “Governance and Climate Finance in the Developing World”\nData include:\n\nGlobal climate finance data (e.g., donors, recipients, characteristics of climate change projects)\nWorld Bank Governance Indicators over the years (e.g., government effectiveness, voice and accountability, political stability and absence of violence/terrorism, regulatory quality, rule of law, control of corruption)\nVarious economic indicators (e.g., trade pattern of low carbon technology products, macroeconomic risks, energy)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-1",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nEmail, Class & Office Hours\n\nEmail: bchoe@geneseo.edu\nClass Homepage:\n\nhttps://brightspace.geneseo.edu/\nhttp://bcdanl.github.io/399/\n\nClass Schedule\n\nOnline Component: Asynchronous\nIn-Person Sessions:\n\nWednesdays, 11:30 A.M.-12:30 P.M.\nWednesdays, 3:30 P.M.-4:30 P.M.\n\n\nOffice: South Hall 301\nOffice Hours:\n\nTuesdays 12:30 P.M.-1:30 P.M.\nWednesdays 12:30 P.M.-2:30 P.M."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-2",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-2",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nCourse Description\n\nThis course delves into the tools and methodologies essential for creating visually engaging and informative data representations. Its focus is on enhancing data comprehension and facilitating effective data analytics through aesthetically pleasing graphics. The curriculum includes:\nKey topics include:\n\nExploring a variety of graph types, including line graphs, scatter plots, and bar charts.\nPreparing and organizing data from diverse sources for visualization.\nTailoring graphics with a range of formats and styles, such as color schemes, fonts, and line types.\nMapping geographical data effectively.\nCreating dynamic and interactive visualizations.\nBuilding and deploying web applications using Shiny for data visualization.\nUtilizing Shiny dashboard to synthesize information and narrate data stories.\n\nThese areas will be explored through detailed, real-world examples to address common data analysis challenges.\nThroughout the course, practical experience is emphasized, with hands-on projects using tools like R, Python, RStudio, Quarto, Jupyter Notebook, Shiny, Git, and GitHub."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-3",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-3",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nRequired Materials\n\nData Visualization: A Practical Introduction by Kieran Healy\n\nA free online version of this book is available."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-4",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-4",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nReference Materials - R\n\nR for Data Science (1ed)\nR for Data Science (2ed)\nFundamentals of Data Visualization\nR Graphics Cookbook: Practical Recipes for Visualizing Data\nggplot2: elegant graphics for data analysis"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-5",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-5",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nReference Materials - Python\n\nPython for Data Analysis (3rd Edition) by Wes McKinney\nIPython Interactive Computing and Visualization Cookbook\nPython Programming for Data Science by Tomas Beuzen\nCoding for Economists by Arthur Turrell\nPython for Econometrics in Economics by Fabian H. C. Raters\nQuantEcon DataScience - Python Fundamentals by Chase Coleman, Spencer Lyon, and Jesse Perla\nQuantEcon DataScience - pandas by Chase Coleman, Spencer Lyon, and Jesse Perla"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-6",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-6",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nReference Materials - Website\n\nGuide for Quarto"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-7",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-7",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nCourse Requirements\n\nLaptop: You should bring your own laptop (Mac or Windows) to the classroom.\n\nIt is recommended to have 2+ core CPU, 4+ GB RAM, and 500+ GB disk storage in your laptop for this course.\n\n\n\n\nHomework: There will be six homework assignments.\nTeam Project: There will be one team project on a personal website.\nExams: There will be one Midterm Exam and one final exam.\n\nThe final exam is comprehensive.\n\nDiscussions: You are encouraged to participate in GitHub-based online discussions for each lecture, classwork, and homework.\n\nCheckout the netiquette policy in the syllabus."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-8",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-8",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nPersonal Website\n\nYou will create your own website using Quarto, R Studio, and Git.\nYou will publish your homework assignments and team project on your website.\nYour website will be hosted in GitHub.\nThe basics in Markdown will be discussed.\nReferences:\n\nQuarto Guide"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-9",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-9",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nTeam Project\n\nTeam formation is scheduled for late March.\n\n\n\nEach team must have one to two students.\nFor the team project, a team must choose data related to business or socioeconomic issues.\nThe project report should include exploratory data analysis using summary statistics, visual representations, and data wrangling.\nThe document for the team project must be published in each member’s website.\nThe project for the team project must include a Shiny dashboard.\nAny changes to team composition require approval from Byeong-Hak Choe."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-10",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-10",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nClass Schedule and Exams\n\nThere will be tentatively 14 lecture sessions.\nThe Midterm Exam is scheduled on March 7, 2024, Thursday, during the class time.\nThe due for the team project is scheduled on May 16, 2024, Thursday."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-11",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-11",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nCourse Contents\n\nThe first half of the course covers R basics and data visualization:"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-12",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-12",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nCourse Contents\n\nThe second half of the course covers data wrangling:"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-13",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-13",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nGrading\n\\[\n\\begin{align}\n(\\text{Total Percentage Grade}) =&\\quad\\;\\, 0.05\\times(\\text{Total Attendance Score})\\notag\\\\\n&\\,+\\, 0.05\\times(\\text{Discussion Score})\\notag\\\\\n&\\,+\\, 0.05\\times(\\text{Website Score})\\notag\\\\\n&\\,+\\, 0.15\\times(\\text{Team Project and Website Score})\\notag\\\\\n&\\,+\\, 0.20\\times(\\text{Total Homework Score})\\notag\\\\\n&\\,+\\, 0.50\\times(\\text{Total Exam Score}).\\notag\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-14",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-14",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nGrading\n\nYou are allowed up to 2 absences without penalty.\n\nSend me an email if you have standard excused reasons (illness, family emergency, transportation problems, etc.).\n\n\n\n\nFor each absence beyond the initial two, there will be a deduction of 1% from the Total Percentage Grade.\nParticipation in discussions will be evaluated by quantity and quality of discussions in the GitHub-based discussion boards.\nThe single lowest homework score will be dropped when calculating the total homework score.\n\nEach homework except for the homework with the lowest score accounts for 20% of the total homework score."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-15",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-15",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nMake-up Policy\n\nMake-up exams will not be given unless you have either a medically verified excuse or an absence excused by the University.\n\n\n\nIf you cannot take exams because of religious obligations, notify me by email at least two weeks in advance so that an alternative exam time may be set.\nA missed exam without an excused absence earns a grade of zero.\nLate submissions for homework assignment will be accepted with a penalty.\nA zero will be recorded for a missed assignment."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-16",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-16",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nAcademic Integrity and Plagiarism\n\nAll homework assignments and exams must be the original work by you.\nExamples of academic dishonesty include:\n\nrepresenting the work, thoughts, and ideas of another person as your own\nallowing others to represent your work, thoughts, or ideas as theirs, and\nbeing complicit in academic dishonesty by suspecting or knowing of it and not taking action.\n\nGeneseo’s Library offers frequent workshops to help you understand how to paraphrase, quote, and cite outside sources properly.\n\nSee https://www.geneseo.edu/library/library-workshops."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-17",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-17",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nAccessibility\n\nThe Office of Accessibility will coordinate reasonable accommodations for persons with physical, emotional, or cognitive disabilities to ensure equal access to academic programs, activities, and services at Geneseo.\nPlease contact me and the Office of Accessibility Services for questions related to access and accommodations."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-18",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-18",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nWell-being\n\nYou are strongly encouraged to communicate your needs to faculty and staff and seek support if you are experiencing unmanageable stress or are having difficulties with daily functioning.\nLiz Felski, the School of Business Student Advocate (felski@geneseo.edu, South Hall 303), or the Dean of Students (585-245-5706) can assist and provide direction to appropriate campus resources.\nFor more information, see https://www.geneseo.edu/dean_students."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-data-analytics",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-data-analytics",
+    "title": "Lecture 1",
+    "section": "Why Data Analytics?",
+    "text": "Why Data Analytics?\n\n\nFill in the gaps left by traditional business and economics classes.\n\nPractical skills that will benefit your future career.\nNeglected skills like how to actually find datasets in the wild and clean them.\n\nData analytics skills are largely distinct from (and complementary to) the core quantitative works familiar to business undergrads.\n\nData visualization, cleaning and wrangling; databases; machine learning; etc.\n\nIn short, we will cover things that I wish someone had taught me when I was undergraduate."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#you-at-the-end-of-this-course",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#you-at-the-end-of-this-course",
+    "title": "Lecture 1",
+    "section": "You, at the end of this course",
+    "text": "You, at the end of this course"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-data-analytics-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-data-analytics-1",
+    "title": "Lecture 1",
+    "section": "Why Data Analytics?",
+    "text": "Why Data Analytics?\n\nData analysts use analytical tools and techniques to extract meaningful insights from data.\n\nSkills in data analytics are also useful for business analysts or market analysts.\n\nBreau of Labor Statistics forecasts that the projected growth rate of the employment in the industry related to data analytics from 2021 to 2031 is 36%.\n\nThe average growth rate for all occupations is 5%."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-personal-website",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-personal-website",
+    "title": "Lecture 1",
+    "section": "Why Personal Website?",
+    "text": "Why Personal Website?\nBenefits of a Personal Website in Data Analytics\n\n\nHere are the example websites:\n\nByeong-Hak’s Website\nDANL Website Template\n\n\n\n\n\nProfessional Showcase: Display skills and projects\nVisibility and Networking: Increase online presence\nControlled Narrative: Manage your professional brand\nContent Sharing and Engagement: Publish articles, insights\nJob Opportunities: Attract potential employers and clients\nLong-term Asset: A growing repository of your career journey\nReproducible Research: Showcase data-driven reports"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-python-r-and-databases",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-python-r-and-databases",
+    "title": "Lecture 1",
+    "section": "Why Python, R, and Databases?",
+    "text": "Why Python, R, and Databases?"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-python-r-and-databases-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-python-r-and-databases-1",
+    "title": "Lecture 1",
+    "section": "Why Python, R, and Databases?",
+    "text": "Why Python, R, and Databases?\n\nStack Overflow is the most popular Q & A website specifically for programmers and software developers in the world.\nSee how programming languages have trended over time based on use of their tags in Stack Overflow from 2008 to 2022.\n\n\n\nMost Popular Languagues\n\n\nData Science and Big Data"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art",
+    "title": "Lecture 1",
+    "section": "The State of the Art",
+    "text": "The State of the Art\nGenerative AI and ChatGPT\n\n\nData Science and Big Data Trend\nFrom 2008 to 2023\n\n\nProgrammers in 2024"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art-1",
+    "title": "Lecture 1",
+    "section": "The State of the Art",
+    "text": "The State of the Art\nGenerative AI and ChatGPT\n\nGenerative AI refers to a category of artificial intelligence (AI) that is capable of generating new content, ranging from text, images, and videos to music and code.\n\n\n\nIn the early 2020s, advances in transformer-based deep neural networks enabled a number of generative AI systems notable for accepting natural language prompts as input.\n\nThese include large language model (LLM) chatbots such as ChatGPT, Copilot, Bard, and LLaMA.\n\nChatGPT (Chat Generative Pre-trained Transformer) is a chatbot developed by OpenAI and launched on November 30, 2022.\n\nBy January 2023, it had become what was then the fastest-growing consumer software application in history."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art-2",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art-2",
+    "title": "Lecture 1",
+    "section": "The State of the Art",
+    "text": "The State of the Art\nGenerative AI and ChatGPT\n\nUsers around the world have explored how to best utilize GPT for writing essays and programming codes.\n\n\n\n\nIs AI a threat to data analytics?\n\nFundamental understanding of the subject matter is still crucial for effectively utilizing AI’s capabilities.\n\n\n\n\n\nIf you use Generative AI such as ChatGPT, please try to understand what ChatGPT gives you.\n\nCopying and pasting it without any understanding harms your learning opportunity."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#learning-objectives",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#learning-objectives",
+    "title": "Lecture 1",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\n\nUnderstand the concept of the tools we will use throughout the course:\n\nGit\nGitHub\n\n\n\n\n\nSet up the tools in your laptop.\n\nAnaconda\nR, RStudio, and R Packages\nGit\nPersonal website"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-git",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-git",
+    "title": "Lecture 1",
+    "section": "What is Git?",
+    "text": "What is Git?\n\n\n\n\n\\(\\quad\\)\n\nGit is the most popular version control tool for any software development.\n\nIt tracks changes in a series of snapshots of the project, allowing developers to revert to previous versions, compare changes, and merge different versions.\nIt is the industry standard and ubiquitous for coding collaboration."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-git-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-git-1",
+    "title": "Lecture 1",
+    "section": "What is Git?",
+    "text": "What is Git?\n\n\n\n\ngit add .\ngit commit -m \"any message is here\"\ngit push -u origin main\n\\(\\quad\\)\n\n\nGit operates primarily through command-line tools (e.g., Terminal) and is local to a user’s computer.\n\nIt has a steep learning curve.\n\nWe will not do git collaboration but use only the 3-step git commands on Terminal to update a website."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-github",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-github",
+    "title": "Lecture 1",
+    "section": "What is GitHub?",
+    "text": "What is GitHub?\n\nGitHub is a web-based hosting platform for Git repositories to store, manage, and share code.\n\n\n\nYour personal website will be hosted on a GitHub repository.\nCourse contents will be posted not only in Brightspace but also in our GitHub repositories (“repos”) and websites.\nGithub is useful for many reasons, but the main reason is how user friendly it makes uploading and sharing code."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-python",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-python",
+    "title": "Lecture 1",
+    "section": "What is Python?",
+    "text": "What is Python?\n\n\nPython is an interpreted, object-oriented, high-level programming language with dynamic semantics.\n\nIt supports multiple programming paradigms, including procedural, object-oriented, and functional programming.\nIts extensive standard library and the vast ecosystem of third-party packages make it suitable for a wide range of applications, from web development and data analysis to artificial intelligence and scientific computing."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-google-colab",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-google-colab",
+    "title": "Lecture 1",
+    "section": "What is Google Colab?",
+    "text": "What is Google Colab?\n\nhttps://colab.research.google.com/ is analogous to Google Drive, but specifically for writing and executing Python code in your browser.\n\nThe base Colab link listed above leads to a Python notebook introducing Colab and how to use it.\n\nThis video also helps get started with Colab if you are unfamiliar with the format!\n\nhttps://www.youtube.com/watch?v=inN8seMm7UI"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-use-colab",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-use-colab",
+    "title": "Lecture 1",
+    "section": "Why use Colab?",
+    "text": "Why use Colab?\n\n\nA key benefit of Colab is that it is entirely free to use and has many of the standard Python modules pre installed.\n\nIt allows for CPU or GPU usage, even for free users, and stores the files in Google’s servers so you can access your files from anywhere you can connect to the Internet.\n\nUsing Colab also means you can entirely avoid the process of installing Python and any dependencies onto your computer.\nColab notebooks don’t just contain Python code. They can contain text, images, and HTML!\nUltimately, they’re intuitive to use and let you jump right into the code and data analysis without needing to worry about the more cumbersome details needed to run Python notebooks on a personal computer."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-anaconda",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-anaconda",
+    "title": "Lecture 1",
+    "section": "What is Anaconda?",
+    "text": "What is Anaconda?\n\n\nAnaconda is an all-in-one Python distribution.\n\nAnaconda includes Python 3.x and its standard libraries such as pip, pandas, matplotlib, etc.\nAnaconda also includes several software applications of integrated development environment (IDE).\nAn IDE is a software application that provides comprehensive facilities (e.g., text code editor, graphical user interface (GUI)) to computer programmers for software development.\n\nFor our course, we will mainly use Google Colab.\n\nIf we need to use Python locally from your laptop, we can use Jupyter or Spyder IDE from Anaconda Distribution.\n\nIf you know how to set up Visual Studio Code (VS Code), go for it!\n\nVS Code is a free, open-source code editor developed by Microsoft, and is widely used by developers for programming and software development."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-r",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-r",
+    "title": "Lecture 1",
+    "section": "What is R?",
+    "text": "What is R?\n\nR is a programming language and software environment designed for statistical computing and graphics.\nR has become a major tool in data analysis, statistical modeling, and visualization.\n\nIt is widely used among statisticians and data scientists for developing statistical software and performing data analysis.\nR is open source and freely available."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-rstudio",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-rstudio",
+    "title": "Lecture 1",
+    "section": "What is RStudio?",
+    "text": "What is RStudio?\n\n\nRStudio is an integrated development environment (IDE) mainly for R.\nRStudio is a user-friendly interface that makes using R easier and more interactive.\n\nIt provides a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging, and workspace management.\nIt integrates well with Git."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#python-vs.-r",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#python-vs.-r",
+    "title": "Lecture 1",
+    "section": "Python vs. R",
+    "text": "Python vs. R\n\n\n\nPython\n\nPython can be used for a wide range of applications, from web and game development to machine learning, making it a highly versatile language.\nPython has the largest community in the programming world, providing a wealth of resources, libraries, and frameworks.\n\n\nR\n\nR is particularly strong in statistical analysis and visualization, with a vast number of packages for statistical methods, including machine learning.\nThe community around R, particularly in academia and research, is very active.\n\n\n\n\nBoth Python and R hold significant value in industry and government sectors.\n\nHowever, Python is often more favored for roles in the industry, whereas R tends to be preferred for positions in the public sector."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-1",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nGetting a GitHub account\n\n\n\nCreate the GitHub account with your Geneseo email.\n\nGo to GitHub.\nClick “Sign up for GitHub”.\n\n\n\n\n\nChoose your GitHub username carefully:\n\nhttps://USERNAME.github.io will be the address for your website.\nByeong-Hak’s GitHub username is bcdanl, so that Byeong-Hak owns the web address https://bcdanl.github.io.\n\n\n\n\n\nIt is better to have a username with all lower cases."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-2",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-2",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nParticipate in the Discussions!\n\nGo to Lecture 1 - Q & A.\nSign in with GitHub account, and then add comments to the board."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-3",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-3",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nAnaconda\n\nTo install Anaconda, go to the following download page:\n\nAnaconda Distribution.\nClick the “Download” button."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-4",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-4",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nR programming\n\nThe R language is available as a free download from the R Project website at:\n\nWindows: R for Windows\nMac: R for Mac\nDownload the file of R that corresponds to your Mac OS (Big Sur, Apple silicon arm64, High Sierra, El Capitan, Mavericks, etc.)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-5",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-5",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nR Studio\n\n\nThe RStudio Desktop is available as a free download from the following webpage:\n\nRStudio Download\n\nA recent version of RStudio includes Quarto, so that we do not need to install Quarto separately.\n\n\n\n\n\nFor Mac users, try below steps:\n\nRun RStudio-*.dmg file.\nFrom the Pop-up menu, click the RStudio icon.\nWhile clicking the RStudio icon, drag it to the Applications directory."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-6",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-6",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nRStudio Environment\n\n\n\n\n\nScript Pane is where you write R commands in a script file that you can save.\n\n\n\nAn R script is simply a text file containing R commands.\nRStudio will color-code different elements of your code to make it easier to read.\n\n\n\n\n\n\n\n\nTo open an R script,\n\nFile \\(&gt;\\) New File \\(&gt;\\) R Script\n\n\n\n\n\n\nTo save the R script,\n\nFile \\(&gt;\\) Save"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-7",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-7",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nRStudio Environment\n\n\n\n\n\nConsole Pane allows you to interact directly with the R interpreter and type commands where R will immediately execute them."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-8",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-8",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nRStudio Environment\n\n\n\n\n\nEnvironment Pane is where you can see the values of variables, data frames, and other objects that are currently stored in memory.\nType below in the Console Pane, and then hit Enter:\n\na &lt;- 1"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-9",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-9",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nRStudio Environment\n\n\n\n\n\nPlots Pane contains any graphics that you generate from your R code."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-10",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-10",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nR Packages and tidyverse\n\nR packages are collections of R functions, compiled code, and data that are combined in a structured format."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-11",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-11",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\ntidyverse\n\n\n\nThe tidyverse is a collection of R packages designed for data science that share an underlying design philosophy, grammar, and data structures.\n\n\n\ntidyverse includes a lot of R packages, including ggplot2, dplyr, and tidyr.\nThe tidyverse packages work harmoniously together to make data manipulation, exploration, and visualization more."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-12",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-12",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nInstalling R packages with install.packages(\"packageName\")\n\nR packages can be easily installed from within R using functions install.packages(\"packageName\").\n\nTo install the R package tidyverse, type and run the following from R console:\n\n\n\ninstall.packages(\"tidyverse\")\n\nWhile running the above codes, you may encounter the question below from the R Console:\n\n\n\n\nMac: “Do you want to install from sources the packages which need compilation?” from Console Pane.\n\n\n\nWindows: “Would you like to use a personal library instead?” from Pop-up message.\n\n\n\n\nType no in the R Console, and then hit Enter."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-13",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-13",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nLoading R packages with library(packageName)\n\nOnce installed, a package is loaded into an R session using library(packageName) so that its functions and data can be used.\n\nTo load the R package tidyverse, type and run the following command from a R script:\n\n\nlibrary(tidyverse)\ndf_mpg &lt;- mpg\n\n\nmpg is the data.frame provided by the R package ggplot2, one of the R pakcages in tidyverse.\n\nSince tidyverse is installed, ggplot2 package is already installed."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-14",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-14",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nRStudio Options Setting\n\n\n\n\n\nThis option menu is found by menus as follows:\n\nTools \\(&gt;\\) Global Options\n\nCheck the boxes as in the left.\nChoose the option Never for  Save workspace to .RData on exit:"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-15",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-15",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nPython in RStudio\n\nPython OptionR package, reticulate\n\n\n\nWe can run Python codes within RStudio.\nSelect Python interpreter in RStudio from Tools \\(&gt;\\) Global Options \\(&gt;\\) Python:\n\n\n\n\n\nInstall the R package, reticulate\n\ninstall.packages(\"reticulate\")\n\nThis package allows Quarto to use Python and R objects interactively within one Quarto document."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-16",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-16",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nBuilding a Website\n\nLet’s do Classwork 1."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-17",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-17",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nMarkdown\n\nPython Notebook, Quarto, and GitHub-based Discussion Boards use markdown as its underlying document syntax.\nLet’s do Classwork 2."
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-02.html",
+    "href": "danl-cw/danl-399-cw-02.html",
+    "title": "Classwork 2",
+    "section": "",
+    "text": "Markdown is a lightweight markup language with plain-text formatting syntax. Its main goal is to be readable and easy to write, even when viewed as plain text. Markdown is widely used for creating formatted text on the web and in various applications such as Quarto.\n\n\n\n\nHeadings are created by adding one or more # symbols before your heading text. The number of # symbols indicates the level of the heading.\n# Heading 1\n## Heading 2\n### Heading 3\n\n\n\nYou can make text bold by wrapping it with two asterisks **, and italic by using one asterisk *.\n*italic* or _italic_\n**bold** or __bold__\n\n\n\nUnordered lists are created using *, -, or +, while ordered lists are numbered.\n- Item 1\n- Item 2\n  - Subitem 2.1\n  - Subitem 2.2\n1. First item\n2. Second item\n\n\n\nLinks are created using [Link Text](URL), and images with ![Alt Text](Image URL).\n[DANL 210](https://bcdanl.github.io/210)\n![Geneseo Logo](https://bcdanl.github.io/img/geneseo-logo.gif)\n\n\n\n\n\n\n&gt; Be yourself. Everyone else is already taken. - Oscar Wilde.\n\n\n\n\nA ton of markdown emojis are available here 😄 (:smile:)\n\nhttps://github.com/ikatyang/emoji-cheat-sheet\n\n\n\n\n\nCode blocks are created by using triple backticks (```). Optionally, you can specify the language for syntax highlighting.\n```\n\"string\"\n```\n```python\n# Python code block\nimport numpy as np\n```\n\n\n\n\n\nDo the following tasks on this Classwork 2 Discussion Board:\n\nBasic Syntax: Write a comment with a heading, an unordered list, an ordered list, a link, and an image.\nAdvanced Syntax: Write a comment that includes a Python code block, a blockquote, and an emoji.\n\n\n\n\n\n\nQuarto Markdown Basics\nStart writing on GitHub"
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-02.html#basic-syntax",
+    "href": "danl-cw/danl-399-cw-02.html#basic-syntax",
+    "title": "Classwork 2",
+    "section": "",
+    "text": "Headings are created by adding one or more # symbols before your heading text. The number of # symbols indicates the level of the heading.\n# Heading 1\n## Heading 2\n### Heading 3\n\n\n\nYou can make text bold by wrapping it with two asterisks **, and italic by using one asterisk *.\n*italic* or _italic_\n**bold** or __bold__\n\n\n\nUnordered lists are created using *, -, or +, while ordered lists are numbered.\n- Item 1\n- Item 2\n  - Subitem 2.1\n  - Subitem 2.2\n1. First item\n2. Second item\n\n\n\nLinks are created using [Link Text](URL), and images with ![Alt Text](Image URL).\n[DANL 210](https://bcdanl.github.io/210)\n![Geneseo Logo](https://bcdanl.github.io/img/geneseo-logo.gif)"
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-02.html#advanced-syntax",
+    "href": "danl-cw/danl-399-cw-02.html#advanced-syntax",
+    "title": "Classwork 2",
+    "section": "",
+    "text": "&gt; Be yourself. Everyone else is already taken. - Oscar Wilde.\n\n\n\n\nA ton of markdown emojis are available here 😄 (:smile:)\n\nhttps://github.com/ikatyang/emoji-cheat-sheet\n\n\n\n\n\nCode blocks are created by using triple backticks (```). Optionally, you can specify the language for syntax highlighting.\n```\n\"string\"\n```\n```python\n# Python code block\nimport numpy as np\n```"
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-02.html#practice-problems",
+    "href": "danl-cw/danl-399-cw-02.html#practice-problems",
+    "title": "Classwork 2",
+    "section": "",
+    "text": "Do the following tasks on this Classwork 2 Discussion Board:\n\nBasic Syntax: Write a comment with a heading, an unordered list, an ordered list, a link, and an image.\nAdvanced Syntax: Write a comment that includes a Python code block, a blockquote, and an emoji."
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-02.html#references",
+    "href": "danl-cw/danl-399-cw-02.html#references",
+    "title": "Classwork 2",
+    "section": "",
+    "text": "Quarto Markdown Basics\nStart writing on GitHub"
   },
   {
     "objectID": "index.html",
@@ -368,34 +501,34 @@
     "href": "index.html#bullet-lecture-slides",
     "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
     "section": "\\(\\bullet\\,\\) Lecture Slides 🚀",
-    "text": "\\(\\bullet\\,\\) Lecture Slides 🚀\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 1\n\n\nJanuary 14, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "\\(\\bullet\\,\\) Lecture Slides 🚀\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#bullet-lecture-q-a",
     "href": "index.html#bullet-lecture-q-a",
     "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
     "section": "\\(\\bullet\\,\\) Lecture Q & A ❓",
-    "text": "\\(\\bullet\\,\\) Lecture Q & A ❓\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 1 - Discussion and Q & A\n\n\nJanuary 9, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "\\(\\bullet\\,\\) Lecture Q & A ❓\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 1 - Q & A\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#bullet-classwork",
     "href": "index.html#bullet-classwork",
     "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
     "section": "\\(\\bullet\\,\\) Classwork ⌨️",
-    "text": "\\(\\bullet\\,\\) Classwork ⌨️\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nClasswork 1\n\n\nJanuary 22, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "\\(\\bullet\\,\\) Classwork ⌨️\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nClasswork 2\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#bullet-homework",
     "href": "index.html#bullet-homework",
     "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
     "section": "\\(\\bullet\\,\\) Homework 💻",
-    "text": "\\(\\bullet\\,\\) Homework 💻\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nHomework 1\n\n\nJanuary 22, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "\\(\\bullet\\,\\) Homework 💻\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nHomework 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "listing-danl-399-lec.html",
     "href": "listing-danl-399-lec.html",
     "title": "DANL 399 - Lecture",
     "section": "",
-    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 1\n\n\nJanuary 14, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   }
 ]

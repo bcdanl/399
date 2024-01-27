@@ -2,9 +2,5 @@
 title: Homework 1
 subtitle: R/ggplot Basics and Personal Website
 date: last-modified
-
-comments:
-  hypothesis: 
-    theme: clean
 ---
 
