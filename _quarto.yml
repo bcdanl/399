@@ -15,9 +15,15 @@ website:
     pinned: true
     right:
       - icon: github
-        href: https://github.com/bcdanl/399
-        target: _blank
-        rel: me
+        menu: 
+        - text: Website
+          href: https://github.com/bcdanl/210
+          target: _blank
+          rel: me
+        - text: Discussions
+          href: https://github.com/bcdanl/210/discussions
+          target: _blank
+          rel: me
 
   sidebar:
     title: "Welcome!"
