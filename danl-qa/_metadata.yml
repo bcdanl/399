@@ -17,7 +17,7 @@ include-after-body:
     <script src='/assets/js/posts.js'></script>
 comments:
   giscus:
-    repo: bcdanl/danl-399-giscuss
+    repo: bcdanl/399
     mapping: title
     reactions-enabled: true
     loading: lazy
