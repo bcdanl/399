@@ -20,6 +20,8 @@ from: markdown+emoji
 - It is recommended to have a username with *all lower cases*.
 
 
+{{< video https://www.youtube.com/watch?v=pBy1zgt0XPc >}}
+
 <br><br>
 
 ### Installing `git` if you do not have one.
