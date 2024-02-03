@@ -18,7 +18,7 @@ listing:
     contents: "danl-lec/danl-399*.qmd"
     type: table
     fields: [title, date]
-    sort: "date desc"
+    sort: "title desc"
     sort-ui: false
     filter-ui: false
     page-size: 36
@@ -27,7 +27,7 @@ listing:
     contents: "danl-qa/danl-399*.qmd"
     type: table
     fields: [title, date]
-    sort: "date desc"
+    sort: "title desc"
     sort-ui: false
     filter-ui: false
     page-size: 36
@@ -36,7 +36,7 @@ listing:
     contents: "danl-cw/danl-399*.qmd"
     type: table
     fields: [title, date]
-    sort: "date desc"
+    sort: "title desc"
     sort-ui: false
     filter-ui: false
     page-size: 36
@@ -44,7 +44,7 @@ listing:
     contents: "danl-hw/danl-399*.qmd"
     type: table
     fields: [title, date]
-    sort: "date desc"
+    sort: "title desc"
     sort-ui: false
     filter-ui: false
     page-size: 36

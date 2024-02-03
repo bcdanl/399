@@ -5,7 +5,7 @@ listing:
   contents: "danl-cw/*.qmd"
   type: table
   fields: [title, subtitle, date]
-  sort: "date desc"
+  sort: "title desc"
   sort-ui: false
   page-size: 36
 

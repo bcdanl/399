@@ -148,7 +148,7 @@ $selection-bg: #26351c !default;
 // lists
 // Ordered lists
 .reveal ol {
-  line-height: 1.33;
+  line-height: 1.5;
 }
 
 // Unordered lists
@@ -157,7 +157,7 @@ $selection-bg: #26351c !default;
   // font-weight: 300;
   font-weight: lighter;
   padding-left: 16px;
-  line-height: 1.33;
+  line-height: 1.5;
 
   li::marker {
     color: mix($accent, white, 70%);
