@@ -16,12 +16,16 @@ website:
     right:
       - icon: github
         menu: 
-        - text: Website
-          href: https://github.com/bcdanl/210
+        - text: Website Repo
+          href: https://github.com/bcdanl/399
           target: _blank
           rel: me
         - text: Discussions
-          href: https://github.com/bcdanl/210/discussions
+          href: https://github.com/bcdanl/399/discussions
+          target: _blank
+          rel: me
+        - text: Class Notes
+          href: https://github.com/bcdanl/399/tree/main/danl-class
           target: _blank
           rel: me
 
@@ -47,6 +51,9 @@ website:
       - text: &nbsp;
       - text: <font size ="5" ><b>- Homework </b></font><font size ="5" color="#194493">{{< fa solid level-up >}}</font>
         href: listing-danl-399-hw.qmd
+      - text: &nbsp;
+      - text: <font size ="5" ><b>- Class Notes </b></font><font size ="5" color="#194493">{{< fa solid pencil >}}</font>
+        href: listing-danl-399-class.qmd
 
   page-footer: 
     border: false

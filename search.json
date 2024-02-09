@@ -1,52 +1,87 @@
 [
   {
-    "objectID": "danl-hw/danl-399-hw-01.html",
-    "href": "danl-hw/danl-399-hw-01.html",
+    "objectID": "danl-hw/danl-399-hw-01-q.html",
+    "href": "danl-hw/danl-399-hw-01-q.html",
     "title": "Homework 1",
     "section": "",
-    "text": "Back to topReuse© 2024 Byeong-Hak Choe | This post is licensed under &lt;a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'&gt;CC BY-NC-SA 4.0&lt;/a&gt;.CitationFor attribution, please cite this work as:\nChoe, Byeong-Hak. 2024. “Homework 1.” January 26, 2024."
+    "text": "Decorate your website:\n\n\nReplace YOUR NAME with your name in _quarto.yml and index.qmd.\nDescribe yourself in index.qmd.\nAdd the picture file (e.g., png) of your profile photo to img directory. Then correct img/profile.png in index.qmd accordingly.\nAdd the PDF file of your resumé to the website working directory in your laptop (or Posit Cloud).\nCorrect links for your resumé, LinkedIn, email, and optionally social media.\nMake sure that you do not have any broken links in your website.\n\n\nAdd a “ggplot Basics” blog post to your blog using Quarto document.\n\n\nIn your “ggplot Basics” blog post, briefly explain ggplot Basics we discussed in Lecture 2, Lecture 3, Classwork 4, and Classwork 5\n\n\nUse the 3-step git commands (git add, git commit, and git push) to update your online website."
   },
   {
-    "objectID": "danl-qa/danl-399-qa-01.html",
-    "href": "danl-qa/danl-399-qa-01.html",
-    "title": "Lecture 1 - Q & A",
+    "objectID": "danl-hw/danl-399-hw-01-q.html#question-1",
+    "href": "danl-hw/danl-399-hw-01-q.html#question-1",
+    "title": "Homework 1",
+    "section": "Question 1",
+    "text": "Question 1"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-01-q.html#question-2",
+    "href": "danl-hw/danl-399-hw-01-q.html#question-2",
+    "title": "Homework 1",
+    "section": "Question 2",
+    "text": "Question 2"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-01-q.html#question-3",
+    "href": "danl-hw/danl-399-hw-01-q.html#question-3",
+    "title": "Homework 1",
+    "section": "Question 3",
+    "text": "Question 3\nUse ggridges::geom_density_ridges() for Question 3."
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-01-q.html#question-4",
+    "href": "danl-hw/danl-399-hw-01-q.html#question-4",
+    "title": "Homework 1",
+    "section": "Question 4",
+    "text": "Question 4\nUse datasets::mtcars for Question 4."
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-01-q.html#question-5",
+    "href": "danl-hw/danl-399-hw-01-q.html#question-5",
+    "title": "Homework 1",
+    "section": "Question 5",
+    "text": "Question 5\nUse the following data.frame for Question 5.\n\npopgrowth_df &lt;- read_csv(\n  'https://bcdanl.github.io/data/popgrowth.csv')"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-01-q.html#question-6",
+    "href": "danl-hw/danl-399-hw-01-q.html#question-6",
+    "title": "Homework 1",
+    "section": "Question 6",
+    "text": "Question 6\nUse the following data.frame for Question 6\n\nmale_Aus &lt;- read_csv(\n  'https://bcdanl.github.io/data/aus_athletics_male.csv')"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-01-q.html#question-7",
+    "href": "danl-hw/danl-399-hw-01-q.html#question-7",
+    "title": "Homework 1",
+    "section": "Question 7",
+    "text": "Question 7\nUse the following data.frame for Question 7\n\ntitanic &lt;- read_csv(\n  'https://bcdanl.github.io/data/titanic_cleaned.csv')"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-01-q.html#question-8",
+    "href": "danl-hw/danl-399-hw-01-q.html#question-8",
+    "title": "Homework 1",
+    "section": "Question 8",
+    "text": "Question 8\nUse the following data.frame for Question 8.\n\ncows_filtered &lt;- read_csv(\n  'https://bcdanl.github.io/data/cows_filtered.csv')"
+  },
+  {
+    "objectID": "listing-danl-399-class.html",
+    "href": "listing-danl-399-class.html",
+    "title": "DANL 399 - Class Notes",
+    "section": "",
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nLecture 2 - Note\n\n\nggplot Basics\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "danl-qa/danl-399-qa-02.html",
+    "href": "danl-qa/danl-399-qa-02.html",
+    "title": "Lecture 2 - Q & A",
     "section": "",
     "text": "Back to top"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
+    "objectID": "listing-danl-399-cw.html",
+    "href": "listing-danl-399-cw.html",
+    "title": "DANL 399 - Classwork",
     "section": "",
-    "text": "Welcome! 👋\n\\(-\\) Explore, Learn, and Grow with the DANL! 🌟"
-  },
-  {
-    "objectID": "index.html#bullet-lecture-slides",
-    "href": "index.html#bullet-lecture-slides",
-    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
-    "section": "\\(\\bullet\\,\\) Lecture Slides 🚀",
-    "text": "\\(\\bullet\\,\\) Lecture Slides 🚀\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#bullet-lecture-q-a",
-    "href": "index.html#bullet-lecture-q-a",
-    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
-    "section": "\\(\\bullet\\,\\) Lecture Q & A ❓",
-    "text": "\\(\\bullet\\,\\) Lecture Q & A ❓\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 2 - Q & A\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1 - Q & A\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#bullet-classwork",
-    "href": "index.html#bullet-classwork",
-    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
-    "section": "\\(\\bullet\\,\\) Classwork ⌨️",
-    "text": "\\(\\bullet\\,\\) Classwork ⌨️\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nClasswork 4\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#bullet-homework",
-    "href": "index.html#bullet-homework",
-    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
-    "section": "\\(\\bullet\\,\\) Homework 💻",
-    "text": "\\(\\bullet\\,\\) Homework 💻\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nHomework 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nClasswork 4\n\n\nggplot Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nQuarto Website Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nMarkdown Basics\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nBuilding a Personal Website using Git, GitHub, and RStudio with Quarto\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "danl-cw/danl-399-cw-01.html",
@@ -89,6 +124,643 @@
     "title": "Classwork 2",
     "section": "",
     "text": "Quarto Markdown Basics\nStart writing on GitHub"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#learning-objectives",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#learning-objectives",
+    "title": "Lecture 3",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\n\n\nggplot Visualization"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#rstudio-workflow",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#rstudio-workflow",
+    "title": "Lecture 3",
+    "section": "RStudio Workflow",
+    "text": "RStudio Workflow\nShortcuts for RStudio and RScript\n\n\nMac\n\ncommand + shift + N opens a new RScript.\ncommand + return runs a current line or selected lines.\ncommand + shift + C is the shortcut for # (commenting).\noption + -  is the shortcut for &lt;-.\n\n\nWindows\n\nCtrl + Shift + N opens a new RScript.\nCtrl + return runs a current line or selected lines.\nCtrl + Shift + C is the shortcut for # (commenting).\nAlt + -  is the shortcut for &lt;-."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#workflow",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#workflow",
+    "title": "Lecture 3",
+    "section": "Workflow",
+    "text": "Workflow\nShortcuts for Lecture Slides\n\no or Esc overviews lecture slides\n\nUse arrow keys to move around.\n\nYou can also click the menu button at the top-right corner, and go to a specific slide.\nCtrl + Shift + F to search."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\ngapminder data\n\nThe gapminder package include the gapminder data frame.\n\nlibrary(gapminder)\ngapminder\nskim(gapminder)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-1",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-1",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\nMappings link data to things we see\n\nFirst, we tell the core ggplot function what our data is and what our aesthetic mapping is:\n\np &lt;- ggplot(data = gapminder)\np &lt;- ggplot(data = gapminder,\n            mapping = aes(x = gdpPercap,\n                          y = lifeExp))\n\nWe can then add the geometric object (geom_*()) to the ggplot().\n\np + geom_point()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-2",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-2",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\n1. Tell the ggplot() function what our tidy data is. - ggplot(data = ...)\n2. Tell ggplot() what relationships we want to see. - The ggplot(mapping = aes(...)) - p &lt;- ggplot(data = ... , aes(...))\n3. Tell ggplot() how we want to see the relationships in our data. - Choose a geom_*().\n4. Layer on geoms as needed, by adding them to the p object one at a time.\n5. Use some additional functions to adjust scales, labels, tick marks, titles, etc."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-3",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-3",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\nBuild your plots layer by layer\np + geom_point() + geom_smooth() \np + geom_point() + geom_smooth(method = \"lm\") \np + geom_point() +\n    geom_smooth(method = \"lm\")\np + geom_point() +\n    geom_smooth(method = \"gam\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-4",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-4",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\nMapping aesthetics vs setting them\n\nIn the following, we map color to continent in the aes() function:\n\np1 &lt;-  ggplot(data = gapminder,\n             mapping = aes(x = gdpPercap, y = lifeExp,\n                           color = continent))\n\nWe then add geoms.\n\np1 + geom_point() +\n     geom_smooth(method = \"lm\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-5",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-5",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\nMapping aesthetics vs setting them\n\nIn the following, we map color to \"purple\" outside of the aes() function:\n\np2 &lt;- ggplot(data = gapminder,\n            mapping = aes(x = gdpPercap, y = lifeExp))\n\nWe then add geoms, manually set aethetics, and then adjust scales.\n\np2 + geom_point(color = \"purple\") +\n     geom_smooth(method = \"lm\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-6",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-6",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\nMapping aesthetics vs setting them\n\nHere are another exmaples that set aesthetic mapping manually outside aes() function and inside geom_*() function.\n\np &lt;- ggplot(data = gapminder,\n            mapping = aes(x = gdpPercap,\n                          y = lifeExp))\n\np + geom_point(color = \"purple\") +\n    geom_smooth(method = \"loess\") \n\np + geom_point(alpha = 0.3) +\n    geom_smooth(color = \"orange\", se = F, size = 8, method = \"lm\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-7",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-7",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\nMapping aesthetics vs setting them\n\nLet’s add scale_*() and labs() functions to ggplot()\n\np + geom_point(alpha = 0.3) +\n    geom_smooth(method = \"gam\") +\n    scale_x_log10(labels = scales::dollar) +\n    labs(x = \"GDP Per Capita\", y = \"Life Expectancy in Years\",\n         title = \"Economic Growth and Life Expectancy\",\n         subtitle = \"Data points are country-years\",\n         caption = \"Source: Gapminder.\")\n\nQ. Is it really the best way to display this country-year data?\n\nWhat are we gaining and losing by ignoring the temporal and country-level structure of the data? How could we do better?"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-8",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-8",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\nAesthetics can be mapped per geom\n\nWe can have different aesthetic mappings across different geoms:\n\np &lt;- ggplot(data = gapminder, \n            mapping = aes(x = gdpPercap, y = lifeExp))\n\np + geom_point(mapping = aes(color = continent)) +\n    geom_smooth(method = \"loess\")  +\n    scale_x_continuous(trans = scales::log_trans())  # natural log"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-9",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-9",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\nSave your work\n\nWe can use ggsave() to save ggplot output as a .png or .pdf file.\n\nggsave(filename = \"my_figure.png\")\n\nWe can put our recent plot into an object called p_out and then tell ggave() that we want to save that object.\n\np_out &lt;- p + geom_point() +\n    geom_smooth(method = \"loess\") +\n    scale_x_log10()\nggsave(\"my_figure.pdf\", plot = p_out)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-10",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-10",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\nSave your work\n\nWe can set the size of ggplot figue:\n\nggsave(\"lifexp_vs_gdp_gradient.pdf\",\n       plot = p_out, height = 8, width = 10, units = \"in\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-11",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-11",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\nWork a little more with gapminder data\n\nWhat happens when you put the geom_smooth() function before geom_point() instead of after it?\n\nWhat does this tell you about how the plot is drawn? Think about how this might be useful when drawing plots."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-12",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-12",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\nWork a little more with gapminder data\n\nChange the mappings in the aes() function so that you plot Life Expectancy against population (pop) rather than per capita GDP.\n\nWhat does that look like?\nWhat does it tell you about the unit of observation in the dataset?"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-13",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-13",
+    "title": "Lecture 3",
+    "section": "Make a plot",
+    "text": "Make a plot\nWork a little more with gapminder data\n\nWhat happens if you map color to year instead of continent?\n\nIs the result what you expected?\nThink about what class of object year is.\nRemember you can get a quick look at the top of the data, which includes some shorthand information on the class of each variable, by typing gapminder.\nInstead of mapping color = year, what happens if you try color = factor(year)?"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-1",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-1",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nGrouped data and the group aesthetic\n\nLet’s get a line plot that draws the trajectory of life expectancy over time for each country in the gapminder data.frame.\n\np &lt;- ggplot(data = gapminder,\n            mapping = aes( x = year,\n                           y = gdpPercap ) )\n\np + geom_line() \n\nWhat happened?\ngeom_line() joins up all the lines for each particular year in the order they appear in the dataset."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-2",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-2",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nGrouped data and the group aesthetic\n\nWithout group related parameters, ggplot() does not know that the yearly observations in the data are grouped by country.\n\np &lt;- ggplot(data = gapminder,\n            mapping = aes( x = year,\n                           y = gdpPercap ) )\n\np + geom_line( aes( group = country ) )"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-3",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-3",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nGrouped data and the group aesthetic\n\nThe group aesthetic is usually only needed when the grouping information we need to tell ggplot() about is not built-in to the variables being mapped.\n\nHow about color aesthetic, instead of group?\n\n\np &lt;- ggplot(data = gapminder,\n            mapping = aes( x = year,\n                           y = gdpPercap ) )\n\np + geom_line( aes( color = country ) )"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-4",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-4",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nFacet to make small multiples\n\nMaking a “small multiple” plot by faceting data based on a caterigorical variable allows a lot of information to be presented compactly, and in a consistently comparable way.\n\nfacet_wrap( VAR1 ~ . ) or facet_wrap( . ~ VAR1 )\nfacet_grid( VAR1 ~ . ): row-wise split\nfacet_grid( . ~ VAR1 ): colum-wise split\nfacet_grid( VAR1 ~ VAR2 )\n\n\np + geom_line( aes( group = country ) ) + \n  facet_wrap(~ continent)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-5",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-5",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nFacet to make small multiples\n\nLet’s have all the facetted plots in a single row:\n\np + geom_line(color=\"gray70\", aes(group = country)) +\n    geom_smooth(size = 1.1, method = \"loess\", se = FALSE) +\n    facet_[?] +\n    scale_y_log10(labels=scales::dollar) + \n    theme(axis.text.x = element_text(angle = 45),\n          axis.title.x = element_text(margin = margin(t = 25))) +\n    labs(x = \"Year\", y = \"GDP per capita\",\n         title = \"GDP per capita on Five Continents\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-6",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-6",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nThe 2016 General Social Survey data\n\nThe socviz package includes the gss_sm data frame.\n\ngss_sm is a dataset containing an extract from the 2016 General Social Survey.\n\n\ninstall.packages(\"socviz\")\nlibrary(socviz)\n?gss_sm\nglimpse(gss_sm)\nskimr::skim(gss_sm)\ngss_sm &lt;- gss_sm"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-7",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-7",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nFacet to make small multiples\n\nDescribe the relationship between the age of the respondent and the number of children they have using a scatterplot and a fitted curve.\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes( x = age, y = childs ))\n\np + [?](alpha = 0.2) +\n    [?]()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-8",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-8",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nFacet to make small multiples\n\nDescribe how the relationship between the age of the respondent and the number of children they have varies by sex and race.\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes( x = age, y = childs ))\n\np + geom_point(alpha = 0.2) +\n    geom_smooth() +\n    [?]"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-9",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-9",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nFacet to make small multiples\n\nThe facet_grid() function is best used when you cross-classify some data by two categorical variables.\n\ne.g., the relationship between the age and the number of children by sex and race\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes( x = age, y = childs ))\n\np + geom_point(alpha = 0.2) +\n    geom_smooth() +\n    facet_grid(sex ~ race + degree)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-10",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-10",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\nLet’s plot a bar char:\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = bigregion))\np + geom_bar()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-11",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-11",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\n\nWhere does count come from?\n\nBar charts, histograms, and frequency polygons bin your data and then plot bin counts, the number of points that fall in each bin.\nSmoothers fit a model to your data and then plot predictions from the model.\nBoxplots compute a robust summary of the distribution and then display a specially formatted box."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-12",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-12",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\nIf we want a chart of relative frequencies rather than counts, we will need to get the prop statistic instead.\nOur call to statistic from the aes() function generically looks like this: &lt;mapping&gt; = &lt;..statistic..&gt;.\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = bigregion))\np + geom_bar(mapping = aes(y = ..prop..))\n\nWhat happened?"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-13",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-13",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\nWe need to tell ggplot to ignore the x-categories when calculating denominator of the proportion, and use the total number observations instead.\n\nTo do so we specify group = 1 inside the aes() call.\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = bigregion))\np + geom_bar(mapping = aes(y = ..prop.., group = 1))"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-14",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-14",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\nLet’s look at another question from the survey. The gss_sm data contains a religion variable derived from a question asking:\n\n“What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion?”\n\n\ntable(gss_sm$religion)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-15",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-15",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = religion, color = religion))\np + geom_bar()\n\nIf we map religion to color, only the border lines of the bars will be assigned colors, and the insides will remain gray."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-16",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-16",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\nIf the gray bars look boring and we want to fill them with color instead, we can map the religion variable to fill in addition to mapping it to x.\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = religion, fill = religion))\np + geom_bar() + guides( fill = \"none\" )\n\nIf we set guides(fill = \"none\"), the legend about the fill mapping is removed."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-17",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-17",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nFrequency plots the slightly awkward way\n\nA more appropriate use of the fill aesthetic with geom_bar() is to cross-classify two categorical variables.\n\nThe default output of such geom_bar() is a stacked bar chart, with counts on the y-axis.\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = bigregion, fill = religion))\np + geom_bar(position = \"fill\")\n\nAn alternative choice is to set the position argument to \"fill\".\n\nIt is to compare proportions across groups."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-18",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-18",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nFrequency plots the slightly awkward way\n\nWe can use position = \"dodge\" to make the bars within each region of the country appear side by side.\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = bigregion, fill = religion))\np + geom_bar(position = \"dodge\",\n             mapping = aes(y = ..prop..))\n\nWhat happened?"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-19",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-19",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nFrequency plots the slightly awkward way\n\nIn this case we should consider grouping variable, religion, so we map religion to the group aesthetic.\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = bigregion, fill = religion))\np + geom_bar(position = \"dodge\",\n             mapping = aes(y = ..prop.., group = religion))"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-20",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-20",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nFrequency plots the slightly awkward way\n\nHow can we have a proportional bar chart such that the sum of all bars in each bigregion is 1?\n\nThere are various ways to do so, and faceting is one of them.\nThe proportions are calculated within each panel, which is the breakdown we wanted.\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = religion))\np + geom_bar(position = \"dodge\",\n             mapping = aes(y = ..prop.., group = bigregion)) +\n    facet_wrap(~ bigregion, ncol = 1)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-21",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-21",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nHistograms and density plots\n\nggplot comes with a dataset, midwest, containing information on counties in several midwestern states of the USA.\n\n?midwest\nglimpse(midwest)\nskim(midwest)\nview(midwest)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-22",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-22",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nHistograms and density plots\n\nBy default, the geom_histogram() function will choose a bin size for us based on a rule of thumb.\n\np &lt;- ggplot(data = midwest,\n            mapping = aes(x = area))\np + geom_histogram()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-23",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-23",
+    "title": "Lecture 3",
+    "section": "Show the right number",
+    "text": "Show the right number\nHistograms and density plots\n\nWhen drawing histograms it is worth experimenting with bins and also optionally the origin of the x-axis.\n\np &lt;- ggplot(data = midwest,\n            mapping = aes(x = area))\np + geom_histogram(bins = 10)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-1",
+    "title": "Lecture 1",
+    "section": "Instructor",
+    "text": "Instructor\nCurrent Appointment & Education\n\nName: Byeong-Hak Choe.\nAssistant Professor of Data Analytics and Economics, School of Business at SUNY Geneseo.\nPh.D. in Economics from University of Wyoming.\nM.S. in Economics from Arizona State University.\nM.A. in Economics from SUNY Stony Brook.\nB.A. in Economics & B.S. in Applied Mathematics from Hanyang University at Ansan, South Korea.\n\nMinor in Business Administration.\nConcentration in Finance."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-2",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-2",
+    "title": "Lecture 1",
+    "section": "Instructor",
+    "text": "Instructor\nEconomics, Data Science, and Climate Change\n\nChoe, B.H., 2021. “Social Media Campaigns, Lobbying and Legislation: Evidence from #climatechange and Energy Lobbies.”\nQuestion: To what extent do social media campaigns compete with fossil fuel lobbying on climate change legislation?\nData include:\n\n5.0 million tweets with #climatechange/#globalwarming around the globe;\n12.0 million retweets/likes to those tweets;\n0.8 million Twitter users who wrote those tweets;\n1.4 million Twitter users who retweeted or liked those tweets;\n0.3 million US Twitter users with their location at a city level;\nFirm-level lobbying data (expenses, targeted bills, etc.)."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-3",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-3",
+    "title": "Lecture 1",
+    "section": "Instructor",
+    "text": "Instructor\nEconomics, Data Science, and Climate Change\n\nChoe, B.H. and Ore-Monago, T., 2024. “Governance and Climate Finance in the Developing World”\nClimate finance refers to the financial resources allocated for mitigating and adapting to climate change, including support for initiatives that reduce greenhouse gas emissions and enhance resilience to climate impacts.\n\nWe focus on transnational financing that rich countries provide poor countries with financial resources, in order to help them adapt to climate change and mitigate greenhouse gas (GHG) emissions.\nSince the GHG emissions in developing countries are rapidly growing, it is crucial to assess the effectiveness of climate finance.\nPoor governance can be significant barriers to emissions reductions within these countries."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-4",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-4",
+    "title": "Lecture 1",
+    "section": "Instructor",
+    "text": "Instructor\nEconomics, Data Science, and Climate Change\n\nChoe, B.H. and Ore-Monago, T., 2024. “Governance and Climate Finance in the Developing World”\nData include:\n\nGlobal climate finance data (e.g., donors, recipients, characteristics of climate change projects)\nWorld Bank Governance Indicators over the years (e.g., government effectiveness, voice and accountability, political stability and absence of violence/terrorism, regulatory quality, rule of law, control of corruption)\nVarious economic indicators (e.g., trade pattern of low carbon technology products, macroeconomic risks, energy)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-1",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nEmail, Class & Office Hours\n\nEmail: bchoe@geneseo.edu\nClass Homepage:\n\nhttps://brightspace.geneseo.edu/\nhttp://bcdanl.github.io/399/\n\nClass Schedule\n\nOnline Component: Asynchronous\nIn-Person Sessions:\n\nWednesdays, 11:30 A.M.-12:30 P.M.\nWednesdays, 3:30 P.M.-4:30 P.M.\n\n\nOffice: South Hall 301\nOffice Hours:\n\nTuesdays 12:30 P.M.-1:30 P.M.\nWednesdays 12:30 P.M.-2:30 P.M."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-2",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-2",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nCourse Description\n\nThis course delves into the tools and methodologies essential for creating visually engaging and informative data representations. Its focus is on enhancing data comprehension and facilitating effective data analytics through aesthetically pleasing graphics. The curriculum includes:\nKey topics include:\n\nExploring a variety of graph types, including line graphs, scatter plots, and bar charts.\nPreparing and organizing data from diverse sources for visualization.\nTailoring graphics with a range of formats and styles, such as color schemes, fonts, and line types.\nMapping geographical data effectively.\nCreating dynamic and interactive visualizations.\nBuilding and deploying web applications using Shiny for data visualization.\nUtilizing Shiny dashboard to synthesize information and narrate data stories.\n\nThese areas will be explored through detailed, real-world examples to address common data analysis challenges.\nThroughout the course, practical experience is emphasized, with hands-on projects using tools like R, Python, RStudio, Quarto, Jupyter Notebook, Shiny, Git, and GitHub."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-3",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-3",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nRequired Materials\n\nData Visualization: A Practical Introduction by Kieran Healy\n\nA free online version of this book is available."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-4",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-4",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nReference Materials - R\n\nR for Data Science (1ed)\nR for Data Science (2ed)\nFundamentals of Data Visualization\nR Graphics Cookbook: Practical Recipes for Visualizing Data\nggplot2: elegant graphics for data analysis"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-5",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-5",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nReference Materials - Python\n\nPython for Data Analysis (3rd Edition) by Wes McKinney\nIPython Interactive Computing and Visualization Cookbook\nPython Programming for Data Science by Tomas Beuzen\nCoding for Economists by Arthur Turrell\nPython for Econometrics in Economics by Fabian H. C. Raters\nQuantEcon DataScience - Python Fundamentals by Chase Coleman, Spencer Lyon, and Jesse Perla\nQuantEcon DataScience - pandas by Chase Coleman, Spencer Lyon, and Jesse Perla"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-6",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-6",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nReference Materials - Website\n\nGuide for Quarto"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-7",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-7",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nCourse Requirements\n\nLaptop: You should bring your own laptop (Mac or Windows) to the classroom.\n\nIt is recommended to have 2+ core CPU, 4+ GB RAM, and 500+ GB disk storage in your laptop for this course.\n\n\n\n\nHomework: There will be six homework assignments.\nTeam Project: There will be one team project on a personal website.\nExams: There will be one Midterm Exam and one final exam.\n\nThe final exam is comprehensive.\n\nDiscussions: You are encouraged to participate in GitHub-based online discussions for each lecture, classwork, and homework.\n\nCheckout the netiquette policy in the syllabus."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-8",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-8",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nPersonal Website\n\nYou will create your own website using Quarto, R Studio, and Git.\nYou will publish your homework assignments and team project on your website.\nYour website will be hosted in GitHub.\nThe basics in Markdown will be discussed.\nReferences:\n\nQuarto Guide"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-9",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-9",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nTeam Project\n\nTeam formation is scheduled for late March.\n\n\n\nEach team must have one to two students.\nFor the team project, a team must choose data related to business or socioeconomic issues.\nThe project report should include exploratory data analysis using summary statistics, visual representations, and data wrangling.\nThe document for the team project must be published in each member’s website.\nThe project for the team project must include a Shiny dashboard.\nAny changes to team composition require approval from Byeong-Hak Choe."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-10",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-10",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nClass Schedule and Exams\n\nThere will be tentatively 14 lecture sessions.\nThe Midterm Exam is scheduled on March 7, 2024, Thursday, during the class time.\nThe due for the team project is scheduled on May 16, 2024, Thursday."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-11",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-11",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nCourse Contents\n\nThe first half of the course covers fundamentals of data visualization:"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-12",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-12",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nCourse Contents\n\nThe second half of the course covers advanced data visualization and Shiny apps:"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-13",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-13",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nGrading\n\\[\n\\begin{align}\n(\\text{Total Percentage Grade}) =&\\quad\\;\\, 0.05\\times(\\text{Total Attendance Score})\\notag\\\\\n&\\,+\\, 0.05\\times(\\text{Discussion Score})\\notag\\\\\n&\\,+\\, 0.05\\times(\\text{Website Score})\\notag\\\\\n&\\,+\\, 0.15\\times(\\text{Team Project and Website Score})\\notag\\\\\n&\\,+\\, 0.20\\times(\\text{Total Homework Score})\\notag\\\\\n&\\,+\\, 0.50\\times(\\text{Total Exam Score}).\\notag\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-14",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-14",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nGrading\n\nYou are allowed up to 2 absences without penalty.\n\nSend me an email if you have standard excused reasons (illness, family emergency, transportation problems, etc.).\n\n\n\n\nFor each absence beyond the initial two, there will be a deduction of 1% from the Total Percentage Grade.\nParticipation in discussions will be evaluated by quantity and quality of discussions in the GitHub-based discussion boards.\nThe single lowest homework score will be dropped when calculating the total homework score.\n\nEach homework except for the homework with the lowest score accounts for 20% of the total homework score."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-15",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-15",
+    "title": "Lecture 1",
+    "section": "Syllabus",
+    "text": "Syllabus\nMake-up Policy\n\nMake-up exams will not be given unless you have either a medically verified excuse or an absence excused by the University.\n\n\n\nIf you cannot take exams because of religious obligations, notify me by email at least two weeks in advance so that an alternative exam time may be set.\nA missed exam without an excused absence earns a grade of zero.\nLate submissions for homework assignment will be accepted with a penalty.\nA zero will be recorded for a missed assignment."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-personal-website",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-personal-website",
+    "title": "Lecture 1",
+    "section": "Why Personal Website?",
+    "text": "Why Personal Website?\nBenefits of a Personal Website in Data Analytics\n\n\nHere are the example websites:\n\nByeong-Hak’s Website\nDANL Website Template\n\n\n\n\n\nProfessional Showcase: Display skills and projects\nVisibility and Networking: Increase online presence\nControlled Narrative: Manage your professional brand\nContent Sharing and Engagement: Publish articles, insights\nJob Opportunities: Attract potential employers and clients\nLong-term Asset: A growing repository of your career journey\nReproducible Research: Showcase data-driven reports"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-python-r-and-databases",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-python-r-and-databases",
+    "title": "Lecture 1",
+    "section": "Why Python, R, and Databases?",
+    "text": "Why Python, R, and Databases?"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-python-r-and-databases-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-python-r-and-databases-1",
+    "title": "Lecture 1",
+    "section": "Why Python, R, and Databases?",
+    "text": "Why Python, R, and Databases?\n\nStack Overflow is the most popular Q & A website specifically for programmers and software developers in the world.\nSee how programming languages have trended over time based on use of their tags in Stack Overflow from 2008 to 2022.\n\n\n\nMost Popular Languagues\n\n\nData Science and Big Data"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art",
+    "title": "Lecture 1",
+    "section": "The State of the Art",
+    "text": "The State of the Art\nGenerative AI and ChatGPT\n\n\nData Science and Big Data Trend\nFrom 2008 to 2023\n\n\nProgrammers in 2024"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art-1",
+    "title": "Lecture 1",
+    "section": "The State of the Art",
+    "text": "The State of the Art\nGenerative AI and ChatGPT\n\nGenerative AI refers to a category of artificial intelligence (AI) that is capable of generating new content, ranging from text, images, and videos to music and code.\n\n\n\nIn the early 2020s, advances in transformer-based deep neural networks enabled a number of generative AI systems notable for accepting natural language prompts as input.\n\nThese include large language model (LLM) chatbots such as ChatGPT, Copilot, Bard, and LLaMA.\n\nChatGPT (Chat Generative Pre-trained Transformer) is a chatbot developed by OpenAI and launched on November 30, 2022.\n\nBy January 2023, it had become what was then the fastest-growing consumer software application in history."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art-2",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art-2",
+    "title": "Lecture 1",
+    "section": "The State of the Art",
+    "text": "The State of the Art\nGenerative AI and ChatGPT\n\nUsers around the world have explored how to best utilize GPT for writing essays and programming codes.\n\n\n\n\nIs AI a threat to data analytics?\n\nFundamental understanding of the subject matter is still crucial for effectively utilizing AI’s capabilities.\n\n\n\n\n\nIf you use Generative AI such as ChatGPT, please try to understand what ChatGPT gives you.\n\nCopying and pasting it without any understanding harms your learning opportunity."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#learning-objectives",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#learning-objectives",
+    "title": "Lecture 1",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\n\nUnderstand the concept of the tools we will use throughout the course:\n\nGit\nGitHub\n\n\n\n\n\nSet up the tools in your laptop.\n\nAnaconda\nR, RStudio, and R Packages\nGit\nPersonal website"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-git",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-git",
+    "title": "Lecture 1",
+    "section": "What is Git?",
+    "text": "What is Git?\n\n\n\n\n\\(\\quad\\)\n\nGit is the most popular version control tool for any software development.\n\nIt tracks changes in a series of snapshots of the project, allowing developers to revert to previous versions, compare changes, and merge different versions.\nIt is the industry standard and ubiquitous for coding collaboration."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-git-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-git-1",
+    "title": "Lecture 1",
+    "section": "What is Git?",
+    "text": "What is Git?\n\n\n\n\ngit add .\ngit commit -m \"any message is here\"\ngit push -u origin main\n\\(\\quad\\)\n\n\nGit operates primarily through command-line tools (e.g., Terminal) and is local to a user’s computer.\n\nIt has a steep learning curve.\n\nWe will not do git collaboration but use only the 3-step git commands on Terminal to update a website."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-github",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-github",
+    "title": "Lecture 1",
+    "section": "What is GitHub?",
+    "text": "What is GitHub?\n\nGitHub is a web-based hosting platform for Git repositories to store, manage, and share code.\n\n\n\nYour personal website will be hosted on a GitHub repository.\nCourse contents will be posted not only in Brightspace but also in our GitHub repositories (“repos”) and websites.\nGithub is useful for many reasons, but the main reason is how user friendly it makes uploading and sharing code."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-anaconda",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-anaconda",
+    "title": "Lecture 1",
+    "section": "What is Anaconda?",
+    "text": "What is Anaconda?\n\n\nAnaconda is an all-in-one Python distribution.\n\nAnaconda includes Python 3.x and its standard libraries such as pip, pandas, matplotlib, etc.\nAnaconda also includes several software applications of integrated development environment (IDE).\nAn IDE is a software application that provides comprehensive facilities (e.g., text code editor, graphical user interface (GUI)) to computer programmers for software development.\n\nFor our course, we will mainly use Google Colab.\n\nIf we need to use Python locally from your laptop, we can use Jupyter or Spyder IDE from Anaconda Distribution.\n\nIf you know how to set up Visual Studio Code (VS Code), go for it!\n\nVS Code is a free, open-source code editor developed by Microsoft, and is widely used by developers for programming and software development."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-r",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-r",
+    "title": "Lecture 1",
+    "section": "What is R?",
+    "text": "What is R?\n\nR is a programming language and software environment designed for statistical computing and graphics.\nR has become a major tool in data analysis, statistical modeling, and visualization.\n\nIt is widely used among statisticians and data scientists for developing statistical software and performing data analysis.\nR is open source and freely available."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-rstudio",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-rstudio",
+    "title": "Lecture 1",
+    "section": "What is RStudio?",
+    "text": "What is RStudio?\n\n\nRStudio is an integrated development environment (IDE) mainly for R.\nRStudio is a user-friendly interface that makes using R easier and more interactive.\n\nIt provides a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging, and workspace management.\nIt integrates well with Git."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#python-vs.-r",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#python-vs.-r",
+    "title": "Lecture 1",
+    "section": "Python vs. R",
+    "text": "Python vs. R\n\n\n\nPython\n\nPython can be used for a wide range of applications, from web and game development to machine learning, making it a highly versatile language.\nPython has the largest community in the programming world, providing a wealth of resources, libraries, and frameworks.\n\n\nR\n\nR is particularly strong in statistical analysis and visualization, with a vast number of packages for statistical methods, including machine learning.\nThe community around R, particularly in academia and research, is very active.\n\n\n\n\nBoth Python and R hold significant value in industry and government sectors.\n\nHowever, Python is often more favored for roles in the industry, whereas R tends to be preferred for positions in the public sector."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-1",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-1",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nGetting a GitHub account\n\n\n\nCreate the GitHub account with your Geneseo email.\n\nGo to GitHub.\nClick “Sign up for GitHub”.\n\n\n\n\n\nChoose your GitHub username carefully:\n\nhttps://USERNAME.github.io will be the address for your website.\nByeong-Hak’s GitHub username is bcdanl, so that Byeong-Hak owns the web address https://bcdanl.github.io.\n\n\n\n\n\nIt is better to have a username with all lower cases."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-2",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-2",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nParticipate in the Discussions!\n\nGo to Lecture 1 - Q & A.\nSign in with GitHub account, and then add comments to the board."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-3",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-3",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nAnaconda\n\nTo install Anaconda, go to the following download page:\n\nAnaconda Distribution.\nClick the “Download” button."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-4",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-4",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nR programming\n\nThe R language is available as a free download from the R Project website at:\n\nWindows: R for Windows\nMac: R for Mac\nDownload the file of R that corresponds to your Mac OS (Big Sur, Apple silicon arm64, High Sierra, El Capitan, Mavericks, etc.)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-5",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-5",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nR Studio\n\n\nThe RStudio Desktop is available as a free download from the following webpage:\n\nRStudio Download\n\nA recent version of RStudio includes Quarto, so that we do not need to install Quarto separately.\n\n\n\n\n\nFor Mac users, try below steps:\n\nRun RStudio-*.dmg file.\nFrom the Pop-up menu, click the RStudio icon.\nWhile clicking the RStudio icon, drag it to the Applications directory."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-6",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-6",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nRStudio Environment\n\n\n\n\n\nScript Pane is where you write R commands in a script file that you can save.\n\n\n\nAn R script is simply a text file containing R commands.\nRStudio will color-code different elements of your code to make it easier to read.\n\n\n\n\n\n\n\n\nTo open an R script,\n\nFile \\(&gt;\\) New File \\(&gt;\\) R Script\n\n\n\n\n\n\nTo save the R script,\n\nFile \\(&gt;\\) Save"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-7",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-7",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nRStudio Environment\n\n\n\n\n\nConsole Pane allows you to interact directly with the R interpreter and type commands where R will immediately execute them."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-8",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-8",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nRStudio Environment\n\n\n\n\n\nEnvironment Pane is where you can see the values of variables, data frames, and other objects that are currently stored in memory.\nType below in the Console Pane, and then hit Enter:\n\na &lt;- 1"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-9",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-9",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nRStudio Environment\n\n\n\n\n\nPlots Pane contains any graphics that you generate from your R code."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-10",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-10",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nR Packages and tidyverse\n\nR packages are collections of R functions, compiled code, and data that are combined in a structured format."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-11",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-11",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\ntidyverse\n\n\n\nThe tidyverse is a collection of R packages designed for data science that share an underlying design philosophy, grammar, and data structures.\n\n\n\ntidyverse includes a lot of R packages, including ggplot2, dplyr, and tidyr.\nThe tidyverse packages work harmoniously together to make data manipulation, exploration, and visualization more."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-12",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-12",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nInstalling R packages with install.packages(\"packageName\")\n\nR packages can be easily installed from within R using functions install.packages(\"packageName\").\n\nTo install the R package tidyverse, type and run the following from R console:\n\n\n\ninstall.packages(\"tidyverse\")\n\nWhile running the above codes, you may encounter the question below from the R Console:\n\n\n\n\nMac: “Do you want to install from sources the packages which need compilation?” from Console Pane.\n\n\n\nWindows: “Would you like to use a personal library instead?” from Pop-up message.\n\n\n\n\nType no in the R Console, and then hit Enter."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-13",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-13",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nLoading R packages with library(packageName)\n\nOnce installed, a package is loaded into an R session using library(packageName) so that its functions and data can be used.\n\nTo load the R package tidyverse, type and run the following command from a R script:\n\n\nlibrary(tidyverse)\ndf_mpg &lt;- mpg\n\n\nmpg is the data.frame provided by the R package ggplot2, one of the R pakcages in tidyverse.\n\nSince tidyverse is installed, ggplot2 package is already installed."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-14",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-14",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nRStudio Options Setting\n\n\n\n\n\nThis option menu is found by menus as follows:\n\nTools \\(&gt;\\) Global Options\n\nCheck the boxes as in the left.\nChoose the option Never for  Save workspace to .RData on exit:"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-15",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-15",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nPython in RStudio\n\nPython OptionR package, reticulate\n\n\n\nWe can run Python codes within RStudio.\nSelect Python interpreter in RStudio from Tools \\(&gt;\\) Global Options \\(&gt;\\) Python:\n\n\n\n\n\nInstall the R package, reticulate\n\ninstall.packages(\"reticulate\")\n\nThis package allows Quarto to use Python and R objects interactively within one Quarto document."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-16",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-16",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nBuilding a Website\n\nLet’s do Classwork 1."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-17",
+    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-17",
+    "title": "Lecture 1",
+    "section": "Installing the Tools",
+    "text": "Installing the Tools\nMarkdown\n\nJupyter Notebook, Quarto, and GitHub-based Discussion Boards use markdown as its underlying document syntax.\nLet’s do Classwork 2."
+  },
+  {
+    "objectID": "listing-danl-399-hw.html",
+    "href": "listing-danl-399-hw.html",
+    "title": "DANL 399 - Homework",
+    "section": "",
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nHomework 1\n\n\nPersonal Website and ggplot Visualization\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "danl-lec/danl-399-lec-02-2024-0202.html#learning-objectives",
@@ -504,363 +1176,6 @@
     "text": "Show the right number\nHistograms and density plots\n\nWhen drawing histograms it is worth experimenting with bins and also optionally the origin of the x-axis.\n\np &lt;- ggplot(data = midwest,\n            mapping = aes(x = area))\np + geom_histogram(bins = 10)"
   },
   {
-    "objectID": "listing-danl-399-hw.html",
-    "href": "listing-danl-399-hw.html",
-    "title": "DANL 399 - Homework",
-    "section": "",
-    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nHomework 1\n\n\nR/ggplot Basics and Personal Website\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-1",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-1",
-    "title": "Lecture 1",
-    "section": "Instructor",
-    "text": "Instructor\nCurrent Appointment & Education\n\nName: Byeong-Hak Choe.\nAssistant Professor of Data Analytics and Economics, School of Business at SUNY Geneseo.\nPh.D. in Economics from University of Wyoming.\nM.S. in Economics from Arizona State University.\nM.A. in Economics from SUNY Stony Brook.\nB.A. in Economics & B.S. in Applied Mathematics from Hanyang University at Ansan, South Korea.\n\nMinor in Business Administration.\nConcentration in Finance."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-2",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-2",
-    "title": "Lecture 1",
-    "section": "Instructor",
-    "text": "Instructor\nEconomics, Data Science, and Climate Change\n\nChoe, B.H., 2021. “Social Media Campaigns, Lobbying and Legislation: Evidence from #climatechange and Energy Lobbies.”\nQuestion: To what extent do social media campaigns compete with fossil fuel lobbying on climate change legislation?\nData include:\n\n5.0 million tweets with #climatechange/#globalwarming around the globe;\n12.0 million retweets/likes to those tweets;\n0.8 million Twitter users who wrote those tweets;\n1.4 million Twitter users who retweeted or liked those tweets;\n0.3 million US Twitter users with their location at a city level;\nFirm-level lobbying data (expenses, targeted bills, etc.)."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-3",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-3",
-    "title": "Lecture 1",
-    "section": "Instructor",
-    "text": "Instructor\nEconomics, Data Science, and Climate Change\n\nChoe, B.H. and Ore-Monago, T., 2024. “Governance and Climate Finance in the Developing World”\nClimate finance refers to the financial resources allocated for mitigating and adapting to climate change, including support for initiatives that reduce greenhouse gas emissions and enhance resilience to climate impacts.\n\nWe focus on transnational financing that rich countries provide poor countries with financial resources, in order to help them adapt to climate change and mitigate greenhouse gas (GHG) emissions.\nSince the GHG emissions in developing countries are rapidly growing, it is crucial to assess the effectiveness of climate finance.\nPoor governance can be significant barriers to emissions reductions within these countries."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-4",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-4",
-    "title": "Lecture 1",
-    "section": "Instructor",
-    "text": "Instructor\nEconomics, Data Science, and Climate Change\n\nChoe, B.H. and Ore-Monago, T., 2024. “Governance and Climate Finance in the Developing World”\nData include:\n\nGlobal climate finance data (e.g., donors, recipients, characteristics of climate change projects)\nWorld Bank Governance Indicators over the years (e.g., government effectiveness, voice and accountability, political stability and absence of violence/terrorism, regulatory quality, rule of law, control of corruption)\nVarious economic indicators (e.g., trade pattern of low carbon technology products, macroeconomic risks, energy)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-1",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-1",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nEmail, Class & Office Hours\n\nEmail: bchoe@geneseo.edu\nClass Homepage:\n\nhttps://brightspace.geneseo.edu/\nhttp://bcdanl.github.io/399/\n\nClass Schedule\n\nOnline Component: Asynchronous\nIn-Person Sessions:\n\nWednesdays, 11:30 A.M.-12:30 P.M.\nWednesdays, 3:30 P.M.-4:30 P.M.\n\n\nOffice: South Hall 301\nOffice Hours:\n\nTuesdays 12:30 P.M.-1:30 P.M.\nWednesdays 12:30 P.M.-2:30 P.M."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-2",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-2",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nCourse Description\n\nThis course delves into the tools and methodologies essential for creating visually engaging and informative data representations. Its focus is on enhancing data comprehension and facilitating effective data analytics through aesthetically pleasing graphics. The curriculum includes:\nKey topics include:\n\nExploring a variety of graph types, including line graphs, scatter plots, and bar charts.\nPreparing and organizing data from diverse sources for visualization.\nTailoring graphics with a range of formats and styles, such as color schemes, fonts, and line types.\nMapping geographical data effectively.\nCreating dynamic and interactive visualizations.\nBuilding and deploying web applications using Shiny for data visualization.\nUtilizing Shiny dashboard to synthesize information and narrate data stories.\n\nThese areas will be explored through detailed, real-world examples to address common data analysis challenges.\nThroughout the course, practical experience is emphasized, with hands-on projects using tools like R, Python, RStudio, Quarto, Jupyter Notebook, Shiny, Git, and GitHub."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-3",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-3",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nRequired Materials\n\nData Visualization: A Practical Introduction by Kieran Healy\n\nA free online version of this book is available."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-4",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-4",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nReference Materials - R\n\nR for Data Science (1ed)\nR for Data Science (2ed)\nFundamentals of Data Visualization\nR Graphics Cookbook: Practical Recipes for Visualizing Data\nggplot2: elegant graphics for data analysis"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-5",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-5",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nReference Materials - Python\n\nPython for Data Analysis (3rd Edition) by Wes McKinney\nIPython Interactive Computing and Visualization Cookbook\nPython Programming for Data Science by Tomas Beuzen\nCoding for Economists by Arthur Turrell\nPython for Econometrics in Economics by Fabian H. C. Raters\nQuantEcon DataScience - Python Fundamentals by Chase Coleman, Spencer Lyon, and Jesse Perla\nQuantEcon DataScience - pandas by Chase Coleman, Spencer Lyon, and Jesse Perla"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-6",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-6",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nReference Materials - Website\n\nGuide for Quarto"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-7",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-7",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nCourse Requirements\n\nLaptop: You should bring your own laptop (Mac or Windows) to the classroom.\n\nIt is recommended to have 2+ core CPU, 4+ GB RAM, and 500+ GB disk storage in your laptop for this course.\n\n\n\n\nHomework: There will be six homework assignments.\nTeam Project: There will be one team project on a personal website.\nExams: There will be one Midterm Exam and one final exam.\n\nThe final exam is comprehensive.\n\nDiscussions: You are encouraged to participate in GitHub-based online discussions for each lecture, classwork, and homework.\n\nCheckout the netiquette policy in the syllabus."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-8",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-8",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nPersonal Website\n\nYou will create your own website using Quarto, R Studio, and Git.\nYou will publish your homework assignments and team project on your website.\nYour website will be hosted in GitHub.\nThe basics in Markdown will be discussed.\nReferences:\n\nQuarto Guide"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-9",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-9",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nTeam Project\n\nTeam formation is scheduled for late March.\n\n\n\nEach team must have one to two students.\nFor the team project, a team must choose data related to business or socioeconomic issues.\nThe project report should include exploratory data analysis using summary statistics, visual representations, and data wrangling.\nThe document for the team project must be published in each member’s website.\nThe project for the team project must include a Shiny dashboard.\nAny changes to team composition require approval from Byeong-Hak Choe."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-10",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-10",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nClass Schedule and Exams\n\nThere will be tentatively 14 lecture sessions.\nThe Midterm Exam is scheduled on March 7, 2024, Thursday, during the class time.\nThe due for the team project is scheduled on May 16, 2024, Thursday."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-11",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-11",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nCourse Contents\n\nThe first half of the course covers fundamentals of data visualization:"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-12",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-12",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nCourse Contents\n\nThe second half of the course covers advanced data visualization and Shiny apps:"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-13",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-13",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nGrading\n\\[\n\\begin{align}\n(\\text{Total Percentage Grade}) =&\\quad\\;\\, 0.05\\times(\\text{Total Attendance Score})\\notag\\\\\n&\\,+\\, 0.05\\times(\\text{Discussion Score})\\notag\\\\\n&\\,+\\, 0.05\\times(\\text{Website Score})\\notag\\\\\n&\\,+\\, 0.15\\times(\\text{Team Project and Website Score})\\notag\\\\\n&\\,+\\, 0.20\\times(\\text{Total Homework Score})\\notag\\\\\n&\\,+\\, 0.50\\times(\\text{Total Exam Score}).\\notag\n\\end{align}\n\\]"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-14",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-14",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nGrading\n\nYou are allowed up to 2 absences without penalty.\n\nSend me an email if you have standard excused reasons (illness, family emergency, transportation problems, etc.).\n\n\n\n\nFor each absence beyond the initial two, there will be a deduction of 1% from the Total Percentage Grade.\nParticipation in discussions will be evaluated by quantity and quality of discussions in the GitHub-based discussion boards.\nThe single lowest homework score will be dropped when calculating the total homework score.\n\nEach homework except for the homework with the lowest score accounts for 20% of the total homework score."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-15",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#syllabus-15",
-    "title": "Lecture 1",
-    "section": "Syllabus",
-    "text": "Syllabus\nMake-up Policy\n\nMake-up exams will not be given unless you have either a medically verified excuse or an absence excused by the University.\n\n\n\nIf you cannot take exams because of religious obligations, notify me by email at least two weeks in advance so that an alternative exam time may be set.\nA missed exam without an excused absence earns a grade of zero.\nLate submissions for homework assignment will be accepted with a penalty.\nA zero will be recorded for a missed assignment."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-personal-website",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-personal-website",
-    "title": "Lecture 1",
-    "section": "Why Personal Website?",
-    "text": "Why Personal Website?\nBenefits of a Personal Website in Data Analytics\n\n\nHere are the example websites:\n\nByeong-Hak’s Website\nDANL Website Template\n\n\n\n\n\nProfessional Showcase: Display skills and projects\nVisibility and Networking: Increase online presence\nControlled Narrative: Manage your professional brand\nContent Sharing and Engagement: Publish articles, insights\nJob Opportunities: Attract potential employers and clients\nLong-term Asset: A growing repository of your career journey\nReproducible Research: Showcase data-driven reports"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-python-r-and-databases",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-python-r-and-databases",
-    "title": "Lecture 1",
-    "section": "Why Python, R, and Databases?",
-    "text": "Why Python, R, and Databases?"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#why-python-r-and-databases-1",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#why-python-r-and-databases-1",
-    "title": "Lecture 1",
-    "section": "Why Python, R, and Databases?",
-    "text": "Why Python, R, and Databases?\n\nStack Overflow is the most popular Q & A website specifically for programmers and software developers in the world.\nSee how programming languages have trended over time based on use of their tags in Stack Overflow from 2008 to 2022.\n\n\n\nMost Popular Languagues\n\n\nData Science and Big Data"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art",
-    "title": "Lecture 1",
-    "section": "The State of the Art",
-    "text": "The State of the Art\nGenerative AI and ChatGPT\n\n\nData Science and Big Data Trend\nFrom 2008 to 2023\n\n\nProgrammers in 2024"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art-1",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art-1",
-    "title": "Lecture 1",
-    "section": "The State of the Art",
-    "text": "The State of the Art\nGenerative AI and ChatGPT\n\nGenerative AI refers to a category of artificial intelligence (AI) that is capable of generating new content, ranging from text, images, and videos to music and code.\n\n\n\nIn the early 2020s, advances in transformer-based deep neural networks enabled a number of generative AI systems notable for accepting natural language prompts as input.\n\nThese include large language model (LLM) chatbots such as ChatGPT, Copilot, Bard, and LLaMA.\n\nChatGPT (Chat Generative Pre-trained Transformer) is a chatbot developed by OpenAI and launched on November 30, 2022.\n\nBy January 2023, it had become what was then the fastest-growing consumer software application in history."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art-2",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#the-state-of-the-art-2",
-    "title": "Lecture 1",
-    "section": "The State of the Art",
-    "text": "The State of the Art\nGenerative AI and ChatGPT\n\nUsers around the world have explored how to best utilize GPT for writing essays and programming codes.\n\n\n\n\nIs AI a threat to data analytics?\n\nFundamental understanding of the subject matter is still crucial for effectively utilizing AI’s capabilities.\n\n\n\n\n\nIf you use Generative AI such as ChatGPT, please try to understand what ChatGPT gives you.\n\nCopying and pasting it without any understanding harms your learning opportunity."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#learning-objectives",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#learning-objectives",
-    "title": "Lecture 1",
-    "section": "Learning Objectives",
-    "text": "Learning Objectives\n\n\nUnderstand the concept of the tools we will use throughout the course:\n\nGit\nGitHub\n\n\n\n\n\nSet up the tools in your laptop.\n\nAnaconda\nR, RStudio, and R Packages\nGit\nPersonal website"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-git",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-git",
-    "title": "Lecture 1",
-    "section": "What is Git?",
-    "text": "What is Git?\n\n\n\n\n\\(\\quad\\)\n\nGit is the most popular version control tool for any software development.\n\nIt tracks changes in a series of snapshots of the project, allowing developers to revert to previous versions, compare changes, and merge different versions.\nIt is the industry standard and ubiquitous for coding collaboration."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-git-1",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-git-1",
-    "title": "Lecture 1",
-    "section": "What is Git?",
-    "text": "What is Git?\n\n\n\n\ngit add .\ngit commit -m \"any message is here\"\ngit push -u origin main\n\\(\\quad\\)\n\n\nGit operates primarily through command-line tools (e.g., Terminal) and is local to a user’s computer.\n\nIt has a steep learning curve.\n\nWe will not do git collaboration but use only the 3-step git commands on Terminal to update a website."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-github",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-github",
-    "title": "Lecture 1",
-    "section": "What is GitHub?",
-    "text": "What is GitHub?\n\nGitHub is a web-based hosting platform for Git repositories to store, manage, and share code.\n\n\n\nYour personal website will be hosted on a GitHub repository.\nCourse contents will be posted not only in Brightspace but also in our GitHub repositories (“repos”) and websites.\nGithub is useful for many reasons, but the main reason is how user friendly it makes uploading and sharing code."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-anaconda",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-anaconda",
-    "title": "Lecture 1",
-    "section": "What is Anaconda?",
-    "text": "What is Anaconda?\n\n\nAnaconda is an all-in-one Python distribution.\n\nAnaconda includes Python 3.x and its standard libraries such as pip, pandas, matplotlib, etc.\nAnaconda also includes several software applications of integrated development environment (IDE).\nAn IDE is a software application that provides comprehensive facilities (e.g., text code editor, graphical user interface (GUI)) to computer programmers for software development.\n\nFor our course, we will mainly use Google Colab.\n\nIf we need to use Python locally from your laptop, we can use Jupyter or Spyder IDE from Anaconda Distribution.\n\nIf you know how to set up Visual Studio Code (VS Code), go for it!\n\nVS Code is a free, open-source code editor developed by Microsoft, and is widely used by developers for programming and software development."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-r",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-r",
-    "title": "Lecture 1",
-    "section": "What is R?",
-    "text": "What is R?\n\nR is a programming language and software environment designed for statistical computing and graphics.\nR has become a major tool in data analysis, statistical modeling, and visualization.\n\nIt is widely used among statisticians and data scientists for developing statistical software and performing data analysis.\nR is open source and freely available."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-rstudio",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#what-is-rstudio",
-    "title": "Lecture 1",
-    "section": "What is RStudio?",
-    "text": "What is RStudio?\n\n\nRStudio is an integrated development environment (IDE) mainly for R.\nRStudio is a user-friendly interface that makes using R easier and more interactive.\n\nIt provides a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging, and workspace management.\nIt integrates well with Git."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#python-vs.-r",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#python-vs.-r",
-    "title": "Lecture 1",
-    "section": "Python vs. R",
-    "text": "Python vs. R\n\n\n\nPython\n\nPython can be used for a wide range of applications, from web and game development to machine learning, making it a highly versatile language.\nPython has the largest community in the programming world, providing a wealth of resources, libraries, and frameworks.\n\n\nR\n\nR is particularly strong in statistical analysis and visualization, with a vast number of packages for statistical methods, including machine learning.\nThe community around R, particularly in academia and research, is very active.\n\n\n\n\nBoth Python and R hold significant value in industry and government sectors.\n\nHowever, Python is often more favored for roles in the industry, whereas R tends to be preferred for positions in the public sector."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-1",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-1",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nGetting a GitHub account\n\n\n\nCreate the GitHub account with your Geneseo email.\n\nGo to GitHub.\nClick “Sign up for GitHub”.\n\n\n\n\n\nChoose your GitHub username carefully:\n\nhttps://USERNAME.github.io will be the address for your website.\nByeong-Hak’s GitHub username is bcdanl, so that Byeong-Hak owns the web address https://bcdanl.github.io.\n\n\n\n\n\nIt is better to have a username with all lower cases."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-2",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-2",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nParticipate in the Discussions!\n\nGo to Lecture 1 - Q & A.\nSign in with GitHub account, and then add comments to the board."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-3",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-3",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nAnaconda\n\nTo install Anaconda, go to the following download page:\n\nAnaconda Distribution.\nClick the “Download” button."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-4",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-4",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nR programming\n\nThe R language is available as a free download from the R Project website at:\n\nWindows: R for Windows\nMac: R for Mac\nDownload the file of R that corresponds to your Mac OS (Big Sur, Apple silicon arm64, High Sierra, El Capitan, Mavericks, etc.)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-5",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-5",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nR Studio\n\n\nThe RStudio Desktop is available as a free download from the following webpage:\n\nRStudio Download\n\nA recent version of RStudio includes Quarto, so that we do not need to install Quarto separately.\n\n\n\n\n\nFor Mac users, try below steps:\n\nRun RStudio-*.dmg file.\nFrom the Pop-up menu, click the RStudio icon.\nWhile clicking the RStudio icon, drag it to the Applications directory."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-6",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-6",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nRStudio Environment\n\n\n\n\n\nScript Pane is where you write R commands in a script file that you can save.\n\n\n\nAn R script is simply a text file containing R commands.\nRStudio will color-code different elements of your code to make it easier to read.\n\n\n\n\n\n\n\n\nTo open an R script,\n\nFile \\(&gt;\\) New File \\(&gt;\\) R Script\n\n\n\n\n\n\nTo save the R script,\n\nFile \\(&gt;\\) Save"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-7",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-7",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nRStudio Environment\n\n\n\n\n\nConsole Pane allows you to interact directly with the R interpreter and type commands where R will immediately execute them."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-8",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-8",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nRStudio Environment\n\n\n\n\n\nEnvironment Pane is where you can see the values of variables, data frames, and other objects that are currently stored in memory.\nType below in the Console Pane, and then hit Enter:\n\na &lt;- 1"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-9",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-9",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nRStudio Environment\n\n\n\n\n\nPlots Pane contains any graphics that you generate from your R code."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-10",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-10",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nR Packages and tidyverse\n\nR packages are collections of R functions, compiled code, and data that are combined in a structured format."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-11",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-11",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\ntidyverse\n\n\n\nThe tidyverse is a collection of R packages designed for data science that share an underlying design philosophy, grammar, and data structures.\n\n\n\ntidyverse includes a lot of R packages, including ggplot2, dplyr, and tidyr.\nThe tidyverse packages work harmoniously together to make data manipulation, exploration, and visualization more."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-12",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-12",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nInstalling R packages with install.packages(\"packageName\")\n\nR packages can be easily installed from within R using functions install.packages(\"packageName\").\n\nTo install the R package tidyverse, type and run the following from R console:\n\n\n\ninstall.packages(\"tidyverse\")\n\nWhile running the above codes, you may encounter the question below from the R Console:\n\n\n\n\nMac: “Do you want to install from sources the packages which need compilation?” from Console Pane.\n\n\n\nWindows: “Would you like to use a personal library instead?” from Pop-up message.\n\n\n\n\nType no in the R Console, and then hit Enter."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-13",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-13",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nLoading R packages with library(packageName)\n\nOnce installed, a package is loaded into an R session using library(packageName) so that its functions and data can be used.\n\nTo load the R package tidyverse, type and run the following command from a R script:\n\n\nlibrary(tidyverse)\ndf_mpg &lt;- mpg\n\n\nmpg is the data.frame provided by the R package ggplot2, one of the R pakcages in tidyverse.\n\nSince tidyverse is installed, ggplot2 package is already installed."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-14",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-14",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nRStudio Options Setting\n\n\n\n\n\nThis option menu is found by menus as follows:\n\nTools \\(&gt;\\) Global Options\n\nCheck the boxes as in the left.\nChoose the option Never for  Save workspace to .RData on exit:"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-15",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-15",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nPython in RStudio\n\nPython OptionR package, reticulate\n\n\n\nWe can run Python codes within RStudio.\nSelect Python interpreter in RStudio from Tools \\(&gt;\\) Global Options \\(&gt;\\) Python:\n\n\n\n\n\nInstall the R package, reticulate\n\ninstall.packages(\"reticulate\")\n\nThis package allows Quarto to use Python and R objects interactively within one Quarto document."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-16",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-16",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nBuilding a Website\n\nLet’s do Classwork 1."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-17",
-    "href": "danl-lec/danl-399-lec-01-2024-0126.html#installing-the-tools-17",
-    "title": "Lecture 1",
-    "section": "Installing the Tools",
-    "text": "Installing the Tools\nMarkdown\n\nJupyter Notebook, Quarto, and GitHub-based Discussion Boards use markdown as its underlying document syntax.\nLet’s do Classwork 2."
-  },
-  {
     "objectID": "listing-danl-399-qa.html",
     "href": "listing-danl-399-qa.html",
     "title": "DANL 399 - Lecture Discussion",
@@ -1001,16 +1316,51 @@
     "text": "Q3g.\nUse the following data.frame.\n\ntvshows_web &lt;- read_csv(\n        'https://bcdanl.github.io/data/tvshows.csv')\n\n\ndatatable(tvshows_web)\n\n\n\n\n\n\n\n\nDescribe the relationship between audience size (GRP) and audience engagement (PE) using ggplot.\nExplain the relationship in words."
   },
   {
-    "objectID": "listing-danl-399-cw.html",
-    "href": "listing-danl-399-cw.html",
-    "title": "DANL 399 - Classwork",
+    "objectID": "danl-class/danl-399-lec-02-2024-0202.html",
+    "href": "danl-class/danl-399-lec-02-2024-0202.html",
+    "title": "Lecture 2 - Note",
     "section": "",
-    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nClasswork 4\n\n\nggplot Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nQuarto Website Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nMarkdown Basics\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nBuilding a Personal Website using Git, GitHub, and RStudio with Quarto\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Make a plot!\nTo add a code chunk, - Alt + Ctrl + I - option + command + I\nTo run a code chunk - Ctrl + Shift + Enter - command + shift + return\nTo run a current line of code - Ctrl + Enter - command + return\n\nlibrary(gapminder)\ngapminder &lt;- gapminder::gapminder\nskim(gapminder)\n\n\nData summary\n\n\nName\ngapminder\n\n\nNumber of rows\n1704\n\n\nNumber of columns\n6\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\nfactor\n2\n\n\nnumeric\n4\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: factor\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nordered\nn_unique\ntop_counts\n\n\n\n\ncountry\n0\n1\nFALSE\n142\nAfg: 12, Alb: 12, Alg: 12, Ang: 12\n\n\ncontinent\n0\n1\nFALSE\n5\nAfr: 624, Asi: 396, Eur: 360, Ame: 300\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nyear\n0\n1\n1979.50\n17.27\n1952.00\n1965.75\n1979.50\n1993.25\n2007.0\n▇▅▅▅▇\n\n\nlifeExp\n0\n1\n59.47\n12.92\n23.60\n48.20\n60.71\n70.85\n82.6\n▁▆▇▇▇\n\n\npop\n0\n1\n29601212.32\n106157896.74\n60011.00\n2793664.00\n7023595.50\n19585221.75\n1318683096.0\n▇▁▁▁▁\n\n\ngdpPercap\n0\n1\n7215.33\n9857.45\n241.17\n1202.06\n3531.85\n9325.46\n113523.1\n▇▁▁▁▁\n\n\n\n\n\n\n\n\n\n\n\n\n\np &lt;- ggplot(data = gapminder,\n            aes(x = gdpPercap, y = lifeExp))\n\nBelow is the scatter plot of gdpPercap vs. lifeExp\n\np + geom_point()\n\n\n\n\nLet’s add a curve that fits into the data points.\n\np + geom_point() +\n  geom_smooth()\n\n\n\n\n\np + geom_point() +\n  geom_smooth() +\n  geom_smooth(method = lm)\n\n\n\n\n\np1 &lt;- ggplot(data = gapminder,\n             mapping = aes(x = gdpPercap, y = lifeExp,\n                           color = continent))\n\n\np1 + geom_point()\n\n\n\n\n\np + geom_point(color = \"red\")\n\n\n\n\n\np + geom_point(color = \"purple\") +\n  geom_smooth(method = lm)\n\n\n\n\n\np + geom_point(alpha = .2, size = 10)\n\n\n\n\n\np + geom_point(alpha = .2) +\n  geom_smooth(method = lm,\n              color = \"orange\",\n              se = F,\n              linewidth = 10\n              )\n\n\n\n\n\np + geom_point(alpha = .25) +\n  geom_smooth() +\n  scale_x_log10(labels = scales::dollar) +\n  labs(x = \"GDP Per Capita\", y = \"Life Expectancy in Years\",\n         title = \"Economic Growth and Life Expectancy\",\n         subtitle = \"Data points are country-years\",\n         caption = \"Source: Gapminder.\")\n\n\n\n\n\np1 + geom_point(alpha = .25) +\n  geom_smooth() +\n  scale_x_log10(labels = scales::dollar) +\n  labs(x = \"GDP Per Capita\", y = \"Life Expectancy in Years\",\n         title = \"Economic Growth and Life Expectancy\",\n         subtitle = \"Data points are country-years\",\n         caption = \"Source: Gapminder.\")\n\n\n\n\n\np1 + geom_point(alpha = .25) +\n  geom_smooth() +\n  geom_smooth(method = lm) +\n  guides(color = \"none\") +\n  facet_wrap( . ~ continent ) +\n  scale_x_log10(labels = scales::dollar) +\n  labs(x = \"GDP Per Capita\", y = \"Life Expectancy in Years\",\n         title = \"Economic Growth and Life Expectancy\",\n         subtitle = \"Data points are country-years\",\n         caption = \"Source: Gapminder.\")\n\n\n\n\n\np + geom_point(alpha = .25,\n               aes(color = continent)) +\n  geom_smooth(  )\n\n\n\n\n\np_out &lt;- p + geom_point(alpha = .25) +\n  geom_smooth() +\n  scale_x_continuous(trans = scales::log_trans())  # natural log\np_out\n\n\n\n# ggsave(\"my_figure.pdf\", plot = p_out)\n\n\n\n\nReferences\n\nR for Data Science by Hadley Wickham\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "danl-qa/danl-399-qa-02.html",
-    "href": "danl-qa/danl-399-qa-02.html",
-    "title": "Lecture 2 - Q & A",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
+    "section": "",
+    "text": "Welcome! 👋\n\\(-\\) Explore, Learn, and Grow with the DANL! 🌟"
+  },
+  {
+    "objectID": "index.html#bullet-lecture-slides",
+    "href": "index.html#bullet-lecture-slides",
+    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
+    "section": "\\(\\bullet\\,\\) Lecture Slides 🚀",
+    "text": "\\(\\bullet\\,\\) Lecture Slides 🚀\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 3\n\n\nFebruary 9, 2024\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#bullet-lecture-q-a",
+    "href": "index.html#bullet-lecture-q-a",
+    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
+    "section": "\\(\\bullet\\,\\) Lecture Q & A ❓",
+    "text": "\\(\\bullet\\,\\) Lecture Q & A ❓\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 2 - Q & A\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1 - Q & A\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#bullet-classwork",
+    "href": "index.html#bullet-classwork",
+    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
+    "section": "\\(\\bullet\\,\\) Classwork ⌨️",
+    "text": "\\(\\bullet\\,\\) Classwork ⌨️\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nClasswork 4\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#bullet-homework",
+    "href": "index.html#bullet-homework",
+    "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
+    "section": "\\(\\bullet\\,\\) Homework 💻",
+    "text": "\\(\\bullet\\,\\) Homework 💻\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nHomework 1\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "danl-qa/danl-399-qa-01.html",
+    "href": "danl-qa/danl-399-qa-01.html",
+    "title": "Lecture 1 - Q & A",
     "section": "",
     "text": "Back to top"
   },
@@ -1019,6 +1369,6 @@
     "href": "listing-danl-399-lec.html",
     "title": "DANL 399 - Lecture",
     "section": "",
-    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 3\n\n\nFebruary 9, 2024\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   }
 ]

@@ -1,8 +1,15 @@
 /* css styles */
 
 
+
+/* to fix the width of body and navbar with invisible scrollbar */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+
 .dropdown-menu {
-  height: 85px;
+  height: 120px;
   max-height:300px;
   overflow-y: scroll;
 }

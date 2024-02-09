@@ -1,0 +1,248 @@
+---
+title: Homework 1
+subtitle: Personal Website and `ggplot` Visualization
+author: Byeong-Hak Choe
+date: last-modified
+---
+
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+library(datasets)
+library(gapminder)
+library(skimr)   # a better summary of data.frame
+library(scales)  # scales for ggplot
+library(ggthemes)  # additional ggplot themes
+library(hrbrthemes) # additional ggplot themes and color pallets
+library(lubridate)
+library(ggridges)
+library(DT)
+theme_set(theme_minimal()) # setting the minimal theme for ggplot
+# setting default chunk options
+
+knitr::opts_chunk$set(fig.width=8, fig.height=5,
+                      echo = T, eval = T, 
+                      message=F, warning = F, fig.cap = " ")  
+```
+
+# Part 1. Personal Website
+
+1. Decorate your website:
+  - Replace `YOUR NAME` with your name in `_quarto.yml` and `index.qmd`.
+  - Describe yourself in `index.qmd`.
+  - Add the picture file (e.g., `png`) of your profile photo to `img` directory. Then correct `img/profile.png` in `index.qmd` accordingly.
+  - Add the PDF file of your resumé to the website working directory in your laptop (or Posit Cloud).
+  - Correct links for your resumé, LinkedIn, email, and optionally social media.
+  - Make sure that you do not have any broken links in your website.
+
+2. Add a "ggplot Basics" blog post to your blog using Quarto document.
+  - In your "ggplot Basics" blog post, briefly explain ggplot Basics we discussed in [Lecture 2](https://bcdanl.github.io/399/danl-lec/danl-399-lec-02-2024-0202.html), [Lecture 3](https://bcdanl.github.io/399/danl-lec/danl-399-lec-07-2024-0209.html), [Classwork 4](https://bcdanl.github.io/399/danl-cw/danl-399-cw-04.html), and [Classwork 5](https://bcdanl.github.io/399/danl-cw/danl-399-cw-05.html)
+
+3. Use the 3-step git commands (`git add`, `git commit`, and `git push`) to update your online website.
+
+
+<br><br><br>
+
+
+# Part 2. `ggplot` visualization
+
+Provide ggplot codes to replicate the given figures.
+
+Use the following data.frame for Question 1, 2, and 3.
+
+```{r}
+#| echo: true
+ncdc_temp <- read_csv(
+  'https://bcdanl.github.io/data/ncdc_temp_cleaned.csv')
+```
+
+
+```{r}
+#| echo: false
+#| eval: true
+
+datatable(ncdc_temp)
+```
+
+<br>
+
+## Question 1
+
+```{r q1}
+#| echo: false
+#| eval: true
+
+knitr::include_graphics("danl-399-hw-01_files/figure-html/q1-1.png")
+```
+
+<br><br>
+
+## Question 2
+
+
+```{r q2}
+#| echo: false
+#| eval: true
+
+knitr::include_graphics("danl-399-hw-01_files/figure-html/q2-1.png")
+```
+
+<br><br>
+
+## Question 3
+Use `ggridges::geom_density_ridges()` for Question 3.
+
+```{r q3}
+#| echo: false
+#| eval: true
+
+knitr::include_graphics("danl-399-hw-01_files/figure-html/q3-1.png")
+```
+
+
+<br><br>
+
+## Question 4
+Use `datasets::mtcars` for Question 4.
+
+```{r}
+#| echo: false
+#| eval: true
+
+datatable(datasets::mtcars)
+```
+
+<br>
+
+```{r q4}
+#| echo: false
+#| eval: true
+
+knitr::include_graphics("danl-399-hw-01_files/figure-html/q4-1.png")
+```
+
+
+<br><br>
+
+## Question 5
+
+Use the following data.frame for Question 5.
+
+```{r}
+#| echo: true
+popgrowth_df <- read_csv(
+  'https://bcdanl.github.io/data/popgrowth.csv')
+```
+
+
+```{r}
+#| echo: false
+#| eval: true
+
+datatable(popgrowth_df)
+```
+
+<br>
+
+```{r q5}
+#| echo: false
+#| eval: true
+
+knitr::include_graphics("danl-399-hw-01_files/figure-html/q5-1.png")
+```
+
+
+<br><br>
+
+## Question 6
+Use the following data.frame for Question 6
+
+```{r}
+#| echo: true
+male_Aus <- read_csv(
+  'https://bcdanl.github.io/data/aus_athletics_male.csv')
+```
+
+```{r}
+#| echo: false
+#| eval: true
+
+datatable(male_Aus)
+```
+
+<br>
+
+
+```{r q6}
+#| echo: false
+#| eval: true
+
+
+knitr::include_graphics("danl-399-hw-01_files/figure-html/q6-1.png")
+```
+
+
+<br><br>
+
+## Question 7
+Use the following data.frame for Question 7
+
+```{r}
+#| echo: true
+titanic <- read_csv(
+  'https://bcdanl.github.io/data/titanic_cleaned.csv')
+```
+
+
+```{r}
+#| echo: false
+#| eval: true
+
+datatable(titanic)
+```
+
+<br>
+
+```{r q7}
+#| echo: false
+#| eval: true
+
+
+knitr::include_graphics("danl-399-hw-01_files/figure-html/q7-1.png")
+```
+
+
+<br><br>
+
+## Question 8
+Use the following data.frame for Question 8.
+
+```{r}
+#| echo: true
+cows_filtered <- read_csv(
+  'https://bcdanl.github.io/data/cows_filtered.csv')
+```
+
+```{r}
+#| echo: false
+#| eval: true
+
+datatable(cows_filtered)
+```
+
+<br>
+
+
+```{r q8}
+#| echo: false
+#| eval: true
+
+knitr::include_graphics("danl-399-hw-01_files/figure-html/q8-1.png")
+
+```
+
+<br>
+
+<!-- <p>Reference: [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) by Claus O. Wilke</p> -->
