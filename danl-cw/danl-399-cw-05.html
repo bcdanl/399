@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Byeong-Hak Choe">
+<meta name="dcterms.date" content="2023-02-10">
 
-<title>DANL 399 - Classwork | Byeong-Hak Choe</title>
+<title>Classwork 5 | Byeong-Hak Choe</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,31 +22,63 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./img/favicon.ico" rel="icon">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../img/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -65,62 +99,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-title','listing-subtitle','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-<style>
-#toc-welcome {
-      font-size: 1.67em;
-}
-#toc-bullet-lecture {
-      font-size: 1.67em;
-}
-#toc-bullet-classwork {
-      font-size: 1.67em;
-}
-#toc-bullet-homework {
-      font-size: 1.67em;
-}
-a {
-text-decoration: none; /* This removes the underline */
-padding: 5px 10px; /* Top & Bottom, Left & Right Padding */
-border-radius: 5px; /* Rounds the corners */
-}
-</style>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="assets/css/font.css">
-<link rel="stylesheet" href="front.css">
-<meta property="og:title" content="DANL 399 - Classwork | Byeong-Hak Choe">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../assets/css/font.css">
+<meta property="og:title" content="Classwork 5 | Byeong-Hak Choe">
+<meta property="og:description" content="The Layered Grammar of Graphics">
 <meta property="og:image" content="/assets/img/posts.png">
 <meta property="og:site-name" content="B.H. CHOE&amp;nbsp;&amp;nbsp;&amp;nbsp;">
 </head>
@@ -132,7 +116,7 @@ border-radius: 5px; /* Rounds the corners */
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">B.H. CHOE&nbsp;&nbsp;&nbsp;</span>
     </a>
   </div>
@@ -175,19 +159,19 @@ border-radius: 5px; /* Rounds the corners */
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./listing-danl-399-cw.html"><font size="5"><b>- Classwork </b></font><font size="5" color="#194493">{{&lt; fa solid keyboard &gt;}}</font></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Classwork 5</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./img/geneseo-logo-squared.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../img/geneseo-logo-squared.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       </div>
     <div class="sidebar-menu-container"> 
@@ -197,31 +181,31 @@ border-radius: 5px; /* Rounds the corners */
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./listing-danl-399-lec.html" class="sidebar-item-text sidebar-link">
+  <a href="../listing-danl-399-lec.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><font size="5"><b>- Lecture </b></font><font size="5" color="#194493"><i class="fa-solid fa-laptop" aria-label="laptop"></i></font></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./listing-danl-399-qa.html" class="sidebar-item-text sidebar-link">
+  <a href="../listing-danl-399-qa.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><font size="5"><b>- Q &amp; A </b></font><font size="5" color="#194493"><i class="fa-solid fa-commenting" aria-label="commenting"></i></font></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./listing-danl-399-cw.html" class="sidebar-item-text sidebar-link active">
+  <a href="../listing-danl-399-cw.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><font size="5"><b>- Classwork </b></font><font size="5" color="#194493"><i class="fa-solid fa-keyboard" aria-label="keyboard"></i></font></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./listing-danl-399-hw.html" class="sidebar-item-text sidebar-link">
+  <a href="../listing-danl-399-hw.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><font size="5"><b>- Homework </b></font><font size="5" color="#194493"><i class="fa-solid fa-level-up" aria-label="level-up"></i></font></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./listing-danl-399-class.html" class="sidebar-item-text sidebar-link">
+  <a href="../listing-danl-399-class.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><font size="5"><b>- Class Notes </b></font><font size="5" color="#194493"><i class="fa-solid fa-pencil" aria-label="pencil"></i></font></span></a>
   </div>
 </li>
@@ -230,118 +214,195 @@ border-radius: 5px; /* Rounds the corners */
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#question-1.-geometric-objects" id="toc-question-1.-geometric-objects" class="nav-link active" data-scroll-target="#question-1.-geometric-objects">Question 1. Geometric Objects</a>
+  <ul>
+  <li><a href="#q1a." id="toc-q1a." class="nav-link" data-scroll-target="#q1a.">Q1a.</a></li>
+  <li><a href="#q1b." id="toc-q1b." class="nav-link" data-scroll-target="#q1b.">Q1b.</a></li>
+  <li><a href="#q1c." id="toc-q1c." class="nav-link" data-scroll-target="#q1c.">Q1c.</a>
+  <ul>
+  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">(a)</a></li>
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">(b)</a></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">(c)</a></li>
+  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d">(d)</a></li>
+  <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e">(e)</a></li>
+  <li><a href="#f" id="toc-f" class="nav-link" data-scroll-target="#f">(f)</a></li>
+  </ul></li>
+  <li><a href="#q1d." id="toc-q1d." class="nav-link" data-scroll-target="#q1d.">Q1d.</a></li>
+  </ul></li>
+  <li><a href="#question-2.-statistical-transformation-and-position-adjustment" id="toc-question-2.-statistical-transformation-and-position-adjustment" class="nav-link" data-scroll-target="#question-2.-statistical-transformation-and-position-adjustment">Question 2. Statistical Transformation and Position Adjustment</a>
+  <ul>
+  <li><a href="#q2a." id="toc-q2a." class="nav-link" data-scroll-target="#q2a.">Q2a.</a></li>
+  <li><a href="#q2b." id="toc-q2b." class="nav-link" data-scroll-target="#q2b.">Q2b.</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><font style="font-family:Optima"><b>DANL 399 - Classwork</b></font></h1>
+<h1 class="title">Classwork 5</h1>
+<p class="subtitle lead">The Layered Grammar of Graphics</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Byeong-Hak Choe </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 10, 2023</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 10, 2024</p>
+    </div>
+  </div>
     
   </div>
   
 
 </header>
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<section id="question-1.-geometric-objects" class="level1">
+<h1>Question 1. Geometric Objects</h1>
+<section id="q1a." class="level2">
+<h2 class="anchored" data-anchor-id="q1a.">Q1a.</h2>
+<p>Run this code in your head and predict what the output will look like. Then, run the code in R and check your predictions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> drv)) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Title
-</th>
-<th>
-Subtitle
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1676005200000" data-listing-file-modified-sort="1707544726355" data-listing-date-modified-sort="1707544726000" data-listing-reading-time-sort="4" data-listing-title-sort="Classwork 5" data-listing-filename-sort="danl-399-cw-05.qmd">
-<td>
-<a href="./danl-cw/danl-399-cw-05.html" class="title listing-title">Classwork 5</a>
-</td>
-<td>
-<span class="listing-subtitle">The Layered Grammar of Graphics</span>
-</td>
-<td>
-<span class="listing-date">February 10, 2023</span>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1675227600000" data-listing-file-modified-sort="1706933800188" data-listing-date-modified-sort="1706933800000" data-listing-reading-time-sort="4" data-listing-title-sort="Classwork 4" data-listing-filename-sort="danl-399-cw-04.qmd">
-<td>
-<a href="./danl-cw/danl-399-cw-04.html" class="title listing-title">Classwork 4</a>
-</td>
-<td>
-<span class="listing-subtitle">ggplot Basics</span>
-</td>
-<td>
-<span class="listing-date">February 1, 2023</span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1675227600000" data-listing-file-modified-sort="1706930505649" data-listing-date-modified-sort="1706930505000" data-listing-reading-time-sort="2" data-listing-title-sort="Classwork 3" data-listing-filename-sort="danl-399-cw-03.qmd">
-<td>
-<a href="./danl-cw/danl-399-cw-03.html" class="title listing-title">Classwork 3</a>
-</td>
-<td>
-<span class="listing-subtitle">Quarto Website Basics</span>
-</td>
-<td>
-<span class="listing-date">February 1, 2023</span>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1706315766000" data-listing-file-modified-sort="1706315766687" data-listing-date-modified-sort="1706315766000" data-listing-reading-time-sort="2" data-listing-title-sort="Classwork 2" data-listing-filename-sort="danl-399-cw-02.qmd">
-<td>
-<a href="./danl-cw/danl-399-cw-02.html" class="title listing-title">Classwork 2</a>
-</td>
-<td>
-<span class="listing-subtitle">Markdown Basics</span>
-</td>
-<td>
-<span class="listing-date">January 26, 2024</span>
-</td>
-</tr>
-<tr data-index="4" data-listing-date-sort="1674709200000" data-listing-file-modified-sort="1706592292176" data-listing-date-modified-sort="1706592292000" data-listing-reading-time-sort="7" data-listing-title-sort="Classwork 1" data-listing-filename-sort="danl-399-cw-01.qmd">
-<td>
-<a href="./danl-cw/danl-399-cw-01.html" class="title listing-title">Classwork 1</a>
-</td>
-<td>
-<span class="listing-subtitle">Building a Personal Website using Git, GitHub, and RStudio with Quarto</span>
-</td>
-<td>
-<span class="listing-date">January 26, 2023</span>
-</td>
-</tr>
-</tbody>
-
-</table>
-<div class="listing-no-matching d-none">
-No matching items
+<p><br></p>
+</section>
+<section id="q1b." class="level2">
+<h2 class="anchored" data-anchor-id="q1b.">Q1b.</h2>
+<p>What does <code>show.legend = FALSE</code> do? What happens if you remove it? Why do you think I used it earlier in the lecture?</p>
+<p><br></p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">color =</span> drv),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> .<span class="dv">5</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="danl-399-cw-05_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+</div>
+</section>
+<section id="q1c." class="level2">
+<h2 class="anchored" data-anchor-id="q1c.">Q1c.</h2>
+<p>Recreate the R code necessary to generate the following graphs.</p>
+<section id="a" class="level3">
+<h3 class="anchored" data-anchor-id="a">(a)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="danl-399-cw-05_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="b" class="level3">
+<h3 class="anchored" data-anchor-id="b">(b)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="danl-399-cw-05_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="c" class="level3">
+<h3 class="anchored" data-anchor-id="c">(c)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="danl-399-cw-05_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="d" class="level3">
+<h3 class="anchored" data-anchor-id="d">(d)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="danl-399-cw-05_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="e" class="level3">
+<h3 class="anchored" data-anchor-id="e">(e)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="danl-399-cw-05_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="f" class="level3">
+<h3 class="anchored" data-anchor-id="f">(f)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="danl-399-cw-05_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="q1d." class="level2">
+<h2 class="anchored" data-anchor-id="q1d.">Q1d.</h2>
+<ul>
+<li>Use the data.frame, <code>organdata_simple</code> to visualize the yearly trend of the variable <code>donors</code> for each country.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>organdata_simple <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://bcdanl.github.io/data/organdata_simple.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br><br><br></p>
+</section>
+</section>
+<section id="question-2.-statistical-transformation-and-position-adjustment" class="level1">
+<h1>Question 2. Statistical Transformation and Position Adjustment</h1>
+<section id="q2a." class="level2">
+<h2 class="anchored" data-anchor-id="q2a.">Q2a.</h2>
+<p>What does <code>geom_col()</code> do? How is it different to <code>geom_bar()</code>?</p>
+<p><strong>Answer</strong>:</p>
+<p><br><br></p>
+</section>
+<section id="q2b." class="level2">
+<h2 class="anchored" data-anchor-id="q2b.">Q2b.</h2>
+<ul>
+<li><p>Install the R package, <code>nycflights13</code>, which provides the <code>flights</code> data.frame.</p></li>
+<li><p>Visualize the distribution of <code>carrier</code>.</p></li>
+<li><p>Visualize how the distribution of <code>carrier</code> varies by <code>origin</code>.</p></li>
+</ul>
+<p><strong>Answer</strong>:</p>
+<p><br><br></p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -704,6 +765,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
 });
 </script>
+<script src="https://giscus.app/client.js" data-repo="bcdanl/399" data-repo-id="R_kgDOLH47Mw" data-category="General" data-category-id="DIC_kwDOLH47M84Ccubz" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -717,8 +780,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </footer>
 <div id="scroll-padding"></div>
-<script src="./assets/js/site.js"></script>
-<script src="./assets/js/posts.js"></script>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/posts.js"></script>
 
 
 
