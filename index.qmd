@@ -79,7 +79,7 @@ format:
 
 <div style="display:block; margin:25px;"></div>
 
-<font size = "5">Welcome! 👋 </font>
+<font size = "5">Welcome! 👋 </font> 
 
 <div style="display:block; margin:-10px;"></div>
 
