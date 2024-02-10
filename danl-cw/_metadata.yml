@@ -25,7 +25,7 @@ comments:
 toc: true
 toc-depth: 6
 toc-expand: 3
-citation: true
-appendix-cite-as: display
-license:
-  text: © 2024 Byeong-Hak Choe | This post is licensed under <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'>CC BY-NC-SA 4.0</a>.
+# citation: true
+# appendix-cite-as: display
+# license:
+  # text: © 2024 Byeong-Hak Choe | This post is licensed under <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'>CC BY-NC-SA 4.0</a>.

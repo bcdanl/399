@@ -85,11 +85,11 @@ format:
 
 <font size = "5">$-$ Explore, Learn, and Grow with the DANL! 🌟</font>
 
-<div style="display:block; margin:25px;"></div>
+<!-- <div style="display:block; margin:25px;"></div> -->
 
-<p align="center" >
-  <img src="img/coding-combined.gif" width="75%">
-</p>
+<!-- <p align="center" > -->
+<!--   <img src="img/coding-combined.gif" width="75%"> -->
+<!-- </p> -->
 
 <div style="display:block; margin:25px;"></div>
 

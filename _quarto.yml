@@ -11,7 +11,7 @@ website:
 
   navbar:
     background: "#1c4982" #194493 
-    logo: img/geneseo-logo-squared.png
+    # logo: img/geneseo-logo-squared.png
     pinned: true
     right:
       - icon: github
@@ -31,6 +31,7 @@ website:
 
   sidebar:
     title: "Welcome!"
+    logo: img/geneseo-logo-squared.png
     style: docked
     search: false
     collapse-level: 0
