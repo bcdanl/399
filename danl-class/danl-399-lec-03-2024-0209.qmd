@@ -1,0 +1,109 @@
+---
+title: Lecture 3 - Note
+subtitle: ggplot grammar
+author: 
+  - name: Byeong-Hak Choe
+date: last-modified
+
+execute:
+  echo: true
+  eval: true
+  warning: false
+  message: false
+  fig-width: 9
+  # fig-height: 5
+---
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(DT)
+
+theme_set(theme_ipsum()+
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.33),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 90,
+                               size = rel(1.33),
+                               margin = margin(0,10,0,0))
+                )
+          )
+```
+
+
+```{r}
+library(tidyverse)
+sale_df <- read_csv(
+  "https://bcdanl.github.io/data/home_sales_nyc.csv")
+```
+
+
+```{r}
+ggplot(sale_df, 
+       aes(x = sale.price), 
+       bins = 500) +
+  geom_histogram()
+```
+
+
+```{r}
+ggplot(sale_df, 
+       aes(x = log(sale.price)), 
+       bins = 500) +
+  geom_histogram()
+
+
+```
+
+
+```{r}
+diamonds <- ggplot2::diamonds
+
+??diamonds
+```
+
+
+
+```{r}
+# to make a simple data.frame
+demo <- tribble(         
+  ~cut,         ~freq,
+  "Fair",       1610,
+  "Good",       4906,
+  "Very Good",  12082,
+  "Premium",    13791,
+  "Ideal",      21551 )
+
+ggplot(data = demo) +
+  geom_bar(mapping = 
+             aes(x = cut, 
+                 y = freq), 
+           stat = "identity")
+```
+
+
+```{r}
+
+ggplot(data = demo) +
+  geom_col(mapping = 
+             aes(x = cut, 
+                 y = freq))
+```
+
+```{r}
+
+ggplot(diamonds) +
+  geom_bar(aes(x = cut,
+               fill = clarity),
+           position = "fill") +
+  labs(y = "Proportion")
+
+```
+

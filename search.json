@@ -67,7 +67,7 @@
     "href": "listing-danl-399-class.html",
     "title": "DANL 399 - Class Notes",
     "section": "",
-    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nLecture 2 - Note\n\n\nggplot Basics\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nLecture 3 - Note\n\n\nggplot grammar\n\n\nFebruary 10, 2024\n\n\n\n\nLecture 2 - Note\n\n\nggplot Basics\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "danl-qa/danl-399-qa-03.html",
@@ -112,11 +112,11 @@
     "text": "\\(\\bullet\\,\\) Homework 💻\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nHomework 1\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "danl-class/danl-399-lec-02-2024-0202.html",
-    "href": "danl-class/danl-399-lec-02-2024-0202.html",
-    "title": "Lecture 2 - Note",
+    "objectID": "danl-class/danl-399-lec-03-2024-0209.html",
+    "href": "danl-class/danl-399-lec-03-2024-0209.html",
+    "title": "Lecture 3 - Note",
     "section": "",
-    "text": "Make a plot!\nTo add a code chunk, - Alt + Ctrl + I - option + command + I\nTo run a code chunk - Ctrl + Shift + Enter - command + shift + return\nTo run a current line of code - Ctrl + Enter - command + return\n\nlibrary(gapminder)\ngapminder &lt;- gapminder::gapminder\nskim(gapminder)\n\n\nData summary\n\n\nName\ngapminder\n\n\nNumber of rows\n1704\n\n\nNumber of columns\n6\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\nfactor\n2\n\n\nnumeric\n4\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: factor\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nordered\nn_unique\ntop_counts\n\n\n\n\ncountry\n0\n1\nFALSE\n142\nAfg: 12, Alb: 12, Alg: 12, Ang: 12\n\n\ncontinent\n0\n1\nFALSE\n5\nAfr: 624, Asi: 396, Eur: 360, Ame: 300\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nyear\n0\n1\n1979.50\n17.27\n1952.00\n1965.75\n1979.50\n1993.25\n2007.0\n▇▅▅▅▇\n\n\nlifeExp\n0\n1\n59.47\n12.92\n23.60\n48.20\n60.71\n70.85\n82.6\n▁▆▇▇▇\n\n\npop\n0\n1\n29601212.32\n106157896.74\n60011.00\n2793664.00\n7023595.50\n19585221.75\n1318683096.0\n▇▁▁▁▁\n\n\ngdpPercap\n0\n1\n7215.33\n9857.45\n241.17\n1202.06\n3531.85\n9325.46\n113523.1\n▇▁▁▁▁\n\n\n\n\n\n\n\n\n\n\n\n\n\np &lt;- ggplot(data = gapminder,\n            aes(x = gdpPercap, y = lifeExp))\n\nBelow is the scatter plot of gdpPercap vs. lifeExp\n\np + geom_point()\n\n\n\n\nLet’s add a curve that fits into the data points.\n\np + geom_point() +\n  geom_smooth()\n\n\n\n\n\np + geom_point() +\n  geom_smooth() +\n  geom_smooth(method = lm)\n\n\n\n\n\np1 &lt;- ggplot(data = gapminder,\n             mapping = aes(x = gdpPercap, y = lifeExp,\n                           color = continent))\n\n\np1 + geom_point()\n\n\n\n\n\np + geom_point(color = \"red\")\n\n\n\n\n\np + geom_point(color = \"purple\") +\n  geom_smooth(method = lm)\n\n\n\n\n\np + geom_point(alpha = .2, size = 10)\n\n\n\n\n\np + geom_point(alpha = .2) +\n  geom_smooth(method = lm,\n              color = \"orange\",\n              se = F,\n              linewidth = 10\n              )\n\n\n\n\n\np + geom_point(alpha = .25) +\n  geom_smooth() +\n  scale_x_log10(labels = scales::dollar) +\n  labs(x = \"GDP Per Capita\", y = \"Life Expectancy in Years\",\n         title = \"Economic Growth and Life Expectancy\",\n         subtitle = \"Data points are country-years\",\n         caption = \"Source: Gapminder.\")\n\n\n\n\n\np1 + geom_point(alpha = .25) +\n  geom_smooth() +\n  scale_x_log10(labels = scales::dollar) +\n  labs(x = \"GDP Per Capita\", y = \"Life Expectancy in Years\",\n         title = \"Economic Growth and Life Expectancy\",\n         subtitle = \"Data points are country-years\",\n         caption = \"Source: Gapminder.\")\n\n\n\n\n\np1 + geom_point(alpha = .25) +\n  geom_smooth() +\n  geom_smooth(method = lm) +\n  guides(color = \"none\") +\n  facet_wrap( . ~ continent ) +\n  scale_x_log10(labels = scales::dollar) +\n  labs(x = \"GDP Per Capita\", y = \"Life Expectancy in Years\",\n         title = \"Economic Growth and Life Expectancy\",\n         subtitle = \"Data points are country-years\",\n         caption = \"Source: Gapminder.\")\n\n\n\n\n\np + geom_point(alpha = .25,\n               aes(color = continent)) +\n  geom_smooth(  )\n\n\n\n\n\np_out &lt;- p + geom_point(alpha = .25) +\n  geom_smooth() +\n  scale_x_continuous(trans = scales::log_trans())  # natural log\np_out\n\n\n\n# ggsave(\"my_figure.pdf\", plot = p_out)\n\n\n\n\nReferences\n\nR for Data Science by Hadley Wickham\n\n\n\n\n\n Back to top"
+    "text": "library(tidyverse)\nsale_df &lt;- read_csv(\n  \"https://bcdanl.github.io/data/home_sales_nyc.csv\")\n\n\nggplot(sale_df, \n       aes(x = sale.price), \n       bins = 500) +\n  geom_histogram()\n\n\n\n\n\nggplot(sale_df, \n       aes(x = log(sale.price)), \n       bins = 500) +\n  geom_histogram()\n\n\n\n\n\ndiamonds &lt;- ggplot2::diamonds\n\n??diamonds\n\n\n# to make a simple data.frame\ndemo &lt;- tribble(         \n  ~cut,         ~freq,\n  \"Fair\",       1610,\n  \"Good\",       4906,\n  \"Very Good\",  12082,\n  \"Premium\",    13791,\n  \"Ideal\",      21551 )\n\nggplot(data = demo) +\n  geom_bar(mapping = \n             aes(x = cut, \n                 y = freq), \n           stat = \"identity\")\n\n\n\n\n\nggplot(data = demo) +\n  geom_col(mapping = \n             aes(x = cut, \n                 y = freq))\n\n\n\n\n\nggplot(diamonds) +\n  geom_bar(aes(x = cut,\n               fill = clarity),\n           position = \"fill\") +\n  labs(y = \"Proportion\")\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "danl-cw/danl-399-cw-04.html",
@@ -1032,351 +1032,8 @@
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#learning-objectives",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#learning-objectives",
     "title": "Lecture 3",
-    "section": "",
-    "text": "ggplot grammar"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#rstudio-workflow",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#rstudio-workflow",
-    "title": "Lecture 3",
-    "section": "RStudio Workflow",
-    "text": "RStudio Workflow\nShortcuts for RStudio and RScript\n\n\nMac\n\ncommand + shift + N opens a new RScript.\ncommand + return runs a current line or selected lines.\ncommand + shift + C is the shortcut for # (commenting).\noption + -  is the shortcut for &lt;-.\n\n\nWindows\n\nCtrl + Shift + N opens a new RScript.\nCtrl + return runs a current line or selected lines.\nCtrl + Shift + C is the shortcut for # (commenting).\nAlt + -  is the shortcut for &lt;-."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#workflow",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#workflow",
-    "title": "Lecture 3",
-    "section": "Workflow",
-    "text": "Workflow\nShortcuts for Lecture Slides\n\no or Esc overviews lecture slides\n\nUse arrow keys to move around.\n\nYou can also click the menu button at the top-right corner, and go to a specific slide.\nCtrl + Shift + F to search."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\ngapminder data\n\nThe gapminder package include the gapminder data frame.\n\nlibrary(gapminder)\ngapminder\nskim(gapminder)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-1",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-1",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\nMappings link data to things we see\n\nFirst, we tell the core ggplot function what our data is and what our aesthetic mapping is:\n\np &lt;- ggplot(data = gapminder)\np &lt;- ggplot(data = gapminder,\n            mapping = aes(x = gdpPercap,\n                          y = lifeExp))\n\nWe can then add the geometric object (geom_*()) to the ggplot().\n\np + geom_point()"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-2",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-2",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\n1. Tell the ggplot() function what our tidy data is. - ggplot(data = ...)\n2. Tell ggplot() what relationships we want to see. - The ggplot(mapping = aes(...)) - p &lt;- ggplot(data = ... , aes(...))\n3. Tell ggplot() how we want to see the relationships in our data. - Choose a geom_*().\n4. Layer on geoms as needed, by adding them to the p object one at a time.\n5. Use some additional functions to adjust scales, labels, tick marks, titles, etc."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-3",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-3",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\nBuild your plots layer by layer\np + geom_point() + geom_smooth() \np + geom_point() + geom_smooth(method = \"lm\") \np + geom_point() +\n    geom_smooth(method = \"lm\")\np + geom_point() +\n    geom_smooth(method = \"gam\")"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-4",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-4",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\nMapping aesthetics vs setting them\n\nIn the following, we map color to continent in the aes() function:\n\np1 &lt;-  ggplot(data = gapminder,\n             mapping = aes(x = gdpPercap, y = lifeExp,\n                           color = continent))\n\nWe then add geoms.\n\np1 + geom_point() +\n     geom_smooth(method = \"lm\")"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-5",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-5",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\nMapping aesthetics vs setting them\n\nIn the following, we map color to \"purple\" outside of the aes() function:\n\np2 &lt;- ggplot(data = gapminder,\n            mapping = aes(x = gdpPercap, y = lifeExp))\n\nWe then add geoms, manually set aethetics, and then adjust scales.\n\np2 + geom_point(color = \"purple\") +\n     geom_smooth(method = \"lm\")"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-6",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-6",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\nMapping aesthetics vs setting them\n\nHere are another exmaples that set aesthetic mapping manually outside aes() function and inside geom_*() function.\n\np &lt;- ggplot(data = gapminder,\n            mapping = aes(x = gdpPercap,\n                          y = lifeExp))\n\np + geom_point(color = \"purple\") +\n    geom_smooth(method = \"loess\") \n\np + geom_point(alpha = 0.3) +\n    geom_smooth(color = \"orange\", se = F, size = 8, method = \"lm\")"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-7",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-7",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\nMapping aesthetics vs setting them\n\nLet’s add scale_*() and labs() functions to ggplot()\n\np + geom_point(alpha = 0.3) +\n    geom_smooth(method = \"gam\") +\n    scale_x_log10(labels = scales::dollar) +\n    labs(x = \"GDP Per Capita\", y = \"Life Expectancy in Years\",\n         title = \"Economic Growth and Life Expectancy\",\n         subtitle = \"Data points are country-years\",\n         caption = \"Source: Gapminder.\")\n\nQ. Is it really the best way to display this country-year data?\n\nWhat are we gaining and losing by ignoring the temporal and country-level structure of the data? How could we do better?"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-8",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-8",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\nAesthetics can be mapped per geom\n\nWe can have different aesthetic mappings across different geoms:\n\np &lt;- ggplot(data = gapminder, \n            mapping = aes(x = gdpPercap, y = lifeExp))\n\np + geom_point(mapping = aes(color = continent)) +\n    geom_smooth(method = \"loess\")  +\n    scale_x_continuous(trans = scales::log_trans())  # natural log"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-9",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-9",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\nSave your work\n\nWe can use ggsave() to save ggplot output as a .png or .pdf file.\n\nggsave(filename = \"my_figure.png\")\n\nWe can put our recent plot into an object called p_out and then tell ggave() that we want to save that object.\n\np_out &lt;- p + geom_point() +\n    geom_smooth(method = \"loess\") +\n    scale_x_log10()\nggsave(\"my_figure.pdf\", plot = p_out)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-10",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-10",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\nSave your work\n\nWe can set the size of ggplot figue:\n\nggsave(\"lifexp_vs_gdp_gradient.pdf\",\n       plot = p_out, height = 8, width = 10, units = \"in\")"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-11",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-11",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\nWork a little more with gapminder data\n\nWhat happens when you put the geom_smooth() function before geom_point() instead of after it?\n\nWhat does this tell you about how the plot is drawn? Think about how this might be useful when drawing plots."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-12",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-12",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\nWork a little more with gapminder data\n\nChange the mappings in the aes() function so that you plot Life Expectancy against population (pop) rather than per capita GDP.\n\nWhat does that look like?\nWhat does it tell you about the unit of observation in the dataset?"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-13",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#make-a-plot-13",
-    "title": "Lecture 3",
-    "section": "Make a plot",
-    "text": "Make a plot\nWork a little more with gapminder data\n\nWhat happens if you map color to year instead of continent?\n\nIs the result what you expected?\nThink about what class of object year is.\nRemember you can get a quick look at the top of the data, which includes some shorthand information on the class of each variable, by typing gapminder.\nInstead of mapping color = year, what happens if you try color = factor(year)?"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-1",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-1",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nGrouped data and the group aesthetic\n\nLet’s get a line plot that draws the trajectory of life expectancy over time for each country in the gapminder data.frame.\n\np &lt;- ggplot(data = gapminder,\n            mapping = aes( x = year,\n                           y = gdpPercap ) )\n\np + geom_line() \n\nWhat happened?\ngeom_line() joins up all the lines for each particular year in the order they appear in the dataset."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-2",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-2",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nGrouped data and the group aesthetic\n\nWithout group related parameters, ggplot() does not know that the yearly observations in the data are grouped by country.\n\np &lt;- ggplot(data = gapminder,\n            mapping = aes( x = year,\n                           y = gdpPercap ) )\n\np + geom_line( aes( group = country ) )"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-3",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-3",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nGrouped data and the group aesthetic\n\nThe group aesthetic is usually only needed when the grouping information we need to tell ggplot() about is not built-in to the variables being mapped.\n\nHow about color aesthetic, instead of group?\n\n\np &lt;- ggplot(data = gapminder,\n            mapping = aes( x = year,\n                           y = gdpPercap ) )\n\np + geom_line( aes( color = country ) )"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-4",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-4",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nFacet to make small multiples\n\nMaking a “small multiple” plot by faceting data based on a caterigorical variable allows a lot of information to be presented compactly, and in a consistently comparable way.\n\nfacet_wrap( VAR1 ~ . ) or facet_wrap( . ~ VAR1 )\nfacet_grid( VAR1 ~ . ): row-wise split\nfacet_grid( . ~ VAR1 ): colum-wise split\nfacet_grid( VAR1 ~ VAR2 )\n\n\np + geom_line( aes( group = country ) ) + \n  facet_wrap(~ continent)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-5",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-5",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nFacet to make small multiples\n\nLet’s have all the facetted plots in a single row:\n\np + geom_line(color=\"gray70\", aes(group = country)) +\n    geom_smooth(size = 1.1, method = \"loess\", se = FALSE) +\n    facet_[?] +\n    scale_y_log10(labels=scales::dollar) + \n    theme(axis.text.x = element_text(angle = 45),\n          axis.title.x = element_text(margin = margin(t = 25))) +\n    labs(x = \"Year\", y = \"GDP per capita\",\n         title = \"GDP per capita on Five Continents\")"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-6",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-6",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nThe 2016 General Social Survey data\n\nThe socviz package includes the gss_sm data frame.\n\ngss_sm is a dataset containing an extract from the 2016 General Social Survey.\n\n\ninstall.packages(\"socviz\")\nlibrary(socviz)\n?gss_sm\nglimpse(gss_sm)\nskimr::skim(gss_sm)\ngss_sm &lt;- gss_sm"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-7",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-7",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nFacet to make small multiples\n\nDescribe the relationship between the age of the respondent and the number of children they have using a scatterplot and a fitted curve.\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes( x = age, y = childs ))\n\np + [?](alpha = 0.2) +\n    [?]()"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-8",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-8",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nFacet to make small multiples\n\nDescribe how the relationship between the age of the respondent and the number of children they have varies by sex and race.\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes( x = age, y = childs ))\n\np + geom_point(alpha = 0.2) +\n    geom_smooth() +\n    [?]"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-9",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-9",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nFacet to make small multiples\n\nThe facet_grid() function is best used when you cross-classify some data by two categorical variables.\n\ne.g., the relationship between the age and the number of children by sex and race\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes( x = age, y = childs ))\n\np + geom_point(alpha = 0.2) +\n    geom_smooth() +\n    facet_grid(sex ~ race + degree)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-10",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-10",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nGeoms can transform data\n\nLet’s plot a bar char:\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = bigregion))\np + geom_bar()"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-11",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-11",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nGeoms can transform data\n\n\nWhere does count come from?\n\nBar charts, histograms, and frequency polygons bin your data and then plot bin counts, the number of points that fall in each bin.\nSmoothers fit a model to your data and then plot predictions from the model.\nBoxplots compute a robust summary of the distribution and then display a specially formatted box."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-12",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-12",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nGeoms can transform data\n\nIf we want a chart of relative frequencies rather than counts, we will need to get the prop statistic instead.\nOur call to statistic from the aes() function generically looks like this: &lt;mapping&gt; = &lt;..statistic..&gt;.\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = bigregion))\np + geom_bar(mapping = aes(y = ..prop..))\n\nWhat happened?"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-13",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-13",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nGeoms can transform data\n\nWe need to tell ggplot to ignore the x-categories when calculating denominator of the proportion, and use the total number observations instead.\n\nTo do so we specify group = 1 inside the aes() call.\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = bigregion))\np + geom_bar(mapping = aes(y = ..prop.., group = 1))"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-14",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-14",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nGeoms can transform data\n\nLet’s look at another question from the survey. The gss_sm data contains a religion variable derived from a question asking:\n\n“What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion?”\n\n\ntable(gss_sm$religion)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-15",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-15",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nGeoms can transform data\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = religion, color = religion))\np + geom_bar()\n\nIf we map religion to color, only the border lines of the bars will be assigned colors, and the insides will remain gray."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-16",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-16",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nGeoms can transform data\n\nIf the gray bars look boring and we want to fill them with color instead, we can map the religion variable to fill in addition to mapping it to x.\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = religion, fill = religion))\np + geom_bar() + guides( fill = \"none\" )\n\nIf we set guides(fill = \"none\"), the legend about the fill mapping is removed."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-17",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-17",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nFrequency plots the slightly awkward way\n\nA more appropriate use of the fill aesthetic with geom_bar() is to cross-classify two categorical variables.\n\nThe default output of such geom_bar() is a stacked bar chart, with counts on the y-axis.\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = bigregion, fill = religion))\np + geom_bar(position = \"fill\")\n\nAn alternative choice is to set the position argument to \"fill\".\n\nIt is to compare proportions across groups."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-18",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-18",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nFrequency plots the slightly awkward way\n\nWe can use position = \"dodge\" to make the bars within each region of the country appear side by side.\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = bigregion, fill = religion))\np + geom_bar(position = \"dodge\",\n             mapping = aes(y = ..prop..))\n\nWhat happened?"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-19",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-19",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nFrequency plots the slightly awkward way\n\nIn this case we should consider grouping variable, religion, so we map religion to the group aesthetic.\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = bigregion, fill = religion))\np + geom_bar(position = \"dodge\",\n             mapping = aes(y = ..prop.., group = religion))"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-20",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-20",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nFrequency plots the slightly awkward way\n\nHow can we have a proportional bar chart such that the sum of all bars in each bigregion is 1?\n\nThere are various ways to do so, and faceting is one of them.\nThe proportions are calculated within each panel, which is the breakdown we wanted.\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = aes(x = religion))\np + geom_bar(position = \"dodge\",\n             mapping = aes(y = ..prop.., group = bigregion)) +\n    facet_wrap(~ bigregion, ncol = 1)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-21",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-21",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nHistograms and density plots\n\nggplot comes with a dataset, midwest, containing information on counties in several midwestern states of the USA.\n\n?midwest\nglimpse(midwest)\nskim(midwest)\nview(midwest)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-22",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-22",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nHistograms and density plots\n\nBy default, the geom_histogram() function will choose a bin size for us based on a rule of thumb.\n\np &lt;- ggplot(data = midwest,\n            mapping = aes(x = area))\np + geom_histogram()"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-23",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#show-the-right-number-23",
-    "title": "Lecture 3",
-    "section": "Show the right number",
-    "text": "Show the right number\nHistograms and density plots\n\nWhen drawing histograms it is worth experimenting with bins and also optionally the origin of the x-axis.\n\np &lt;- ggplot(data = midwest,\n            mapping = aes(x = area))\np + geom_histogram(bins = 10)"
-  },
-  {
-    "objectID": "danl-cw/danl-399-cw-02.html",
-    "href": "danl-cw/danl-399-cw-02.html",
-    "title": "Classwork 2",
-    "section": "",
-    "text": "Markdown is a lightweight markup language with plain-text formatting syntax. Its main goal is to be readable and easy to write, even when viewed as plain text. Markdown is widely used for creating formatted text on the web and in various applications such as Quarto.\n\n\n\n\nHeadings are created by adding one or more # symbols before your heading text. The number of # symbols indicates the level of the heading.\n# Heading 1\n## Heading 2\n### Heading 3\n\n\n\nYou can make text bold by wrapping it with two asterisks **, and italic by using one asterisk *.\n*italic* or _italic_\n**bold** or __bold__\n\n\n\nUnordered lists are created using *, -, or +, while ordered lists are numbered.\n- Item 1\n- Item 2\n  - Subitem 2.1\n  - Subitem 2.2\n1. First item\n2. Second item\n\n\n\nLinks are created using [Link Text](URL), and images with ![Alt Text](Image URL).\n[DANL 210](https://bcdanl.github.io/210)\n![Geneseo Logo](https://bcdanl.github.io/img/geneseo-logo.gif)\n\n\n\n\n\n\n&gt; Be yourself. Everyone else is already taken. - Oscar Wilde.\n\n\n\n\nA ton of markdown emojis are available here 😄 (:smile:)\n\nhttps://github.com/ikatyang/emoji-cheat-sheet\n\n\n\n\n\nCode blocks are created by using triple backticks (```). Optionally, you can specify the language for syntax highlighting.\n```\n\"string\"\n```\n```python\n# Python code block\nimport numpy as np\n```\n\n\n\n\n\nDo the following tasks on this Classwork 2 Discussion Board:\n\nBasic Syntax: Write a comment with a heading, an unordered list, an ordered list, a link, and an image.\nAdvanced Syntax: Write a comment that includes a Python code block, a blockquote, and an emoji.\n\n\n\n\n\n\nQuarto Markdown Basics\nStart writing on GitHub"
-  },
-  {
-    "objectID": "danl-cw/danl-399-cw-02.html#basic-syntax",
-    "href": "danl-cw/danl-399-cw-02.html#basic-syntax",
-    "title": "Classwork 2",
-    "section": "",
-    "text": "Headings are created by adding one or more # symbols before your heading text. The number of # symbols indicates the level of the heading.\n# Heading 1\n## Heading 2\n### Heading 3\n\n\n\nYou can make text bold by wrapping it with two asterisks **, and italic by using one asterisk *.\n*italic* or _italic_\n**bold** or __bold__\n\n\n\nUnordered lists are created using *, -, or +, while ordered lists are numbered.\n- Item 1\n- Item 2\n  - Subitem 2.1\n  - Subitem 2.2\n1. First item\n2. Second item\n\n\n\nLinks are created using [Link Text](URL), and images with ![Alt Text](Image URL).\n[DANL 210](https://bcdanl.github.io/210)\n![Geneseo Logo](https://bcdanl.github.io/img/geneseo-logo.gif)"
-  },
-  {
-    "objectID": "danl-cw/danl-399-cw-02.html#advanced-syntax",
-    "href": "danl-cw/danl-399-cw-02.html#advanced-syntax",
-    "title": "Classwork 2",
-    "section": "",
-    "text": "&gt; Be yourself. Everyone else is already taken. - Oscar Wilde.\n\n\n\n\nA ton of markdown emojis are available here 😄 (:smile:)\n\nhttps://github.com/ikatyang/emoji-cheat-sheet\n\n\n\n\n\nCode blocks are created by using triple backticks (```). Optionally, you can specify the language for syntax highlighting.\n```\n\"string\"\n```\n```python\n# Python code block\nimport numpy as np\n```"
-  },
-  {
-    "objectID": "danl-cw/danl-399-cw-02.html#practice-problems",
-    "href": "danl-cw/danl-399-cw-02.html#practice-problems",
-    "title": "Classwork 2",
-    "section": "",
-    "text": "Do the following tasks on this Classwork 2 Discussion Board:\n\nBasic Syntax: Write a comment with a heading, an unordered list, an ordered list, a link, and an image.\nAdvanced Syntax: Write a comment that includes a Python code block, a blockquote, and an emoji."
-  },
-  {
-    "objectID": "danl-cw/danl-399-cw-02.html#references",
-    "href": "danl-cw/danl-399-cw-02.html#references",
-    "title": "Classwork 2",
-    "section": "",
-    "text": "Quarto Markdown Basics\nStart writing on GitHub"
-  },
-  {
-    "objectID": "danl-cw/danl-399-cw-01.html",
-    "href": "danl-cw/danl-399-cw-01.html",
-    "title": "Classwork 1",
-    "section": "",
-    "text": "Getting a GitHub account\nStep 1. Create the GitHub account with your Geneseo email.\n\nGo to GitHub.\nClick “Sign up for GitHub”.\n\n\nChoose your GitHub username carefully:\n\nhttps://USERNAME.github.io will be the address for your website.\nByeong-Hak’s GitHub username is bcdanl, so that Byeong-Hak owns the web address https://bcdanl.github.io.\n\nIt is recommended to have a username with all lower cases.\n\n\n\n\n\nInstalling git if you do not have one.\nStep 2.\n\nCheck whether git is installed in your laptop.\n\n\nFrom the Console Pane in RStudio, click Terminal tab.\n\n\n\n\n\nFrom the Terminal, run the following command to check if your laptop has git installed.\n\ngit --version\n\nIf your computer has git installed, you will see the message below and you do not need to install git:\n\ngit version 2.xx\n\nIf your computer does not have git installed, you will see the message below and you need to install git:\n\n'git' is not recognized as an internal or external command\n\n\nInstall git if you do not have one. Move to the next step if you have git installed in your laptop.\n\n\n\n\nMac\n\nGo to http://git-scm.com/downloads, and download the file.\nClick “macOS”, scroll down the webpage, and then click “installer” from the Binary installer section.\nRun the downloaded file.\n\n\n\n\nWindows\n\nGo to https://gitforwindows.org, and download the file.\nRun the downloaded file.\n\n\n\n\n\nKeep clicking “Next” to complete the installation of git.\nAfter the git installation is done, close RStudio and re-open it.\n\n\n\n\nSetting up GitHub Credential on your local Git.\nStep 3. In Terminal, run the following commands one by one:\ngit config --global user.email \"YOUR_EMAIL_ADDRESS\"\ngit config --global user.name \"YOUR_USERNAME\"\nFor example, the email address for my GitHub account is bchoe@geneseo.edu, and my GitHub username is bcdanl, so that I ran below:\ngit config --global user.email \"bchoe@geneseo.edu\"\ngit config --global user.name \"bcdanl\"\n\nStep 4. Obtain a personal access token (PAT) from GitHub.\n\nIn RStudio Console, run the followings line by line:\n\ninstall.packages(\"usethis\")\nusethis::create_github_token()\n\nThen, click “Generate token” in the pop-upped web browser.\nWe can think of GitHub’s personal access token as a password that expires. You can decide how long it remains valid. My recommendation is to set its expiration for May 31, 2024, or later.\n\n\n\n\n\nThen, copy the generated PAT, and paste it to your clipboard or R script.\n\n\nStep 5. Set the GitHub credential using the PAT.\n\nIn RStudio Console, run the followings line by line:\n\ninstall.packages(\"gitcreds\")\ngitcreds::gitcreds_set()\n\nYou will be asked to provide your PAT.\nPaste your PAT to the RStudio Console, and then hit Enter.\n\n\n\n\n\n\n\nNote\n\n\n\n\nIt does not harm to create multiple PAT for one GitHub account.\nAfter the PAT expires, you should repeat the following if you want to update your GitHub website:\n\n\nCreate a new PAT:\n\nusethis::create_github_token()\n\nReplace the current PAT with the new PAT:\n\ngitcreds::gitcreds_set()\n\nSelect the option 2: Replace these credentials by typing 2 and hitting Enter on R Console.\n\n\n\n\n\n\nEstablishing the Connection between GitHub repo and your local Git\nStep 6. Login to your GitHib and make the repository.\n\nFrom https://github.com, click the plus [+] icon in the upper right corner and select “New repository”.\nName this repo USERNAME.github.io, which will be the domain for your website.\n\n\ne.g., If your GitHub username is abc9, the name of your repo should be abc9.github.io, not abc_9.github.io.\n\n\nThen, copy the web address of your GitHub repo, https://github.com/USERNAME/USERNAME.github.io\n\n\nFor example, the web address for Byeong-Hak’s GitHub repo is https://github.com/bcdanl/bcdanl.github.io.\n\n\nStep 7. Create a RStudio project with Version Control\n\n\n\n\nClick “Project (None)” at the top-right corner in RStudio.\nClick “New Project” &gt; “Version Control” &gt; “Git”\nPaste the web address of your GitHub repo to the Repository URL menu.\nClick “Browse” to select the parent directory for your local project directory (I recommend “Documents” folder.)\nClick “Create”\n\n\n\n\n\n\n\nNote\n\n\n\nIf Step 7 does not work on your laptop, try below Steps 7-1 and 7-2 instead. If Step 7 DOES work well, skip Steps 7-1 and 7-2.\n\n\nStep 7-1. Use git clone to establish the connection between GitHub repo and your local laptop:\n\nChange directory to “Documents” in Terminal using cd command.\n\ncd &lt;pathname of \"Documents\" directory&gt;\n\nHere, you need to know the pathname of “Documents” directory.\nFor example, LAPTOP_USERNAME below is not your GitHub username but one for your local laptop.\n\nMac\ncd /Users/LAPTOP_USERNAME/Documents\nWindows\ncd C:/Users/LAPTOP_USERNAME/Documents\n\nUse git clone to creates a local copy of the GitHub Repository.\n\ngit clone &lt;repository-url&gt;\n\nFor example,\n\ngit clone https://github.com/USERNAME/USERNAME.github.io\n\nStep 7-2. Create a RStudio project from Existing Directory\n\nClick “Project (None)” at the top-right corner in RStudio.\nClick “New Project” &gt; “Existing Directory”\nClick “Browse” to select the local copy of the GitHub Repository\nClick “Create Project”\n\n\n\n\nDownloading Website Template Files\nStep 8. Download the files of website template:\n\nGo to the following webpage: https://github.com/bcdanl/danl-website-template\nFrom the webpage above, click the green icon &lt; &gt; Code, and then click “Download Zip”\nExtract the Zip file you have downloaded\nIf there are the files, .gitignore, .DS_Store, or *.Rproj, in the folder, delete all of them.\nMove all the files that were compressed in the Zip file to your local project directory, USERNAME.github.io.\n\n\nSelect all the files in the danl-website-template folder (Tip: Ctrl + A (Windows) / command + A (Mac) selects all files in a directory).\nThen, Ctrl + C (Windows) / command + C (Mac) to copy them.\nThen, go to your local project directory USERNAME.github.io.\nThen, Ctrl + V (Windows) / command + V (Mac) to paste them to your local project directory USERNAME.github.io.\n\n\nRemove the danl-website-template directory from your local project directory, if you have one.\n\n\nAll the website files should be located at the same level with the R Project file (USERNAME.github.io.Rproj), shown below.\n\n\n\n\n\n\n\nPushing the Website Files to the GitHub repository\n\n\n\nStep 8. Push the files to your GitHub repository\n\nOn Terminal within RStudio, execute the following 3-step git commands, which will stage, commit, and push all the files in the local working directory to your GitHub repository:\n\n\ngit add . adds changes in your local working directory (e.g., edited files, new files, deleted files) to the staging area, which is a temporary area where you can prepare your next commit\n\ngit add .\n\ngit commit -m \"...\" records the changes in the staging area as a new snapshot in the local working directory, along with a message describing the changes.\n\ngit commit -m \"any message to describe the changes\"\n\ngit push -u origin main uploads the local changes to the online repository in GitHub.\n\ngit push -u origin main\n\n\n\n\n\n\nNote\n\n\n\nIf git push -u origin main gives error, try the following:\ngit push -u origin master\n\nThe name of the default branch in a GitHub repo is usually main, but sometimes GitHub gives master default branch instead.\n\n\n\n\nStep 9. Check whether the files are well uploaded.\n\nGo to the webpages of your GitHub repository and your website:\n\nhttps://github.com/USERNAME/USERNAME.github.io.git\nhttps://USERNAME.github.io\nRefresh the webpages (Ctrl + R for Windows users; cmd + R for Mac users)\n\n\n\n\n\n\n Back to topReuse© 2024 Byeong-Hak Choe | This post is licensed under &lt;a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'&gt;CC BY-NC-SA 4.0&lt;/a&gt;.CitationFor attribution, please cite this work as:\nChoe, Byeong-Hak. 2023. “Classwork 1.” January 26, 2023."
-  },
-  {
-    "objectID": "listing-danl-399-cw.html",
-    "href": "listing-danl-399-cw.html",
-    "title": "DANL 399 - Classwork",
-    "section": "",
-    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nClasswork 5\n\n\nThe Layered Grammar of Graphics\n\n\nFebruary 10, 2023\n\n\n\n\nClasswork 4\n\n\nggplot Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nQuarto Website Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nMarkdown Basics\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nBuilding a Personal Website using Git, GitHub, and RStudio with Quarto\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items\n\n Back to top"
-  },
-  {
-    "objectID": "danl-qa/danl-399-qa-02.html",
-    "href": "danl-qa/danl-399-qa-02.html",
-    "title": "Lecture 2 - Q & A",
-    "section": "",
-    "text": "Welcome to our Lecture 2 Discussion Board! 👋 \nThis space is designed for you to engage with your classmates about the material covered in Lecture 6 slides.\nWhether you are looking to delve deeper into the slides, share insights, or have questions about the content, this is the perfect place for you.\nIf you have any specific questions for Byeong-Hak (@bcdanl) regarding the Lecture 2 materials or need clarification on any points, don’t hesitate to ask here.\nLet’s collaborate and learn from each other!\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "danl-qa/danl-399-qa-01.html",
-    "href": "danl-qa/danl-399-qa-01.html",
-    "title": "Lecture 1 - Q & A",
-    "section": "",
-    "text": "Welcome to our Lecture 1 Discussion Board! 👋 \nThis space is designed for you to engage with your classmates about the material covered in Lecture 1 slides.\nWhether you are looking to delve deeper into the slides, share insights, or have questions about the content, this is the perfect place for you.\nIf you have any specific questions for Byeong-Hak (@bcdanl) regarding the Lecture 3 materials or need clarification on any points, don’t hesitate to ask here.\nLet’s collaborate and learn from each other!\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "listing-danl-399-lec.html",
-    "href": "listing-danl-399-lec.html",
-    "title": "DANL 399 - Lecture",
-    "section": "",
-    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 3\n\n\nFebruary 9, 2024\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\n\n\nggplot grammar"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#exploratory-data-analysis",
@@ -1425,56 +1082,70 @@
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-3",
     "title": "Lecture 3",
     "section": "Aesthetic Mappings",
-    "text": "Aesthetic Mappings\n\nAdding a color to the plot\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   color = class) )"
+    "text": "Aesthetic Mappings\nAdding a color to the plot\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   color = class) )"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-4",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-4",
     "title": "Lecture 3",
     "section": "Aesthetic Mappings",
-    "text": "Aesthetic Mappings\n\nAdding a shape to the plot\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   shape = class) )\n\nWarning: The shape palette can deal with a maximum of 6 discrete values because more\nthan 6 becomes difficult to discriminate\nℹ you have requested 7 values. Consider specifying shapes manually if you need\n  that many have them.\n\n\nWarning: Removed 62 rows containing missing values (`geom_point()`)."
+    "text": "Aesthetic Mappings\nAdding a shape to the plot\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   shape = class) )"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-5",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-5",
     "title": "Lecture 3",
     "section": "Aesthetic Mappings",
-    "text": "Aesthetic Mappings\n\nAdding a size to the plot\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   size = class) )\n\nWarning: Using size for a discrete variable is not advised."
+    "text": "Aesthetic Mappings\nAdding a size to the plot\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   size = class) )"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-6",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-6",
     "title": "Lecture 3",
     "section": "Aesthetic Mappings",
-    "text": "Aesthetic Mappings\n\nAdding an alpha (transparency) to the plot\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   alpha = class) )\n\nWarning: Using alpha for a discrete variable is not advised."
+    "text": "Aesthetic Mappings\nAdding an alpha (transparency) to the plot\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   alpha = class) )"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-7",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-7",
     "title": "Lecture 3",
     "section": "Aesthetic Mappings",
-    "text": "Aesthetic Mappings\n\nOverplotting problem\n\nMany points overlap each other.\n\nThis problem is known as overplotting.\n\nWhen points overlap, it’s hard to know how many data points are at a particular location.\nOverplotting can obscure patterns and outliers, leading to potentially misleading conclusions.\nWe can set a transparency level (alpha) between 0 (full transparency) and 1 (no transparency)."
+    "text": "Aesthetic Mappings\nOverplotting problem\n\nMany points overlap each other.\n\nThis problem is known as overplotting.\n\nWhen points overlap, it’s hard to know how many data points are at a particular location.\nOverplotting can obscure patterns and outliers, leading to potentially misleading conclusions.\nWe can set a transparency level (alpha) between 0 (full transparency) and 1 (no transparency)."
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-8",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-8",
     "title": "Lecture 3",
     "section": "Aesthetic Mappings",
-    "text": "Aesthetic Mappings\n\nOverplotting and alpha\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .2)"
+    "text": "Aesthetic Mappings\nOverplotting and alpha\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .2)"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-9",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-9",
     "title": "Lecture 3",
     "section": "Aesthetic Mappings",
-    "text": "Aesthetic Mappings\n\nOverplotting and size\n\nWe can also consider setting size smaller than 1.\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             size = .5)"
+    "text": "Aesthetic Mappings\nOverplotting and size\n\nWe can also consider setting size smaller than 1.\n\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             size = .5)"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-10",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-10",
     "title": "Lecture 3",
     "section": "Aesthetic Mappings",
-    "text": "Aesthetic Mappings\n\nSpecifying a color to the plot\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy), \n             color = \"blue\")"
+    "text": "Aesthetic Mappings\nSpecifying a color to the plot\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy), \n             color = \"blue\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-11",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-11",
+    "title": "Lecture 3",
+    "section": "Aesthetic Mappings",
+    "text": "Aesthetic Mappings\n\n\n\n\nTo set an aesthetic manually, set the aesthetic by name as an argument of your geom_ function; i.e. it goes outside of aes().\n\nYou’ll need to pick a level that makes sense for that aesthetic:\n\nThe name of a color as a character string.\nThe size of a point in mm.\nThe shape of a point as a number, as shown below."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-12",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-12",
+    "title": "Lecture 3",
+    "section": "Aesthetic Mappings",
+    "text": "Aesthetic Mappings\nSpecifying a color to the plot?\n\n\nggplot(data = mpg) + \n  geom_point( mapping = \n                aes(x = displ, \n                    y = hwy, \n                    color = \"blue\") )"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#common-problems-in-ggplot",
@@ -1495,7 +1166,7 @@
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#facets-2",
     "title": "Lecture 3",
     "section": "Facets",
-    "text": "Facets\n\nTo facet our plot by a single variable, use facet_wrap().\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy), \n             alpha = .5) + \n  facet_wrap( . ~ class, nrow = 2)"
+    "text": "Facets\n\nTo facet our plot by a single variable, use facet_wrap().\n\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy), \n             alpha = .5) + \n  facet_wrap( . ~ class, nrow = 2)"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#facets-3",
@@ -1503,6 +1174,34 @@
     "title": "Lecture 3",
     "section": "Facets",
     "text": "Facets\n\nTo facet our plot on the combination of two variables, add facet_grid( VAR_ROW ~ VAR_COL ) to our plot call."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#facets-4",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#facets-4",
+    "title": "Lecture 3",
+    "section": "Facets",
+    "text": "Facets\n\nThe first argument of facet_grid() is also a formula.\n\nThis time the formula should contain two variable names separated by a ~."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#facets-5",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#facets-5",
+    "title": "Lecture 3",
+    "section": "Facets",
+    "text": "Facets\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .5) + \n  facet_grid(drv ~ cyl)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#facets-6",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#facets-6",
+    "title": "Lecture 3",
+    "section": "Facets",
+    "text": "Facets\n\nOption scales in facet_*() is whether scales is\n\nfixed (\"fixed\", the default),\nfree in one dimension (\"free_x\", \"free_y\"), or\nfree in two dimensions (\"free\")."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#facets-7",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#facets-7",
+    "title": "Lecture 3",
+    "section": "Facets",
+    "text": "Facets\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .5) + \n  facet_grid(drv ~ cyl, \n             scales = \"free_x\")"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-1",
@@ -1523,28 +1222,14 @@
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-3",
     "title": "Lecture 3",
     "section": "Geometric Objects",
-    "text": "Geometric Objects\n\nScatterplot\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .3)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#scatterplot",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#scatterplot",
-    "title": "Lecture 3",
-    "section": "Scatterplot",
-    "text": "Scatterplot\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .3)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#fitted-lines",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#fitted-lines",
-    "title": "Lecture 3",
-    "section": "Fitted lines",
-    "text": "Fitted lines\n\n\nggplot(data = mpg) + \n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy))"
+    "text": "Geometric Objects\nScatterplot\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .3)"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-4",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-4",
     "title": "Lecture 3",
     "section": "Geometric Objects",
-    "text": "Geometric Objects\n\nFitted lines\n\nggplot(data = mpg) + \n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy))\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'"
+    "text": "Geometric Objects\nFitted lines\n\n\nggplot(data = mpg) + \n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy))"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-5",
@@ -1558,14 +1243,14 @@
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-6",
     "title": "Lecture 3",
     "section": "Geometric Objects",
-    "text": "Geometric Objects\n\nggplot( data = mpg ) + \n  geom_smooth( mapping = \n                 aes( x = displ, \n                      y = hwy, \n                      linetype = drv) )\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'"
+    "text": "Geometric Objects\n\n\nggplot( data = mpg ) + \n  geom_smooth( mapping = \n                 aes( x = displ, \n                      y = hwy, \n                      linetype = drv) )"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-7",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-7",
     "title": "Lecture 3",
     "section": "Geometric Objects",
-    "text": "Geometric Objects\n\nSetting method = lm manually in geom_smooth() gives a straight line that fits into data points.\n\n\nggplot( data = mpg ) + \n  geom_smooth( mapping = \n                 aes( x = displ, \n                      y = hwy),\n               method = lm)\n\n`geom_smooth()` using formula = 'y ~ x'"
+    "text": "Geometric Objects\n\nSetting method = lm manually in geom_smooth() gives a straight line that fits into data points.\n\n\n\nggplot( data = mpg ) + \n  geom_smooth( mapping = \n                 aes( x = displ, \n                      y = hwy),\n               method = lm)"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-8",
@@ -1579,14 +1264,49 @@
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-9",
     "title": "Lecture 3",
     "section": "Geometric Objects",
-    "text": "Geometric Objects\n\nggplot(data = mpg) +\n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy))\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'"
+    "text": "Geometric Objects\n\n\nggplot(data = mpg) +\n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy))"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-10",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-10",
     "title": "Lecture 3",
     "section": "Geometric Objects",
-    "text": "Geometric Objects\n\nggplot(data = mpg) +\n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy, \n                    group = drv))\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'"
+    "text": "Geometric Objects\n\n\nggplot(data = mpg) +\n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy, \n                    group = drv))"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-11",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-11",
+    "title": "Lecture 3",
+    "section": "Geometric Objects",
+    "text": "Geometric Objects\n\nIn practice, ggplot2 will automatically group the data for these geoms whenever we map an aesthetic to a discrete variable (as in the linetype example).\n\n\n\nggplot(data = mpg) +\n  geom_smooth(\n    mapping = aes(x = displ, \n                  y = hwy, \n                  color = drv),\n    show.legend = FALSE\n  )"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-12",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-12",
+    "title": "Lecture 3",
+    "section": "Geometric Objects",
+    "text": "Geometric Objects\n\nTo display multiple geometric objects in the same plot, add multiple geom_*() functions to ggplot():\n\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .3) +\n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy)) +\n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy), \n              method = lm, \n              color = 'red')\n\n\n\n\n\n\n\nUsing geom_point(), geom_smooth(), and geom_smooth(method = lm) together is an excellent option to visualize the relationship between the two variables."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-13",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-13",
+    "title": "Lecture 3",
+    "section": "Geometric Objects",
+    "text": "Geometric Objects\n\nIf we place mappings in a geom function, ggplot2 will treat them as local mappings for the layer.\n\n\n\nggplot(data = mpg, \n       mapping = \n         aes(x = displ, \n             y = hwy)) + \n  geom_point(mapping = \n               aes(color = class),\n             alpha = .3) + \n  geom_smooth()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-14",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-14",
+    "title": "Lecture 3",
+    "section": "Geometric Objects",
+    "text": "Geometric Objects\n\n\nggplot(data = mpg, \n       mapping = \n         aes(x = displ, \n             y = hwy)) + \n  geom_point(mapping = \n               aes(color = class), \n             alpha = .3) + \n  geom_smooth(data = \n                filter(mpg, \n                       class == \"subcompact\"), \n              se = FALSE)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-15",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-15",
+    "title": "Lecture 3",
+    "section": "Geometric Objects",
+    "text": "Geometric Objects\n\nWe can use the same idea to specify different data for each layer.\nHere, our smooth line displays just a subset of the mpg data.frame, the subcompact cars.\n\nfilter() is the tidyverse-way to filter observations in a data.frame.\n\nThe local data argument in geom_smooth() overrides the global data argument in ggplot() for that layer only.\nThe standard error (se) tells us how much the predicted values from a model might differ from the actual values we’re trying to predict.\n\nIt’s a way to measure how good a quality of prediction is."
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-1",
@@ -1600,7 +1320,21 @@
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-2",
     "title": "Lecture 3",
     "section": "Statistical Transformation",
-    "text": "Statistical Transformation\n\nA histogram geom_histogram() is a continuous version of a bar chart.\n\n\nggplot(diamonds) +\n  geom_histogram(aes(x = price))\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "text": "Statistical Transformation\n\nA histogram geom_histogram() is a continuous version of a bar chart.\n\n\n\nggplot(diamonds) +\n  geom_histogram(aes(x = price))"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-3",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-3",
+    "title": "Lecture 3",
+    "section": "Statistical Transformation",
+    "text": "Statistical Transformation\n\nWhen using geom_histogram(), we should experiment on either bins or binwidth.\n\n\n\nggplot(diamonds) +\n  geom_histogram(aes(x = price), \n                 bins = 200)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-4",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-4",
+    "title": "Lecture 3",
+    "section": "Statistical Transformation",
+    "text": "Statistical Transformation\n\nA frequency polygon geom_freqpoly() is a line version of a histogram.\n\n\n\nggplot(diamonds) +\n  geom_freqpoly(aes(x = price), \n                 bins = 200)"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#a-little-bit-of-math-for-log",
@@ -1610,18 +1344,25 @@
     "text": "A Little Bit of Math for log()\n\nlog functionslog examples\n\n\n\nThe logarithm function, \\(y = \\log_{b}\\,(\\,x\\,)\\), looks like ….\n\n\n\n\n\n\n\n\\(\\log_{10}\\,(\\,100\\,)\\): the base \\(10\\) logarithm of \\(100\\) is \\(2\\), because \\(10^{2} = 100\\)\n\\(\\log_{e}\\,(\\,x\\,)\\): the base \\(e\\) logarithm is called the natural log, where \\(e = 2.718\\cdots\\) is the mathematical constant, the Euler’s number.\n\\(\\log\\,(\\,x\\,)\\) or \\(\\ln\\,(\\,x\\,)\\): the natural log of \\(x\\) .\n\\(\\log_{e}\\,(\\,7.389\\cdots\\,)\\): the natural log of \\(7.389\\cdots\\) is \\(2\\), because \\(e^{2} = 7.389\\cdots\\)."
   },
   {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-3",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-3",
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#the-use-of-log",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#the-use-of-log",
     "title": "Lecture 3",
-    "section": "Statistical Transformation",
-    "text": "Statistical Transformation\n\nWhen using geom_histogram(), we should experiment on either bins or binwidth.\n\n\nggplot(diamonds) +\n  geom_histogram(aes(x = price), \n                 bins = 200)"
+    "section": "The use of log()",
+    "text": "The use of log()\nNYC Housing Sales\n\nlibrary(tidyverse)\nsale_df &lt;- read_csv(\n  \"https://bcdanl.github.io/data/home_sales_nyc.csv\")\n\n\nsale_df contains data for residential property sales from September 2017 and August 2018 in NYC.\n\nLet’s focus on sale.price, a property’s sales price."
   },
   {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-4",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-4",
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#the-use-of-log-1",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#the-use-of-log-1",
     "title": "Lecture 3",
-    "section": "Statistical Transformation",
-    "text": "Statistical Transformation\n\nA frequency polygon geom_freqpoly() is a line version of a histogram.\n\n\nggplot(diamonds) +\n  geom_freqpoly(aes(x = price), \n                 bins = 200)"
+    "section": "The use of log()",
+    "text": "The use of log()\nPercentage Change\n1. We should consider using a logarithmic scale when percent change, or change in orders of magnitude, is more important than changes in absolute units.\n\nFor small changes in variable \\(x\\) from \\(x_{0}\\) to \\(x_{1}\\), the following can be shown:\n\n\\[\\Delta \\log(x) \\,= \\, \\log(x_{1}) \\,-\\, \\log(x_{0})\n\\approx\\, \\frac{x_{1} \\,-\\, x_{0}}{x_{0}}\n\\,=\\, \\frac{\\Delta\\, x}{x_{0}}.\\]\n\nFor example, a difference in sale.price of $10,000 means something very different across people with different income/wealth levels."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#the-use-of-log-2",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#the-use-of-log-2",
+    "title": "Lecture 3",
+    "section": "The use of log()",
+    "text": "The use of log()\nWide Range of Skewed Data\n2. We should consider using a log scale when a variable is heavily skewed. - It can help visualize both small and large values effectively.\n\n\nggplot(sale_df, \n       aes(x = sale.price), \n       bins = 500) +\n  geom_histogram()"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-5",
@@ -1635,7 +1376,7 @@
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-6",
     "title": "Lecture 3",
     "section": "Statistical Transformation",
-    "text": "Statistical Transformation\n\ngeom_bar() bins our data and then plot bin counts, the number of observations that fall in each bin.\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = aes(x = cut))"
+    "text": "Statistical Transformation\n\ngeom_bar() bins our data and then plot bin counts, the number of observations that fall in each bin.\n\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = aes(x = cut))"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-7",
@@ -1649,182 +1390,56 @@
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-8",
     "title": "Lecture 3",
     "section": "Statistical Transformation",
-    "text": "Statistical Transformation\n\nObserved Value vs. Number of Observations\n\nThere are three reasons we might need to use a stat explicitly:"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-1",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-1",
-    "title": "Lecture 3",
-    "section": "Position Adjustment",
-    "text": "Position Adjustment\n\ncolor and fill aesthetic\n\nWe can color a bar chart using either the color aesthetic, or, more usefully, fill.\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 color = cut))"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#fill",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#fill",
-    "title": "Lecture 3",
-    "section": "fill",
-    "text": "fill\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n*                fill = cut))"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-2",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-2",
-    "title": "Lecture 3",
-    "section": "Position Adjustment",
-    "text": "Position Adjustment\n\nfill\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = cut))"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-3",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-3",
-    "title": "Lecture 3",
-    "section": "Position Adjustment",
-    "text": "Position Adjustment\n\nStacked bar charts with fill aesthetic\n\nNote that the bars are automatically stacked if we map the fill aesthetic to another variable.\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = clarity) )"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-4",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-4",
-    "title": "Lecture 3",
-    "section": "Position Adjustment",
-    "text": "Position Adjustment\n\nStacked bar charts with fill aesthetic\n\nThe stacking is performed automatically by the position adjustment specified by the position argument.\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = clarity),\n           position = \"stack\")"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-1",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-1",
-    "title": "Lecture 3",
-    "section": "Coordinate Systems",
-    "text": "Coordinate Systems\n\ngeom_abline()\n\nWhat does geom_abline() do?\n\n\nggplot(data = mpg, \n       mapping = \n         aes(x = cty, \n             y = hwy)) + \n  geom_point() + \n  geom_abline() # math: y = ax + b"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-2",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-2",
-    "title": "Lecture 3",
-    "section": "Coordinate Systems",
-    "text": "Coordinate Systems\n\ncoord_fixed()\n\nWhat does coord_fixed() do?\n\n\nggplot(data = mpg, \n       mapping = \n         aes(x = cty, \n             y = hwy)) + \n  geom_point() + \n  geom_abline() +\n  coord_fixed()"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-11",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-11",
-    "title": "Lecture 3",
-    "section": "Aesthetic Mappings",
-    "text": "Aesthetic Mappings\n\n\n\n\nTo set an aesthetic manually, set the aesthetic by name as an argument of your geom_ function; i.e. it goes outside of aes().\n\nYou’ll need to pick a level that makes sense for that aesthetic:\n\nThe name of a color as a character string.\nThe size of a point in mm.\nThe shape of a point as a number, as shown below."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-11",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-11",
-    "title": "Lecture 3",
-    "section": "Geometric Objects",
-    "text": "Geometric Objects\n\nIn practice, ggplot2 will automatically group the data for these geoms whenever we map an aesthetic to a discrete variable (as in the linetype example).\n\n\nggplot(data = mpg) +\n  geom_smooth(\n    mapping = aes(x = displ, \n                  y = hwy, \n                  color = drv),\n    show.legend = FALSE\n  )\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'"
+    "text": "Statistical Transformation\nObserved Value vs. Number of Observations\n\nThere are three reasons we might need to use a stat explicitly:"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-9",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-9",
     "title": "Lecture 3",
     "section": "Statistical Transformation",
-    "text": "Statistical Transformation\n\nObserved Value vs. Number of Observations\n\n1. We might want to override the default stat.\n\n\n# to make a simple data.frame\ndemo &lt;- tribble(         \n  ~cut,         ~freq,\n  \"Fair\",       1610,\n  \"Good\",       4906,\n  \"Very Good\",  12082,\n  \"Premium\",    13791,\n  \"Ideal\",      21551 )\n\nggplot(data = demo) +\n  geom_bar(mapping = \n             aes(x = cut, \n                 y = freq), \n           stat = \"identity\")"
+    "text": "Statistical Transformation\nObserved Value vs. Number of Observations\n\n1. We might want to override the default stat.\n\n\n\n# to make a simple data.frame\ndemo &lt;- tribble(         \n  ~cut,         ~freq,\n  \"Fair\",       1610,\n  \"Good\",       4906,\n  \"Very Good\",  12082,\n  \"Premium\",    13791,\n  \"Ideal\",      21551 )\n\nggplot(data = demo) +\n  geom_bar(mapping = \n             aes(x = cut, \n                 y = freq), \n           stat = \"identity\")"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-10",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-10",
     "title": "Lecture 3",
     "section": "Statistical Transformation",
-    "text": "Statistical Transformation\n\nCount vs. Proportion\n\n2. We might want to override the default mapping from transformed variables to aesthetics.\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 y = stat(prop), \n                 group = 1))\n\nWarning: `stat(prop)` was deprecated in ggplot2 3.4.0.\nℹ Please use `after_stat(prop)` instead."
+    "text": "Statistical Transformation\nCount vs. Proportion\n\n2. We might want to override the default mapping from transformed variables to aesthetics.\n\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 y = stat(prop), \n                 group = 1))"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-11",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-11",
     "title": "Lecture 3",
     "section": "Statistical Transformation",
-    "text": "Statistical Transformation\n\nStat summary\n\n3. We might want to draw greater attention to the statistical transformation in our code.\n\n\nggplot(data = diamonds) + \n  stat_summary(\n    mapping = aes(x = cut, y = depth),\n    fun.min = min,\n    fun.max = max,\n    fun = median\n  )"
+    "text": "Statistical Transformation\nStat summary\n\n3. We might want to draw greater attention to the statistical transformation in our code.\n\n\n\nggplot(data = diamonds) + \n  stat_summary(\n    mapping = aes(x = cut, y = depth),\n    fun.min = min,\n    fun.max = max,\n    fun = median\n  )"
   },
   {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-12",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-12",
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-1",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-1",
     "title": "Lecture 3",
-    "section": "Statistical Transformation",
-    "text": "Statistical Transformation\nCount vs. Proportion\n\nThere are three reasons we might need to use a stat explicitly:\n\n2. We might want to override the default mapping from transformed variables to aesthetics.\n\n\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = aes(x = cut, y = stat(prop), \n                         fill = color ) )"
+    "section": "Position Adjustment",
+    "text": "Position Adjustment\ncolor and fill aesthetic\n\nWe can color a bar chart using either the color aesthetic, or, more usefully, fill.\n\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 color = cut))"
   },
   {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-13",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#statistical-transformation-13",
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-2",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-2",
     "title": "Lecture 3",
-    "section": "Statistical Transformation",
-    "text": "Statistical Transformation\nStat summary\n\nThere are three reasons we might need to use a stat explicitly:\n\n3. We might want to draw greater attention to the statistical transformation in our code.\n\n\n\n\nggplot(data = diamonds) + \n  stat_summary(\n    mapping = aes(x = cut, y = depth),\n    fun.min = min,\n    fun.max = max,\n    fun = median\n  )"
+    "section": "Position Adjustment",
+    "text": "Position Adjustment\nfill\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = cut))"
   },
   {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-3",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-3",
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-3",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-3",
     "title": "Lecture 3",
-    "section": "Coordinate Systems",
-    "text": "Coordinate Systems\ncoord_flip()\n\n\nggplot(data = mpg, \n       mapping = \n         aes(x = class, \n             y = hwy)) + \n  geom_boxplot() +\n  coord_flip()"
+    "section": "Position Adjustment",
+    "text": "Position Adjustment\nStacked bar charts with fill aesthetic\n\nNote that the bars are automatically stacked if we map the fill aesthetic to another variable.\n\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = clarity) )"
   },
   {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-4",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-4",
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-4",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-4",
     "title": "Lecture 3",
-    "section": "Coordinate Systems",
-    "text": "Coordinate Systems\ngeom_abline()\n\nWhat does geom_abline() do?\n\n\n\nggplot(data = mpg, \n       mapping = \n         aes(x = cty, \n             y = hwy)) + \n  geom_point() + \n  geom_abline()"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#facets-4",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#facets-4",
-    "title": "Lecture 3",
-    "section": "Facets",
-    "text": "Facets\n\nThe first argument of facet_grid() is also a formula.\n\nThis time the formula should contain two variable names separated by a ~."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#facets-5",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#facets-5",
-    "title": "Lecture 3",
-    "section": "Facets",
-    "text": "Facets\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .5) + \n  facet_grid(drv ~ cyl)"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#facets-6",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#facets-6",
-    "title": "Lecture 3",
-    "section": "Facets",
-    "text": "Facets\n\nOption scales in facet_*() is whether scales is\n\nfixed (\"fixed\", the default),\nfree in one dimension (\"free_x\", \"free_y\"), or\nfree in two dimensions (\"free\")."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-12",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-12",
-    "title": "Lecture 3",
-    "section": "Geometric Objects",
-    "text": "Geometric Objects\n\nTo display multiple geometric objects in the same plot, add multiple geom_*() functions to ggplot():\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .3) +\n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy)) +\n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy), \n              method = lm, \n              color = 'red')\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\nUsing geom_point(), geom_smooth(), and geom_smooth(method = lm) together is an excellent option to visualize the relationship between the two variables."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-13",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-13",
-    "title": "Lecture 3",
-    "section": "Geometric Objects",
-    "text": "Geometric Objects\n\nIf we place mappings in a geom function, ggplot2 will treat them as local mappings for the layer.\n\n\nggplot(data = mpg, \n       mapping = \n         aes(x = displ, \n             y = hwy)) + \n  geom_point(mapping = \n               aes(color = class),\n             alpha = .3) + \n  geom_smooth()\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-14",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-14",
-    "title": "Lecture 3",
-    "section": "Geometric Objects",
-    "text": "Geometric Objects\n\nggplot(data = mpg, \n       mapping = \n         aes(x = displ, \n             y = hwy)) + \n  geom_point(mapping = \n               aes(color = class), \n             alpha = .3) + \n  geom_smooth(data = \n                filter(mpg, \n                       class == \"subcompact\"), \n              se = FALSE)\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#the-use-of-log",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#the-use-of-log",
-    "title": "Lecture 3",
-    "section": "The use of log()",
-    "text": "The use of log()\n\nNYC Housing Sales\n\nlibrary(tidyverse)\nsale_df &lt;- read_csv(\n  \"https://bcdanl.github.io/data/home_sales_nyc.csv\")\n\nRows: 12668 Columns: 15\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr   (3): borough_name, neighborhood, building.class.category\ndbl  (11): borough, zip.code, sale.price, residential.units, commercial.unit...\ndate  (1): sale.date\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nsale_df contains data for residential property sales from September 2017 and August 2018 in NYC.\n\nLet’s focus on sale.price, a property’s sales price."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#the-use-of-log-1",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#the-use-of-log-1",
-    "title": "Lecture 3",
-    "section": "The use of log()",
-    "text": "The use of log()\n\nPercentage Change\n1. We should consider using a logarithmic scale when percent change, or change in orders of magnitude, is more important than changes in absolute units.\n\nFor small changes in variable \\(x\\) from \\(x_{0}\\) to \\(x_{1}\\), the following can be shown:\n\n\\[\\Delta \\log(x) \\,= \\, \\log(x_{1}) \\,-\\, \\log(x_{0})\n\\approx\\, \\frac{x_{1} \\,-\\, x_{0}}{x_{0}}\n\\,=\\, \\frac{\\Delta\\, x}{x_{0}}.\\]\n\nFor example, a difference in sale.price of $10,000 means something very different across people with different income/wealth levels."
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#the-use-of-log-2",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#the-use-of-log-2",
-    "title": "Lecture 3",
-    "section": "The use of log()",
-    "text": "The use of log()\n\nWide Range of Skewed Data\n2. We should consider using a log scale when a variable is heavily skewed. - It can help visualize both small and large values effectively.\n\nggplot(sale_df, \n       aes(x = sale.price), \n       bins = 500) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "section": "Position Adjustment",
+    "text": "Position Adjustment\nStacked bar charts with fill aesthetic\n\nThe stacking is performed automatically by the position adjustment specified by the position argument.\n\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = clarity),\n           position = \"stack\")"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-5",
@@ -1834,46 +1449,74 @@
     "text": "Position Adjustment\n\nIf we don’t want a stacked bar chart with counts, we can use one of two other position options: fill or dodge.\nposition = \"fill\" works like stacking, but makes each set of stacked bars the same height.\n\nThis makes it easier to compare proportions across groups.\n\nposition = \"dodge\" places overlapping objects directly beside one another."
   },
   {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#facets-7",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#facets-7",
-    "title": "Lecture 3",
-    "section": "Facets",
-    "text": "Facets\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .5) + \n  facet_grid(drv ~ cyl, \n             scales = \"free_x\")"
-  },
-  {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-15",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#geometric-objects-15",
-    "title": "Lecture 3",
-    "section": "Geometric Objects",
-    "text": "Geometric Objects\n\nWe can use the same idea to specify different data for each layer.\nHere, our smooth line displays just a subset of the mpg data.frame, the subcompact cars.\n\nfilter() is the tidyverse-way to filter observations in a data.frame.\n\nThe local data argument in geom_smooth() overrides the global data argument in ggplot() for that layer only.\nThe standard error (se) tells us how much the predicted values from a model might differ from the actual values we’re trying to predict.\n\nIt’s a way to measure how good a quality of prediction is."
-  },
-  {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-6",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-6",
     "title": "Lecture 3",
     "section": "Position Adjustment",
-    "text": "Position Adjustment\n\nposition = \"fill\"\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = clarity), \n           position = \"fill\")"
+    "text": "Position Adjustment\nposition = \"fill\"\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = clarity), \n           position = \"fill\")"
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-7",
     "href": "danl-lec/danl-399-lec-03-2024-0209.html#position-adjustment-7",
     "title": "Lecture 3",
     "section": "Position Adjustment",
-    "text": "Position Adjustment\n\nposition = \"dodge\"\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = clarity), \n           position = \"dodge\")"
+    "text": "Position Adjustment\nposition = \"dodge\"\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = clarity), \n           position = \"dodge\")"
   },
   {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-5",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-5",
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-1",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-1",
+    "title": "Lecture 3",
+    "section": "Coordinate Systems",
+    "text": "Coordinate Systems\ngeom_abline()\n\nWhat does geom_abline() do?\n\n\n\nggplot(data = mpg, \n       mapping = \n         aes(x = cty, \n             y = hwy)) + \n  geom_point() + \n  geom_abline() # math: y = ax + b"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-2",
+    "href": "danl-lec/danl-399-lec-03-2024-0209.html#coordinate-systems-2",
     "title": "Lecture 3",
     "section": "Coordinate Systems",
     "text": "Coordinate Systems\ncoord_fixed()\n\nWhat does coord_fixed() do?\n\n\n\nggplot(data = mpg, \n       mapping = \n         aes(x = cty, \n             y = hwy)) + \n  geom_point() + \n  geom_abline() +\n  coord_fixed()"
   },
   {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-12",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html#aesthetic-mappings-12",
-    "title": "Lecture 3",
-    "section": "Aesthetic Mappings",
-    "text": "Aesthetic Mappings\n\nSpecifying a color to the plot?\n\nggplot(data = mpg) + \n  geom_point( mapping = \n                aes(x = displ, \n                    y = hwy, \n                    color = \"blue\") )"
+    "objectID": "danl-cw/danl-399-cw-02.html",
+    "href": "danl-cw/danl-399-cw-02.html",
+    "title": "Classwork 2",
+    "section": "",
+    "text": "Markdown is a lightweight markup language with plain-text formatting syntax. Its main goal is to be readable and easy to write, even when viewed as plain text. Markdown is widely used for creating formatted text on the web and in various applications such as Quarto.\n\n\n\n\nHeadings are created by adding one or more # symbols before your heading text. The number of # symbols indicates the level of the heading.\n# Heading 1\n## Heading 2\n### Heading 3\n\n\n\nYou can make text bold by wrapping it with two asterisks **, and italic by using one asterisk *.\n*italic* or _italic_\n**bold** or __bold__\n\n\n\nUnordered lists are created using *, -, or +, while ordered lists are numbered.\n- Item 1\n- Item 2\n  - Subitem 2.1\n  - Subitem 2.2\n1. First item\n2. Second item\n\n\n\nLinks are created using [Link Text](URL), and images with ![Alt Text](Image URL).\n[DANL 210](https://bcdanl.github.io/210)\n![Geneseo Logo](https://bcdanl.github.io/img/geneseo-logo.gif)\n\n\n\n\n\n\n&gt; Be yourself. Everyone else is already taken. - Oscar Wilde.\n\n\n\n\nA ton of markdown emojis are available here 😄 (:smile:)\n\nhttps://github.com/ikatyang/emoji-cheat-sheet\n\n\n\n\n\nCode blocks are created by using triple backticks (```). Optionally, you can specify the language for syntax highlighting.\n```\n\"string\"\n```\n```python\n# Python code block\nimport numpy as np\n```\n\n\n\n\n\nDo the following tasks on this Classwork 2 Discussion Board:\n\nBasic Syntax: Write a comment with a heading, an unordered list, an ordered list, a link, and an image.\nAdvanced Syntax: Write a comment that includes a Python code block, a blockquote, and an emoji.\n\n\n\n\n\n\nQuarto Markdown Basics\nStart writing on GitHub"
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-02.html#basic-syntax",
+    "href": "danl-cw/danl-399-cw-02.html#basic-syntax",
+    "title": "Classwork 2",
+    "section": "",
+    "text": "Headings are created by adding one or more # symbols before your heading text. The number of # symbols indicates the level of the heading.\n# Heading 1\n## Heading 2\n### Heading 3\n\n\n\nYou can make text bold by wrapping it with two asterisks **, and italic by using one asterisk *.\n*italic* or _italic_\n**bold** or __bold__\n\n\n\nUnordered lists are created using *, -, or +, while ordered lists are numbered.\n- Item 1\n- Item 2\n  - Subitem 2.1\n  - Subitem 2.2\n1. First item\n2. Second item\n\n\n\nLinks are created using [Link Text](URL), and images with ![Alt Text](Image URL).\n[DANL 210](https://bcdanl.github.io/210)\n![Geneseo Logo](https://bcdanl.github.io/img/geneseo-logo.gif)"
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-02.html#advanced-syntax",
+    "href": "danl-cw/danl-399-cw-02.html#advanced-syntax",
+    "title": "Classwork 2",
+    "section": "",
+    "text": "&gt; Be yourself. Everyone else is already taken. - Oscar Wilde.\n\n\n\n\nA ton of markdown emojis are available here 😄 (:smile:)\n\nhttps://github.com/ikatyang/emoji-cheat-sheet\n\n\n\n\n\nCode blocks are created by using triple backticks (```). Optionally, you can specify the language for syntax highlighting.\n```\n\"string\"\n```\n```python\n# Python code block\nimport numpy as np\n```"
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-02.html#practice-problems",
+    "href": "danl-cw/danl-399-cw-02.html#practice-problems",
+    "title": "Classwork 2",
+    "section": "",
+    "text": "Do the following tasks on this Classwork 2 Discussion Board:\n\nBasic Syntax: Write a comment with a heading, an unordered list, an ordered list, a link, and an image.\nAdvanced Syntax: Write a comment that includes a Python code block, a blockquote, and an emoji."
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-02.html#references",
+    "href": "danl-cw/danl-399-cw-02.html#references",
+    "title": "Classwork 2",
+    "section": "",
+    "text": "Quarto Markdown Basics\nStart writing on GitHub"
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-01.html",
+    "href": "danl-cw/danl-399-cw-01.html",
+    "title": "Classwork 1",
+    "section": "",
+    "text": "Getting a GitHub account\nStep 1. Create the GitHub account with your Geneseo email.\n\nGo to GitHub.\nClick “Sign up for GitHub”.\n\n\nChoose your GitHub username carefully:\n\nhttps://USERNAME.github.io will be the address for your website.\nByeong-Hak’s GitHub username is bcdanl, so that Byeong-Hak owns the web address https://bcdanl.github.io.\n\nIt is recommended to have a username with all lower cases.\n\n\n\n\n\nInstalling git if you do not have one.\nStep 2.\n\nCheck whether git is installed in your laptop.\n\n\nFrom the Console Pane in RStudio, click Terminal tab.\n\n\n\n\n\nFrom the Terminal, run the following command to check if your laptop has git installed.\n\ngit --version\n\nIf your computer has git installed, you will see the message below and you do not need to install git:\n\ngit version 2.xx\n\nIf your computer does not have git installed, you will see the message below and you need to install git:\n\n'git' is not recognized as an internal or external command\n\n\nInstall git if you do not have one. Move to the next step if you have git installed in your laptop.\n\n\n\n\nMac\n\nGo to http://git-scm.com/downloads, and download the file.\nClick “macOS”, scroll down the webpage, and then click “installer” from the Binary installer section.\nRun the downloaded file.\n\n\n\n\nWindows\n\nGo to https://gitforwindows.org, and download the file.\nRun the downloaded file.\n\n\n\n\n\nKeep clicking “Next” to complete the installation of git.\nAfter the git installation is done, close RStudio and re-open it.\n\n\n\n\nSetting up GitHub Credential on your local Git.\nStep 3. In Terminal, run the following commands one by one:\ngit config --global user.email \"YOUR_EMAIL_ADDRESS\"\ngit config --global user.name \"YOUR_USERNAME\"\nFor example, the email address for my GitHub account is bchoe@geneseo.edu, and my GitHub username is bcdanl, so that I ran below:\ngit config --global user.email \"bchoe@geneseo.edu\"\ngit config --global user.name \"bcdanl\"\n\nStep 4. Obtain a personal access token (PAT) from GitHub.\n\nIn RStudio Console, run the followings line by line:\n\ninstall.packages(\"usethis\")\nusethis::create_github_token()\n\nThen, click “Generate token” in the pop-upped web browser.\nWe can think of GitHub’s personal access token as a password that expires. You can decide how long it remains valid. My recommendation is to set its expiration for May 31, 2024, or later.\n\n\n\n\n\nThen, copy the generated PAT, and paste it to your clipboard or R script.\n\n\nStep 5. Set the GitHub credential using the PAT.\n\nIn RStudio Console, run the followings line by line:\n\ninstall.packages(\"gitcreds\")\ngitcreds::gitcreds_set()\n\nYou will be asked to provide your PAT.\nPaste your PAT to the RStudio Console, and then hit Enter.\n\n\n\n\n\n\n\nNote\n\n\n\n\nIt does not harm to create multiple PAT for one GitHub account.\nAfter the PAT expires, you should repeat the following if you want to update your GitHub website:\n\n\nCreate a new PAT:\n\nusethis::create_github_token()\n\nReplace the current PAT with the new PAT:\n\ngitcreds::gitcreds_set()\n\nSelect the option 2: Replace these credentials by typing 2 and hitting Enter on R Console.\n\n\n\n\n\n\nEstablishing the Connection between GitHub repo and your local Git\nStep 6. Login to your GitHib and make the repository.\n\nFrom https://github.com, click the plus [+] icon in the upper right corner and select “New repository”.\nName this repo USERNAME.github.io, which will be the domain for your website.\n\n\ne.g., If your GitHub username is abc9, the name of your repo should be abc9.github.io, not abc_9.github.io.\n\n\nThen, copy the web address of your GitHub repo, https://github.com/USERNAME/USERNAME.github.io\n\n\nFor example, the web address for Byeong-Hak’s GitHub repo is https://github.com/bcdanl/bcdanl.github.io.\n\n\nStep 7. Create a RStudio project with Version Control\n\n\n\n\nClick “Project (None)” at the top-right corner in RStudio.\nClick “New Project” &gt; “Version Control” &gt; “Git”\nPaste the web address of your GitHub repo to the Repository URL menu.\nClick “Browse” to select the parent directory for your local project directory (I recommend “Documents” folder.)\nClick “Create”\n\n\n\n\n\n\n\nNote\n\n\n\nIf Step 7 does not work on your laptop, try below Steps 7-1 and 7-2 instead. If Step 7 DOES work well, skip Steps 7-1 and 7-2.\n\n\nStep 7-1. Use git clone to establish the connection between GitHub repo and your local laptop:\n\nChange directory to “Documents” in Terminal using cd command.\n\ncd &lt;pathname of \"Documents\" directory&gt;\n\nHere, you need to know the pathname of “Documents” directory.\nFor example, LAPTOP_USERNAME below is not your GitHub username but one for your local laptop.\n\nMac\ncd /Users/LAPTOP_USERNAME/Documents\nWindows\ncd C:/Users/LAPTOP_USERNAME/Documents\n\nUse git clone to creates a local copy of the GitHub Repository.\n\ngit clone &lt;repository-url&gt;\n\nFor example,\n\ngit clone https://github.com/USERNAME/USERNAME.github.io\n\nStep 7-2. Create a RStudio project from Existing Directory\n\nClick “Project (None)” at the top-right corner in RStudio.\nClick “New Project” &gt; “Existing Directory”\nClick “Browse” to select the local copy of the GitHub Repository\nClick “Create Project”\n\n\n\n\nDownloading Website Template Files\nStep 8. Download the files of website template:\n\nGo to the following webpage: https://github.com/bcdanl/danl-website-template\nFrom the webpage above, click the green icon &lt; &gt; Code, and then click “Download Zip”\nExtract the Zip file you have downloaded\nIf there are the files, .gitignore, .DS_Store, or *.Rproj, in the folder, delete all of them.\nMove all the files that were compressed in the Zip file to your local project directory, USERNAME.github.io.\n\n\nSelect all the files in the danl-website-template folder (Tip: Ctrl + A (Windows) / command + A (Mac) selects all files in a directory).\nThen, Ctrl + C (Windows) / command + C (Mac) to copy them.\nThen, go to your local project directory USERNAME.github.io.\nThen, Ctrl + V (Windows) / command + V (Mac) to paste them to your local project directory USERNAME.github.io.\n\n\nRemove the danl-website-template directory from your local project directory, if you have one.\n\n\nAll the website files should be located at the same level with the R Project file (USERNAME.github.io.Rproj), shown below.\n\n\n\n\n\n\n\nPushing the Website Files to the GitHub repository\n\n\n\nStep 8. Push the files to your GitHub repository\n\nOn Terminal within RStudio, execute the following 3-step git commands, which will stage, commit, and push all the files in the local working directory to your GitHub repository:\n\n\ngit add . adds changes in your local working directory (e.g., edited files, new files, deleted files) to the staging area, which is a temporary area where you can prepare your next commit\n\ngit add .\n\ngit commit -m \"...\" records the changes in the staging area as a new snapshot in the local working directory, along with a message describing the changes.\n\ngit commit -m \"any message to describe the changes\"\n\ngit push -u origin main uploads the local changes to the online repository in GitHub.\n\ngit push -u origin main\n\n\n\n\n\n\nNote\n\n\n\nIf git push -u origin main gives error, try the following:\ngit push -u origin master\n\nThe name of the default branch in a GitHub repo is usually main, but sometimes GitHub gives master default branch instead.\n\n\n\n\nStep 9. Check whether the files are well uploaded.\n\nGo to the webpages of your GitHub repository and your website:\n\nhttps://github.com/USERNAME/USERNAME.github.io.git\nhttps://USERNAME.github.io\nRefresh the webpages (Ctrl + R for Windows users; cmd + R for Mac users)\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "danl-cw/danl-399-cw-05.html",
@@ -1925,10 +1568,38 @@
     "text": "Q2b.\n\nInstall the R package, nycflights13, which provides the flights data.frame.\nVisualize the distribution of carrier.\nVisualize how the distribution of carrier varies by origin.\n\nAnswer:"
   },
   {
-    "objectID": "danl-lec/danl-399-lec-03-2024-0209.html",
-    "href": "danl-lec/danl-399-lec-03-2024-0209.html",
-    "title": "Lecture 3",
+    "objectID": "danl-class/danl-399-lec-02-2024-0202.html",
+    "href": "danl-class/danl-399-lec-02-2024-0202.html",
+    "title": "Lecture 2 - Note",
     "section": "",
-    "text": "ggplot grammar"
+    "text": "Make a plot!\nTo add a code chunk, - Alt + Ctrl + I - option + command + I\nTo run a code chunk - Ctrl + Shift + Enter - command + shift + return\nTo run a current line of code - Ctrl + Enter - command + return\n\nlibrary(gapminder)\ngapminder &lt;- gapminder::gapminder\nskim(gapminder)\n\n\nData summary\n\n\nName\ngapminder\n\n\nNumber of rows\n1704\n\n\nNumber of columns\n6\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\nfactor\n2\n\n\nnumeric\n4\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: factor\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nordered\nn_unique\ntop_counts\n\n\n\n\ncountry\n0\n1\nFALSE\n142\nAfg: 12, Alb: 12, Alg: 12, Ang: 12\n\n\ncontinent\n0\n1\nFALSE\n5\nAfr: 624, Asi: 396, Eur: 360, Ame: 300\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nyear\n0\n1\n1979.50\n17.27\n1952.00\n1965.75\n1979.50\n1993.25\n2007.0\n▇▅▅▅▇\n\n\nlifeExp\n0\n1\n59.47\n12.92\n23.60\n48.20\n60.71\n70.85\n82.6\n▁▆▇▇▇\n\n\npop\n0\n1\n29601212.32\n106157896.74\n60011.00\n2793664.00\n7023595.50\n19585221.75\n1318683096.0\n▇▁▁▁▁\n\n\ngdpPercap\n0\n1\n7215.33\n9857.45\n241.17\n1202.06\n3531.85\n9325.46\n113523.1\n▇▁▁▁▁\n\n\n\n\n\n\n\n\n\n\n\n\n\np &lt;- ggplot(data = gapminder,\n            aes(x = gdpPercap, y = lifeExp))\n\nBelow is the scatter plot of gdpPercap vs. lifeExp\n\np + geom_point()\n\n\n\n\nLet’s add a curve that fits into the data points.\n\np + geom_point() +\n  geom_smooth()\n\n\n\n\n\np + geom_point() +\n  geom_smooth() +\n  geom_smooth(method = lm)\n\n\n\n\n\np1 &lt;- ggplot(data = gapminder,\n             mapping = aes(x = gdpPercap, y = lifeExp,\n                           color = continent))\n\n\np1 + geom_point()\n\n\n\n\n\np + geom_point(color = \"red\")\n\n\n\n\n\np + geom_point(color = \"purple\") +\n  geom_smooth(method = lm)\n\n\n\n\n\np + geom_point(alpha = .2, size = 10)\n\n\n\n\n\np + geom_point(alpha = .2) +\n  geom_smooth(method = lm,\n              color = \"orange\",\n              se = F,\n              linewidth = 10\n              )\n\n\n\n\n\np + geom_point(alpha = .25) +\n  geom_smooth() +\n  scale_x_log10(labels = scales::dollar) +\n  labs(x = \"GDP Per Capita\", y = \"Life Expectancy in Years\",\n         title = \"Economic Growth and Life Expectancy\",\n         subtitle = \"Data points are country-years\",\n         caption = \"Source: Gapminder.\")\n\n\n\n\n\np1 + geom_point(alpha = .25) +\n  geom_smooth() +\n  scale_x_log10(labels = scales::dollar) +\n  labs(x = \"GDP Per Capita\", y = \"Life Expectancy in Years\",\n         title = \"Economic Growth and Life Expectancy\",\n         subtitle = \"Data points are country-years\",\n         caption = \"Source: Gapminder.\")\n\n\n\n\n\np1 + geom_point(alpha = .25) +\n  geom_smooth() +\n  geom_smooth(method = lm) +\n  guides(color = \"none\") +\n  facet_wrap( . ~ continent ) +\n  scale_x_log10(labels = scales::dollar) +\n  labs(x = \"GDP Per Capita\", y = \"Life Expectancy in Years\",\n         title = \"Economic Growth and Life Expectancy\",\n         subtitle = \"Data points are country-years\",\n         caption = \"Source: Gapminder.\")\n\n\n\n\n\np + geom_point(alpha = .25,\n               aes(color = continent)) +\n  geom_smooth(  )\n\n\n\n\n\np_out &lt;- p + geom_point(alpha = .25) +\n  geom_smooth() +\n  scale_x_continuous(trans = scales::log_trans())  # natural log\np_out\n\n\n\n# ggsave(\"my_figure.pdf\", plot = p_out)\n\n\n\n\nReferences\n\nR for Data Science by Hadley Wickham\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "listing-danl-399-cw.html",
+    "href": "listing-danl-399-cw.html",
+    "title": "DANL 399 - Classwork",
+    "section": "",
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nClasswork 5\n\n\nThe Layered Grammar of Graphics\n\n\nFebruary 10, 2023\n\n\n\n\nClasswork 4\n\n\nggplot Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nQuarto Website Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nMarkdown Basics\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nBuilding a Personal Website using Git, GitHub, and RStudio with Quarto\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "danl-qa/danl-399-qa-02.html",
+    "href": "danl-qa/danl-399-qa-02.html",
+    "title": "Lecture 2 - Q & A",
+    "section": "",
+    "text": "Welcome to our Lecture 2 Discussion Board! 👋 \nThis space is designed for you to engage with your classmates about the material covered in Lecture 6 slides.\nWhether you are looking to delve deeper into the slides, share insights, or have questions about the content, this is the perfect place for you.\nIf you have any specific questions for Byeong-Hak (@bcdanl) regarding the Lecture 2 materials or need clarification on any points, don’t hesitate to ask here.\nLet’s collaborate and learn from each other!\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "danl-qa/danl-399-qa-01.html",
+    "href": "danl-qa/danl-399-qa-01.html",
+    "title": "Lecture 1 - Q & A",
+    "section": "",
+    "text": "Welcome to our Lecture 1 Discussion Board! 👋 \nThis space is designed for you to engage with your classmates about the material covered in Lecture 1 slides.\nWhether you are looking to delve deeper into the slides, share insights, or have questions about the content, this is the perfect place for you.\nIf you have any specific questions for Byeong-Hak (@bcdanl) regarding the Lecture 3 materials or need clarification on any points, don’t hesitate to ask here.\nLet’s collaborate and learn from each other!\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "listing-danl-399-lec.html",
+    "href": "listing-danl-399-lec.html",
+    "title": "DANL 399 - Lecture",
+    "section": "",
+    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 3\n\n\nFebruary 9, 2024\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   }
 ]
