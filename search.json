@@ -1096,7 +1096,7 @@
     "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-9",
     "title": "Lecture 4",
     "section": "Show the right number",
-    "text": "Show the right number\nThe 2016 General Social Survey data\n\nThe socviz package includes the gss_sm data frame.\n\ngss_sm is a dataset containing an extract from the 2016 General Social Survey.\n\n\n# install.packages(\"socviz\")\nlibrary(socviz)\n?gss_sm\nglimpse(gss_sm)\nskimr::skim(gss_sm)\ngss_sm &lt;- gss_sm"
+    "text": "Show the right number\nThe 2016 General Social Survey data\n\nThe socviz package includes the gss_sm data frame.\n\ngss_sm is a dataset containing an extract from the 2016 General Social Survey.\n\n\n# install.packages(\"socviz\")\nlibrary(socviz)\n?gss_sm\nskimr::skim(gss_sm)\ngss_sm &lt;- gss_sm"
   },
   {
     "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-10",
@@ -1138,14 +1138,14 @@
     "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-15",
     "title": "Lecture 4",
     "section": "Show the right number",
-    "text": "Show the right number\nGeoms can transform data\n\nIf we want a chart of relative frequencies rather than counts, we will need to get the prop statistic instead.\nOur call to statistic from the aes() function generically looks like this:\n\n&lt;mapping&gt; = &lt;..statistic..&gt;.\n&lt;mapping&gt; = stat(statistic).\n&lt;mapping&gt; = after_stat(statistic)."
+    "text": "Show the right number\nGeoms can transform data\n\nIf we want a chart of relative frequencies rather than counts, we will need to get the prop statistic instead.\nOur call to statistic from the aes() function generically looks like this:\n\n&lt;mapping&gt; = &lt;..statistic..&gt;;\n&lt;mapping&gt; = stat(statistic); or\n&lt;mapping&gt; = after_stat(statistic)."
   },
   {
     "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-16",
     "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-16",
     "title": "Lecture 4",
     "section": "Show the right number",
-    "text": "Show the right number\nGeoms can transform data\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes(x = bigregion))\np + geom_bar(mapping = \n               aes(y = ..prop..))\n\n\n\n\n\n\n\nWhat happened?"
+    "text": "Show the right number\nGeoms can transform data\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes(x = bigregion))\np + geom_bar(mapping = \n               aes(y = ..prop..))"
   },
   {
     "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-17",
@@ -1264,7 +1264,7 @@
     "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-33",
     "title": "Lecture 4",
     "section": "Show the right number",
-    "text": "Show the right number\nHistograms and density plots\n\n\np &lt;- ggplot(data = \n              filter(midwest, \n                     state %in% c(\"OH\", \"WI\")),\n            mapping = \n              aes(x = percollege, \n                  fill = state) )\np + geom_histogram(alpha = 0.4, \n                   bins = 20)"
+    "text": "Show the right number\nHistograms and density plots\n\n\np &lt;- ggplot(data = \n              filter(midwest, \n                     state %in% \n                       c(\"OH\", \"WI\")),\n            mapping = \n              aes(x = percollege, \n                  fill = state) )\np + geom_histogram(alpha = 0.4, \n                   bins = 20)"
   },
   {
     "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-34",
@@ -1299,7 +1299,7 @@
     "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-38",
     "title": "Lecture 4",
     "section": "Show the right number",
-    "text": "Show the right number\nHistograms and density plots\n\n\np &lt;- ggplot(data = \n              filter(midwest, \n                     state %in% c(\"OH\", \"WI\")),\n            mapping = \n              aes(x = area, \n                  fill = state, \n                  color = state))\np + geom_density( alpha = 0.3, \n                  mapping =  \n                    aes(y = after_stat(scaled) ))"
+    "text": "Show the right number\nHistograms and density plots\n\n\np &lt;- ggplot(data = \n              filter(midwest, \n                     state %in% \n                       c(\"OH\", \"WI\")),\n            mapping = \n              aes(x = area, \n                  fill = state, \n                  color = state))\np + geom_density( alpha = 0.3, \n                  mapping =  \n                    aes(y = after_stat(scaled) ))"
   },
   {
     "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-39",

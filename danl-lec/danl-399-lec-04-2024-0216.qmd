@@ -232,7 +232,6 @@ p + geom_line(color="gray70",
 # install.packages("socviz")
 library(socviz)
 ?gss_sm
-glimpse(gss_sm)
 skimr::skim(gss_sm)
 gss_sm <- gss_sm
 ```
@@ -329,11 +328,8 @@ p + geom_bar()
 
 
 - Where does count come from? 
-
   - Bar charts, histograms, and frequency polygons bin your data and then plot bin counts, the number of points that fall in each bin.
-
   - Smoothers fit a model to your data and then plot predictions from the model.
-
   - Boxplots compute a robust summary of the distribution and then display a specially formatted box.
 
 
@@ -347,8 +343,8 @@ p + geom_bar()
 - If we want a chart of relative frequencies rather than counts, we will need to get the `prop` statistic instead.
 
 - Our call to statistic from the `aes()` function generically looks like this: 
-  - `<mapping> = <..statistic..>`. 
-  - `<mapping> = stat(statistic)`. 
+  - `<mapping> = <..statistic..>`;
+  - `<mapping> = stat(statistic)`; or 
   - `<mapping> = after_stat(statistic)`. 
 
 
@@ -368,8 +364,6 @@ p <- ggplot(data = gss_sm,
 p + geom_bar(mapping = 
                aes(y = ..prop..))
 ```
-
-- What happened?
 
 
 
@@ -636,7 +630,8 @@ p + geom_histogram(bins = 10)
 
 p <- ggplot(data = 
               filter(midwest, 
-                     state %in% c("OH", "WI")),
+                     state %in% 
+                       c("OH", "WI")),
             mapping = 
               aes(x = percollege, 
                   fill = state) )
@@ -705,7 +700,8 @@ p + geom_density(alpha = 0.3)
 
 p <- ggplot(data = 
               filter(midwest, 
-                     state %in% c("OH", "WI")),
+                     state %in% 
+                       c("OH", "WI")),
             mapping = 
               aes(x = area, 
                   fill = state, 
@@ -809,11 +805,11 @@ p + geom_col() +
 
 
 
-## Show the right number
-### Bar plots as an alternative to line plots
--  Just as `stat = "identity"` means “don’t do any summary calculations”, `position = "identity"` means “just plot the values as given”. 
-  - This allows us to do things like, for example, plot a flow of positive and negative values in a bar chart. 
-  - This sort of graph is an alternative to a line plot and is often seen in public policy settings where changes relative to some threshold level or baseline are of interest.
+<!-- ## Show the right number -->
+<!-- ### Bar plots as an alternative to line plots -->
+<!-- -  Just as `stat = "identity"` means “don’t do any summary calculations”, `position = "identity"` means “just plot the values as given”.  -->
+<!-- - This allows us to do things like, for example, plot a flow of positive and negative values in a bar chart. -->
+  <!-- - This sort of graph is an alternative to a line plot and is often seen in public policy settings where changes relative to some threshold level or baseline are of interest. -->
   
   
 
