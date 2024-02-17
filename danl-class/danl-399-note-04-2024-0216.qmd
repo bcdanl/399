@@ -1,18 +1,28 @@
 ---
 title: Lecture 4 - Note
-subtitle: Show the right number
+subtitle: Show the Right Number
 author: 
   - name: Byeong-Hak Choe
-date: last-modified
+date: 2024-02-16
 
-execute:
-  echo: true
-  eval: true
-  warning: false
-  message: false
+execute: 
+  echo: true    # true false
+  eval: true    # true false
+  warning: false    # true false
+  message: false    # true false
   fig-width: 9
   # fig-height: 5
+  
+format: 
+  html:
+    toc: true    # true false
+    number-sections: true    # true false
+    code-fold: false    # true false show       # https://quarto.org/docs/output-formats/html-code.html
+    code-tools: true    # true false
+    highlight-style: atom-one        # atom-one tango espresso   # https://quarto.org/docs/output-formats/html-code.html#highlighting
+    
 ---
+
 
 ```{r setup}
 #| include: false
@@ -51,24 +61,6 @@ length(unique(gapminder$continent))
 
 ```
 
-<div style="position: relative;">
-  <button onclick="scrollTable(-200)" style="position: absolute; z-index: 1000; top: 0; left: 70px; height: 40px; background-color: #f1f1f1; color: black; border : 0px; cursor: pointer;">←</button>
-  <button onclick="scrollTable(200)" style="position: absolute; z-index: 1000; top: 0; left: 95px; height: 40px; background-color: #f1f1f1; color: black; border : 0px; cursor: pointer;">→</button>
-</div>
-
-<script>
-function scrollTable(offset) {
-  // Ensure we're targeting the scroll body of the DataTable specifically
-  var scrollBody = $('#exampleTable .dataTables_scrollBody');
-  
-  // Check if the scrollBody is found
-  console.log(scrollBody.length); // For debugging, should be 1 if found
-  
-  scrollBody.animate({
-    scrollLeft: '+=' + offset
-  }, 'fast');
-}
-</script>
 
 ```{r}
 datatable(gss_sm)

@@ -5,7 +5,7 @@ listing:
   contents: "danl-class/*.qmd"
   type: table
   fields: [title, subtitle, date]
-  sort: "title desc"
+  sort: "date"
   sort-ui: false
   page-size: 36
 
@@ -38,3 +38,9 @@ format:
         }
         </style>
 ---
+
+
+- All class Quarto documents are stored in:\
+[this GitHub Repository.](https://github.com/bcdanl/399/tree/main/danl-class){target="_blank"}
+
+- HTML outputs from the class Quarto documents are provided below:
