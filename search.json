@@ -88,7 +88,7 @@
     "href": "index.html#bullet-lecture-slides",
     "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
     "section": "\\(\\bullet\\,\\) Lecture Slides 🚀",
-    "text": "\\(\\bullet\\,\\) Lecture Slides 🚀\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 3\n\n\nFebruary 9, 2024\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "\\(\\bullet\\,\\) Lecture Slides 🚀\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 4\n\n\nFebruary 16, 2024\n\n\n\n\nLecture 3\n\n\nFebruary 9, 2024\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#bullet-lecture-q-a",
@@ -672,13 +672,6 @@
     "text": "Show the right number\nHistograms and density plots\n\nWhen drawing histograms it is worth experimenting with bins and also optionally the origin of the x-axis.\n\np &lt;- ggplot(data = midwest,\n            mapping = aes(x = area))\np + geom_histogram(bins = 10)"
   },
   {
-    "objectID": "listing-danl-399-hw.html",
-    "href": "listing-danl-399-hw.html",
-    "title": "DANL 399 - Homework",
-    "section": "",
-    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nHomework 1\n\n\nPersonal Website and ggplot Visualization\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
-  },
-  {
     "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-1",
     "href": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-1",
     "title": "Lecture 1",
@@ -1027,6 +1020,328 @@
     "title": "Lecture 1",
     "section": "Installing the Tools",
     "text": "Installing the Tools\nMarkdown\n\nJupyter Notebook, Quarto, and GitHub-based Discussion Boards use markdown as its underlying document syntax.\nLet’s do Classwork 2."
+  },
+  {
+    "objectID": "listing-danl-399-hw.html",
+    "href": "listing-danl-399-hw.html",
+    "title": "DANL 399 - Homework",
+    "section": "",
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nHomework 1\n\n\nPersonal Website and ggplot Visualization\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGrouped data and the group aesthetic\n\nLet’s get a line plot that draws the trajectory of life expectancy over time for each country in the gapminder data.frame.\n\n\n\nlibrary(gapminder)\np &lt;- ggplot(data = gapminder,\n            mapping = \n              aes( x = year,\n                   y = gdpPercap ) )\np + geom_line()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-1",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-1",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGrouped data and the group aesthetic\n\nWhat happened?\ngeom_line() joins up all the lines for each particular year in the order they appear in the dataset."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-2",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-2",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGrouped data and the group aesthetic\n\nWithout group related parameters, ggplot() does not know that the yearly observations in the data are grouped by country.\n\n\n\np &lt;- ggplot(data = gapminder,\n            mapping = \n              aes( x = year,\n                   y = gdpPercap ) )\n\np + geom_line( aes( group = country ) )"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-3",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-3",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGrouped data and the group aesthetic\n\nThe group aesthetic is usually only needed when the grouping information we need to tell ggplot() about is not built-in to the variables being mapped."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-4",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-4",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGrouped data and the group aesthetic\n\nHow about color aesthetic, instead of group?\n\n\n\np &lt;- ggplot(data = gapminder,\n            mapping = \n              aes( x = year,\n                   y = gdpPercap ) )\n\np + geom_line( aes( color = country ) )"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-5",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-5",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGrouped data and the group aesthetic\n\n\np &lt;- ggplot(data = gapminder,\n            mapping = \n              aes( x = year,\n                   y = gdpPercap ) )\n\np + geom_line( aes( color = country ),\n               show.legend = F)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-6",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-6",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nFacet to make small multiples\n\nMaking a “small multiple” plot by faceting data based on a caterigorical variable allows a lot of information to be presented compactly, and in a consistently comparable way.\n\nfacet_wrap( VAR1 ~ . ) or facet_wrap( . ~ VAR1 )\nfacet_grid( VAR1 ~ . ): row-wise split\nfacet_grid( . ~ VAR1 ): colum-wise split\nfacet_grid( VAR1 ~ VAR2 )"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-7",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-7",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nFacet to make small multiples\n\n\np + geom_line( aes( group = country ) ) + \n  facet_wrap(~ continent)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-8",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-8",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nFacet to make small multiples\n\nLet’s have all the facetted plots in a single row:\n\n\n\np + geom_line(color=\"gray70\", \n              aes(group = country)) +\n    geom_smooth(size = 1.1, \n                method = \"loess\", \n                se = FALSE) +\n    facet_wrap(.~ continent, nrow = 1) +\n    scale_y_log10(labels=scales::dollar) + \n    theme(axis.text.x = \n            element_text(\n              angle = 45),\n          axis.title.x = \n            element_text(\n              margin = margin(t = 25))) +\n    labs(x = \"Year\", \n         y = \"GDP per capita\",\n         title = \"GDP per capita on Five Continents\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-9",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-9",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nThe 2016 General Social Survey data\n\nThe socviz package includes the gss_sm data frame.\n\ngss_sm is a dataset containing an extract from the 2016 General Social Survey.\n\n\n# install.packages(\"socviz\")\nlibrary(socviz)\n?gss_sm\nglimpse(gss_sm)\nskimr::skim(gss_sm)\ngss_sm &lt;- gss_sm"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-10",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-10",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nFacet to make small multiples\n\nDescribe the relationship between the age of the respondent and the number of children they have using a scatterplot and a fitted curve.\n\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes( x = age, \n                   y = childs ))\n\np + geom_point(alpha = 0.2) +\n    geom_smooth()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-11",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-11",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nFacet to make small multiples\n\nDescribe how the relationship between the age of the respondent and the number of children they have varies by sex and race.\n\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes( x = age, \n                   y = childs ))\n\np + geom_point(alpha = 0.2) +\n    geom_smooth() +\n    facet_grid(sex ~ race)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-12",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-12",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nFacet to make small multiples\n\nThe facet_grid() function is best used when you cross-classify some data by two categorical variables.\n\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes( x = age, \n                   y = childs ))\n\np + geom_point(alpha = 0.2) +\n    geom_smooth() +\n    facet_grid(sex ~ race + degree)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-13",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-13",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\nLet’s plot a bar char:\n\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes(x = bigregion))\np + geom_bar()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-14",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-14",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\nWhere does count come from?\n\nBar charts, histograms, and frequency polygons bin your data and then plot bin counts, the number of points that fall in each bin.\nSmoothers fit a model to your data and then plot predictions from the model.\nBoxplots compute a robust summary of the distribution and then display a specially formatted box."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-15",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-15",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\nIf we want a chart of relative frequencies rather than counts, we will need to get the prop statistic instead.\nOur call to statistic from the aes() function generically looks like this:\n\n&lt;mapping&gt; = &lt;..statistic..&gt;.\n&lt;mapping&gt; = stat(statistic).\n&lt;mapping&gt; = after_stat(statistic)."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-16",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-16",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes(x = bigregion))\np + geom_bar(mapping = \n               aes(y = ..prop..))\n\n\n\n\n\n\n\nWhat happened?"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-17",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-17",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\nWe need to tell ggplot to ignore the x-categories when calculating denominator of the proportion, and use the total number observations instead."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-18",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-18",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\nTo do so we specify group = 1 inside the aes() call.\n\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes(x = bigregion))\np + geom_bar(mapping = \n               aes(y = ..prop.., \n                   group = 1))"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-19",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-19",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\nLet’s look at another question from the survey. The gss_sm data contains a religion variable derived from a question asking:\n\n“What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion?”\n\n\ngss_sm |&gt; \n  group_by(religion) |&gt; \n  count()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-20",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-20",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\nIf we map religion to color, only the border lines of the bars will be assigned colors, and the insides will remain gray.\n\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes(x = religion, \n                  color = religion))\np + geom_bar()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-21",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-21",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\nIf the gray bars look boring and we want to fill them with color instead, we can map the religion variable to fill in addition to mapping it to x.\nIf we set guides(fill = \"none\"), the legend about the fill mapping is removed."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-22",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-22",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nGeoms can transform data\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes(x = religion, \n                  fill = religion))\np + geom_bar() + \n  guides( fill = \"none\" )"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-23",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-23",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nFrequency plots the slightly awkward way\n\nA more appropriate use of the fill aesthetic with geom_bar() is to cross-classify two categorical variables.\n\nThe default output of such geom_bar() is a stacked bar chart, with counts on the y-axis."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-24",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-24",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nFrequency plots the slightly awkward way\n\nAn alternative choice is to set the position argument to \"fill\". \n\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes(x = bigregion, \n                  fill = religion))\np + geom_bar(position = \"fill\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-25",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-25",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nFrequency plots the slightly awkward way\n\nWe can use position = \"dodge\" to make the bars within each region of the country appear side by side.\n\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes(x = bigregion, \n                  fill = religion))\np + geom_bar(position = \"dodge\",\n             mapping = \n               aes(y = ..prop..))"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-26",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-26",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nFrequency plots the slightly awkward way\n\nIn this case we should consider grouping variable, religion, so we map religion to the group aesthetic.\n\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes(x = bigregion, \n                  fill = religion))\np + geom_bar(position = \"dodge\",\n             mapping = \n               aes(y = ..prop.., \n                   group = religion))"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-27",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-27",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nFrequency plots the slightly awkward way\n\nHow can we have a proportional bar chart such that the sum of all bars in each bigregion is 1?\n\nThere are various ways to do so, and faceting is one of them.\nThe proportions are calculated within each panel, which is the breakdown we wanted."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-28",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-28",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nFrequency plots the slightly awkward way\n\n\np &lt;- ggplot(data = gss_sm,\n            mapping = \n              aes(x = religion))\np + geom_bar(position = \"dodge\",\n             mapping = \n               aes(y = ..prop.., \n                   group = bigregion)) +\n    facet_wrap(~ bigregion, \n               ncol = 1)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-29",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-29",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nHistograms and density plots\n\nggplot comes with a dataset, midwest, containing information on counties in several midwestern states of the USA.\n\n?midwest\nglimpse(midwest)\nskim(midwest)\nview(midwest)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-30",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-30",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nHistograms and density plots\n\nBy default, the geom_histogram() function will choose a bin size for us based on a rule of thumb.\n\n\n\np &lt;- ggplot(data = midwest,\n            mapping = \n              aes(x = area))\np + geom_histogram()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-31",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-31",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nHistograms and density plots\n\nWhen drawing histograms it is worth experimenting with bins and also optionally the origin of the x-axis.\n\n\n\np &lt;- ggplot(data = midwest,\n            mapping = \n              aes(x = area))\np + geom_histogram(bins = 10)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-32",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-32",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nHistograms and density plots\n\nWhile histograms summarize single variables, it’s also possible to use several at once to compare distributions.\n\nWe can facet histograms by some variable of interest.\nWe can also compare them in the same plot using the fill mapping."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-33",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-33",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nHistograms and density plots\n\n\np &lt;- ggplot(data = \n              filter(midwest, \n                     state %in% c(\"OH\", \"WI\")),\n            mapping = \n              aes(x = percollege, \n                  fill = state) )\np + geom_histogram(alpha = 0.4, \n                   bins = 20)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-34",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-34",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nHistograms and density plots\n\nWhen working with a continuous variable, an alternative to binning the data and making a histogram is to calculate a kernel density estimate of the underlying distribution with geom_density()."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-35",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-35",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nHistograms and density plots\n\n\np &lt;- ggplot(data = midwest,\n            mapping = \n              aes(x = area))\np + geom_density()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-36",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-36",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nHistograms and density plots\n\nHere we can use color (for the lines) and fill (for the body of the density curve) for aesthetic mappings.\n\n\n\np &lt;- ggplot(data = midwest,\n            mapping = \n              aes(x = area, \n                  fill = state, \n                  color = state))\np + geom_density(alpha = 0.3)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-37",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-37",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nHistograms and density plots\n\nFor geom_density(), the stat_density() function can return its default after_stat(density) statistic, or after_stat(scaled), which will give a proportional density estimate."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-38",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-38",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nHistograms and density plots\n\n\np &lt;- ggplot(data = \n              filter(midwest, \n                     state %in% c(\"OH\", \"WI\")),\n            mapping = \n              aes(x = area, \n                  fill = state, \n                  color = state))\np + geom_density( alpha = 0.3, \n                  mapping =  \n                    aes(y = after_stat(scaled) ))"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-39",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-39",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nAvoid transformations when necessary\n\nWhen we call geom_bar(), it does its calculations on the fly using stat_count() behind the scenes to produce the counts or proportions it displays."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-40",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-40",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nAvoid transformations when necessary\n\nBut often, our data is in effect already a summary table.\nLet’s consider the socviz::titanic data.frame.\n\nsocviz::titanic"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-41",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-41",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nAvoid transformations when necessary\n\nShould we avoid transforming data if we want to describe the relationship between fate and percent?\n\n\n\np &lt;- ggplot(data = titanic,\n            mapping = \n              aes(x = fate, \n                  y = percent, \n                  fill = sex))\np + geom_bar(position = \"dodge\", \n             stat = \"identity\") +\n  theme(legend.position = \"top\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-42",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-42",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nAvoid transformations when necessary\n\ngeom_col() has exactly the same as geom_bar() except that it assumes that stat = \"identity\".\nLet’s consider socviz::oecd_sum data.frame.\n\nIt contains information on average life expectancy at birth within the United States, and across other OECD countries.\n\n\noecd_sum\n\nLet’s draw the bar chart that describe the difference over time using color = hi_lo."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-43",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-43",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nAvoid transformations when necessary\n\n\np &lt;- ggplot(data = socviz::oecd_sum,\n            mapping = \n              aes(x = year, \n                  y = diff, \n                  fill = hi_lo))\np + geom_col() + \n  guides(fill = \"none\") +\n  labs(x = NULL, \n       y = \"Difference in Years\",\n       title = \"The US Life Expectancy Gap\",\n       subtitle = \"Difference between US and OECD\n                   average life expectancies, 1960-2015\",\n       caption = \"Data: OECD. After a chart by Christopher Ingraham,\n                  Washington Post, December 27th 2017.\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-44",
+    "href": "danl-lec/danl-399-lec-04-2024-0216.html#show-the-right-number-44",
+    "title": "Lecture 4",
+    "section": "Show the right number",
+    "text": "Show the right number\nBar plots as an alternative to line plots\n\nJust as stat = \"identity\" means “don’t do any summary calculations”, position = \"identity\" means “just plot the values as given”.\nThis allows us to do things like, for example, plot a flow of positive and negative values in a bar chart.\nThis sort of graph is an alternative to a line plot and is often seen in public policy settings where changes relative to some threshold level or baseline are of interest."
   },
   {
     "objectID": "danl-lec/danl-399-lec-03-2024-0209.html#learning-objectives",
@@ -1600,6 +1915,6 @@
     "href": "listing-danl-399-lec.html",
     "title": "DANL 399 - Lecture",
     "section": "",
-    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 3\n\n\nFebruary 9, 2024\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 4\n\n\nFebruary 16, 2024\n\n\n\n\nLecture 3\n\n\nFebruary 9, 2024\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   }
 ]
