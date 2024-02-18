@@ -11,7 +11,7 @@ execute:
 <font size = "5">Welcome to our Lecture 2 Discussion Board! 👋 </font>
 
 
-This space is designed for you to engage with your classmates about the material covered in Lecture 6 slides.
+This space is designed for you to engage with your classmates about the material covered in Lecture 2 slides.
 
 Whether you are looking to delve deeper into the slides, share insights, or have questions about the content, this is the perfect place for you.
 
