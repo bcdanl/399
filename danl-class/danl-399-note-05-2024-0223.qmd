@@ -34,6 +34,7 @@ library(hrbrthemes)
 library(DT)
 library(gapminder)
 library(socviz)
+library(ggrepel)
 
 theme_set(theme_ipsum()+
           theme(strip.background =element_rect(fill="lightgray"),
@@ -50,168 +51,439 @@ theme_set(theme_ipsum()+
 ```
 
 
-```{r}
-DT::datatable(gapminder)
-```
-
-
-```{r}
-length(unique(gapminder$country))
-length(unique(gapminder$continent))
-
-```
-
 
 ```{r}
 datatable(gss_sm)
-```
-
-
-
-```{r}
-?gss_sm
-skimr::skim(gss_sm)
 gss_sm <- gss_sm
 ```
 
 
 ```{r}
-gss_sm |> 
-  group_by(race) |> 
-  count()
+rel_by_region <- gss_sm |> 
+  group_by(bigregion, religion)
+rel_by_region # Groups:bigregion, religion  [24]
+
+
+rel_by_region <- gss_sm |> 
+  group_by(bigregion, religion) |> 
+  summarise(N = n())
+rel_by_region # Groups:bigregion [4]
+
+datatable(rel_by_region)
+
 ```
 
 
 ```{r}
+rel_by_region <- gss_sm |> 
+  group_by(bigregion, religion) |> 
+  summarise(N = n()) |> 
+  mutate(prop = N/sum(N),
+         pct = round(100 * prop, 2))
+
+datatable(rel_by_region)
+
+```
+
+
+option + command + I for mac
+alt + ctrl + I for windwos
+
+```{r}
+ggplot(rel_by_region,
+       aes(x = pct, y = religion, fill = religion)) +
+  geom_col() +
+  facet_wrap(.~bigregion, nrow = 1) +
+  guides(fill = "none")
+```
+
+```{r}
+organdata
+datatable(organdata)
+```
+
+
+```{r}
+skim(organdata)
+```
+
+
+```{r}
+organdata <- organdata
+
+organdata |> 
+  ggplot(aes(x = donors,
+             y = country)) +
+  geom_boxplot()
+
+
+```
+
+
+```{r}
+organdata |> 
+  mutate(country = fct_reorder(country,
+                               donors, na.rm = T)) |> 
+  ggplot(aes(x = donors,
+             y = country)) +
+  geom_boxplot() +
+  labs(y = NULL)
+```
+
+```{r}
+p <- ggplot(data = organdata,
+            mapping = 
+              aes(x = 
+                    reorder(
+                      country, 
+                      donors, 
+                      na.rm=TRUE),
+                  y = donors, 
+                  fill = world))
+p + geom_boxplot() + 
+  labs(x=NULL) +
+  coord_flip() + 
+  theme(legend.position = "top")
+```
+
+```{r}
+organdata |> 
+  count(consent_law)
+```
+
+```{r}
+by_country <- organdata |> group_by(consent_law, country) |>
+    summarize(donors_mean= mean(donors, na.rm = TRUE),
+              donors_sd = sd(donors, na.rm = TRUE),
+              gdp_mean = mean(gdp, na.rm = TRUE),
+              health_mean = mean(health, na.rm = TRUE),
+              roads_mean = mean(roads, na.rm = TRUE),
+              cerebvas_mean = mean(cerebvas, na.rm = TRUE))
+```
+
+
+```{r}
+by_country <- organdata |> group_by(consent_law, country) |>
+  summarise_if(is.numeric,
+               lst(mean, sd), na.rm = T)
+by_country
+```
+
+```{r}
+by_country |> 
+  ggplot(aes(x = donors_mean,
+             y = fct_reorder(country, donors_mean),
+             color = consent_law)
+         ) +
+  geom_point() +
+  labs(y = NULL) +
+  theme(legend.position = "top")
+```
+
+
+
+```{r}
+#| fig-height: 8
+by_country |> 
+  ggplot(aes(x = donors_mean,
+             y = fct_reorder(country, donors_mean))
+         ) +
+  geom_point() +
+  labs(y = NULL) +
+  facet_wrap(.~consent_law, ncol= 1, scales = "free_y")
+```
+
+
+```{r}
+
+by_country |> 
+  ggplot(aes(x = donors_mean,
+             xmin = donors_mean - donors_sd,
+             xmax = donors_mean + donors_sd,
+             y = fct_reorder(country, donors_mean))
+         ) +
+  geom_pointrange() +
+  labs(x = "Donor Procurement Rate", y = "")
+```
+```{r}
+p <- ggplot(data = organdata,
+            mapping = aes(x = roads, y = donors, color = world))
+p + geom_point()
+```
+
+
+
+```{r}
+p <- ggplot(data = organdata,
+            mapping = aes(x = roads, y = donors, color = world))
+p + geom_point() +
+  scale_y_continuous(breaks = c(5,15,25),
+                     labels = c("Five",
+                                "Fifteen",
+                                "Twenty Five") ) +
+  theme(legend.position = "top")
+```
+
+
+
+
+
+```{r}
+p <- ggplot(data = organdata,
+            mapping = aes(x = roads, y = donors, color = world))
+p + geom_point() +
+  scale_color_discrete(labels = c("Corporatist",
+                                  "Liberal",
+                                  "Social Democratic",
+                                  "Unclassified") ) +
+  theme(legend.position = "top")
+```
+
+```{r}
+
+p <- ggplot(data = organdata,
+            mapping = aes(x = roads, y = donors, color = consent_law))
+p + geom_point(show.legend = F) +
+  facet_wrap(.~consent_law, ncol = 1) +
+  labs(x = "Road Deaths",
+       y = "Donor Procurement")
+```
+
+
+
+
+
+```{r}
+p <- ggplot(data = organdata,
+            mapping = aes(x = roads, y = donors, color = consent_law))
+p + geom_point()  +
+  labs(x = "Road Deaths",
+       y = "Donor Procurement",
+       title = "By Consent Law",
+       color = "Legal Regime:") +
+  theme(plot.title = element_text(colour = "brown"))
+```
+
+
+```{r}
+p <- ggplot(data = by_country,
+            mapping = 
+              aes(x = roads_mean, 
+                  y = donors_mean))
+p + geom_point() + 
+  geom_text(mapping = 
+              aes(label = country))
+```
+```{r}
+p + geom_point() + 
+  geom_text(mapping = 
+              aes(label = country),
+            hjust = 0)
+```
+
+```{r}
+p + geom_point() + 
+  geom_text(mapping = 
+              aes(label = country),
+            hjust = 1)
+```
+
+```{r}
+p + geom_point() + 
+  geom_text(mapping = 
+              aes(label = country),
+            hjust = .5)
+```
+
+
+```{r}
+??elections_historic
+socviz::elections_historic |> select(2:7) 
+```
+
+```{r}
+elections_historic
+```
+
+
+```{r}
+p <- ggplot(elections_historic, aes(x = popular_pct, y = ec_pct,
+                                    label = winner_label))
+```
+
+
+
+```{r}
+#| fig-width: 12
 #| fig-height: 12
-#| fig-width: 9
-p <- ggplot(data = gss_sm |> filter(!is.na(degree)),
+
+p_title <- "Presidential Elections: Popular & Electoral College Margins"
+p_subtitle <- "1824-2016"
+p_caption <- "Data for 2016 are provisional."
+x_label <- "Winner's share of Popular Vote"
+y_label <- "Winner's share of Electoral College Votes"
+
+p <- p + 
+    geom_hline(yintercept = 0.5, 
+               linewidth = 1.4, 
+               color = "gray80") +
+    geom_vline(xintercept = 0.5, 
+               linewidth = 1.4, 
+               color = "gray80") +
+    geom_point() +
+    geom_text_repel() + 
+     scale_x_continuous(
+       labels = scales::percent) +
+     scale_y_continuous(
+       labels = scales::percent)  + 
+  labs(x = x_label, 
+         y = y_label, 
+         title = p_title, 
+         subtitle = p_subtitle,
+         caption = p_caption)
+p
+```
+
+
+```{r}
+p <- ggplot(data = by_country,
             mapping = 
-              aes( x = age, 
-                   y = childs))
-
-p + geom_point(alpha = 0.2) +
-    geom_smooth(aes(color = degree),
-                se = F) +
-    facet_grid(sex ~ race)
-```
-
-
-# Bar Charts
-
-```{r}
-gss_sm <- gss_sm
-gss_sm |> 
-  count(bigregion)
-```
-
-```{r}
-gss_sm |>   # short-cut Ctrl/command + Shift + M
-  group_by(religion) |> 
-  count()
-  
+              aes(x = gdp_mean,
+                  y = health_mean))
 ```
 
 
 ```{r}
-p <- ggplot(data = gss_sm,
+
+p + geom_point() +
+    geom_text_repel(
+      data = filter(by_country, 
+                    gdp_mean > 25000),
+      mapping = 
+        aes(label = country))
+```
+
+
+```{r}
+p <- ggplot(data = by_country,
             mapping = 
-              aes(x = religion, 
-                  fill = religion))
-p + geom_bar() 
+              aes(x = gdp_mean, 
+                  y = health_mean))
+p + geom_point() +
+    geom_text_repel(
+      data = 
+        filter(by_country,
+               gdp_mean > 25000 | 
+                 health_mean < 1500 |
+                 country %in% "Belgium"),
+      mapping = 
+        aes(label = country))
 ```
 
-Short-cut for code chunk is Alt/option + Ctrl/command + I
+
+
 
 ```{r}
-p <- ggplot(data = gss_sm,
+# creating a dummy variable for labels
+# organdata$ind <- 
+#   organdata$ccode %in% c("Ita", "Spa") & 
+#   organdata$year > 1998   
+
+organdata <- organdata |> 
+  mutate(ind = ccode %in% c("Ita", "Spa") & year > 1998)
+
+p <- ggplot(data = organdata,
             mapping = 
-              aes(x = religion, 
-                  fill = religion))
-p + geom_bar(show.legend = F) 
+              aes(x = roads, 
+                  y = donors, 
+                  color = ind))
+p + geom_point() +
+    geom_text_repel(
+      data = filter(organdata, ind),
+      mapping = aes(label = ccode)) +
+    guides(label = "none", 
+           color = "none")
 ```
 
 ```{r}
-p <- ggplot(data = gss_sm,
+mtcars <- datasets::mtcars
+mtcars$model <- rownames(mtcars)
+rownames(mtcars) <- 1:nrow(mtcars)
+
+mtcars |> 
+  ggplot(aes(x = wt, y = mpg)) +
+  geom_point(color = "red") +
+  geom_text_repel(
+    data = filter(mtcars,
+                  wt > 5),
+    aes(label = model)
+  )
+
+```
+
+
+
+```{r}
+p <- ggplot(data = organdata, 
             mapping = 
-              aes(x = bigregion, 
-                  fill = religion))
-
-p + geom_bar()
+              aes(x = roads, 
+                  y = donors))
+p + geom_point() + 
+  annotate(geom = "text", 
+           x = 91, y = 33,
+           label = "A surprisingly high \n recovery rate.",
+           hjust = 0)
 ```
 
 ```{r}
-p <- ggplot(data = gss_sm,
-            mapping = 
-              aes(x = bigregion, 
-                  fill = religion))
-
-p + geom_bar(position = "dodge")
+p <- ggplot(data = organdata,
+            mapping = aes(x = roads, y = donors))
+p + geom_point() +
+    annotate(geom = "rect", 
+             xmin = 125, xmax = 155,
+             ymin = 30, ymax = 35, 
+             fill = "red", 
+             alpha = 0.2) + 
+    annotate(geom = "text", 
+             x = 157, y = 33,
+             label = "A surprisingly high \n recovery rate.", 
+             hjust = 0)
+```
+```{r}
+p <- ggplot(mpg, aes(displ, hwy)) +
+  geom_point(
+    data = 
+      filter(mpg, 
+             manufacturer == "subaru"), 
+    color = "orange", 
+    size = 3) +
+  geom_point() 
+p + 
+  annotate(geom = "point", 
+           x = 5.5, y = 40, 
+           colour = "orange", 
+           size = 3) + 
+  annotate(geom = "point", 
+           x = 5.5, y = 40) + 
+  annotate(geom = "text", 
+           x = 5.6, y = 40, 
+           label = "subaru", 
+           hjust = "left")
 ```
 
 ```{r}
-?midwest
-datatable(midwest)
+p + 
+  annotate(
+    geom = "curve", 
+    x = 4, y = 35, 
+    xend = 2.65, yend = 27, 
+    curvature = .3, 
+    arrow = 
+      arrow(length = unit(2, "mm"))
+  ) +
+  annotate(geom = "text", 
+           x = 4.1, y = 35, 
+           label = "subaru", 
+           hjust = "left")
 ```
-
-
-
-```{r}
-p <- ggplot(midwest,
-            aes(x = area))
-
-p + geom_histogram(bins = 10)
-```
-
-
-```{r}
-p <- ggplot(midwest,
-            aes(x = area))
-
-p + geom_histogram(bins = 100)
-```
-
-
-
-
-```{r}
-p <- ggplot(midwest,
-            aes(x = area))
-
-p + geom_histogram(binwidth = .001)
-```
-
-
-```{r}
-datatable(titanic)
-```
-
-
-
-```{r}
-?oecd_sum
-datatable(oecd_sum)
-```
-
-
-
-
-```{r}
-p <- ggplot(data = socviz::oecd_sum,
-            mapping = 
-              aes(x = year, 
-                  y = diff, 
-                  fill = hi_lo))
-p + geom_col() + 
-  guides(fill = "none") +
-  labs(x = NULL, 
-       y = "Difference in Years",
-       title = "The US Life Expectancy Gap",
-       subtitle = "Difference between US and OECD
-                   average life expectancies, 1960-2015",
-       caption = "Data: OECD. After a chart by Christopher Ingraham,
-                  Washington Post, December 27th 2017.") +
-  theme_minimal()
-```
-
 
