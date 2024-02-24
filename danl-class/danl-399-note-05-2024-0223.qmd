@@ -1,0 +1,217 @@
+---
+title: Lecture 5 - Note
+subtitle: Graph tables, add labels, make notes
+author: 
+  - name: Byeong-Hak Choe
+date: 2024-02-23
+
+execute: 
+  echo: true    # true false
+  eval: true    # true false
+  warning: false    # true false
+  message: false    # true false
+  fig-width: 9
+  # fig-height: 5
+  
+format: 
+  html:
+    toc: true    # true false
+    number-sections: true    # true false
+    code-fold: false    # true false show       # https://quarto.org/docs/output-formats/html-code.html
+    code-tools: true    # true false
+    highlight-style: atom-one        # atom-one tango espresso   # https://quarto.org/docs/output-formats/html-code.html#highlighting
+    
+---
+
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(DT)
+library(gapminder)
+library(socviz)
+
+theme_set(theme_ipsum()+
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.33),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 90,
+                               size = rel(1.33),
+                               margin = margin(0,10,0,0))
+                )
+          )
+```
+
+
+```{r}
+DT::datatable(gapminder)
+```
+
+
+```{r}
+length(unique(gapminder$country))
+length(unique(gapminder$continent))
+
+```
+
+
+```{r}
+datatable(gss_sm)
+```
+
+
+
+```{r}
+?gss_sm
+skimr::skim(gss_sm)
+gss_sm <- gss_sm
+```
+
+
+```{r}
+gss_sm |> 
+  group_by(race) |> 
+  count()
+```
+
+
+```{r}
+#| fig-height: 12
+#| fig-width: 9
+p <- ggplot(data = gss_sm |> filter(!is.na(degree)),
+            mapping = 
+              aes( x = age, 
+                   y = childs))
+
+p + geom_point(alpha = 0.2) +
+    geom_smooth(aes(color = degree),
+                se = F) +
+    facet_grid(sex ~ race)
+```
+
+
+# Bar Charts
+
+```{r}
+gss_sm <- gss_sm
+gss_sm |> 
+  count(bigregion)
+```
+
+```{r}
+gss_sm |>   # short-cut Ctrl/command + Shift + M
+  group_by(religion) |> 
+  count()
+  
+```
+
+
+```{r}
+p <- ggplot(data = gss_sm,
+            mapping = 
+              aes(x = religion, 
+                  fill = religion))
+p + geom_bar() 
+```
+
+Short-cut for code chunk is Alt/option + Ctrl/command + I
+
+```{r}
+p <- ggplot(data = gss_sm,
+            mapping = 
+              aes(x = religion, 
+                  fill = religion))
+p + geom_bar(show.legend = F) 
+```
+
+```{r}
+p <- ggplot(data = gss_sm,
+            mapping = 
+              aes(x = bigregion, 
+                  fill = religion))
+
+p + geom_bar()
+```
+
+```{r}
+p <- ggplot(data = gss_sm,
+            mapping = 
+              aes(x = bigregion, 
+                  fill = religion))
+
+p + geom_bar(position = "dodge")
+```
+
+```{r}
+?midwest
+datatable(midwest)
+```
+
+
+
+```{r}
+p <- ggplot(midwest,
+            aes(x = area))
+
+p + geom_histogram(bins = 10)
+```
+
+
+```{r}
+p <- ggplot(midwest,
+            aes(x = area))
+
+p + geom_histogram(bins = 100)
+```
+
+
+
+
+```{r}
+p <- ggplot(midwest,
+            aes(x = area))
+
+p + geom_histogram(binwidth = .001)
+```
+
+
+```{r}
+datatable(titanic)
+```
+
+
+
+```{r}
+?oecd_sum
+datatable(oecd_sum)
+```
+
+
+
+
+```{r}
+p <- ggplot(data = socviz::oecd_sum,
+            mapping = 
+              aes(x = year, 
+                  y = diff, 
+                  fill = hi_lo))
+p + geom_col() + 
+  guides(fill = "none") +
+  labs(x = NULL, 
+       y = "Difference in Years",
+       title = "The US Life Expectancy Gap",
+       subtitle = "Difference between US and OECD
+                   average life expectancies, 1960-2015",
+       caption = "Data: OECD. After a chart by Christopher Ingraham,
+                  Washington Post, December 27th 2017.") +
+  theme_minimal()
+```
+
+
