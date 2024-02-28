@@ -62,7 +62,7 @@ knitr::include_graphics('danl-399-hw-02-q_files/figure-html/hdi-1.png')
 
 ## Q2b
 
--   Download the file `labor_supply.zip` from the Google Drive. Then, extract `labor_supply.zip`, so that you can access the `labor_supply.csv` file.
+-   Download the file, `labor_supply.zip`, from [this link](https://drive.google.com/file/d/1puqtBkl4c73RhBcAYe__KV89Xizhiv-y/view?usp=share_link). Then, extract `labor_supply.zip`, so that you can access the `labor_supply.csv` file.
 
 -   Variable description in `labor_supply.csv`
 
@@ -106,7 +106,6 @@ datatable(cps_labor)
 #| fig-align: center
 knitr::include_graphics('danl-399-hw-02-q_files/figure-html/labor-supply-1.png')
 ```
- q
 
 <br><br>
 
