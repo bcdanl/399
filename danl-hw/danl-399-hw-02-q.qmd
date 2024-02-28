@@ -1,0 +1,165 @@
+---
+title: Homework 2
+subtitle: Project Proposal and Data Visualization
+author: Byeong-Hak Choe
+date: last-modified
+execute: 
+  warning: false
+---
+
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(gapminder)
+library(skimr)   # a better summary of data.frame
+library(scales)  # scales for ggplot
+library(ggthemes)  # additional ggplot themes
+library(hrbrthemes) # additional ggplot themes and color pallets
+library(lubridate)
+library(ggridges)
+library(ggrepel)
+library(tidyverse)
+library(ggfortify) # to create regression-related plots
+library(ggcorrplot) # to create correlation heatmaps
+library(fastDummies) # to create dummy variables
+library(DT)
+theme_set(theme_minimal()) # setting the minimal theme for ggplot
+
+```
+
+# Question 1
+
+Add a web-page of the project proposal to your website. 
+
+<br><br>
+
+# Question 2
+
+Provide ggplot codes to replicate the given figures.
+
+## Q2a.
+
+Use the following data.frame for Q2a, Q2b, and Q2c.
+
+```{r}
+hdi_corruption <- read_csv(
+  'https://bcdanl.github.io/data/hdi_corruption.csv')
+```
+
+```{r}
+datatable(hdi_corruption)
+```
+
+<br>
+```{r}
+#| echo: false
+#| fig-align: center
+knitr::include_graphics('danl-399-hw-02-q_files/figure-html/hdi-1.png')
+```
+
+<br><br>
+
+## Q2b
+
+-   Download the file `labor_supply.zip` from the Google Drive. Then, extract `labor_supply.zip`, so that you can access the `labor_supply.csv` file.
+
+-   Variable description in `labor_supply.csv`
+
+    -   `SEX`: 1 if Male; 2 if Female; 9 if NIU (Not in universe)
+    -   `NCHLT5`: Number of own children under age 5 in a household; 9 if 9+
+    -   `LABFORCE`: 0 if NIU or members of the armed forces; 1 if not in the labor force; 2 if in the labor force.
+    -   `ASECWT`: sample weight
+    
+    
+- A sample weight of each observation means how much population each observation represents.
+  - If you sum `ASECWT` for each year, you get the size of yearly population in the US.
+  
+  
+- Households with `LABFORCE == 0` is not in labor force.
+
+
+- Labor force participation rate can be calculated by:
+
+$$
+(\text{Labor Force Participation Rate}) \, = \, \frac{(\text{Size of population in labor force})}{(\text{Size of civilian population that are not members of the armed force})}
+$$
+
+- Below provides the first 100 observations in `labor_supply.csv`:
+
+```{r}
+#| echo: false
+path <- '/Users/bchoe/My Drive/suny-geneseo/teaching-materials/lecture-data/labor_supply.csv'
+
+cps_labor <- read_csv(path)
+
+cps_labor <- cps_labor |> 
+  slice_head(n = 100)
+
+datatable(cps_labor)
+```
+
+<br>
+
+```{r}
+#| echo: false
+#| fig-align: center
+knitr::include_graphics('danl-399-hw-02-q_files/figure-html/labor-supply-1.png')
+```
+ q
+
+<br><br>
+
+## Q2c
+
+```{r}
+# install.packages("ggcorrplot")
+library(ggcorrplot) # to create correlation heatmaps using ggcorrplot()
+
+beer_mkt <- read_csv('https://bcdanl.github.io/data/beer_markets.csv')
+```
+
+
+```{r}
+rmarkdown::paged_table(beer_mkt)
+```
+<br>
+
+-   Make a correlation heat-map with variables that are either strongly correlated or `promo`-related.
+  - The variables are selected by how high the mean value of the absolute value of correlations with the variable is (top 13-15 variables).
+  - You can start with the data.frame, `beer_dummies`:
+```{r}
+#| echo: true
+#| eval: false
+
+
+beer_dummies <- beer_mkt %>% select(-hh, -market) 
+reg <- lm(data = beer_dummies,
+          beer_floz ~ .)
+beer_dummies <-  as.data.frame(model.matrix(reg))[, -1]
+beer_dummies <- cbind(beer_mkt$beer_floz ,beer_dummies)
+beer_dummies <- beer_dummies %>% 
+  rename(beer_floz = `beer_mkt$beer_floz`)
+```
+
+
+- To calculate a correlation between numeric variables in `data.frame`, use `cor(data.frame)`
+
+```{r}
+#| echo: false
+#| fig-align: center
+knitr::include_graphics('beer_cor.jpg')
+```
+
+-   Then, make a correlation heat-map for NY markets with the same selection of variables.
+  - NY markets are such that whose `market` value is either `ALBANY`, `BUFFALO-ROCHESTER`, `URBAN NY`, `SUBURBAN NY`, `EXURBAN NY`, `RURAL NEW YORK`, or `SYRACUSE`.
+```{r}
+#| echo: false
+#| fig-align: center
+knitr::include_graphics('beer_cor_ny.jpg')
+```
+
+<!-- References: -->
+
+<!-- -   [Fundamentals of Data Visualization by Claus O. Wilke](https://clauswilke.com/dataviz) -->
+<!-- -   [Data Visualization: A practical introduction by Kieran Healy](https://socviz.co) -->
