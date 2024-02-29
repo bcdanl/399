@@ -36,11 +36,11 @@ Add a web-page of the project proposal to your website.
 
 # Question 2
 
-Provide ggplot codes to replicate the given figures.
+Provide ggplot codes to replicate the given figures in Q2a, Q2b, and Q2c.
 
 ## Q2a.
 
-Use the following data.frame for Q2a, Q2b, and Q2c.
+Below is the data.frame for Q2a:
 
 ```{r}
 hdi_corruption <- read_csv(
@@ -110,6 +110,8 @@ knitr::include_graphics('danl-399-hw-02-q_files/figure-html/labor-supply-1.png')
 <br><br>
 
 ## Q2c
+
+Below is the data.frame for Q2c:
 
 ```{r}
 # install.packages("ggcorrplot")

@@ -116,7 +116,7 @@
     "href": "index.html#bullet-homework",
     "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
     "section": "\\(\\bullet\\,\\) Homework 💻",
-    "text": "\\(\\bullet\\,\\) Homework 💻\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nHomework 2\n\n\nFebruary 28, 2024\n\n\n\n\nHomework 1\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "\\(\\bullet\\,\\) Homework 💻\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nHomework 2\n\n\nFebruary 29, 2024\n\n\n\n\nHomework 1\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "danl-class/danl-399-note-02-2024-0202.html",
@@ -998,7 +998,7 @@
     "href": "listing-danl-399-hw.html",
     "title": "DANL 399 - Homework",
     "section": "",
-    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nHomework 2\n\n\nProject Proposal and Data Visualization\n\n\nFebruary 28, 2024\n\n\n\n\nHomework 1\n\n\nPersonal Website and ggplot Visualization\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nHomework 2\n\n\nProject Proposal and Data Visualization\n\n\nFebruary 29, 2024\n\n\n\n\nHomework 1\n\n\nPersonal Website and ggplot Visualization\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-1",
@@ -2328,7 +2328,7 @@
     "href": "danl-hw/danl-399-hw-02-q.html#q2a.",
     "title": "Homework 2",
     "section": "Q2a.",
-    "text": "Q2a.\nUse the following data.frame for Q2a, Q2b, and Q2c.\n\nhdi_corruption &lt;- read_csv(\n  'https://bcdanl.github.io/data/hdi_corruption.csv')\n\n\ndatatable(hdi_corruption)"
+    "text": "Q2a.\nBelow is the data.frame for Q2a:\n\nhdi_corruption &lt;- read_csv(\n  'https://bcdanl.github.io/data/hdi_corruption.csv')\n\n\ndatatable(hdi_corruption)"
   },
   {
     "objectID": "danl-hw/danl-399-hw-02-q.html#q2b",
@@ -2342,6 +2342,6 @@
     "href": "danl-hw/danl-399-hw-02-q.html#q2c",
     "title": "Homework 2",
     "section": "Q2c",
-    "text": "Q2c\n\n# install.packages(\"ggcorrplot\")\nlibrary(ggcorrplot) # to create correlation heatmaps using ggcorrplot()\n\nbeer_mkt &lt;- read_csv('https://bcdanl.github.io/data/beer_markets.csv')\n\n\nrmarkdown::paged_table(beer_mkt)\n\n\n\n  \n\n\n\n\n\nMake a correlation heat-map with variables that are either strongly correlated or promo-related.\nThe variables are selected by how high the mean value of the absolute value of correlations with the variable is (top 13-15 variables).\nYou can start with the data.frame, beer_dummies:\n\n\nbeer_dummies &lt;- beer_mkt %&gt;% select(-hh, -market) \nreg &lt;- lm(data = beer_dummies,\n          beer_floz ~ .)\nbeer_dummies &lt;-  as.data.frame(model.matrix(reg))[, -1]\nbeer_dummies &lt;- cbind(beer_mkt$beer_floz ,beer_dummies)\nbeer_dummies &lt;- beer_dummies %&gt;% \n  rename(beer_floz = `beer_mkt$beer_floz`)\n\n\nTo calculate a correlation between numeric variables in data.frame, use cor(data.frame)\n\n\n\n\n\n\n\n\n\n\n\nThen, make a correlation heat-map for NY markets with the same selection of variables.\nNY markets are such that whose market value is either ALBANY, BUFFALO-ROCHESTER, URBAN NY, SUBURBAN NY, EXURBAN NY, RURAL NEW YORK, or SYRACUSE."
+    "text": "Q2c\nBelow is the data.frame for Q2c:\n\n# install.packages(\"ggcorrplot\")\nlibrary(ggcorrplot) # to create correlation heatmaps using ggcorrplot()\n\nbeer_mkt &lt;- read_csv('https://bcdanl.github.io/data/beer_markets.csv')\n\n\nrmarkdown::paged_table(beer_mkt)\n\n\n\n  \n\n\n\n\n\nMake a correlation heat-map with variables that are either strongly correlated or promo-related.\nThe variables are selected by how high the mean value of the absolute value of correlations with the variable is (top 13-15 variables).\nYou can start with the data.frame, beer_dummies:\n\n\nbeer_dummies &lt;- beer_mkt %&gt;% select(-hh, -market) \nreg &lt;- lm(data = beer_dummies,\n          beer_floz ~ .)\nbeer_dummies &lt;-  as.data.frame(model.matrix(reg))[, -1]\nbeer_dummies &lt;- cbind(beer_mkt$beer_floz ,beer_dummies)\nbeer_dummies &lt;- beer_dummies %&gt;% \n  rename(beer_floz = `beer_mkt$beer_floz`)\n\n\nTo calculate a correlation between numeric variables in data.frame, use cor(data.frame)\n\n\n\n\n\n\n\n\n\n\n\nThen, make a correlation heat-map for NY markets with the same selection of variables.\nNY markets are such that whose market value is either ALBANY, BUFFALO-ROCHESTER, URBAN NY, SUBURBAN NY, EXURBAN NY, RURAL NEW YORK, or SYRACUSE."
   }
 ]
