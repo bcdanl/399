@@ -109,7 +109,7 @@
     "href": "index.html#bullet-classwork",
     "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
     "section": "\\(\\bullet\\,\\) Classwork ⌨️",
-    "text": "\\(\\bullet\\,\\) Classwork ⌨️\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nClasswork 5\n\n\nFebruary 10, 2023\n\n\n\n\nClasswork 4\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "\\(\\bullet\\,\\) Classwork ⌨️\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nClasswork 6\n\n\nMarch 2, 2024\n\n\n\n\nClasswork 5\n\n\nFebruary 10, 2023\n\n\n\n\nClasswork 4\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#bullet-homework",
@@ -2286,7 +2286,7 @@
     "href": "listing-danl-399-cw.html",
     "title": "DANL 399 - Classwork",
     "section": "",
-    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nClasswork 5\n\n\nThe Layered Grammar of Graphics\n\n\nFebruary 10, 2023\n\n\n\n\nClasswork 4\n\n\nggplot Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nQuarto Website Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nMarkdown Basics\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nBuilding a Personal Website using Git, GitHub, and RStudio with Quarto\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nClasswork 6\n\n\nKey Components in Project Proposal\n\n\nMarch 2, 2024\n\n\n\n\nClasswork 5\n\n\nThe Layered Grammar of Graphics\n\n\nFebruary 10, 2023\n\n\n\n\nClasswork 4\n\n\nggplot Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nQuarto Website Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nMarkdown Basics\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nBuilding a Personal Website using Git, GitHub, and RStudio with Quarto\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "danl-qa/danl-399-qa-04.html",
@@ -2714,5 +2714,12 @@
     "title": "Lecture 6 - Note",
     "section": "5.2 Case 2",
     "text": "5.2 Case 2\n\np &lt;- ggplot(\n  studebt, \n  aes(x = pct/100, y = type, \n      fill = Debtrc))\np1 &lt;- p + \n  geom_col(color = \"gray80\")\np2 &lt;- p1 +\n  scale_y_discrete(\n    labels = as_labeller(f_labs))\np3 &lt;- p2 +\n  scale_x_continuous(\n    labels = scales::percent)\np4 &lt;- p3 +\n  scale_fill_viridis_d(\n    option = \"B\")\np4\n\n\n\n\n\np5 &lt;- p4 +\n  guides(\n    fill = \n      guide_legend(\n        reverse = TRUE,\n        title.position = \"top\",\n        label.position = \"bottom\",\n        keywidth = 3,\n        nrow = 1))\np6 &lt;- p5 +\n  labs(x = NULL, y = NULL,\n       fill = \"Amount Owed, in thousands of dollars\",\n       caption = p_caption,\n       title = p_title,\n       subtitle = p_subtitle)\np7 &lt;- p6 +\n  theme(legend.position = \"top\",\n        axis.text.y = \n          element_text(\n            face = \"bold\",\n            hjust = 1, \n            size = 12),\n        axis.ticks.length = \n          unit(0, \"cm\"),\n        panel.grid.major.y = \n          element_blank())\np7"
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-06.html",
+    "href": "danl-cw/danl-399-cw-06.html",
+    "title": "Classwork 6",
+    "section": "",
+    "text": "Key Components in Project Proposal\n\n\n\n\nBelow are key components in project proposal.\n\nTitle: A clear and concise title that gives an idea of the research topic.\nIntroduction:\n\nBackground: Provide context for the research topic, explaining why it’s significant or relevant.\nStatement of the Problem: Clearly articulate the specific problem or issue the research will address.\n\nObjectives or Research Questions:\n\nList the primary objectives of the study or the main questions you aim to answer.\n\nEmpirical Analysis:\n\nData Collection: Explain how data will be gathered\nMethodologies: Describe how the data will be analyzed using machine learning methods (e.g., linear regression, etc.).\n\nSignificance of the Study:\n\nExplain its implications for real-world applications, business strategies, or public policy.\n\nReferences: List all sources cited in the proposal\n\n\n\n\n\n\n Back to top"
   }
 ]

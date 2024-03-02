@@ -1,0 +1,39 @@
+---
+title: Classwork 6
+subtitle: Key Components in Project Proposal
+date: 2024-03-02
+execute: 
+  echo: false
+  eval: true
+  warning: false
+  message: false
+---
+
+# Key Components in Project Proposal
+
+<!-- ## Part I - Memo to the President -->
+<!-- Each team will select one topic in the environmental economics and write a terse 1-2 page memo that explains in plain English to the President of a nation why this research matters for real-world environmental policy. -->
+
+<!-- ## Part II - Economic Modeling -->
+
+
+- Below are key components in project proposal. 
+
+  1. **Title**: A clear and concise title that gives an idea of the research topic.
+  
+  2. **Introduction**:
+     - **Background**: Provide context for the research topic, explaining why it's significant or relevant.
+     - **Statement of the Problem**: Clearly articulate the specific problem or issue the research will address.
+  
+  3. **Objectives or Research Questions**:
+     - List the primary objectives of the study or the main questions you aim to answer.
+  
+  4. **Empirical Analysis**:
+     - **Data Collection**: Explain how data will be gathered
+     - **Methodologies**: Describe how the data will be analyzed using machine learning methods (e.g., linear regression, etc.).
+  
+  5. **Significance of the Study**:
+     - Explain its implications for real-world applications, business strategies, or public policy.
+  
+  6. **References**: List all sources cited in the proposal
+
