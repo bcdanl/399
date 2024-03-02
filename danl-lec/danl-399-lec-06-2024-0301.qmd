@@ -1,0 +1,991 @@
+---
+title: Lecture 6
+subtitle: Refine Your Plots
+format:
+  clean-revealjs:
+    self-contained: true
+    incremental: true
+    # logo: logo-title-slide.png
+author:
+  - name: Byeong-Hak Choe
+    email: bchoe@geneseo.edu
+    affiliations: SUNY Geneseo
+date: 2024-03-01
+execute: 
+  eval: true
+  echo: true
+  warning: false
+  message: false
+callout-icon: false
+
+from: markdown+emoji
+
+# bibliography: refs.bib
+include-after-body: target-hover.html
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(socviz)
+library(gapminder)
+library(ggrepel)
+library(RColorBrewer)
+library(ggridges)
+library(gridExtra)
+library(viridis)
+
+
+theme_set(theme_fivethirtyeight()+
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.5),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 90,
+                               size = rel(1.5),
+                               margin = margin(0,10,0,0)),
+                axis.text.x = element_text(size = rel(1.5)),
+                axis.text.y = element_text(size = rel(1.5)),
+                strip.text = element_text(size = rel(1.5)),
+                legend.position = "top",
+                legend.text = element_text(size = rel(1.5)),
+                legend.title = element_text(size = rel(1.5))
+                )
+          )
+```
+
+
+# Refine your plots {background-color="#1c4982"}
+
+
+## Refine your plots
+### Use color to your advantage
+
+- We should choose a **color palette** based on the types of the data we are plotting.
+  - An unordered categorical variable (e.g., 'Sex' or 'Country') requires distinct colors that won’t be easily confused with one another.
+  - An ordered categorical variable  (e.g., 'Level of Education') requires a graded color scheme of some kind running from less to more or earlier to later.
+  
+
+- We choose color palettes for mappings through one of the `scale_` functions for `color` or `fill`. 
+
+
+## Refine your plots
+### `RColorBrewer`
+
+```{.r}
+# install.pacakges("RColorBrewer")
+library(RColorBrewer)
+```
+
+
+- `RColorBrewer` package provides a wide range of named color palettes.
+  - We can access these colors by specifying the `scale_color_brewer()` or `scale_fill_brewer()` functions with `palette` parameter.
+
+
+
+
+## Refine your plots
+### Sequential
+
+<p align="center">
+  <img src="https://bcdanl.github.io/lec_figs/socviz_fig8_4.png" width="450px">
+</p>
+
+
+
+
+## Refine your plots
+### Diverging
+
+<p align="center">
+  <img src="https://bcdanl.github.io/lec_figs/socviz_fig8_5.png" width="450px">
+</p>
+
+
+
+
+
+## Refine your plots
+### Qualitative
+
+
+<p align="center">
+  <img src="https://bcdanl.github.io/lec_figs/socviz_fig8_6.png" width="450px">
+</p>
+
+
+
+
+
+## Refine your plots
+### Use color to your advantage
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p <- ggplot(data = organdata,
+            mapping = 
+              aes(x = roads, 
+                  y = donors, 
+                  color = world))
+
+p + geom_point(size = 2) + 
+  scale_color_brewer(
+    palette = "Set2") +
+  theme(legend.position = "top")
+```
+
+- Let's use the named palettes with `scale_color_brewer(palette = ...)`.
+
+
+## Refine your plots
+### Pastel2
+
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p + geom_point(size = 2) + 
+  scale_color_brewer(
+    palette = "Pastel2") +
+  theme(legend.position = "top")
+```
+
+
+
+## Refine your plots
+### Dark2
+
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p + geom_point(size = 2) + 
+  scale_color_brewer(
+    palette = "Dark2") +
+  theme(legend.position = "top")
+```
+
+
+
+
+## Refine your plots
+### Use color to your advantage
+
+- We can also specify colors manually, via `scale_color_manual()` or `scale_fill_manual()`. 
+  - These functions take `values` argument that can be specified as vector of color names or hex colors. 
+  - Check [https://www.color-hex.com](https://www.color-hex.com)
+
+
+
+
+## Refine your plots
+### Use color to your advantage
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p + geom_point(size = 2) + 
+  scale_color_manual(
+    values = c("#3c6ff8", "#afd68d", 
+               "#8467ad", "#82857f")) +
+  theme_ipsum() + 
+  theme(legend.position = "top") 
+```
+
+
+
+
+
+## Refine your plots
+### Color blindness
+```{.r}
+# install.packages("dichromat")
+library(dichromat)
+```
+
+- Even though colorblind people can recognize a wide range of colors, it might be hard to differentiate between certain colors. 
+
+  - `dichromat` package provides a range of safe palettes and some useful functions for helping us approximately see what our current palette might look like to a viewer with one of several different kinds of color blindness.
+
+
+## Refine your plots
+### Color blindness
+
+```{r}
+#| eval: false
+# RColorBrewer::brewer.pal() makes the color palettes
+Default <- brewer.pal(5, "Set2") 
+types <- c("deutan", "protan", "tritan")
+names(types) <- 
+  c("Deuteronopia", "Protanopia", "Tritanopia")
+
+color_table <- types |>
+    purrr::map(~ dichromat(Default, .x)) |>
+    as_tibble() |>
+    add_column(Default, .before = TRUE)
+
+color_table
+```
+
+
+## Refine your plots
+### Color blindness
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| warning: false
+#| message: false
+
+display_custom_palettes <- function(palette_list, palette_names){
+  nr <- length(palette_list)
+  nc <- max(lengths(palette_list))
+  ylim <- c(0, nr)
+  oldpar <- par(mgp = c(2, 0.25, 0))
+  on.exit(par(oldpar))
+  plot(1, 1, xlim = c(0, nc), ylim = ylim, type = "n", axes = FALSE, 
+       bty = "n", xlab = "", ylab = "")
+  for (i in 1:nr) {
+    nj <- length(palette_list[[i]])
+    shadi <- palette_list[[i]]
+    rect(xleft = 0:(nj - 1), ybottom = i - 1, xright = 1:nj, 
+         ytop = i - 0.2, col = shadi, border = "light grey")
+  }
+  text(rep(-0.1, nr), (1:nr) - 0.6, labels = palette_names, xpd = TRUE, 
+       adj = 1)
+}
+
+plot.new()
+
+palette_list <- list(color_table$Default, 
+                     color_table$Deuteronopia, 
+                     color_table$Protanopia, 
+                     color_table$Tritanopia)
+palette_names <- c("Default", 
+                   "Deuteronopia", 
+                   "Protanopia", 
+                   "Tritanopia")
+
+display_custom_palettes(palette_list, palette_names)
+```
+
+
+## Refine your plots
+### Color blindness
+
+```{r}
+#| eval: false
+
+brewer.pal.info
+```
+
+- `RColorBrewer` provides the color-blind friendly pallets.
+
+
+
+## Refine your plots
+### Layer color and text together
+
+
+- We can use `color` to highlight some aspect of our data.
+  - Let's do a simple exploratory analysis on the relationship between politics and race using `color`.
+
+
+
+## Refine your plots
+### Layer color and text together
+  
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+# DEM Blue and REP Red
+party_colors <- 
+  c("#2E74C0", "#CB454A") 
+
+p0 <- ggplot(
+  data = filter(county_data, 
+                flipped == "No"),
+  mapping = 
+    aes(x = pop, 
+        y = black/100) )
+
+p1 <- p0 + 
+  geom_point(alpha = 0.15, 
+             color = "gray50") +
+  scale_x_log10(labels=scales::comma) 
+p1
+```
+
+
+
+
+## Refine your plots
+### Layer color and text together
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p2 <- p1 + 
+  geom_point(
+    data = filter(county_data,
+                  flipped == "Yes"),
+    mapping = 
+      aes(x = pop, y = black/100,
+          color = partywinner16)) +
+    scale_color_manual(
+      values = party_colors)
+p2
+```
+
+
+## Refine your plots
+### Layer color and text together
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p3 <- p2 + 
+  scale_y_continuous(
+    labels=scales::percent) +
+  labs(
+    color = 
+      "County flipped to ... ",
+    x = 
+      "County Population (log scale)",
+    y = 
+      "Percent Black Population",
+    title = 
+      "Flipped counties, 2016",
+    caption = 
+      "Counties in gray did not flip.")
+p3
+```
+
+
+## Refine your plots
+### Layer color and text together
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p4 <- p3 + 
+  geom_text_repel(
+    data = 
+      filter(
+       county_data,
+       flipped == "Yes" & black >25),
+    mapping = 
+      aes(x = pop, y = black/100,
+          label = state), 
+    size = 2)
+
+p4 + theme_minimal() + 
+  theme(legend.position="top")
+```
+
+
+## Refine your plots
+### Layer color and text together
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p4 + theme_economist() +
+  theme(legend.position = "top")
+```
+
+
+## Refine your plots
+### Layer color and text together
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p4 + theme_wsj() +
+  theme(
+    plot.title = 
+      element_text(size = rel(0.6)),
+    legend.title = 
+      element_text(size = rel(0.35)),
+    plot.caption = 
+      element_text(size = rel(0.35)),
+    legend.position = "top")
+
+```
+
+
+
+
+## Refine your plots
+### Change the appearance of plots with `theme()`
+
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p4 + theme(
+  legend.position = "top",
+  plot.title = element_text(
+      size = rel(2),
+      lineheight = .5,
+      family = "Times",
+      face = "bold.italic",
+      color = "orange"),
+  axis.text.x = element_text(
+      size = rel(1.1),
+      family = "Courier",
+      face = "bold",
+      color = "purple")
+  )
+```
+
+- The `theme()` function allows us to exert very fine-grained control over the appearance of all kinds of text and graphical elements in a plot.
+
+
+
+## Refine your plots
+### Change the appearance of plots with `theme()`
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p4 + theme(
+  legend.position = "top",
+  plot.title = element_text(
+    size = rel(2),
+    lineheight = .5,
+    family = "Times",
+    face = "bold.italic",
+    colour = "orange"),
+  axis.text.x = element_blank()
+  ) 
+```
+
+- We can also use `element_blank()` to remove a number of elements by naming them and making them disappear.
+
+
+
+## Refine your plots
+### Change the appearance of plots with `theme()`
+
+
+:::{.nonincremental}
+- Let's create an effective small multiple of the age distribution of General Social Survey (GSS) respondents over the years using `gss_lon` data. 
+
+:::
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+yrs <- c(seq(1972, 1988, 4), 
+         1993, 
+         seq(1996, 2016, 4))
+
+mean_age <- gss_lon |>
+    filter( !is.na(age), 
+            year %in% yrs) |>
+    group_by(year) |>
+    summarize(
+      xbar = round(
+        mean(age, na.rm = TRUE), 0)
+      )
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+mean_age$y <- 0.3 
+
+yr_labs <- data.frame(
+  x = 85, y = 0.8, 
+  year = yrs)  # to position the age as a text label
+```
+
+:::
+
+::::
+
+## Refine your plots
+### Change the appearance of plots with `theme()`
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p <- ggplot(
+  data = 
+    filter(gss_lon, year %in% yrs),
+  mapping = 
+    aes(x = age))
+
+p1 <- p + 
+  geom_density(
+    fill = "black", color = FALSE,
+    alpha = 0.9, 
+    mapping = aes(y = ..scaled..))
+p1
+```
+
+
+## Refine your plots
+### Change the appearance of plots with `theme()`
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p2 <- p1 + 
+  geom_vline(
+    data = filter(
+      mean_age, year %in% yrs),
+    aes(xintercept = xbar), 
+    color = "white", size = 0.5) + 
+  geom_text(
+    data = filter(mean_age, 
+             year %in% yrs),
+    aes(x = xbar, y = y, label = xbar), 
+    nudge_x = 7.5, color = "white", 
+    size = 3.5, hjust = 1) +
+  geom_text(data = filter(
+    yr_labs, year %in% yrs),
+    aes(x = x, y = y, label = year)) 
+p2
+```
+
+- The `nudge_x` argument to push the label slightly to the right of its x-value.
+
+
+## Refine your plots
+### Change the appearance of plots with `theme()`
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p3 <- p2  + 
+  facet_grid(year ~ ., switch = "y")
+p3
+```
+
+- In the `facet_grid()` we use the `switch` argument to move the labels to the left.
+
+
+## Refine your plots
+### Change the appearance of plots with `theme()`
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p2a <- p3 + 
+  theme(
+    plot.title = 
+      element_text(size = 16),
+    axis.text.x= 
+      element_text(size = 12),
+    axis.title.y=element_blank(),
+    axis.text.y=element_blank(),
+    axis.ticks.y = element_blank(),
+    strip.background = element_blank(),
+    strip.text.y = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()) +
+  labs(x = "Age", y = NULL,
+       title = 
+         "Age Distribution of\nGSS Respondents")
+p2a
+```
+
+
+
+## Refine your plots
+### `ggridges`
+
+```{.r}
+# install.packages("ggridges")
+library(ggridges)
+```
+
+
+- `ggridges` allows the distributions to overlap vertically.
+  - It is especially useful for repeated distributional measures that change in a clear direction. 
+
+
+## Refine your plots
+### `ggridges`
+
+```{r}
+p <- ggplot(
+  data = gss_lon,
+  mapping = 
+    aes(x = age, 
+        y = factor(year, 
+                   levels = rev(unique(year)), 
+                   ordered = TRUE)))
+```
+
+- `factor()` converts a variable to a factor variable.
+  - With `levels` parameter, we can set the categories of a categorical variable.
+
+## Refine your plots
+### `ggridges`
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p2b <- p + 
+  geom_density_ridges(
+    alpha = 0.6, fill = "lightblue", 
+    scale = 1.5) +  
+    scale_x_continuous(
+      breaks = c(25, 50, 75)) +
+    scale_y_discrete(
+      expand = c(0.01, 0)) + 
+    labs(x = "Age", y = NULL, 
+         title = 
+           "Age Distribution of\nGSS Respondents") +
+    theme_ridges() +  # make labels aligned properly
+    theme(
+      title = 
+        element_text(
+          size = 16, face = "bold"))
+p2b
+```
+
+- The `expand` argument in `scale_y_discrete()` adjusts the scaling of the y-axis slightly.
+
+
+
+
+## Refine your plots
+### Arrange plots with `gridExtra::grid.arrange()`
+
+```{r}
+#| eval: false
+# install.packages("gridExtra")
+grid.arrange(p2a, p2b, nrow = 1)   # sub-figures
+```
+
+
+- `gridExtra` package provides `grid.arrange()` function.
+  - `grid.arrange()` arranges multiple `ggplot` objects on a page, and draw tables of figures. 
+
+
+
+
+## Refine your plots
+### Arrange plots with `gridExtra::grid.arrange()`
+
+```{r}
+#| echo: false
+# install.packages("gridExtra")
+grid.arrange(p2a, p2b, nrow = 1)   # sub-figures
+```
+
+
+## Refine your plots
+### Advanced Bar Chart 1
+
+::: {.nonincremental}
+- Use data.frame `studebt` to describe how the distribution of `Debt` `pct` varies by `type`.
+
+```{r}
+#| eval: false
+studebt
+
+p_xlab <- "Amount Owed, in thousands of Dollars"
+p_title <- "Outstanding Student Loans"
+p_subtitle <- "44 million borrowers owe a total of $1.3 trillion"
+p_caption <- "Source: FRB NY"
+
+f_labs <- c(`Borrowers` = "Percent of\nall Borrowers",
+            `Balances` = "Percent of\nall Balances")
+```
+
+```{r}
+#| echo: false
+studebt <- studebt
+
+p_xlab <- "Amount Owed, in thousands of Dollars"
+p_title <- "Outstanding Student Loans"
+p_subtitle <- "44 million borrowers owe a total of $1.3 trillion"
+p_caption <- "Source: FRB NY"
+
+f_labs <- c(`Borrowers` = "Percent of\nall Borrowers",
+            `Balances` = "Percent of\nall Balances")
+```
+
+:::
+
+
+## Refine your plots
+### Advanced Bar Chart 1
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+
+p <- ggplot(
+  data = studebt,
+  mapping = 
+    aes(x = pct/100, y = Debt,
+        fill = type))
+p1 <- p + geom_col()
+p1
+```
+
+
+
+## Refine your plots
+### Advanced Bar Chart 1
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+
+p2 <- p1 +
+  scale_fill_brewer(
+    type = "qual", palette = "Dark2")
+p2
+```
+
+
+
+## Refine your plots
+### Advanced Bar Chart 1
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p3 <- p2 +
+  scale_x_continuous(
+    labels = scales::percent)
+p3
+```
+
+
+
+## Refine your plots
+### Advanced Bar Chart 1
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+
+p4 <- p3 +
+  guides(fill = FALSE)
+p4
+```
+
+
+
+## Refine your plots
+### Advanced Bar Chart 1
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+
+p5 <- p4 +
+  facet_grid(
+    .~ type, 
+    labeller = as_labeller(f_labs))
+p5
+```
+
+
+
+## Refine your plots
+### Advanced Bar Chart 1
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+
+p6 <- p5 +
+  labs(y = NULL, x = p_xlab, 
+       caption = p_caption,
+       title = p_title,
+       subtitle = p_subtitle)
+p6
+```
+
+
+
+## Refine your plots
+### Advanced Bar Chart 1
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+
+p7 <- p6 +
+  theme(strip.text.x = 
+          element_text(face = "bold"))
+p7
+```
+
+
+
+
+
+## Refine your plots
+### Advanced Bar Chart 2
+
+
+- Instead of having separate bars distinguished by heights, we can array the percentages for each distribution proportionally within a single bar. 
+
+- Let's make a stacked bar chart with just two main bars, and lie them on their side for comparison.
+
+
+
+
+## Refine your plots
+### Advanced Bar Chart 2
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p <- ggplot(
+  studebt, 
+  aes(x = pct/100, y = type, 
+      fill = Debtrc))
+p1 <- p + 
+  geom_col(color = "gray80")
+p1
+```
+
+
+
+## Refine your plots
+### Advanced Bar Chart 2
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+
+p2 <- p1 +
+  scale_y_discrete(
+    labels = as_labeller(f_labs))
+p2
+```
+
+
+
+## Refine your plots
+### Advanced Bar Chart 2
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p3 <- p2 +
+  scale_x_continuous(
+    labels = scales::percent)
+p3
+```
+
+
+
+## Refine your plots
+### Advanced Bar Chart 2
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+p4 <- p3 +
+  scale_fill_viridis_d(
+    option = "B")
+p4
+```
+
+
+
+## Refine your plots
+### Advanced Bar Chart 2
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+
+p5 <- p4 +
+  guides(
+    fill = 
+      guide_legend(
+        reverse = TRUE,
+        title.position = "top",
+        label.position = "bottom",
+        keywidth = 3,
+        nrow = 1))
+p5
+```
+
+
+
+## Refine your plots
+### Advanced Bar Chart 2
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+
+p6 <- p5 +
+  labs(x = NULL, y = NULL,
+       fill = "Amount Owed, in thousands of dollars",
+       caption = p_caption,
+       title = p_title,
+       subtitle = p_subtitle)
+p6
+```
+
+
+
+## Refine your plots
+### Advanced Bar Chart 2
+
+```{r}
+#| fig-asp: .85
+#| output-location: column-fragment
+
+
+p7 <- p6 +
+  theme(legend.position = "top",
+        axis.text.y = 
+          element_text(
+            face = "bold",
+            hjust = 1, 
+            size = 12),
+        axis.ticks.length = 
+          unit(0, "cm"),
+        panel.grid.major.y = 
+          element_blank())
+p7
+```
+
