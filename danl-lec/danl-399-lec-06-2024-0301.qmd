@@ -135,7 +135,8 @@ p <- ggplot(data = organdata,
                   y = donors, 
                   color = world))
 
-p + geom_point(size = 2) + 
+p + geom_point(size = 2,
+               alpha = .5) + 
   scale_color_brewer(
     palette = "Set2") +
   theme(legend.position = "top")
@@ -152,7 +153,9 @@ p + geom_point(size = 2) +
 #| fig-asp: .85
 #| output-location: column-fragment
 
-p + geom_point(size = 2) + 
+p + geom_point(size = 2,
+               alpha = .5
+               ) + 
   scale_color_brewer(
     palette = "Pastel2") +
   theme(legend.position = "top")
@@ -168,7 +171,8 @@ p + geom_point(size = 2) +
 #| fig-asp: .85
 #| output-location: column-fragment
 
-p + geom_point(size = 2) + 
+p + geom_point(size = 2,
+               alpha = .5) + 
   scale_color_brewer(
     palette = "Dark2") +
   theme(legend.position = "top")

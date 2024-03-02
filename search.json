@@ -2384,21 +2384,21 @@
     "href": "danl-lec/danl-399-lec-06-2024-0301.html#refine-your-plots-6",
     "title": "Lecture 6",
     "section": "Refine your plots",
-    "text": "Refine your plots\nUse color to your advantage\n\n\np &lt;- ggplot(data = organdata,\n            mapping = \n              aes(x = roads, \n                  y = donors, \n                  color = world))\n\np + geom_point(size = 2) + \n  scale_color_brewer(\n    palette = \"Set2\") +\n  theme(legend.position = \"top\")\n\n\n\n\n\n\n\nLet’s use the named palettes with scale_color_brewer(palette = ...)."
+    "text": "Refine your plots\nUse color to your advantage\n\n\np &lt;- ggplot(data = organdata,\n            mapping = \n              aes(x = roads, \n                  y = donors, \n                  color = world))\n\np + geom_point(size = 2,\n               alpha = .5) + \n  scale_color_brewer(\n    palette = \"Set2\") +\n  theme(legend.position = \"top\")\n\n\n\n\n\n\n\nLet’s use the named palettes with scale_color_brewer(palette = ...)."
   },
   {
     "objectID": "danl-lec/danl-399-lec-06-2024-0301.html#refine-your-plots-7",
     "href": "danl-lec/danl-399-lec-06-2024-0301.html#refine-your-plots-7",
     "title": "Lecture 6",
     "section": "Refine your plots",
-    "text": "Refine your plots\nPastel2\n\n\np + geom_point(size = 2) + \n  scale_color_brewer(\n    palette = \"Pastel2\") +\n  theme(legend.position = \"top\")"
+    "text": "Refine your plots\nPastel2\n\n\np + geom_point(size = 2,\n               alpha = .5\n               ) + \n  scale_color_brewer(\n    palette = \"Pastel2\") +\n  theme(legend.position = \"top\")"
   },
   {
     "objectID": "danl-lec/danl-399-lec-06-2024-0301.html#refine-your-plots-8",
     "href": "danl-lec/danl-399-lec-06-2024-0301.html#refine-your-plots-8",
     "title": "Lecture 6",
     "section": "Refine your plots",
-    "text": "Refine your plots\nDark2\n\n\np + geom_point(size = 2) + \n  scale_color_brewer(\n    palette = \"Dark2\") +\n  theme(legend.position = \"top\")"
+    "text": "Refine your plots\nDark2\n\n\np + geom_point(size = 2,\n               alpha = .5) + \n  scale_color_brewer(\n    palette = \"Dark2\") +\n  theme(legend.position = \"top\")"
   },
   {
     "objectID": "danl-lec/danl-399-lec-06-2024-0301.html#refine-your-plots-9",
@@ -2699,6 +2699,20 @@
     "href": "danl-class/danl-399-note-06-2024-0301.html",
     "title": "Lecture 6 - Note",
     "section": "",
-    "text": "Back to top"
+    "text": "p &lt;- ggplot(data = organdata,\n            mapping = \n              aes(x = roads, \n                  y = donors, \n                  color = world))\n\np + geom_point(size = 2,\n               alpha = .5) + \n  theme(legend.position = \"top\")\n\n\n\n\n\np &lt;- ggplot(data = organdata,\n            mapping = \n              aes(x = roads, \n                  y = donors, \n                  color = world))\n\np + geom_point(size = 2,\n               alpha = .5) + \n  scale_color_brewer(\n    palette = \"Set2\",\n    na.value = \"grey60\") +\n  theme(legend.position = \"top\")\n\n\n\n\n\np + geom_point(size = 2,\n               alpha = .5) + \n  scale_color_brewer(\n    palette = \"Pastel2\",\n    na.value = \"grey60\") +\n  theme(legend.position = \"top\")\n\n\n\n\n\np + geom_point(size = 2,\n               alpha = .5) + \n  scale_color_brewer(\n    palette = \"Dark2\",\n    na.value = \"grey60\") +\n  theme(legend.position = \"top\")"
+  },
+  {
+    "objectID": "danl-class/danl-399-note-06-2024-0301.html#case-1",
+    "href": "danl-class/danl-399-note-06-2024-0301.html#case-1",
+    "title": "Lecture 6 - Note",
+    "section": "5.1 Case 1",
+    "text": "5.1 Case 1\n\ndatatable(studebt)\n\n\n\n\n\n\n\np_xlab &lt;- \"Amount Owed, in thousands of Dollars\"\np_title &lt;- \"Outstanding Student Loans\"\np_subtitle &lt;- \"44 million borrowers owe a total of $1.3 trillion\"\np_caption &lt;- \"Source: FRB NY\"\n\nf_labs &lt;- c(`Borrowers` = \"Percent of all Borrowers\",\n            `Balances` = \"Percent of all Balances\")\np &lt;- ggplot(\n  data = studebt,\n  mapping = \n    aes(x = pct/100, y = Debt,\n        fill = type))\np1 &lt;- p + geom_col()\np2 &lt;- p1 +\n  scale_fill_brewer(\n    type = \"qual\", palette = \"Dark2\")\np3 &lt;- p2 +\n  scale_x_continuous(\n    labels = scales::percent)\np4 &lt;- p3 +\n  guides(fill = FALSE)\np5 &lt;- p4 +\n  facet_grid(\n    .~ type, \n    labeller = as_labeller(f_labs))\np6 &lt;- p5 +\n  labs(y = NULL, x = p_xlab, \n       caption = p_caption,\n       title = p_title,\n       subtitle = p_subtitle)\np7 &lt;- p6 +\n  theme(strip.text.x = \n          element_text(face = \"bold\"))\np7"
+  },
+  {
+    "objectID": "danl-class/danl-399-note-06-2024-0301.html#case-2",
+    "href": "danl-class/danl-399-note-06-2024-0301.html#case-2",
+    "title": "Lecture 6 - Note",
+    "section": "5.2 Case 2",
+    "text": "5.2 Case 2\n\np &lt;- ggplot(\n  studebt, \n  aes(x = pct/100, y = type, \n      fill = Debtrc))\np1 &lt;- p + \n  geom_col(color = \"gray80\")\np2 &lt;- p1 +\n  scale_y_discrete(\n    labels = as_labeller(f_labs))\np3 &lt;- p2 +\n  scale_x_continuous(\n    labels = scales::percent)\np4 &lt;- p3 +\n  scale_fill_viridis_d(\n    option = \"B\")\np4\n\n\n\n\n\np5 &lt;- p4 +\n  guides(\n    fill = \n      guide_legend(\n        reverse = TRUE,\n        title.position = \"top\",\n        label.position = \"bottom\",\n        keywidth = 3,\n        nrow = 1))\np6 &lt;- p5 +\n  labs(x = NULL, y = NULL,\n       fill = \"Amount Owed, in thousands of dollars\",\n       caption = p_caption,\n       title = p_title,\n       subtitle = p_subtitle)\np7 &lt;- p6 +\n  theme(legend.position = \"top\",\n        axis.text.y = \n          element_text(\n            face = \"bold\",\n            hjust = 1, \n            size = 12),\n        axis.ticks.length = \n          unit(0, \"cm\"),\n        panel.grid.major.y = \n          element_blank())\np7"
   }
 ]
