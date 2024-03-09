@@ -1,0 +1,46 @@
+---
+title: Classwork 7
+subtitle: Deep Dive into ggplot visualization
+date: 2024-03-07
+execute: 
+  echo: false
+  eval: true
+  warning: false
+  message: false
+---
+
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(DT)
+library(rmarkdown)
+library(ggrepel)
+library(ggridges)
+library(RColorBrewer)
+library(viridis)
+library(gridExtra)
+library(gapminder)
+library(socviz)
+
+theme_set(theme_ipsum()+
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.33),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 90,
+                               size = rel(1.33),
+                               margin = margin(0,10,0,0))
+                )
+          )
+```
+
+
+
+

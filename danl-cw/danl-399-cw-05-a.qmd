@@ -1,0 +1,392 @@
+---
+title: Classwork 5 - Example Answers
+subtitle: The Layered Grammar of Graphics
+date: 2023-03-08
+execute: 
+  echo: true
+  warning: false
+  message: false
+  
+from: markdown+emoji
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(DT)
+library(gridExtra)
+
+theme_set(theme_ipsum()+
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.33),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 90,
+                               size = rel(1.33),
+                               margin = margin(0,10,0,0))
+                )
+          )
+```
+
+# Question 1. Geometric Objects
+
+## Q1a.
+Run this code in your head and predict what the output will look like. Then, run the code in R and check your predictions.
+
+```{r}
+
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, 
+                     color = drv)) +
+  geom_point(alpha = .4) +
+  geom_smooth(se = FALSE)
+
+```
+
+
+```{r}
+
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = hwy, 
+                     color = drv)) +
+  geom_point(alpha = .4) +
+  geom_smooth()
+
+```
+
+
+<br>
+
+## Q1b.
+What does `show.legend = FALSE` do? What happens if you remove it? Why do you think I used it earlier in the lecture?
+
+
+<br>
+
+**Answer:** 
+
+```{r}
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, 
+                           color = drv),
+             alpha = .5,
+             show.legend = FALSE)
+```
+
+
+
+## Q1c.
+Recreate the R code necessary to generate the following graphs.
+
+### (a)
+```{r}
+#| echo: false
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(alpha = .4) +
+  geom_smooth(se = FALSE)
+```
+
+<br>
+
+### (b)
+```{r}
+#| echo: false
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_smooth(mapping = aes(group = drv), 
+              se = FALSE) +
+  geom_point(alpha = .4)
+
+```
+
+<br>
+
+
+### (c)
+```{r}
+#| echo: false
+ggplot(mpg, aes(x = displ, y = hwy, 
+                color = drv)) +
+  geom_point(alpha = .4) +
+  geom_smooth(se = FALSE)
+
+```
+
+<br>
+
+
+### (d)
+```{r}
+#| echo: false
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(aes(color = drv), alpha = .4) +
+  geom_smooth(se = FALSE)
+
+```
+
+<br>
+
+### (e)
+```{r}
+#| echo: false
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(aes(color = drv), alpha = .4) +
+  geom_smooth(aes(linetype = drv), se = FALSE)
+
+```
+
+<br>
+
+### (f)
+```{r}
+#| echo: false
+ggplot(mpg, 
+       aes(x = displ, y = hwy)) +
+  geom_point(size = 4, color = "white") +
+  geom_point(aes(color = drv), alpha = .4) +
+  theme_gray()
+```
+
+<br>
+
+
+## Q1d.
+- Use the data.frame, `organdata_simple` to visualize the yearly trend of the variable `donors` for each country.
+```{r}
+organdata_simple <- read_csv('https://bcdanl.github.io/data/organdata_simple.csv')
+```
+
+```{r}
+#| fig-height: 12
+#| fig-width: 9
+organdata_simple |> 
+  ggplot(aes(x = as.integer(year), y = donors)) +
+  geom_line(aes(color = country),
+            show.legend = F) +
+  geom_point(size = .75) +
+  geom_smooth(linewidth = .5) +
+  scale_x_continuous(breaks = 1991:2002,
+                     labels = str_c("'", str_sub(as.character(1991:2002), 3, 4))) +
+  facet_wrap(country ~ .) +
+  theme(axis.text.x = element_text(angle = 45,
+                                   size = rel(.75)))
+```
+
+```{r}
+#| fig-height: 12
+#| fig-width: 9
+organdata_simple |> 
+  ggplot(aes(x = as.integer(year), y = donors)) +
+  geom_col(aes(fill = country),
+            show.legend = F) +
+  geom_smooth(linewidth = .5) +
+  scale_x_continuous(breaks = 1991:2002,
+                     labels = str_c("'", str_sub(as.character(1991:2002), 3, 4))) +
+  scale_fill_viridis_d() +
+  facet_wrap(country ~ .) +
+  theme(axis.text.x = element_text(angle = 45,
+                                   size = rel(.75)))
+```
+
+
+<br><br><br>
+
+# Question 2. Statistical Transformation and Position Adjustment
+
+## Q2a.
+What does `geom_col()` do? How is it different to `geom_bar()`?
+
+**Answer**:
+
+
+
+<br><br>
+
+## Q2b.
+- Install the R package, `nycflights13`, which provides the `flights` data.frame.
+
+- Visualize the distribution of `carrier`.
+
+- Visualize how the distribution of `carrier` varies by `origin`.
+
+**Answer**:
+
+```{r}
+flights <- nycflights13::flights
+airlines <- nycflights13::airlines
+
+flights <- flights |> 
+  left_join(airlines)
+```
+
+
+```{r}
+flights |> 
+  ggplot(aes(y = name)) +
+  geom_bar()
+```
+
+
+```{r}
+flights |> 
+  group_by(name) |> 
+  count() |> 
+  ggplot(aes(y = fct_reorder(name, n), x = n)) +
+  geom_col()
+```
+
+
+
+```{r}
+flights |> 
+  group_by(name, origin) |> 
+  count() |> 
+  ggplot(aes(y = fct_reorder(name, n), x = n)) +
+  geom_col() +
+  facet_wrap(origin ~ ., scales = "free_y")
+```
+
+
+```{r}
+#| fig-height: 12
+flights |> 
+  group_by(name, origin) |> 
+  count() |> 
+  ggplot(aes(y = name, x = n)) +
+  geom_col() +
+  facet_wrap(origin ~ ., scales = "free_y", ncol = 1)
+```
+
+
+```{r}
+#| fig-height: 12
+
+df <- flights |> 
+  group_by(name, origin) |> 
+  count()
+df |> 
+  ggplot(aes(y = fct_reorder(name, n), x = n)) +
+  geom_col() +
+  facet_wrap(origin ~ ., scales = "free_y", ncol = 1)
+```
+
+
+```{r}
+#| fig-width: 9
+
+library(gridExtra)
+df <- flights |> 
+  group_by(carrier, origin) |> 
+  count()
+
+df_LGA <- df |> filter(origin == "LGA")
+df_EWR <- df |> filter(origin == "EWR")
+df_JFK <- df |> filter(origin == "JFK")
+
+df_LGA <- df_LGA |> 
+  mutate(carrier = fct_reorder(carrier, n))
+
+levels(df_LGA$carrier)
+
+p1 <- df_LGA |> 
+  mutate(carrier = factor(carrier, levels = unique(flights$carrier))) |> 
+  ggplot(aes(y = fct_reorder(carrier, n), x = n)) +
+  geom_col() +
+  labs(title = "LGA", y = "Carrier")
+
+levels(fct_reorder(df_LGA$carrier, df_LGA$n))
+
+
+p2 <- df_EWR |> 
+  mutate(carrier = factor(carrier, levels = unique(flights$carrier))) |> 
+  ggplot(aes(y = factor(carrier,
+                        levels = levels(fct_reorder(df_LGA$carrier, df_LGA$n))), 
+             x = n)) +
+  geom_col() +
+  labs(title = "EWR", y = "Carrier")
+
+p3 <- df_JFK |> 
+  mutate(carrier = factor(carrier, levels = unique(flights$carrier))) |> 
+  ggplot(aes(y = factor(carrier,
+                        levels = levels(fct_reorder(df_LGA$carrier, df_LGA$n))), 
+             x = n)) +
+  geom_col() +
+  labs(title = "JFK", y = "Carrier")
+
+grid.arrange(p1,p2,p3, nrow = 1)
+
+```
+
+
+- In our course, I do not require using for-loop. But here I just provide how can we combine tidyverse with for-loop.
+
+- Below is a manually faceted bar chart with the order referenced to LGA
+
+```{r}
+#| fig-width: 9
+library(gridExtra)
+flights <- nycflights13::flights
+df <- flights |> 
+  group_by(carrier, origin) |> 
+  count() |> 
+  ungroup()
+
+
+for (airport in unique(flights$origin)){
+  # data.frame for each origin airport in NYC
+  tmp <- df |> 
+    filter(origin == airport) |> 
+    select(-origin) 
+  
+  # Check for missing levels
+  missing_levels <- setdiff(unique(flights$carrier), tmp$carrier)
+  
+  # If there are missing levels, add an observation for each
+  if (length(missing_levels) > 0) {
+    for (item in missing_levels) {
+      tmp <- tmp |> 
+        add_row(n = 0, carrier = item)
+    }
+  }
+  
+  # Assign tmp to df_airport
+  assign(paste0('df_', airport),
+         tmp)
+}
+
+p1 <- df_LGA |> 
+  ggplot(aes(y = fct_reorder(carrier, n), x = n)) +
+  geom_col() +
+  labs(title = "LGA", y = "Carrier")
+
+levels(fct_reorder(df_LGA$carrier, df_LGA$n))
+
+
+p2 <- df_EWR |> 
+  ggplot(aes(y = factor(carrier,
+                        levels = levels(fct_reorder(df_LGA$carrier, df_LGA$n))), 
+             x = n)) +
+  geom_col() +
+  labs(title = "EWR", y = "")
+
+p3 <- df_JFK |> 
+  ggplot(aes(y = factor(carrier,
+                        levels = levels(fct_reorder(df_LGA$carrier, df_LGA$n))), 
+             x = n)) +
+  geom_col() +
+  labs(title = "JFK", y = "")
+
+grid.arrange(p1,p2,p3, nrow = 1)
+```
+
+
+
+<br><br>
+
+
+
+

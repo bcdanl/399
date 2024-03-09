@@ -1,0 +1,403 @@
+---
+title: Classwork 4 - Example Answers
+subtitle: ggplot Basics
+date: 2023-03-08
+execute: 
+  echo: true
+  warning: false
+  message: false
+  
+from: markdown+emoji
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(DT)
+
+theme_set(theme_ipsum()+
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.33),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 90,
+                               size = rel(1.33),
+                               margin = margin(0,10,0,0))
+                )
+          )
+```
+
+# Question 1. First Steps
+
+Load the following data.frame, `mpg`.
+```{r}
+library(tidyverse)
+mpg <- ggplot2::mpg
+```
+
+
+```{r}
+datatable(mpg)
+```
+
+
+```{r}
+rmarkdown::paged_table(mpg)
+```
+
+
+<br>
+
+```{r}
+skim(mpg)
+```
+
+
+
+## Q1a. 
+Run `ggplot(data = mpg)`. What do you see?
+```{r}
+ggplot(data = mpg)
+```
+
+<br>
+
+
+## Q1b.
+Write a ggplot code to make a scatterplot of `hwy` vs. `cyl`.
+
+```{r}
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = hwy, y = cyl))
+```
+
+
+- The above visualization is not great.
+
+- When we describe the relationship between continuous and categorical variables, it is better to go with the visualization about how the distribution of a continuous variable varies by a categorical variable.
+
+### Histogram - distribution of a continous variable
+
+```{r}
+p <- ggplot(mpg, aes(x = hwy))
+
+p + geom_histogram(aes(fill = factor(cyl)), alpha = .3)
+```
+
+```{r}
+p <- ggplot(mpg, aes(x = hwy))
+
+p + geom_freqpoly(aes(color = factor(cyl)), alpha = .5)
+```
+
+```{r}
+p <- ggplot(mpg, aes(x = hwy))
+
+p + geom_density(aes(fill = factor(cyl)), alpha = .5) +
+  scale_x_continuous(breaks = seq(5,40,5)) +
+  scale_fill_manual(values = c("#ff6600", "#00ccff", "#556b2f", "#66023c" )) +
+  labs(fill = "Number of Cylinders") +
+  theme(legend.position = c(.25,.75)) +
+  guides(fill = guide_legend(nrow = 1,
+                             label.position = "bottom"
+                             ))
+```
+
+
+```{r}
+p <- ggplot(mpg, aes(x = hwy))
+
+p + geom_density(aes(fill = factor(cyl)), alpha = .5) +
+  scale_x_continuous(breaks = seq(5,40,5)) +
+  scale_fill_brewer(palette = 'Reds') +
+  labs(fill = "Number of Cylinders") +
+  theme(legend.position = c(.25,.75)) +
+  guides(fill = guide_legend(nrow = 1,
+                             label.position = "bottom"
+                             ))
+```
+
+
+### Boxplot 
+
+```{r}
+mpg |> 
+  ggplot(aes(x = factor(cyl), y = hwy,
+             fill = factor(cyl))) +
+  geom_boxplot(show.legend = F)
+```
+
+
+
+<br>
+
+## Q1c.
+- What happens if you make a scatterplot of `class` vs. `drv`? 
+  - Why is the plot not useful?
+
+
+```{r}
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = class, y = drv), alpha = .02)
+```
+
+
+```{r}
+mpg |> 
+  count(class)
+
+mpg |> 
+  count(drv)
+```
+
+### Bar charts
+
+#### Stacked Bar Charts
+```{r}
+mpg |> 
+  ggplot(aes(x = class, fill = drv)) +
+  geom_bar()
+```
+
+#### Stacked Proportional Bar Charts
+```{r}
+mpg |> 
+  ggplot(aes(x = class, fill = drv)) +
+  geom_bar(position = "fill") +
+  labs(y = "Proportion")
+```
+
+#### Side-by-Side Bar Charts
+```{r}
+mpg |> 
+  ggplot(aes(x = class, fill = drv)) +
+  geom_bar(position = position_dodge(preserve = "single")) +
+  labs(y = "Proportion")
+```
+
+
+<br><br><br>
+
+# Question 2. Aethetic Mappings
+
+
+## Q2a.
+- Which variables in `mpg` are categorical? 
+```{r}
+mpg |> 
+  count(drv)
+```
+
+
+- Which variables are continuous?
+
+<br>
+
+## Q2b.
+- Map a continuous variable to `color`, `size`, and `shape`. 
+- How do these aesthetics behave differently for categorical vs. continuous variables?
+
+```{r}
+#| eval: false
+mpg |> 
+  ggplot(aes(x = displ, y = hwy,
+             shape = cty)) +
+  geom_point()
+```
+
+
+<br>
+
+## Q2d.
+What happens if you map an aesthetic to something other than a variable name, like `aes(color = displ < 5)`? 
+
+
+```{r}
+mpg |> 
+  ggplot(aes(x = displ, y = hwy,
+             color = displ < 5)) +
+  geom_point(alpha = .33)
+```
+
+
+```{r}
+mpg |> 
+  mutate(cond = displ < 5) |> 
+  ggplot(aes(x = displ, y = hwy,
+             color = cond)) +
+  geom_point(alpha = .33)
+```
+
+
+<br><br><br>
+
+
+# Question 3. Facets
+
+## Q3a.
+What happens if you facet on a continuous variable?
+
+```{r}
+beer <- read_csv("https://bcdanl.github.io/data/beer_markets.csv")
+
+```
+```{r}
+#| fig-height: 18
+beer |> 
+  ggplot(aes(x = log(beer_floz), y = log(price_per_floz)) ) +
+  geom_point(alpha = .1) +
+  geom_smooth() +
+  geom_smooth(method = 'lm', color = 'red') +
+  facet_grid(brand ~ .)
+```
+
+```{r}
+#| eval: false
+# it takes too long!
+beer |> 
+  ggplot(aes(x = log(beer_floz), y = log(price_per_floz)) ) +
+  geom_point(alpha = .1) +
+  geom_smooth() +
+  geom_smooth(method = 'lm', color = 'red') +
+  facet_wrap(dollar_spent ~ .)
+```
+
+
+<br>
+
+## Q3b.
+- What do the empty cells in the scatterplot of `displ` vs. `hwy` with `facet_grid(drv ~ cyl)` mean? 
+  - How do they relate to this plot?
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = drv, y = cyl))
+```
+
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = drv, y = cyl)) +
+  facet_grid(drv ~ cyl)
+```
+
+
+
+<br>
+
+## Q3c.
+What plots does the following code make? What does `.` do?
+```{r}
+#| eval: false
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy),
+             alpha = .5) +
+  facet_grid(drv ~ .)
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy),
+             alpha = .5) +
+  facet_grid(. ~ cyl)
+```
+
+<br>
+
+## Q3d.
+Consider the following faceted plot:
+```{r}
+
+ggplot(data = mpg,
+       mapping = aes(x = displ, y = hwy,
+                           color = class)
+             ) + 
+  geom_point(alpha = .5) +
+  geom_smooth() +
+  facet_wrap(~ class, ncol = 1) 
+
+```
+
+```{r}
+
+ggplot(data = mpg,
+       mapping = aes(x = displ, y = hwy,
+                           color = class)
+             ) + 
+  geom_point(alpha = .5) +
+  geom_smooth()
+```
+
+- What are the advantages to using faceting instead of the color aesthetic? 
+  - What are the disadvantages? 
+  - How might the balance change if you had a larger dataset?
+  
+  
+
+<br>
+
+## Q3e.
+- Read `?facet_wrap`. 
+  - What does `nrow` do? 
+  - What does `ncol` do? 
+  - What other options control the layout of the individual panels? 
+  - Why doesn’t `facet_grid()` have `nrow` and `ncol` arguments?
+
+<br>
+
+## Q3f.
+When using `facet_grid()`, you should usually put the variable with more unique levels in the columns. Why?
+
+<br>
+
+## Q3g.
+Use the following data.frame.
+
+```{r}
+#| echo: true
+tvshows_web <- read_csv(
+		'https://bcdanl.github.io/data/tvshows.csv')
+```
+
+```{r}
+datatable(tvshows_web)
+```
+
+<br>
+
+- Describe the relationship between audience size (`GRP`) and audience engagement (`PE`) using `ggplot`. 
+
+```{r}
+tvshows_web |> 
+  ggplot(aes(x = GRP, y = PE)) +
+  geom_point() +
+  geom_smooth()
+```
+
+
+- Describe how the relationship between audience size (`GRP`) and audience engagement (`PE`) varies by `Genre` using `ggplot`. 
+
+```{r}
+tvshows_web |> 
+  ggplot(aes(x = GRP, y = PE)) +
+  geom_point() +
+  geom_smooth(method = lm) +
+  facet_wrap(Genre ~ .)
+```
+
+
+```{r}
+tvshows_web |> 
+  ggplot(aes(x = GRP, y = PE, color = Genre)) +
+  geom_point() +
+  geom_smooth(method = lm) 
+```
+
+- Explain the relationship in words. 
+
+
+<br>
+
