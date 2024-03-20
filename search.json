@@ -116,7 +116,7 @@
     "href": "index.html#bullet-homework",
     "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
     "section": "\\(\\bullet\\,\\) Homework 💻",
-    "text": "\\(\\bullet\\,\\) Homework 💻\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nHomework 2\n\n\nFebruary 29, 2024\n\n\n\n\nHomework 1\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "\\(\\bullet\\,\\) Homework 💻\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nHomework 3\n\n\nMarch 20, 2024\n\n\n\n\nHomework 2\n\n\nFebruary 29, 2024\n\n\n\n\nHomework 1\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "danl-class/danl-399-note-02-2024-0202.html",
@@ -998,7 +998,7 @@
     "href": "listing-danl-399-hw.html",
     "title": "DANL 399 - Homework",
     "section": "",
-    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nHomework 2\n\n\nProject Proposal and Data Visualization\n\n\nFebruary 29, 2024\n\n\n\n\nHomework 1\n\n\nPersonal Website and ggplot Visualization\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nHomework 3\n\n\nAdvanced Data Visualization\n\n\nMarch 20, 2024\n\n\n\n\nHomework 2\n\n\nProject Proposal and Data Visualization\n\n\nFebruary 29, 2024\n\n\n\n\nHomework 1\n\n\nPersonal Website and ggplot Visualization\n\n\nFebruary 9, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "danl-lec/danl-399-lec-01-2024-0126.html#instructor-1",
@@ -2882,5 +2882,89 @@
     "title": "Classwork 5 - Example Answers",
     "section": "Q2b.",
     "text": "Q2b.\n\nInstall the R package, nycflights13, which provides the flights data.frame.\nVisualize the distribution of carrier.\nVisualize how the distribution of carrier varies by origin.\n\nAnswer:\n\nflights &lt;- nycflights13::flights\nairlines &lt;- nycflights13::airlines\n\nflights &lt;- flights |&gt; \n  left_join(airlines)\n\n\nflights |&gt; \n  ggplot(aes(y = name)) +\n  geom_bar()\n\n\n\n\n\nflights |&gt; \n  group_by(name) |&gt; \n  count() |&gt; \n  ggplot(aes(y = fct_reorder(name, n), x = n)) +\n  geom_col()\n\n\n\n\n\nflights |&gt; \n  group_by(name, origin) |&gt; \n  count() |&gt; \n  ggplot(aes(y = fct_reorder(name, n), x = n)) +\n  geom_col() +\n  facet_wrap(origin ~ ., scales = \"free_y\")\n\n\n\n\n\nflights |&gt; \n  group_by(name, origin) |&gt; \n  count() |&gt; \n  ggplot(aes(y = name, x = n)) +\n  geom_col() +\n  facet_wrap(origin ~ ., scales = \"free_y\", ncol = 1)\n\n\n\n\n\ndf &lt;- flights |&gt; \n  group_by(name, origin) |&gt; \n  count()\ndf |&gt; \n  ggplot(aes(y = fct_reorder(name, n), x = n)) +\n  geom_col() +\n  facet_wrap(origin ~ ., scales = \"free_y\", ncol = 1)\n\n\n\n\n\nlibrary(gridExtra)\ndf &lt;- flights |&gt; \n  group_by(carrier, origin) |&gt; \n  count()\n\ndf_LGA &lt;- df |&gt; filter(origin == \"LGA\")\ndf_EWR &lt;- df |&gt; filter(origin == \"EWR\")\ndf_JFK &lt;- df |&gt; filter(origin == \"JFK\")\n\ndf_LGA &lt;- df_LGA |&gt; \n  mutate(carrier = fct_reorder(carrier, n))\n\nlevels(df_LGA$carrier)\n\n [1] \"9E\" \"AA\" \"B6\" \"DL\" \"EV\" \"F9\" \"FL\" \"MQ\" \"OO\" \"UA\" \"US\" \"WN\" \"YV\"\n\np1 &lt;- df_LGA |&gt; \n  mutate(carrier = factor(carrier, levels = unique(flights$carrier))) |&gt; \n  ggplot(aes(y = fct_reorder(carrier, n), x = n)) +\n  geom_col() +\n  labs(title = \"LGA\", y = \"Carrier\")\n\nlevels(fct_reorder(df_LGA$carrier, df_LGA$n))\n\n [1] \"OO\" \"YV\" \"F9\" \"9E\" \"FL\" \"B6\" \"WN\" \"UA\" \"EV\" \"US\" \"AA\" \"MQ\" \"DL\"\n\np2 &lt;- df_EWR |&gt; \n  mutate(carrier = factor(carrier, levels = unique(flights$carrier))) |&gt; \n  ggplot(aes(y = factor(carrier,\n                        levels = levels(fct_reorder(df_LGA$carrier, df_LGA$n))), \n             x = n)) +\n  geom_col() +\n  labs(title = \"EWR\", y = \"Carrier\")\n\np3 &lt;- df_JFK |&gt; \n  mutate(carrier = factor(carrier, levels = unique(flights$carrier))) |&gt; \n  ggplot(aes(y = factor(carrier,\n                        levels = levels(fct_reorder(df_LGA$carrier, df_LGA$n))), \n             x = n)) +\n  geom_col() +\n  labs(title = \"JFK\", y = \"Carrier\")\n\ngrid.arrange(p1,p2,p3, nrow = 1)\n\n\n\n\n\nIn our course, I do not require using for-loop. But here I just provide how can we combine tidyverse with for-loop.\nBelow is a manually faceted bar chart with the order referenced to LGA\n\n\nlibrary(gridExtra)\nflights &lt;- nycflights13::flights\ndf &lt;- flights |&gt; \n  group_by(carrier, origin) |&gt; \n  count() |&gt; \n  ungroup()\n\n\nfor (airport in unique(flights$origin)){\n  # data.frame for each origin airport in NYC\n  tmp &lt;- df |&gt; \n    filter(origin == airport) |&gt; \n    select(-origin) \n  \n  # Check for missing levels\n  missing_levels &lt;- setdiff(unique(flights$carrier), tmp$carrier)\n  \n  # If there are missing levels, add an observation for each\n  if (length(missing_levels) &gt; 0) {\n    for (item in missing_levels) {\n      tmp &lt;- tmp |&gt; \n        add_row(n = 0, carrier = item)\n    }\n  }\n  \n  # Assign tmp to df_airport\n  assign(paste0('df_', airport),\n         tmp)\n}\n\np1 &lt;- df_LGA |&gt; \n  ggplot(aes(y = fct_reorder(carrier, n), x = n)) +\n  geom_col() +\n  labs(title = \"LGA\", y = \"Carrier\")\n\nlevels(fct_reorder(df_LGA$carrier, df_LGA$n))\n\n [1] \"AS\" \"HA\" \"VX\" \"OO\" \"YV\" \"F9\" \"9E\" \"FL\" \"B6\" \"WN\" \"UA\" \"EV\" \"US\" \"AA\" \"MQ\"\n[16] \"DL\"\n\np2 &lt;- df_EWR |&gt; \n  ggplot(aes(y = factor(carrier,\n                        levels = levels(fct_reorder(df_LGA$carrier, df_LGA$n))), \n             x = n)) +\n  geom_col() +\n  labs(title = \"EWR\", y = \"\")\n\np3 &lt;- df_JFK |&gt; \n  ggplot(aes(y = factor(carrier,\n                        levels = levels(fct_reorder(df_LGA$carrier, df_LGA$n))), \n             x = n)) +\n  geom_col() +\n  labs(title = \"JFK\", y = \"\")\n\ngrid.arrange(p1,p2,p3, nrow = 1)"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-03-q.html",
+    "href": "danl-hw/danl-399-hw-03-q.html",
+    "title": "Homework 3",
+    "section": "",
+    "text": "library(knitr)\nlibrary(tidyverse)\nlibrary(socviz)\nlibrary(ggthemes)\nlibrary(ggrepel)\nlibrary(ggtext)\nlibrary(hrbrthemes)\nlibrary(gapminder)"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-03-q.html#loading-r-packages",
+    "href": "danl-hw/danl-399-hw-03-q.html#loading-r-packages",
+    "title": "Homework 3",
+    "section": "",
+    "text": "library(knitr)\nlibrary(tidyverse)\nlibrary(socviz)\nlibrary(ggthemes)\nlibrary(ggrepel)\nlibrary(ggtext)\nlibrary(hrbrthemes)\nlibrary(gapminder)"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-03-q.html#q1a",
+    "href": "danl-hw/danl-399-hw-03-q.html#q1a",
+    "title": "Homework 3",
+    "section": "Q1a",
+    "text": "Q1a\n\nReplicate the following ggplot.\n\nUse the color #0072B2 for dots."
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-03-q.html#q1b",
+    "href": "danl-hw/danl-399-hw-03-q.html#q1b",
+    "title": "Homework 3",
+    "section": "Q1b",
+    "text": "Q1b\n\nMake a simple comment on the visualization result.\n\nAny comment that is not made up is okay."
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-03-q.html#q2a",
+    "href": "danl-hw/danl-399-hw-03-q.html#q2a",
+    "title": "Homework 3",
+    "section": "Q2a",
+    "text": "Q2a\n\nReplicate the following ggplot.\n\nThe following describes the type values:\n\nn_ot_us: Number of US tweets\nn_ot_wrld: Number of worldwide tweets\nn_rt_lk_us: Number of US retweets & likes\nn_rt_lk_wrld: Number of worldwide retweets & likes\n\nUse the colors, maroon and #428bca properly."
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-03-q.html#q2b.",
+    "href": "danl-hw/danl-399-hw-03-q.html#q2b.",
+    "title": "Homework 3",
+    "section": "Q2b.",
+    "text": "Q2b.\n\nMake a simple comment on the visualization result."
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-03-q.html#q3a",
+    "href": "danl-hw/danl-399-hw-03-q.html#q3a",
+    "title": "Homework 3",
+    "section": "Q3a",
+    "text": "Q3a\n\nReplicate the following ggplot."
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-03-q.html#q3b",
+    "href": "danl-hw/danl-399-hw-03-q.html#q3b",
+    "title": "Homework 3",
+    "section": "Q3b",
+    "text": "Q3b\n\nReplicate the following ggplot."
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-03-q.html#variable-description",
+    "href": "danl-hw/danl-399-hw-03-q.html#variable-description",
+    "title": "Homework 3",
+    "section": "Variable description",
+    "text": "Variable description\n\nProduct_Name: Product Name\nSize: Size of drink (short, tall, grande, venti)\nMilk: Milk Type type of milk used\n\n0 none\n1 nonfat\n2 2%\n3 soy\n4 coconut\n5 whole\n\nWhip: Whip added or not (binary 0/1)\nServ_Size_mL: Serving size in ml\nCalories: KCal\nTotal_Fat_g: Total fat grams\nSaturated_Fat_g: Saturated fat grams\nTrans_Fat_g: Trans fat grams\nCholesterol_mg: Cholesterol mg\nSodium_mg: Sodium milligrams\nTotal_Carbs_g: Total Carbs grams\nFiber_g: Fiber grams\nSugar_g: Sugar grams\nCaffeine_mg: Caffeine in milligrams"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-03-q.html#q4a.",
+    "href": "danl-hw/danl-399-hw-03-q.html#q4a.",
+    "title": "Homework 3",
+    "section": "Q4a.",
+    "text": "Q4a.\n\nAdd the following two variables to starbucks data.frame\n\ncaffeine_mgml: Caffeine in milligrams per mL\ncalories_kcml: Calories KCal per mL"
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-03-q.html#q4b.",
+    "href": "danl-hw/danl-399-hw-03-q.html#q4b.",
+    "title": "Homework 3",
+    "section": "Q4b.",
+    "text": "Q4b.\n\nCalculate a mean caffeine_mgml and a mean calories_kcml for each product_name."
+  },
+  {
+    "objectID": "danl-hw/danl-399-hw-03-q.html#q4c.",
+    "href": "danl-hw/danl-399-hw-03-q.html#q4c.",
+    "title": "Homework 3",
+    "section": "Q4c.",
+    "text": "Q4c.\n\nFor the top 10 product_name in terms of caffeine_mgml and the top 10 product_name in terms of calories_kcml, replicate the following ggplot.\nUse the following commands for showing texts in the plot:\n\n\n# install.packages(\"showtext\")\nlibrary(showtext)\nshowtext_auto()\nfont_add_google(\"Annie Use Your Telescope\", \"annie\")\n\n\nUse the following annotate() geom to insert the starbucks image in the plot:\n\n\nannotate(\"richtext\", \n           x =  , \n           y =  , \n           label = \"&lt;img src='https://bcdanl.github.io/lec_figs/starbucks.png' width='100'/&gt;\", \n           fill =  ,\n           size =  , \n           color =  )\n\n\nUse the following geom_text_repel() geom to use the annie font\n\n\ngeom_text_repel(max.overlaps = ,\n                  size =  ,\n                  min.segment.length =  ,\n                  point.padding =  ,\n                  box.padding =  ,\n                  show.legend =  ,\n                  family = \"annie\")\n\n\nUse the color, #00704A, for the title."
   }
 ]
