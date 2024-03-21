@@ -1,0 +1,307 @@
+---
+title: Homework 3
+subtitle: Advanced Data Visualization
+author: Byeong-Hak Choe
+date: last-modified
+execute: 
+  warning: false
+  echo: false
+  fig-width: 9
+  fig-align: center
+---
+
+
+## Loading R packages
+
+
+```{r setup}
+#| include: false
+#| echo: true
+library(knitr)
+library(tidyverse)
+library(socviz)
+library(ggthemes)
+library(ggrepel)
+library(ggtext)
+library(hrbrthemes)
+library(gapminder)
+
+theme_set(theme_ipsum() +
+          theme(strip.background =element_rect(fill="lightgray")))
+```
+
+
+
+```{r}
+#| echo: true
+library(knitr)
+library(tidyverse)
+library(socviz)
+library(ggthemes)
+library(ggrepel)
+library(ggtext)
+library(hrbrthemes)
+library(gapminder)
+```
+
+
+<br>
+
+# Question 1
+
+The following data is for Question 1:
+
+```{r}
+#| echo: true
+gapminder <- gapminder::gapminder
+```
+
+```{r}
+#| echo: false
+#| results: asis
+rmarkdown::paged_table(gapminder) 
+```
+
+<br>
+
+## Q1a
+- Replicate the following ggplot.
+  - Use the color `#0072B2` for dots.
+
+
+
+```{r}
+#| echo: false
+#| fig-align: center
+knitr::include_graphics('danl-399-hw-03-q_files/figure-html/unnamed-chunk-4-1.png')
+```
+
+## Q1b 
+- Make a simple comment on the visualization result.
+
+  - Any comment that is not made up is okay.
+
+<br><br><br>
+
+# Question 2
+
+The following data is for Question 2:
+
+```{r}
+#| echo: true
+n_tweets_long <- read_csv(
+  'https://bcdanl.github.io/data/n_tweets_long.csv')
+```
+
+```{r}
+#| echo: false
+#| results: asis
+rmarkdown::paged_table(n_tweets_long) 
+```
+
+<br>
+
+## Q2a 
+
+- Replicate the following ggplot.
+
+  - The following describes the `type` values:
+    - `n_ot_us`: Number of US tweets 
+    - `n_ot_wrld`: Number of worldwide tweets 
+    - `n_rt_lk_us`: Number of US retweets & likes
+    - `n_rt_lk_wrld`: Number of worldwide retweets & likes 
+  - Use the colors, `maroon` and `#428bca` properly.
+  
+
+
+
+```{r}
+#| echo: false
+#| fig-align: center
+knitr::include_graphics('danl-399-hw-03-q_files/figure-html/unnamed-chunk-7-1.png')
+```
+
+## Q2b. 
+
+- Make a simple comment on the visualization result.
+
+
+
+<br><br><br>
+
+# Question 3
+
+The following data set is for Question 3:
+
+```{r}
+#| echo: true
+electricity <- read_csv(
+  'https://bcdanl.github.io/data/electricity-usa-chn.csv')
+```
+
+```{r}
+#| echo: false
+#| results: asis
+rmarkdown::paged_table(electricity) 
+```
+
+<br>
+
+## Q3a
+
+- Replicate the following ggplot.
+
+
+
+```{r}
+#| echo: false
+#| fig-align: center
+knitr::include_graphics('danl-399-hw-03-q_files/figure-html/unnamed-chunk-10-1.png')
+```
+
+
+
+
+## Q3b
+
+- Replicate the following ggplot.
+
+
+
+```{r}
+#| echo: false
+#| fig-align: center
+knitr::include_graphics('danl-399-hw-03-q_files/figure-html/unnamed-chunk-11-1.png')
+```
+
+
+<br><br><br>
+
+# Question 4
+
+The following data set is for Question 4:
+
+```{r}
+#| echo: true
+starbucks <- read_csv(
+  'https://bcdanl.github.io/data/starbucks.csv')
+```
+
+```{r}
+#| echo: false
+#| results: asis
+rmarkdown::paged_table(starbucks) 
+```
+
+## Variable description
+
+- `Product_Name`:	Product Name
+- `Size`:	Size of drink (short, tall, grande, venti)
+- `Milk`:	Milk Type type of milk used
+  - `0` none
+  - `1` nonfat
+  - `2` 2%
+  - `3` soy
+  - `4` coconut
+  - `5` whole
+- `Whip`:	Whip added or not (binary 0/1)
+- `Serv_Size_mL`: Serving size in ml
+- `Calories`: KCal
+- `Total_Fat_g`: Total fat grams
+- `Saturated_Fat_g`: Saturated fat grams
+- `Trans_Fat_g`: Trans fat grams
+- `Cholesterol_mg`: Cholesterol mg
+- `Sodium_mg`: Sodium milligrams
+- `Total_Carbs_g`: Total Carbs grams
+- `Fiber_g`: Fiber grams
+- `Sugar_g`: Sugar grams
+- `Caffeine_mg`: Caffeine in milligrams
+
+## Q4a.
+- Add the following two variables to `starbucks` data.frame
+  - `caffeine_mgml`: Caffeine in milligrams per mL
+  - `calories_kcml`: Calories KCal per mL
+
+```{r}
+#| echo: false
+starbucks1 <- starbucks |> 
+  mutate(caffeine_mgml = caffeine_mg / serv_size_m_l,
+         calories_kcml = calories/ serv_size_m_l,
+         .before = 1) %>% 
+  select(product_name, size, serv_size_m_l, milk, whip, caffeine_mgml, calories_kcml)
+```
+
+<br>
+
+## Q4b.
+- Calculate a mean `caffeine_mgml` and a mean `calories_kcml` for each `product_name`.
+
+```{r}
+#| echo: false
+starbucks2 <- starbucks1 %>% 
+  group_by(product_name) %>% 
+  summarise(caffeine_mgml = mean(caffeine_mgml, na.rm = T),
+            calories_kcml = mean(calories_kcml, na.rm = T)
+  ) %>% 
+  mutate(rank_caffeine = dense_rank(-caffeine_mgml),
+         rank_calories = dense_rank(-calories_kcml)) %>% 
+  filter(rank_caffeine <= 10 |rank_calories <= 10 )
+```
+
+<br>
+
+
+## Q4c.
+- For the top 10 `product_name` in terms of `caffeine_mgml` and the top 10 `product_name` in terms of `calories_kcml`, replicate the following ggplot.
+
+- Use the following commands for showing texts in the plot:
+```{r}
+#| echo: true
+# install.packages("showtext")
+library(showtext)
+showtext_auto()
+font_add_google("Annie Use Your Telescope", "annie")
+```
+
+- Use the following `annotate()` geom to insert the starbucks image in the plot:
+
+```{r}
+#| echo: true
+#| eval: false
+annotate("richtext", 
+           x =  , 
+           y =  , 
+           label = "<img src='https://bcdanl.github.io/lec_figs/starbucks.png' width='100'/>", 
+           fill =  ,
+           size =  , 
+           color =  )
+```
+
+- Use the following `geom_text_repel()` geom to use the `annie` font
+
+```{r}
+#| echo: true
+#| eval: false
+geom_text_repel(max.overlaps = ,
+                  size =  ,
+                  min.segment.length =  ,
+                  point.padding =  ,
+                  box.padding =  ,
+                  show.legend =  ,
+                  family = "annie")
+```
+
+
+- Use the color, `#00704A`, for the title.
+
+
+
+```{r}
+#| echo: false
+#| fig-align: center
+knitr::include_graphics('danl-399-hw-03-q_files/figure-html/unnamed-chunk-19-1.png')
+```
+
+
+
+
