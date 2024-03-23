@@ -1,12 +1,14 @@
 ---
 title: Classwork 7
-subtitle: Deep Dive into ggplot visualization
-date: 2024-03-07
+subtitle: Bar Charts
+date: 2024-03-22
 execute: 
   echo: false
   eval: true
   warning: false
   message: false
+  fig-width: 9
+  fig-height: 6
 ---
 
 
@@ -41,6 +43,281 @@ theme_set(theme_ipsum()+
           )
 ```
 
+# Part 1
 
+## Question 1 - Facetted Bar Charts
+
+The following data is for Question 1:
+
+```{r}
+#| echo: true
+titanic <- read_csv(
+  'https://bcdanl.github.io/data/titanic_cleaned.csv')
+
+```
+
+
+```{r}
+#| echo: false
+#| eval: true
+rmarkdown::paged_table(titanic) 
+```
+
+<br><br>
+
+- Replicate the following ggplot.
+
+```{r}
+titanic <- titanic |> 
+  mutate(surv = ifelse(survived == 0, "Died", "Survived")) 
+
+ggplot(data = titanic,
+            aes(x = sex, fill = sex)) + 
+  geom_bar() +
+  facet_grid(class ~ surv) +
+  scale_x_discrete(name = NULL) + 
+  scale_y_continuous(limits = c(0, 195)) +
+  scale_fill_manual(values = c("#D55E00D0", "#0072B2D0"), 
+                    guide = "none") +
+  theme_bw() + 
+  theme(axis.text.y = element_text(margin = margin(7, 7, 7, 7))) +
+  labs( y = "Number of passengers")
+```
+
+<br><br>
+
+## Question 2 - Ordered Bar Chart with Colors
+
+The following data is for Question 2:
+
+```{r}
+#| echo: true
+nyc_flights <- read_csv(
+  'https://bcdanl.github.io/data/nyc_flights_grouped.csv')
+
+```
+
+```{r}
+#| echo: false
+#| eval: true
+rmarkdown::paged_table(nyc_flights) 
+```
+
+
+- Replicate the following ggplot.
+
+```{r}
+
+nyc_flights |>
+  group_by(carrier_full) |>
+  count() |>
+  mutate(highlight = ifelse(carrier_full %in% c("Delta", "American"), "yes", "no"),
+         carrier_full = ifelse(carrier_full == 'other', 'Other', carrier_full)) |>
+  ggplot(aes(x=reorder(carrier_full, n),
+             y=n,
+             fill = highlight)) +
+  scale_fill_manual(values = c("#B0B0B0D0", "#BD3828D0"),
+                    guide = "none") +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_x_discrete(name = NULL) +
+  geom_col() +
+  geom_text(aes(label = scales::comma(n)), hjust = -.1, vjust = 0,
+            size = 4) +
+  coord_flip(clip = "off") +
+  theme_fivethirtyeight() +
+  theme(
+    axis.line.y = element_blank(),
+    axis.ticks.y = element_blank()
+  ) +
+  ylim(c(0, 60000)) +
+  labs( caption = "Sources: U.S. Department of Transportation,\nBureau of Transportation Statistics",
+        y = "Number of flights",
+        title = "Number of flights from NYC",
+        subtitle = "Year 2013")
+```
+
+<br><br><br>
+
+# Part 2
+
+In September 2019, YouGov survey asked 1,639 GB adults the following question:
+
+> In hindsight, do you think Britain was right/wrong to vote to leave EU?
+>
+> -   Right to leave\
+> -   Wrong to leave\
+> -   Don't know
+
+The data from the survey is in `brexit.csv`.
+
+```{r}
+#| message: false
+#| echo: true
+
+brexit <- read_csv('https://bcdanl.github.io/data/brexit.csv')
+```
+
+```{r}
+#| echo: false
+#| eval: true
+rmarkdown::paged_table(brexit)
+```
+
+```{r}
+#| echo: true
+
+df <- brexit |> 
+  group_by(region, opinion) |> 
+  count()
+
+rmarkdown::paged_table(df, options = list(rows.print = 15 ))
+```
+
+<br>
+
+Consider the following visualization.
+
+```{r}
+#| echo: true
+brexit <- brexit |> 
+  mutate(
+    region = fct_relevel(region, 
+                         "london", "rest_of_south", "midlands_wales", "north", "scot"),
+    region = fct_recode(region, 
+                        London = "london", 
+                        `Rest of South` = "rest_of_south", 
+                        `Midlands / Wales` = "midlands_wales", 
+                        North = "north", 
+                        Scotland = "scot")
+  )
+
+ggplot(brexit, 
+       aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap( ~ region, 
+             nrow = 1, 
+             labeller = label_wrap_gen(width = 12)) +
+  guides(fill = "none") +
+  labs(
+    title = "Was Britain right/wrong to vote to leave EU?",
+    subtitle = "YouGov Survey Results, 2-3 September 2019",
+    caption = "Source: bit.ly/2lCJZVg",
+    x = NULL, y = NULL
+  ) +
+  scale_fill_manual(values = c(
+    "gray",
+    "#67a9cf",
+    "#ef8a62"
+  )) +
+  theme_minimal()
+```
+
+In this application exercise we tell different stories with the same data.
+
+## Question 3 - Free scales
+
+- Add `scales = "free_x"` as an argument to the `facet_wrap()` function. 
+- How does the visualization change? 
+- How is the story this visualization telling different than the story the original plot tells?
+
+```{r}
+ggplot(brexit, 
+       aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, scales = 'free_x',
+    nrow = 1, labeller = label_wrap_gen(width = 12),
+    # ___
+  ) +
+  guides(fill = "none") +
+  labs(
+    title = "Was Britain right/wrong to vote to leave EU?",
+    subtitle = "YouGov Survey Results, 2-3 September 2019",
+    caption = "Source: bit.ly/2lCJZVg",
+    x = NULL, y = NULL
+  ) +
+  scale_fill_manual(values = c(
+    "Wrong" = "#ef8a62",
+    "Right" = "#67a9cf",
+    "Don't know" = "gray"
+  )) +
+  theme_minimal()
+```
+
+<br><br>
+
+## Question 4 - Comparing proportions across facets
+
+- First, calculate the proportion of wrong, right, and don't know answers in each region and then plot these proportions (rather than the counts) and then improve axis labeling. 
+
+```{r}
+#| echo: true
+q4 <- brexit |> 
+  group_by(region, opinion) |>  
+  summarise(n = n()) |> 
+  mutate(tot = sum(n),
+         prop = n / tot ) 
+```
+
+
+- How is the story this visualization telling different than the story the original plot tells?
+
+  - **Hint:** You'll need the **scales** package to improve axis labeling, which means you'll need to load it on top of the document as well.
+
+```{r}
+ggplot(q4, aes(y = opinion, x = prop,
+               fill = opinion)) +
+  geom_col() +
+  facet_wrap(~region,
+    nrow = 1, labeller = label_wrap_gen(width = 12),
+    # ___
+  ) +
+  guides(fill = "none") +
+  labs(
+    title = "Was Britain right/wrong to vote to leave EU?",
+    subtitle = "YouGov Survey Results, 2-3 September 2019",
+    caption = "Source: bit.ly/2lCJZVg",
+    x = 'Percent', y = NULL
+  ) +
+  scale_fill_manual(values = c(
+    "Wrong" = "#ef8a62",
+    "Right" = "#67a9cf",
+    "Don't know" = "gray"
+  )) +
+  scale_x_continuous(labels = scales::percent) +
+  theme_minimal()
+```
+
+<br><br>
+
+## Question 5 - Comparing proportions across bars
+
+- Recreate the same visualization from the previous exercise, this time dodging the bars for opinion proportions for each region, rather than faceting by region and then improve the legend.
+
+  - How is the story this visualization telling different than the story the previous plot tells?
+
+```{r}
+ggplot(q4, aes(y = region, x = prop,
+               fill = opinion)) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Was Britain right/wrong to vote to leave EU?",
+    subtitle = "YouGov Survey Results, 2-3 September 2019",
+    caption = "Source: bit.ly/2lCJZVg",
+    x = 'Percent', y = NULL, fill = 'Opinion'
+  ) +
+  scale_fill_manual(values = c(
+    "Wrong" = "#ef8a62",
+    "Right" = "#67a9cf",
+    "Don't know" = "gray"
+  )) +
+  scale_x_continuous(labels = scales::percent) +
+  theme_minimal() 
+
+```
+
+
+# References
+
+- [https://datasciencebox.org](https://datasciencebox.org)
 
 

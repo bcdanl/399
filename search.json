@@ -109,7 +109,7 @@
     "href": "index.html#bullet-classwork",
     "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
     "section": "\\(\\bullet\\,\\) Classwork ⌨️",
-    "text": "\\(\\bullet\\,\\) Classwork ⌨️\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nClasswork 7\n\n\nMarch 7, 2024\n\n\n\n\nClasswork 6\n\n\nMarch 2, 2024\n\n\n\n\nClasswork 5 - Example Answers\n\n\nMarch 8, 2023\n\n\n\n\nClasswork 5\n\n\nFebruary 10, 2023\n\n\n\n\nClasswork 4 - Example Answers\n\n\nMarch 8, 2023\n\n\n\n\nClasswork 4\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "\\(\\bullet\\,\\) Classwork ⌨️\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nClasswork 7\n\n\nMarch 22, 2024\n\n\n\n\nClasswork 6\n\n\nMarch 2, 2024\n\n\n\n\nClasswork 5 - Example Answers\n\n\nMarch 8, 2023\n\n\n\n\nClasswork 5\n\n\nFebruary 10, 2023\n\n\n\n\nClasswork 4 - Example Answers\n\n\nMarch 8, 2023\n\n\n\n\nClasswork 4\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#bullet-homework",
@@ -2286,7 +2286,7 @@
     "href": "listing-danl-399-cw.html",
     "title": "DANL 399 - Classwork",
     "section": "",
-    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nClasswork 7\n\n\nDeep Dive into ggplot visualization\n\n\nMarch 7, 2024\n\n\n\n\nClasswork 6\n\n\nKey Components in Project Proposal\n\n\nMarch 2, 2024\n\n\n\n\nClasswork 5 - Example Answers\n\n\nThe Layered Grammar of Graphics\n\n\nMarch 8, 2023\n\n\n\n\nClasswork 5\n\n\nThe Layered Grammar of Graphics\n\n\nFebruary 10, 2023\n\n\n\n\nClasswork 4 - Example Answers\n\n\nggplot Basics\n\n\nMarch 8, 2023\n\n\n\n\nClasswork 4\n\n\nggplot Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nQuarto Website Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nMarkdown Basics\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nBuilding a Personal Website using Git, GitHub, and RStudio with Quarto\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Title\n\n\nSubtitle\n\n\nDate\n\n\n\n\n\n\nClasswork 7\n\n\nBar Charts\n\n\nMarch 22, 2024\n\n\n\n\nClasswork 6\n\n\nKey Components in Project Proposal\n\n\nMarch 2, 2024\n\n\n\n\nClasswork 5 - Example Answers\n\n\nThe Layered Grammar of Graphics\n\n\nMarch 8, 2023\n\n\n\n\nClasswork 5\n\n\nThe Layered Grammar of Graphics\n\n\nFebruary 10, 2023\n\n\n\n\nClasswork 4 - Example Answers\n\n\nggplot Basics\n\n\nMarch 8, 2023\n\n\n\n\nClasswork 4\n\n\nggplot Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 3\n\n\nQuarto Website Basics\n\n\nFebruary 1, 2023\n\n\n\n\nClasswork 2\n\n\nMarkdown Basics\n\n\nJanuary 26, 2024\n\n\n\n\nClasswork 1\n\n\nBuilding a Personal Website using Git, GitHub, and RStudio with Quarto\n\n\nJanuary 26, 2023\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "danl-qa/danl-399-qa-04.html",
@@ -2825,7 +2825,7 @@
     "href": "danl-cw/danl-399-cw-07.html",
     "title": "Classwork 7",
     "section": "",
-    "text": "Back to top"
+    "text": "The following data is for Question 1:\n\ntitanic &lt;- read_csv(\n  'https://bcdanl.github.io/data/titanic_cleaned.csv')\n\n\n\n\n\n  \n\n\n\n\n\nReplicate the following ggplot.\n\n\n\n\n\n\n\n\n\n\nThe following data is for Question 2:\n\nnyc_flights &lt;- read_csv(\n  'https://bcdanl.github.io/data/nyc_flights_grouped.csv')\n\n\n\n\n\n  \n\n\n\n\nReplicate the following ggplot."
   },
   {
     "objectID": "danl-qa/danl-399-qa-07.html",
@@ -2966,5 +2966,40 @@
     "title": "Homework 3",
     "section": "Q4c.",
     "text": "Q4c.\n\nFor the top 10 product_name in terms of caffeine_mgml and the top 10 product_name in terms of calories_kcml, replicate the following ggplot.\nUse the following commands for showing texts in the plot:\n\n\n# install.packages(\"showtext\")\nlibrary(showtext)\nshowtext_auto()\nfont_add_google(\"Annie Use Your Telescope\", \"annie\")\n\n\nUse the following annotate() geom to insert the starbucks image in the plot:\n\n\nannotate(\"richtext\", \n           x =  , \n           y =  , \n           label = \"&lt;img src='https://bcdanl.github.io/lec_figs/starbucks.png' width='100'/&gt;\", \n           fill =  ,\n           size =  , \n           color =  )\n\n\nUse the following geom_text_repel() geom to use the annie font\n\n\ngeom_text_repel(max.overlaps = ,\n                  size =  ,\n                  min.segment.length =  ,\n                  point.padding =  ,\n                  box.padding =  ,\n                  show.legend =  ,\n                  family = \"annie\")\n\n\nUse the color, #00704A, for the title."
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-07.html#question-1---facetted-bar-charts",
+    "href": "danl-cw/danl-399-cw-07.html#question-1---facetted-bar-charts",
+    "title": "Classwork 7",
+    "section": "",
+    "text": "The following data is for Question 1:\n\ntitanic &lt;- read_csv(\n  'https://bcdanl.github.io/data/titanic_cleaned.csv')\n\n\n\n\n\n  \n\n\n\n\n\nReplicate the following ggplot."
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-07.html#question-2---ordered-bar-chart-with-colors",
+    "href": "danl-cw/danl-399-cw-07.html#question-2---ordered-bar-chart-with-colors",
+    "title": "Classwork 7",
+    "section": "",
+    "text": "The following data is for Question 2:\n\nnyc_flights &lt;- read_csv(\n  'https://bcdanl.github.io/data/nyc_flights_grouped.csv')\n\n\n\n\n\n  \n\n\n\n\nReplicate the following ggplot."
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-07.html#question-3---free-scales",
+    "href": "danl-cw/danl-399-cw-07.html#question-3---free-scales",
+    "title": "Classwork 7",
+    "section": "Question 3 - Free scales",
+    "text": "Question 3 - Free scales\n\nAdd scales = \"free_x\" as an argument to the facet_wrap() function.\nHow does the visualization change?\nHow is the story this visualization telling different than the story the original plot tells?"
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-07.html#question-4---comparing-proportions-across-facets",
+    "href": "danl-cw/danl-399-cw-07.html#question-4---comparing-proportions-across-facets",
+    "title": "Classwork 7",
+    "section": "Question 4 - Comparing proportions across facets",
+    "text": "Question 4 - Comparing proportions across facets\n\nFirst, calculate the proportion of wrong, right, and don’t know answers in each region and then plot these proportions (rather than the counts) and then improve axis labeling.\n\n\nq4 &lt;- brexit |&gt; \n  group_by(region, opinion) |&gt;  \n  summarise(n = n()) |&gt; \n  mutate(tot = sum(n),\n         prop = n / tot ) \n\n\nHow is the story this visualization telling different than the story the original plot tells?\n\nHint: You’ll need the scales package to improve axis labeling, which means you’ll need to load it on top of the document as well."
+  },
+  {
+    "objectID": "danl-cw/danl-399-cw-07.html#question-5---comparing-proportions-across-bars",
+    "href": "danl-cw/danl-399-cw-07.html#question-5---comparing-proportions-across-bars",
+    "title": "Classwork 7",
+    "section": "Question 5 - Comparing proportions across bars",
+    "text": "Question 5 - Comparing proportions across bars\n\nRecreate the same visualization from the previous exercise, this time dodging the bars for opinion proportions for each region, rather than faceting by region and then improve the legend.\n\nHow is the story this visualization telling different than the story the previous plot tells?"
   }
 ]
