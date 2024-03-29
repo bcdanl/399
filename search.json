@@ -3084,14 +3084,14 @@
     "href": "danl-399-midterm-q.html",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "",
-    "text": "library(knitr)\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(socviz)\nlibrary(ggthemes)\nlibrary(ggrepel)\nlibrary(ggtext)\nlibrary(hrbrthemes)\nlibrary(gapminder)\nlibrary(ggridges)\n\n # Honor Pledges\nI solemnly swear that I will not cheat or engage in any form of academic dishonesty during this exam.\nI will not communicate with other students or use unauthorized materials.\nI will uphold the integrity of this exam and demonstrate my own knowledge and abilities.\nBy taking this pledge, I acknowledge that academic dishonesty undermines the academic process and is a violation of the trust placed in me as a student.\nI accept the consequences of any violation of this promise.\n\nStudent’s Name:\nStudent’s ID:\nStudent’s Signature:"
+    "text": "library(knitr)\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(socviz)\nlibrary(ggthemes)\nlibrary(ggrepel)\nlibrary(ggtext)\nlibrary(hrbrthemes)\nlibrary(gapminder)\nlibrary(ggridges)"
   },
   {
     "objectID": "danl-399-midterm-q.html#loading-r-packages",
     "href": "danl-399-midterm-q.html#loading-r-packages",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "",
-    "text": "library(knitr)\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(socviz)\nlibrary(ggthemes)\nlibrary(ggrepel)\nlibrary(ggtext)\nlibrary(hrbrthemes)\nlibrary(gapminder)\nlibrary(ggridges)\n\n # Honor Pledges\nI solemnly swear that I will not cheat or engage in any form of academic dishonesty during this exam.\nI will not communicate with other students or use unauthorized materials.\nI will uphold the integrity of this exam and demonstrate my own knowledge and abilities.\nBy taking this pledge, I acknowledge that academic dishonesty undermines the academic process and is a violation of the trust placed in me as a student.\nI accept the consequences of any violation of this promise.\n\nStudent’s Name:\nStudent’s ID:\nStudent’s Signature:"
+    "text": "library(knitr)\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(socviz)\nlibrary(ggthemes)\nlibrary(ggrepel)\nlibrary(ggtext)\nlibrary(hrbrthemes)\nlibrary(gapminder)\nlibrary(ggridges)"
   },
   {
     "objectID": "danl-399-midterm-q.html#using-the-power-of-nature-to-clean-the-oceans",
