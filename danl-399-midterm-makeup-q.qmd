@@ -1,0 +1,496 @@
+---
+title: "DANL 399: Data Visualization and Presentation"
+subtitle: Make-up Midterm Exam
+author: Byeong-Hak Choe
+institute: SUNY Geneseo
+date: 2024-04-04
+format: 
+  html
+    # toc: true
+    # toc-depth: 2
+    # toc-expand: true
+    # toc-title: Contents
+
+execute:
+  echo: false
+  eval: true
+  message: false
+  warning: false
+  fig-height: 5
+  fig-width: 9
+---
+```{r}
+#| include: false
+library(tidyverse)
+library(skimr)
+library(lubridate)
+library(stargazer)
+library(broom)
+library(hrbrthemes)
+# theme_set(theme_ipsum())
+
+
+theme_set(theme_ipsum() +
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = element_text(size = rel(1.5) ),
+                axis.title.y = element_text(size = rel(1.5),
+                                            angle = 0))
+          )
+
+```
+# Honor Pledges
+
+I solemnly swear that I will not cheat or engage in any form of academic dishonesty during this exam. 
+
+I will not communicate with other students or use unauthorized materials. 
+
+I will uphold the integrity of this exam and demonstrate my own knowledge and abilities.
+
+By taking this pledge, I acknowledge that academic dishonesty undermines the academic process and is a violation of the trust placed in me as a student. 
+
+I accept the consequences of any violation of this promise.
+
+- Student's Name: 
+- Student's ID: 
+- Student's Signature: 
+
+
+
+# Load R packages
+- Here we are loading all the R packages we need for the Midterm Exam I, so that you do not need to load the R packages in your code.
+```{r}
+#| echo: true
+library(tidyverse)
+library(skimr)
+library(ggrepel)
+library(hrbrthemes)
+```
+
+
+<br><br>
+
+# Question 1
+
+The following describes the context of the data.frame, `banks`.
+
+- In the 1920s, Caldwell and Company, a prominent Southern banking chain, thrived. By the time of the Great Crash in 1929, Caldwell & Company was a regional investment banking powerhouse doing $100,000,000 a year in securities sales alone. However, mismanagement and the stock market crash of October 1929 brought the Caldwell empire down in November 1930, triggering bank failures across several states.
+
+- Banks fundamentally rely on trust. They lend more than they hold, assuming not all depositors will withdraw simultaneously. But when confidence wanes, as in the 1930s, bank runs can ensue. Caldwell's collapse notably impacted trust in the South, leading to a banking crisis in Mississippi in December 1930.
+
+- Economists debate the role of monetary policy during such crises. The Federal Reserve, divided into 12 districts, had varied responses. The Atlanta Fed actively extended loans to struggling banks, whereas the St. Louis Fed took a more cautious approach. Mississippi, straddling these districts, became a study in contrasting policies. 
+
+- Within 4 weeks of Caldwell’s collapse, the Atlanta Fed had increased bank lending by about 40% in the Sixth District, where policy was to increase lending. In the same period, bank lending by the St. Louis Fed in the Eighth District fell only about 10%, where policy was to do little or even restrict lending.
+
+- Beginning in July 1931, the St. Louis Fed abandoned tight money and started lending to troubled banks freely. In other words, after 1931, Federal Reserve policy in the two districts was again similar, with both regional Feds willing to provide liquidity with a free hand. Moreover, while the Depression was far from over in 1932, the Caldwell crisis had petered out and withdrawals had returned to pre-crisis levels. Given the two regional Feds’ common readiness to lend as the need arose, trends in bank activity should again have been common after 1931.
+
+- The followings are the data frames for Question 1.
+
+
+```{r}
+#| echo: true
+banks_all <- read_csv('https://bcdanl.github.io/data/banks_ms_all.csv')
+
+```
+
+## Description for Variables in `banks_all`
+
+- `year`: Year
+
+
+- `month`: Month
+
+
+- `day`: Day
+
+
+- `bib6`: The number of banks in business in the Sixth District
+
+
+- `bib8`: The number of banks in business in the Eighth District
+
+<br>
+
+
+```{r}
+#| echo: true
+banks <- read_csv('https://bcdanl.github.io/data/banks_ms.csv')
+```
+## Description for Variables in `banks`
+
+- `year`: Year
+
+
+- `month`: Month
+
+
+- `day`: Day
+
+
+- `district`: District
+  - `bib6`: The Sixth District
+  - `bib8`: The Eighth District
+  - `counterfactual`: The Sixth District Counterfactual. The counterfactual evolution of the number of banks in the Sixth District if the same number of banks had failed in that district after 1930 as did in the Eighth.
+  
+
+- `n_banks`: The number of banks in business
+
+
+<br>
+
+
+## Q1a
+- Provide your R code to create a new data.frame, `bank7_1`, which contains the observations with only July 1st for each year in the data.frame `banks_all`.
+
+<br>
+
+
+
+```{r}
+#| eval: false
+
+bank7_1 <- banks_all |> 
+  filter(month == "July")
+
+bank7_1 <- bank7_1 |> 
+  filter(day == 1)
+```
+
+<br><br>
+
+
+## Q1b
+- Provide your R code to calculate the median, mean, and standard deviation of the number of banks in business in each district in the data.frame `banks_all`.
+
+<br>
+
+
+
+```{r}
+#| eval: false
+skim(banks$bib6)
+skim(banks$bib8)
+```
+
+<br><br>
+
+
+
+## Q1c.
+- Provide the ggplot code to replicate the following ggplot figure that describes how the distribution of the number of banks in business varies by district.
+  - Blue color corresponds to the Sixth district.
+  - Red color corresponds to the Eighth district.
+
+
+```{r q1c}
+#| echo: false
+knitr::include_graphics('danl-399-midterm-makeup-a_files/figure-html/q1c-1.png')
+```
+
+
+<br>
+
+
+
+<br><br>
+
+## Q1d.
+- Provide the ggplot code with the data.frame `banks` to replicate the following ggplot figure that describes the yearly trend of the number of banks in business for each district.
+  - The dotted line is from the observation with "counterfactual" `district` value .
+  - The logical condition  `district != "counterfactual"` returns `TRUE` if the value of `district` is not equal to "counterfactual".
+  - The logical condition  `district != "counterfactual"` returns `FALSE` if the value of `district` is equal to "counterfactual".
+  - The number of banks in business in this figure was measured on July 1st in each year.
+
+
+```{r q1d}
+#| echo: false
+knitr::include_graphics('danl-399-midterm-makeup-a_files/figure-html/q1d-1.png')
+```
+
+
+
+<br>
+
+
+
+
+## Q1e.
+
+
+- Considering the context of the data.frame, `banks`, and the ggplot figure in Q1d, make a detailed comment on the following questions:
+  - Describe and compare the yearly trend of the number of banks in business depicted in the ggplot figure in Q1d.
+  - What would be the effect of the monetary policy on bank failures in Mississippi in July 1934?
+  - In the given ggplot figure in Q1d, point out the magnitude of such effect.
+  
+
+<br>
+
+
+
+<br><br>
+
+
+
+
+# Question 2
+
+The following is the data.frame `gapminder` from the `gapminder` R package for Question 2.
+
+```{r}
+#| echo: true
+library(gapminder)
+gapminder <- gapminder::gapminder
+```
+
+## Variable description
+- `country`: factor with 142 levels
+
+- `continent`: factor with 5 levels
+
+- `year`: ranges from 1952 to 2007 in increments of 5 years
+
+- `lifeExp`: life expectancy at birth, in years
+
+- `pop`:  population
+
+`gdpPercap`
+GDP per capita (US$, inflation-adjusted)
+
+<br>
+
+
+## Q2a.
+- Provide ggplot code to replicate the following visualization that describes (1) the time trend of `log10(gdpPercap)` for each `country` and (2) the time trend of `log10(gdpPercap)` for each `continent`.
+  - The time trend of `log10(gdpPercap)` for each `continent`, depicted by the blue curve, is from the prediction based on the data points of `year` and `log10(gdpPercap)`.
+  - The time trend of `log10(gdpPercap)` for each `country`, depicted by the "grey" curve, is from the data points of `year` and `log10(gdpPercap)` for that `country`.
+
+
+```{r q2a}
+#| echo: false
+knitr::include_graphics('danl-399-midterm-makeup-a_files/figure-html/q2a-1.png')
+```
+
+
+<br><br>
+
+## Q2b.
+- Interpret the visualization in Q2a.
+
+<br>
+
+
+
+<br><br>
+
+
+## Q2c.
+- Provide ggplot code to replicate the following visualization that describes (1) the relationship between `log10(gdpPercap)` and `lifeExp` in `year` 2007, excluding the `continent` "Oceania".
+  - The size of dots varies by `pop`.
+
+```{r q2c}
+#| echo: false
+knitr::include_graphics('danl-399-midterm-makeup-a_files/figure-html/q2c-1.png')
+```
+
+
+<br>
+
+
+
+<br><br>
+
+## Q2d.
+- Interpret the visualization in Q2c.
+  - In your interpretation, please explain the deviation of Nigeria from the overall relationship between `log10(gdpPercap)` and `lifeExp` in Africa.
+
+<br>
+
+
+
+<br><br>
+
+
+
+
+# Question 3
+
+The followings are the data.frames for Question 3.
+
+```{r}
+#| echo: true
+titanic_1 <- read_csv("https://bcdanl.github.io/data/titanic.csv")
+```
+
+
+## Description for Variables in `titanic_1`
+
+- `Class`: Social class
+
+- `Sex`: Sex
+
+- `Age`: Age
+
+- `Survived`: Survival status from the Titanic disaster.
+
+<br>
+
+<br>
+
+
+```{r}
+#| echo: true
+
+titanic_2 <- read_csv("https://bcdanl.github.io/data/titanic_2.csv")
+```
+
+
+## Description for Variables in `titanic_2`
+
+- `pclass`: Social class
+
+- `sex`: Sex
+
+- `age`: Age
+
+- `survived`: Survival status from the Titanic disaster.
+
+<br>
+
+<br>
+
+
+
+## Q3a.
+- Provide ggplot code with the `titanic_1` data.frame to replicate the following visualization that describes how the distribution of `Sex` varies by `Survived`, `Age`, and `Class`.
+
+```{r q3a}
+#| echo: false
+knitr::include_graphics('danl-399-midterm-makeup-a_files/figure-html/q3a-1.png')
+```
+
+<br>
+
+
+
+<br><br>
+
+
+
+## Q3b.
+
+Make a detailed comment on the visualization in Q3a.
+
+
+
+<br><br>
+
+
+## Q3c.
+- Provide ggplot code with the `titanic_2` data.frame to replicate the following visualization that describes how the distribution of `age` varies by `survived`, `pclass`, and `sex`.
+  - Use the following colors: `#4c3642` and `#d399e7`.
+  - The number of bins in each subplot is 25.
+
+```{r q3c}
+#| echo: false
+knitr::include_graphics('danl-399-midterm-makeup-a_files/figure-html/q3c-1.png')
+```
+
+<br>
+
+
+
+<br><br>
+
+
+## Q3d.
+
+Make a detailed comment on the visualization in Q3c.
+
+
+
+
+<br><br>
+
+
+# Question 4 
+
+In September 2019, YouGov survey asked 1,639 GB adults the following question:
+
+> In hindsight, do you think Britain was right/wrong to vote to leave EU?
+>
+> -   Right to leave\
+> -   Wrong to leave\
+> -   Don't know
+
+The data from the survey is in `brexit.csv`.
+
+```{r}
+#| message: false
+#| echo: true
+
+brexit <- read_csv('https://bcdanl.github.io/data/brexit.csv')
+```
+
+
+<br>
+
+## Q4a
+
+- Replicate the following visualization
+
+```{r q4a}
+#| echo: false
+knitr::include_graphics('midterm-figs/figure-html/q4a-1.png')
+```
+
+<br><br>
+
+## Q4b
+- Replicate the following visualization
+  - How is the story this visualization telling different than the story the plot in Q4a?
+
+
+```{r q4b}
+#| echo: false
+knitr::include_graphics('midterm-figs/figure-html/q4b-1.png')
+```
+
+<br><br>
+
+## Q4c
+
+- First, calculate the proportion of wrong, right, and don't know answers in each region and then plot these proportions (rather than the counts) and then improve axis labeling. 
+
+```{r}
+#| echo: true
+q4 <- brexit |> 
+  group_by(region, opinion) |>  
+  summarise(n = n()) |> 
+  mutate(tot = sum(n),
+         prop = n / tot ) 
+```
+
+
+
+- Replicate the following visualization
+  - How is the story this visualization telling different than the story the plot in Q4b?
+
+
+
+```{r q4c}
+#| echo: false
+knitr::include_graphics('midterm-figs/figure-html/q4c-1.png')
+```
+
+<br><br>
+
+## Q4d.
+
+- Recreate the same visualization from the previous exercise, this time dodging the bars for opinion proportions for each region, rather than faceting by region and then improve the legend.
+
+  - How is the story this visualization telling different than the story the previous plot tells?
+
+```{r q4d}
+#| echo: false
+knitr::include_graphics('midterm-figs/figure-html/q4d-1.png')
+```
+

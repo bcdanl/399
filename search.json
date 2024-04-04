@@ -3253,5 +3253,327 @@
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q1i",
     "text": "Q1i\n\nProvide a comment to describe how the distribution of Number varies by Trash_Type and Name, as visualized in Q1h.\n\nIn your comment, please include how the median Number of “CigaretteButts” varies by Name.\n\n\nAnswer :"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html",
+    "href": "danl-399-midterm-makeup-q.html",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "",
+    "text": "I solemnly swear that I will not cheat or engage in any form of academic dishonesty during this exam.\nI will not communicate with other students or use unauthorized materials.\nI will uphold the integrity of this exam and demonstrate my own knowledge and abilities.\nBy taking this pledge, I acknowledge that academic dishonesty undermines the academic process and is a violation of the trust placed in me as a student.\nI accept the consequences of any violation of this promise.\n\nStudent’s Name:\nStudent’s ID:\nStudent’s Signature:"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#description-for-variables-in-banks_all",
+    "href": "danl-399-midterm-makeup-q.html#description-for-variables-in-banks_all",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Description for Variables in banks_all",
+    "text": "Description for Variables in banks_all\n\nyear: Year\nmonth: Month\nday: Day\nbib6: The number of banks in business in the Sixth District\nbib8: The number of banks in business in the Eighth District\n\n\n\nbanks &lt;- read_csv('https://bcdanl.github.io/data/banks_ms.csv')"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#description-for-variables-in-banks",
+    "href": "danl-399-midterm-makeup-q.html#description-for-variables-in-banks",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Description for Variables in banks",
+    "text": "Description for Variables in banks\n\nyear: Year\nmonth: Month\nday: Day\ndistrict: District\n\nbib6: The Sixth District\nbib8: The Eighth District\ncounterfactual: The Sixth District Counterfactual. The counterfactual evolution of the number of banks in the Sixth District if the same number of banks had failed in that district after 1930 as did in the Eighth.\n\nn_banks: The number of banks in business"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#variable-description",
+    "href": "danl-399-midterm-makeup-q.html#variable-description",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Variable description",
+    "text": "Variable description\n\ncountry: factor with 142 levels\ncontinent: factor with 5 levels\nyear: ranges from 1952 to 2007 in increments of 5 years\nlifeExp: life expectancy at birth, in years\npop: population\n\ngdpPercap GDP per capita (US$, inflation-adjusted)"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q2a.",
+    "href": "danl-399-midterm-makeup-q.html#q2a.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q2a.",
+    "text": "Q2a.\n\nProvide ggplot code to replicate the following visualization that describes (1) the time trend of log10(gdpPercap) for each country and (2) the time trend of log10(gdpPercap) for each continent.\n\nThe time trend of log10(gdpPercap) for each continent, depicted by the blue curve, is from the prediction based on the data points of year and log10(gdpPercap).\nThe time trend of log10(gdpPercap) for each country, depicted by the “grey” curve, is from the data points of year and log10(gdpPercap) for that country."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q2b.",
+    "href": "danl-399-midterm-makeup-q.html#q2b.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q2b.",
+    "text": "Q2b.\n\nInterpret the visualization in Q2a."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q2c.",
+    "href": "danl-399-midterm-makeup-q.html#q2c.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q2c.",
+    "text": "Q2c.\n\nProvide ggplot code to replicate the following visualization that describes (1) the relationship between log10(gdpPercap) and lifeExp in year 2007, excluding the continent “Oceania”.\n\nThe size of dots varies by pop."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q2d.",
+    "href": "danl-399-midterm-makeup-q.html#q2d.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q2d.",
+    "text": "Q2d.\n\nInterpret the visualization in Q2c.\n\nIn your interpretation, please explain the deviation of Nigeria from the overall relationship between log10(gdpPercap) and lifeExp in Africa."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#description-for-variables-in-titanic_1",
+    "href": "danl-399-midterm-makeup-q.html#description-for-variables-in-titanic_1",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Description for Variables in titanic_1",
+    "text": "Description for Variables in titanic_1\n\nClass: Social class\nSex: Sex\nAge: Age\nSurvived: Survival status from the Titanic disaster.\n\n\n\n\ntitanic_2 &lt;- read_csv(\"https://bcdanl.github.io/data/titanic_2.csv\")"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#description-for-variables-in-titanic_2",
+    "href": "danl-399-midterm-makeup-q.html#description-for-variables-in-titanic_2",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Description for Variables in titanic_2",
+    "text": "Description for Variables in titanic_2\n\npclass: Social class\nsex: Sex\nage: Age\nsurvived: Survival status from the Titanic disaster."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q3a.",
+    "href": "danl-399-midterm-makeup-q.html#q3a.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q3a.",
+    "text": "Q3a.\n\nProvide ggplot code with the titanic_1 data.frame to replicate the following visualization that describes how the distribution of Sex varies by Survived, Age, and Class."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q3b.",
+    "href": "danl-399-midterm-makeup-q.html#q3b.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q3b.",
+    "text": "Q3b.\nMake a detailed comment on the visualization in Q3a."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q3c.",
+    "href": "danl-399-midterm-makeup-q.html#q3c.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q3c.",
+    "text": "Q3c.\n\nProvide ggplot code with the titanic_2 data.frame to replicate the following visualization that describes how the distribution of age varies by survived, pclass, and sex.\n\nUse the following colors: #4c3642 and #d399e7.\nThe number of bins in each subplot is 25."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q3d.",
+    "href": "danl-399-midterm-makeup-q.html#q3d.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q3d.",
+    "text": "Q3d.\nMake a detailed comment on the visualization in Q3c."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q4a",
+    "href": "danl-399-midterm-makeup-q.html#q4a",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q4a",
+    "text": "Q4a\n\nReplicate the following visualization"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q4b",
+    "href": "danl-399-midterm-makeup-q.html#q4b",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q4b",
+    "text": "Q4b\n\nReplicate the following visualization\n\nHow is the story this visualization telling different than the story the plot in Q4a?"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q4c",
+    "href": "danl-399-midterm-makeup-q.html#q4c",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q4c",
+    "text": "Q4c\n\nFirst, calculate the proportion of wrong, right, and don’t know answers in each region and then plot these proportions (rather than the counts) and then improve axis labeling.\n\n\nq4 &lt;- brexit |&gt; \n  group_by(region, opinion) |&gt;  \n  summarise(n = n()) |&gt; \n  mutate(tot = sum(n),\n         prop = n / tot ) \n\n\nReplicate the following visualization\n\nHow is the story this visualization telling different than the story the plot in Q4b?"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q4d.",
+    "href": "danl-399-midterm-makeup-q.html#q4d.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q4d.",
+    "text": "Q4d.\n\nRecreate the same visualization from the previous exercise, this time dodging the bars for opinion proportions for each region, rather than faceting by region and then improve the legend.\n\nHow is the story this visualization telling different than the story the previous plot tells?"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q1a",
+    "href": "danl-399-midterm-makeup-q.html#q1a",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q1a",
+    "text": "Q1a\n\nProvide your R code to create a new data.frame, bank7_1, which contains the observations with only July 1st for each year in the data.frame banks_all."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q1b",
+    "href": "danl-399-midterm-makeup-q.html#q1b",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q1b",
+    "text": "Q1b\n\nProvide your R code to calculate the median, mean, and standard deviation of the number of banks in business in each district in the data.frame banks_all."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q1c.",
+    "href": "danl-399-midterm-makeup-q.html#q1c.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q1c.",
+    "text": "Q1c.\n\nProvide the ggplot code to replicate the following ggplot figure that describes how the distribution of the number of banks in business varies by district.\n\nBlue color corresponds to the Sixth district.\nRed color corresponds to the Eighth district."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q1d.",
+    "href": "danl-399-midterm-makeup-q.html#q1d.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q1d.",
+    "text": "Q1d.\n\nProvide the ggplot code with the data.frame banks to replicate the following ggplot figure that describes the yearly trend of the number of banks in business for each district.\n\nThe dotted line is from the observation with “counterfactual” district value .\nThe logical condition district != \"counterfactual\" returns TRUE if the value of district is not equal to “counterfactual”.\nThe logical condition district != \"counterfactual\" returns FALSE if the value of district is equal to “counterfactual”.\nThe number of banks in business in this figure was measured on July 1st in each year."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-q.html#q1e.",
+    "href": "danl-399-midterm-makeup-q.html#q1e.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q1e.",
+    "text": "Q1e.\n\nConsidering the context of the data.frame, banks, and the ggplot figure in Q1d, make a detailed comment on the following questions:\n\nDescribe and compare the yearly trend of the number of banks in business depicted in the ggplot figure in Q1d.\nWhat would be the effect of the monetary policy on bank failures in Mississippi in July 1934?\nIn the given ggplot figure in Q1d, point out the magnitude of such effect."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html",
+    "href": "danl-399-midterm-makeup-a.html",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "",
+    "text": "I solemnly swear that I will not cheat or engage in any form of academic dishonesty during this exam.\nI will not communicate with other students or use unauthorized materials.\nI will uphold the integrity of this exam and demonstrate my own knowledge and abilities.\nBy taking this pledge, I acknowledge that academic dishonesty undermines the academic process and is a violation of the trust placed in me as a student.\nI accept the consequences of any violation of this promise.\n\nStudent’s Name:\nStudent’s ID:\nStudent’s Signature:"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#description-for-variables-in-banks_all",
+    "href": "danl-399-midterm-makeup-a.html#description-for-variables-in-banks_all",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Description for Variables in banks_all",
+    "text": "Description for Variables in banks_all\n\nyear: Year\nmonth: Month\nday: Day\nbib6: The number of banks in business in the Sixth District\nbib8: The number of banks in business in the Eighth District\n\n\n\nbanks &lt;- read_csv('https://bcdanl.github.io/data/banks_ms.csv')"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#description-for-variables-in-banks",
+    "href": "danl-399-midterm-makeup-a.html#description-for-variables-in-banks",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Description for Variables in banks",
+    "text": "Description for Variables in banks\n\nyear: Year\nmonth: Month\nday: Day\ndistrict: District\n\nbib6: The Sixth District\nbib8: The Eighth District\ncounterfactual: The Sixth District Counterfactual. The counterfactual evolution of the number of banks in the Sixth District if the same number of banks had failed in that district after 1930 as did in the Eighth.\n\nn_banks: The number of banks in business"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q1a",
+    "href": "danl-399-midterm-makeup-a.html#q1a",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q1a",
+    "text": "Q1a\n\nProvide your R code to create a new data.frame, bank7_1, which contains the observations with only July 1st for each year in the data.frame banks_all."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q1b",
+    "href": "danl-399-midterm-makeup-a.html#q1b",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q1b",
+    "text": "Q1b\n\nProvide your R code to calculate the median, mean, and standard deviation of the number of banks in business in each district in the data.frame banks_all."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q1c.",
+    "href": "danl-399-midterm-makeup-a.html#q1c.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q1c.",
+    "text": "Q1c.\n\nProvide the ggplot code to replicate the following ggplot figure that describes how the distribution of the number of banks in business varies by district.\n\nBlue color corresponds to the Sixth district.\nRed color corresponds to the Eighth district."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q1d.",
+    "href": "danl-399-midterm-makeup-a.html#q1d.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q1d.",
+    "text": "Q1d.\n\nProvide the ggplot code with the data.frame banks to replicate the following ggplot figure that describes the yearly trend of the number of banks in business for each district.\n\nThe dotted line is from the observation with “counterfactual” district value .\nThe logical condition district != \"counterfactual\" returns TRUE if the value of district is not equal to “counterfactual”.\nThe logical condition district != \"counterfactual\" returns FALSE if the value of district is equal to “counterfactual”.\nThe number of banks in business in this figure was measured on July 1st in each year."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q1e.",
+    "href": "danl-399-midterm-makeup-a.html#q1e.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q1e.",
+    "text": "Q1e.\n\nConsidering the context of the data.frame, banks, and the ggplot figure in Q1d, make a detailed comment on the following questions:\n\nDescribe and compare the yearly trend of the number of banks in business depicted in the ggplot figure in Q1d.\nWhat would be the effect of the monetary policy on bank failures in Mississippi in July 1934?\nIn the given ggplot figure in Q1d, point out the magnitude of such effect."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#variable-description",
+    "href": "danl-399-midterm-makeup-a.html#variable-description",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Variable description",
+    "text": "Variable description\n\ncountry: factor with 142 levels\ncontinent: factor with 5 levels\nyear: ranges from 1952 to 2007 in increments of 5 years\nlifeExp: life expectancy at birth, in years\npop: population\n\ngdpPercap GDP per capita (US$, inflation-adjusted)"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q2a.",
+    "href": "danl-399-midterm-makeup-a.html#q2a.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q2a.",
+    "text": "Q2a.\n\nProvide ggplot code to replicate the following visualization that describes (1) the time trend of log10(gdpPercap) for each country and (2) the time trend of log10(gdpPercap) for each continent.\n\nThe time trend of log10(gdpPercap) for each continent, depicted by the blue curve, is from the prediction based on the data points of year and log10(gdpPercap).\nThe time trend of log10(gdpPercap) for each country, depicted by the “grey” curve, is from the data points of year and log10(gdpPercap) for that country."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q2b.",
+    "href": "danl-399-midterm-makeup-a.html#q2b.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q2b.",
+    "text": "Q2b.\n\nInterpret the visualization in Q2a."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q2c.",
+    "href": "danl-399-midterm-makeup-a.html#q2c.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q2c.",
+    "text": "Q2c.\n\nProvide ggplot code to replicate the following visualization that describes (1) the relationship between log10(gdpPercap) and lifeExp in year 2007, excluding the continent “Oceania”.\n\nThe size of dots varies by pop."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q2d.",
+    "href": "danl-399-midterm-makeup-a.html#q2d.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q2d.",
+    "text": "Q2d.\n\nInterpret the visualization in Q2c.\n\nIn your interpretation, please explain the deviation of Nigeria from the overall relationship between log10(gdpPercap) and lifeExp in Africa."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#description-for-variables-in-titanic_1",
+    "href": "danl-399-midterm-makeup-a.html#description-for-variables-in-titanic_1",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Description for Variables in titanic_1",
+    "text": "Description for Variables in titanic_1\n\nClass: Social class\nSex: Sex\nAge: Age\nSurvived: Survival status from the Titanic disaster.\n\n\n\n\ntitanic_2 &lt;- read_csv(\"https://bcdanl.github.io/data/titanic_2.csv\")"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#description-for-variables-in-titanic_2",
+    "href": "danl-399-midterm-makeup-a.html#description-for-variables-in-titanic_2",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Description for Variables in titanic_2",
+    "text": "Description for Variables in titanic_2\n\npclass: Social class\nsex: Sex\nage: Age\nsurvived: Survival status from the Titanic disaster."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q3a.",
+    "href": "danl-399-midterm-makeup-a.html#q3a.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q3a.",
+    "text": "Q3a.\n\nProvide ggplot code with the titanic_1 data.frame to replicate the following visualization that describes how the distribution of Sex varies by Survived, Age, and Class."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q3b.",
+    "href": "danl-399-midterm-makeup-a.html#q3b.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q3b.",
+    "text": "Q3b.\nMake a detailed comment on the visualization in Q3a."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q3c.",
+    "href": "danl-399-midterm-makeup-a.html#q3c.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q3c.",
+    "text": "Q3c.\n\nProvide ggplot code with the titanic_2 data.frame to replicate the following visualization that describes how the distribution of age varies by survived, pclass, and sex.\n\nUse the following colors: #4c3642 and #d399e7.\nThe number of bins in each subplot is 25."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q3d.",
+    "href": "danl-399-midterm-makeup-a.html#q3d.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q3d.",
+    "text": "Q3d.\nMake a detailed comment on the visualization in Q3c."
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q4a",
+    "href": "danl-399-midterm-makeup-a.html#q4a",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q4a",
+    "text": "Q4a\n\nReplicate the following visualization"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q4b",
+    "href": "danl-399-midterm-makeup-a.html#q4b",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q4b",
+    "text": "Q4b\n\nReplicate the following visualization\n\nHow is the story this visualization telling different than the story the plot in Q4a?"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q4c",
+    "href": "danl-399-midterm-makeup-a.html#q4c",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q4c",
+    "text": "Q4c\n\nFirst, calculate the proportion of wrong, right, and don’t know answers in each region and then plot these proportions (rather than the counts) and then improve axis labeling.\n\n\nq4 &lt;- brexit |&gt; \n  group_by(region, opinion) |&gt;  \n  summarise(n = n()) |&gt; \n  mutate(tot = sum(n),\n         prop = n / tot ) \n\n\nReplicate the following visualization\n\nHow is the story this visualization telling different than the story the plot in Q4b?"
+  },
+  {
+    "objectID": "danl-399-midterm-makeup-a.html#q4d.",
+    "href": "danl-399-midterm-makeup-a.html#q4d.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q4d.",
+    "text": "Q4d.\n\nRecreate the same visualization from the previous exercise, this time dodging the bars for opinion proportions for each region, rather than faceting by region and then improve the legend.\n\nHow is the story this visualization telling different than the story the previous plot tells?"
   }
 ]
