@@ -95,7 +95,7 @@
     "href": "index.html#bullet-lecture-slides",
     "title": "DANL 399-01: Data Visualization and Presentation, Spring 2024",
     "section": "\\(\\bullet\\,\\) Lecture Slides 🚀",
-    "text": "\\(\\bullet\\,\\) Lecture Slides 🚀\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 6\n\n\nMarch 1, 2024\n\n\n\n\nLecture 5\n\n\nFebruary 23, 2024\n\n\n\n\nLecture 4\n\n\nFebruary 16, 2024\n\n\n\n\nLecture 3\n\n\nFebruary 9, 2024\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "\\(\\bullet\\,\\) Lecture Slides 🚀\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nLecture 7\n\n\nApril 5, 2024\n\n\n\n\nLecture 6\n\n\nMarch 1, 2024\n\n\n\n\nLecture 5\n\n\nFebruary 23, 2024\n\n\n\n\nLecture 4\n\n\nFebruary 16, 2024\n\n\n\n\nLecture 3\n\n\nFebruary 9, 2024\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#bullet-lecture-q-a",
@@ -2314,7 +2314,7 @@
     "href": "listing-danl-399-lec.html",
     "title": "DANL 399 - Lecture",
     "section": "",
-    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 6\n\n\nMarch 1, 2024\n\n\n\n\nLecture 5\n\n\nFebruary 23, 2024\n\n\n\n\nLecture 4\n\n\nFebruary 16, 2024\n\n\n\n\nLecture 3\n\n\nFebruary 9, 2024\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Title\n\n\nDate\n\n\n\n\n\n\nLecture 7\n\n\nApril 5, 2024\n\n\n\n\nLecture 6\n\n\nMarch 1, 2024\n\n\n\n\nLecture 5\n\n\nFebruary 23, 2024\n\n\n\n\nLecture 4\n\n\nFebruary 16, 2024\n\n\n\n\nLecture 3\n\n\nFebruary 9, 2024\n\n\n\n\nLecture 2\n\n\nFebruary 2, 2024\n\n\n\n\nLecture 1\n\n\nJanuary 26, 2024\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "danl-hw/danl-399-hw-02-q.html",
@@ -3575,5 +3575,201 @@
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q4d.",
     "text": "Q4d.\n\nRecreate the same visualization from the previous exercise, this time dodging the bars for opinion proportions for each region, rather than faceting by region and then improve the legend.\n\nHow is the story this visualization telling different than the story the previous plot tells?"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-1",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-1",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMaps with geospatial data\nData with map drawing, also known as geospatial data, is important for several reasons:\n\nAnalysis: Geospatial data can highlight patterns and relationships across spatial units in the data that may not be apparent in other forms of data.\nCommunication: Maps can be visually striking, especially when the spatial units of the map are familiar entities, like counties in the US."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-2",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-2",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\n\nThe socviz::election dataset has various measures of the vote and vote shares by state.\n\nsocviz::election |&gt; select(state, total_vote,\n                    r_points, pct_trump, party, census) |&gt;\n    sample_n(5)\n\nWe don’t have to represent spatial data spatially."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-3",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-3",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\n\n(1)(2)(3)(4)(5)\n\n\nparty_colors &lt;- c(\"#2E74C0\", \"#CB454A\")  # Hex color codes for Dem Blue and Rep Red\np0 &lt;- ggplot(data = filter(election, st != \"DC\"),\n             mapping = aes(x = r_points,\n                           y = reorder(state, r_points),\n                           color = party))\n\n\np1 &lt;- p0 + geom_vline(xintercept = 0, color = \"gray30\") +\n    geom_point(size = 2)\n\np1\n\n\np2 &lt;- p1 + scale_color_manual(values = party_colors)\n\np2\n\n\np3 &lt;- p2 + scale_x_continuous(breaks = c(-30, -20, -10, 0, 10, 20, 30, 40),\n                              labels = c(\"30\\n (Clinton)\", \"20\", \"10\", \"0\",\n                                         \"10\", \"20\", \"30\", \"40\\n(Trump)\"))\np3\n\n\np3 + facet_wrap(~ census, ncol=1, scales=\"free_y\") +\n     guides(color = \"none\") + labs(x = \"Point Margin\", y = \"\") +\n     theme(axis.text=element_text(size=8))"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-4",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-4",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\n\nLet us get a data frame of the US state map.\n\nus_states &lt;- map_data(\"state\") # from the 'maps' package\nus_states\nview(us_states)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-5",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-5",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\n\ngeom_polygon() can be used to visualize map data.\n\np &lt;- ggplot(data = us_states,\n            mapping = aes(x = long, y = lat,\n                          group = group))\n\np + geom_polygon(fill = \"white\", color = \"black\")\n\nA map is a set of lines drawn in the right order on a grid."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-6",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-6",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\n\nLet’s fill the map.\n\np &lt;- ggplot(data = us_states,\n            aes(x = long, y = lat,\n                group = group, fill = region))\n\np + geom_polygon(color = \"gray90\", size = 0.1) + guides(fill = FALSE)"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-7",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-7",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\n\nLet’s deal with the projection.\n\nBy default, the map is plotted using the venerable Mercator projection.\n\n\np &lt;- ggplot(data = us_states,\n            mapping = aes(x = long, y = lat,\n                          group = group, fill = region))\n\np + geom_polygon(color = \"gray90\", size = 0.1) +\n    coord_map(projection = \"albers\", lat0 = 39, lat1 = 45) +\n    guides(fill = FALSE)\n\nWe can transform the default projection used by geom_polygon(), via the coord_map() function.\n\nThe Albers projection requires two latitude parameters, lat0 and lat1."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-8",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-8",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\n\nLet’s get the election data on to the map\n\nelection$region &lt;- tolower(election$state)\nus_states_elec &lt;- left_join(us_states, election)\n\nIn the map data, us_states, the state names (in a variable named region) are in lower case.\nHere we can create a variable in the election data frame to correspond to this, using the tolower() function to convert the state names.\nIt is important to know your data and variables well enough to check that they have merged properly.\n\nFIPS code is useful in joining the data."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-9",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-9",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\np0 &lt;- ggplot(data = us_states_elec,\n            aes(x = long, y = lat,\n                group = group, fill = party))\n\np0 + geom_polygon(color = \"gray90\", size = 0.1) +\n    coord_map(projection = \"albers\", lat0 = 39, lat1 = 45) \n\nWe use our party colors for the fill."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-10",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-10",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\np1 &lt;- p0 + geom_polygon(color = \"gray90\", size = 0.1) +\n    coord_map(projection = \"albers\", lat0 = 39, lat1 = 45) \n\np2 &lt;- p1 + scale_fill_manual(values = party_colors) +\n    labs(title = \"Election Results 2016\", fill = NULL)\n\np2 + theme_map()"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-11",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-11",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\n\nTo the fill aethetic, let’s try a continuous measure, such as the percentage of the vote received by Donald Trump (pct_trump).\n\np0 &lt;- ggplot(data = us_states_elec,\n             mapping = aes(x = long, y = lat, group = group, fill = pct_trump))\n\np1 &lt;- p0 + geom_polygon(color = \"gray90\", size = 0.1) +\n    coord_map(projection = \"albers\", lat0 = 39, lat1 = 45) \n\np1 + labs(title = \"Trump vote\") + theme_map() + labs(fill = \"Percent\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-12",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-12",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\n\nBlue is not the color we want here.\nThe color gradient runs in the wrong direction.\nLet’s fix these problems using scale_fill_gradient():\n\np2 &lt;- p1 + scale_fill_gradient(low = \"white\", high = \"#CB454A\") +\n        labs(title = \"Trump vote\") \np2 + theme_map() + labs(fill = \"Percent\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-13",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-13",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\n\nFor election results, we might prefer a gradient that diverges from a midpoint.\n\nThe scale_*_gradient2() function gives us a blue-red spectrum that passes through white by default.\nWe can also re-specify the mid-level color along with the high and low colors.\n\n\np0 &lt;- ggplot(data = us_states_elec,\n             mapping = aes(x = long, y = lat, group = group, fill = d_points))\n\np1 &lt;- p0 + geom_polygon(color = \"gray90\", size = 0.1) +\n    coord_map(projection = \"albers\", lat0 = 39, lat1 = 45) \n\np2 &lt;- p1 + scale_fill_gradient2() + labs(title = \"Winning margins\") \np2 + theme_map() + labs(fill = \"Percent\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-14",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-14",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\n\nFrom the scale_*_gradient2() function, we can also re-specify the mid-level color along with the high and low colors.\n\np3 &lt;- p1 + scale_fill_gradient2(low = \"red\", \n                                mid = scales::muted(\"purple\"),\n                                high = \"blue\", \n                                breaks = c(-25, 0, 25, 50, 75)) \np3 + theme_map() + labs(fill = \"Percent\", title = \"Winning margins\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-1",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-1",
+    "title": "Lecture 7",
+    "section": "Choropleth Maps",
+    "text": "Choropleth Maps\nAmerica’s ur-choropleths\n\nChoropleth maps display divided geographical areas or regions that are colored, shaded or patterned in relation to a data variable.\nCounty-level US choropleth maps can be aesthetically pleasing, because of the added detail they bring to a national map.\nThe county-level datasets (county_map and county_data) are included in the socviz library.\nThe county map data frame, county_map, has been processed a little in order to transform it to an Albers projection, and also to relocate (and re-scale) Alaska and Hawaii."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-2",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-2",
+    "title": "Lecture 7",
+    "section": "Choropleth Maps",
+    "text": "Choropleth Maps\nAmerica’s ur-choropleths\ncounty_map\n\ncounty_data |&gt;\n  select(id, name, state, pop_dens, pct_black) |&gt;\n  sample_n(5)\n\ncounty_full &lt;- \n  left_join(county_map, county_data, by = \"id\")\n\nThe id field is the FIPS code for the county.\npop_dens is population density.\npct_black is percent of African-American population.\nWe merge the data frames using the shared FIPS id column."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-3",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-3",
+    "title": "Lecture 7",
+    "section": "Choropleth Maps",
+    "text": "Choropleth Maps\nMap U.S. county-level data\n\n(1)(2)\n\n\np &lt;- ggplot(data = county_full,\n            mapping = aes(x = long, y = lat,\n                          fill = pop_dens, \n                          group = group))\np1 &lt;- p + geom_polygon(color = \"gray90\", size = 0.05)\np1\n\np1 object produces a legible map, but by default it chooses an unordered categorical layout.\nThis is because the pop_dens variable is not ordered.\npop_dens is an un-ordered discrete variable.\n\n\n\np1 + coord_equal()\n\nThe use of coord_equal() makes sure that the relative scale of our map does not change even if we alter the overall dimensions of the plot."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-4",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-4",
+    "title": "Lecture 7",
+    "section": "Choropleth Maps",
+    "text": "Choropleth Maps\nMap U.S. county-level data\n\n(1)(2)\n\n\np2 &lt;- p1 + scale_fill_brewer(\n  palette = \"Blues\",\n  labels = c(\"0-10\", \"10-50\", \"50-100\", \"100-500\",\n             \"500-1,000\", \"1,000-5,000\", \"&gt;5,000\"))\np2\n\nWe can manually supply the right sort of scale using the scale_fill_brewer() function, together with a nicer set of labels.\n\n\n\np2 + labs(fill = \"Population per\\nsquare mile\") +\n  theme_map() +\n  guides(fill = guide_legend(nrow = 1)) + \n  theme(legend.position = \"bottom\")\n\nWe can also use the guides() function to make sure each element of the key in the legend appears on the same row."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-5",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-5",
+    "title": "Lecture 7",
+    "section": "Choropleth Maps",
+    "text": "Choropleth Maps\nMap U.S. county-level data\n\nWe can now do exactly the same thing for our map of percent African-American population by county.\npct_black is an un-ordered factor variable.\ntable(county_full$pct_black)\n\np &lt;- ggplot(data = county_full,\n            mapping = aes(x = long, y = lat, fill = pct_black, \n                          group = group))\np1 &lt;- p + geom_polygon(color = \"gray90\", size = 0.05) + coord_equal()\np2 &lt;- p1 + scale_fill_brewer(palette=\"Greens\")\n\np2 + labs(fill = \"US Population, Percent Black\") +\n  guides(fill = guide_legend(nrow = 1)) + \n  theme_map() + theme(legend.position = \"bottom\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-6",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-6",
+    "title": "Lecture 7",
+    "section": "Choropleth Maps",
+    "text": "Choropleth Maps\nMap U.S. county-level data\n\npop_dens6 dataColor(1)(2)\n\n\n\nLet’s draw a new county-level choropleths.\nWe have a pop_dens6 variable that divides the population density into six categories.\nWe will map the color scale to the value of variable.\n\n\n\norange_pal &lt;- RColorBrewer::brewer.pal(n = 6, name = \"Oranges\")\norange_pal\norange_rev &lt;- rev(orange_pal)\norange_rev\n\nWe use the RColorBrewer::brewer.pal() function to manually create two palettes.\n\nThe brewer.pal() function produces evenly-spaced color schemes.\n\nWe use the rev() function to reverse the order of a color vector.\n\n\n\npop_p &lt;- ggplot(data = county_full,\n            mapping = aes(x = long, y = lat,\n                          fill = pop_dens6, \n                          group = group))\n\npop_p1 &lt;- pop_p + geom_polygon(color = \"gray90\", size = 0.05) +\n  coord_equal()\npop_p2 &lt;- pop_p1 + scale_fill_manual(values = orange_pal)\n\npop_p2 + labs(title = \"Population Density\",\n              fill = \"People per square mile\") +\n    theme_map() + theme(legend.position = \"bottom\")\n\n\npop_p2_rev &lt;- pop_p1 + scale_fill_manual(values = orange_rev)\n\npop_p2_rev + labs(title = \"Reverse-coded Population Density\",\n              fill = \"People per square mile\") +\n    theme_map() + theme(legend.position = \"bottom\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-7",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-7",
+    "title": "Lecture 7",
+    "section": "Choropleth Maps",
+    "text": "Choropleth Maps\nMap U.S. county-level data\n\n(1)scale_fill_gradient*(2)\n\n\n\nLet’s consider a county map of a continuous variable, such as per_gop_2016.\nCheck class(county_full$per_gop_2016).\n\ngop_p &lt;- ggplot(data = county_full,\n                mapping = aes(x = long, y = lat,\n                              fill = per_gop_2016, \n                              group = group))\n\ngop_p1 &lt;- gop_p + geom_polygon(color = \"gray70\", size = 0.05) + coord_equal()\ngop_p1\n\n\n\nFor a continuous variable, we can use scale_fill_gradient(), scale_fill_gradient2(), or scale_fill_gradient2() function:\n\nscale_fill_gradient() produces a two-color gradient.\n\nscale_fill_gradient2() produces a three-color gradient with specified midpoint.\nscale_fill_gradientn() produces an n-color gradient.\nFor scale_fill_gradient2(), choose the value and color for midpoint carefully.\n\n\n\ngop_p2 &lt;- gop_p1 + scale_fill_gradient2( \n  low = '#2E74C0',  # from party_colors for DEM\n  mid = '#FFFFFF',  # transparent white\n  high = '#CB454A',  # from party_colors for GOP\n  na.value = \"grey50\",\n  midpoint = .5)\n\ngop_p2 + labs(title = \"US Presidential Election 2016\",\n              fill = \"Trump vote share\") +\n  theme_map() + theme(legend.position = \"bottom\")"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-8",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#choropleth-maps-8",
+    "title": "Lecture 7",
+    "section": "Choropleth Maps",
+    "text": "Choropleth Maps\nSmall-multiple maps\n\nNY dataviridismapfacet\n\n\n\nSometimes we have geographical data with repeated observations over time.\nA common case is to have a country- or state-level measure observed over a period of years (Panel data).\nLet’s consider consider the poverty rate determined by level of educational attainment in NY.\n\nNY_socioecon_geo_poverty &lt;- read_csv(\n  'https://bcdanl.github.io/data/NY_socioecon_geo_poverty.csv'\n)\n\n\nlibrary(viridis)\n\nThe viridis colors run in low-to-high sequences and combines perceptually uniform colors with easy-to-see, easily-contrasted hues along their scales.\n\nThe scale_fill_viridis_c() function is for continuous data.\nThe scale_fill_viridis_d() function is for discrete data.\n\n\n\n\np &lt;- ggplot(data = NY_socioecon_geo_poverty,\n            mapping = aes(x = long, y = lat, group = group, \n                          fill = c04_058 ))\n  \np1 &lt;- p + geom_polygon(color = \"grey\", size = 0.1) +\n    coord_map(projection = \"albers\", lat0 = 39, lat1 = 45) \n\np2 &lt;- p1 + scale_fill_viridis_c(option = \"plasma\") + theme_map() \np2\n\n\np2 + facet_wrap(~ year, ncol = 3) +\n    theme(legend.position = \"bottom\",\n          strip.background = element_blank()) +\n    labs(fill = \"Poverty rate in NY (%)\",\n         title = \"Poverty rate for the male population 25 years and over \\nfor whom the highest educational attainment is bachelor's degree\")\n\nWe facet the maps just like any other small-multiple with facet_wrap()."
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#hexbin-maps",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#hexbin-maps",
+    "title": "Lecture 7",
+    "section": "Hexbin Maps",
+    "text": "Hexbin Maps"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#hexbin-maps-1",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#hexbin-maps-1",
+    "title": "Lecture 7",
+    "section": "Hexbin Maps",
+    "text": "Hexbin Maps\nStatebins\n\n(1)(2)\n\n\n\nAs an alternative to state-level choropleths, we can consider statebins.\n\nlibrary(statebins)  # install.packages(\"statebins\")\np &lt;- ggplot(election, aes( state = state, fill = pct_trump ) )\np1 &lt;- p +  geom_statebins(lbl_size = 5,\n                          border_col = \"grey90\", border_size = 1)\np2 &lt;- p1 + labs(fill = \"Percent Trump\") +\n  coord_equal() +\n  theme_statebins( legend_position = c(.45, 1) ) +\n  theme( legend.direction=\"horizontal\" )\np2\n\n\np2 + scale_fill_gradient2( \n  low = '#2E74C0',  # from party_colors for DEM\n  mid = '#FFFFFF',  # transparent white\n  high = '#CB454A',  # from party_colors for GOP\n  na.value = \"grey50\",\n  midpoint = 50)   # set the midpoint value"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#hexbin-maps-2",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#hexbin-maps-2",
+    "title": "Lecture 7",
+    "section": "Hexbin Maps",
+    "text": "Hexbin Maps\nStatebins\n\n(1)(2)\n\n\n\nLet’s remove DC and use scale_fill_gradient().\n\np &lt;- ggplot(data = filter(election, st != \"DC\")  , \n            mapping = aes(state = state, fill = pct_clinton)) \np1 &lt;- p + geom_statebins(lbl_size = 5,\n                         border_col = \"grey90\",\n                         border_size = 1)\n\n\np2 &lt;- p1 + labs(fill = \"Percent Clinton\") +\n  coord_equal() +\n  theme_statebins( legend_position = c(.45, 1) ) +\n  theme( legend.direction=\"horizontal\" )\np2\n\np2 + scale_fill_gradient( \n    low = '#FFFFFF',  # transparent white\n    high = '#2E74C0',  # from party_colors for DEM\n    na.value = \"grey50\")   # set the midpoint value"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#hexbin-maps-3",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#hexbin-maps-3",
+    "title": "Lecture 7",
+    "section": "Hexbin Maps",
+    "text": "Hexbin Maps\nStatebins\n\n(1)(2)\n\n\n\nLet’s use scale_fill_manual() to fill color by party.\nlegend_position allows for adjusting a coordinate for the legend position.\n\np &lt;- ggplot(data = election  , \n            mapping = aes(state = state, fill = party)) \np1 &lt;- p + geom_statebins(lbl_size = 5,\n                         border_col = \"grey90\",\n                         border_size = 1)\n\n\np2 &lt;- p1 + labs(fill = \"Winner\") +\n  coord_equal() +\n  theme_statebins( legend_position = c(.25, 1) ) +\n  theme( legend.direction=\"horizontal\",\n         legend.title = element_text(size=30),\n         legend.text = element_text(size=30) )\n\np2 + scale_fill_manual( values = c(Republican = \"darkred\", \n                                   Democratic = \"royalblue\"))"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#hexbin-maps-4",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#hexbin-maps-4",
+    "title": "Lecture 7",
+    "section": "Hexbin Maps",
+    "text": "Hexbin Maps\nStatebins\n\n(1)(2)\n\n\n\nLet’s discretize a continuous variable using scale_fill_gradient() with breaks.\n\np &lt;- ggplot(data = election  , \n            mapping = aes(state = state, fill=pct_trump)) \np1 &lt;- p + geom_statebins(lbl_size = 5,\n                         border_col = \"grey90\",\n                         border_size = 1)\n\n\np2 &lt;- p1 + labs(fill = \"Percent Trump\") +\n  coord_equal() +\n  theme_statebins( legend_position = c(.2, 1) ) +\n  theme( legend.direction=\"horizontal\")\n\np2 + scale_fill_gradient(breaks = c(5, 21, 41, 48, 57),\n                         labels = c(\"&lt; 5\", \"5-21\", \n                                    \"21-41\", \"41-58\", \"&gt; 57\"),\n                         low = \"#f9ecec\", high = \"#CB454A\") +\n  guides(fill = guide_legend())"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-15",
+    "href": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-15",
+    "title": "Lecture 7",
+    "section": "Draw maps",
+    "text": "Draw maps\nMap U.S. state-level data\n\nIf you take a look at the gradient scale for this first “purple America” map, p3, you’ll see that it extends very high on the Blue side.\n\nThis is because Washington DC is included in the data.\n\nIf we omit Washington DC, we’ll see that our color scale shifts.\n\np0 &lt;- ggplot(data = filter(us_states_elec,\n                           region != \"district of columbia\"),\n             aes(x = long, y = lat, group = group, fill = d_points))\n\np3 &lt;- p1 + scale_fill_gradient2(low = \"red\", \n                                mid = scales::muted(\"purple\"),\n                                high = \"blue\", \n                                breaks = c(-25, 0, 25, 50, 75)) \np3 + theme_map() + labs(fill = \"Percent\", title = \"Winning margins\", caption = \"DC is omitted.\")"
   }
 ]

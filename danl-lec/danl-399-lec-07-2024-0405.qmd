@@ -1,0 +1,843 @@
+---
+title: Lecture 7
+subtitle: Draw Maps
+format:
+  clean-revealjs:
+    self-contained: true
+    # incremental: true
+    # logo: logo-title-slide.png
+author:
+  - name: Byeong-Hak Choe
+    email: bchoe@geneseo.edu
+    affiliations: SUNY Geneseo
+date: 2024-04-05
+execute: 
+  eval: true
+  echo: true
+  warning: false
+  message: false
+callout-icon: false
+
+from: markdown+emoji
+
+# bibliography: refs.bib
+include-after-body: target-hover.html
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(socviz)
+library(gapminder)
+library(ggrepel)
+library(RColorBrewer)
+library(ggridges)
+library(gridExtra)
+library(viridis)
+
+
+theme_set(theme_fivethirtyeight()+
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.5),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 90,
+                               size = rel(1.5),
+                               margin = margin(0,10,0,0)),
+                axis.text.x = element_text(size = rel(1.5)),
+                axis.text.y = element_text(size = rel(1.5)),
+                strip.text = element_text(size = rel(1.5)),
+                legend.position = "top",
+                legend.text = element_text(size = rel(1.5)),
+                legend.title = element_text(size = rel(1.5))
+                )
+          )
+```
+
+
+# Draw maps {background-color="#1c4982"}
+
+
+## Draw maps
+### Maps with geospatial data
+
+Data with map drawing, also known as geospatial data, is important for several reasons:
+
+  - Analysis: Geospatial data can highlight patterns and relationships across spatial units in the data that may not be apparent in other forms of data.
+
+  - Communication: Maps can be visually striking, especially when the spatial units of the map are familiar entities, like counties in the US.
+
+
+
+## Draw maps
+### Map U.S. state-level data
+
+- The `socviz::election` dataset has various measures of the vote and vote shares by state. 
+
+
+```{.r}
+socviz::election |> select(state, total_vote,
+                    r_points, pct_trump, party, census) |>
+    sample_n(5)
+
+```
+
+
+- We don’t have to represent spatial data spatially.
+
+
+## Draw maps
+### Map U.S. state-level data
+
+::: {.panel-tabset}
+## (1)
+```{.r}
+party_colors <- c("#2E74C0", "#CB454A")  # Hex color codes for Dem Blue and Rep Red
+p0 <- ggplot(data = filter(election, st != "DC"),
+             mapping = aes(x = r_points,
+                           y = reorder(state, r_points),
+                           color = party))
+```
+
+
+## (2)
+```{.r}
+p1 <- p0 + geom_vline(xintercept = 0, color = "gray30") +
+    geom_point(size = 2)
+
+p1
+```
+
+
+## (3)
+```{.r}
+p2 <- p1 + scale_color_manual(values = party_colors)
+
+p2
+```
+
+
+## (4)
+```{.r}
+p3 <- p2 + scale_x_continuous(breaks = c(-30, -20, -10, 0, 10, 20, 30, 40),
+                              labels = c("30\n (Clinton)", "20", "10", "0",
+                                         "10", "20", "30", "40\n(Trump)"))
+p3
+```
+
+
+## (5)
+```{.r}
+p3 + facet_wrap(~ census, ncol=1, scales="free_y") +
+     guides(color = "none") + labs(x = "Point Margin", y = "") +
+     theme(axis.text=element_text(size=8))
+```
+
+
+:::
+
+## Draw maps
+### Map U.S. state-level data
+- Let us get a data frame of the US state map.
+
+```{.r}
+us_states <- map_data("state") # from the 'maps' package
+us_states
+view(us_states)
+```
+
+
+
+
+
+## Draw maps
+### Map U.S. state-level data
+
+- `geom_polygon()` can be used to visualize map data.
+
+```{.r}
+p <- ggplot(data = us_states,
+            mapping = aes(x = long, y = lat,
+                          group = group))
+
+p + geom_polygon(fill = "white", color = "black")
+```
+
+
+- A map is a set of lines drawn in the right order on a grid.
+
+
+
+
+
+## Draw maps
+### Map U.S. state-level data
+
+- Let's `fill` the map.
+
+```{.r}
+p <- ggplot(data = us_states,
+            aes(x = long, y = lat,
+                group = group, fill = region))
+
+p + geom_polygon(color = "gray90", size = 0.1) + guides(fill = FALSE)
+```
+
+
+
+
+
+
+## Draw maps
+### Map U.S. state-level data
+- Let's deal with the projection. 
+  - By default, the map is plotted using the venerable **Mercator** projection.
+ 
+```{.r}
+p <- ggplot(data = us_states,
+            mapping = aes(x = long, y = lat,
+                          group = group, fill = region))
+
+p + geom_polygon(color = "gray90", size = 0.1) +
+    coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
+    guides(fill = FALSE)
+```
+
+- We can transform the default projection used by `geom_polygon()`, via the `coord_map()` function.
+
+  - The *Albers* projection requires two latitude parameters, `lat0` and `lat1`. 
+
+
+
+
+## Draw maps
+### Map U.S. state-level data
+- Let’s get the `election` data on to the map 
+ 
+```{.r}
+election$region <- tolower(election$state)
+us_states_elec <- left_join(us_states, election)
+```
+
+- In the map data, `us_states`, the state names (in a variable named `region`) are in lower case. 
+
+- Here we can create a variable in the `election` data frame to correspond to this, using the `tolower()` function to convert the state names.
+
+- It is important to know your data and variables well enough to check that they have merged properly.
+
+  - FIPS code is useful in joining the data.
+
+
+
+
+
+## Draw maps
+### Map U.S. state-level data
+ 
+```{.r}
+p0 <- ggplot(data = us_states_elec,
+            aes(x = long, y = lat,
+                group = group, fill = party))
+
+p0 + geom_polygon(color = "gray90", size = 0.1) +
+    coord_map(projection = "albers", lat0 = 39, lat1 = 45) 
+
+```
+
+- We use our `party` colors for the `fill`.
+
+
+
+
+
+
+## Draw maps
+### Map U.S. state-level data
+ 
+```{.r}
+p1 <- p0 + geom_polygon(color = "gray90", size = 0.1) +
+    coord_map(projection = "albers", lat0 = 39, lat1 = 45) 
+
+p2 <- p1 + scale_fill_manual(values = party_colors) +
+    labs(title = "Election Results 2016", fill = NULL)
+
+p2 + theme_map() 
+
+
+```
+
+
+
+
+## Draw maps
+### Map U.S. state-level data
+- To the `fill` aethetic, let’s try a continuous measure, such as the percentage of the vote received by Donald Trump (`pct_trump`). 
+
+```{.r}
+p0 <- ggplot(data = us_states_elec,
+             mapping = aes(x = long, y = lat, group = group, fill = pct_trump))
+
+p1 <- p0 + geom_polygon(color = "gray90", size = 0.1) +
+    coord_map(projection = "albers", lat0 = 39, lat1 = 45) 
+
+p1 + labs(title = "Trump vote") + theme_map() + labs(fill = "Percent")
+
+```
+
+
+
+
+
+## Draw maps
+### Map U.S. state-level data
+
+- Blue is not the color we want here.
+
+- The color gradient runs in the wrong direction.
+
+- Let's fix these problems using `scale_fill_gradient()`:
+
+```{.r}
+p2 <- p1 + scale_fill_gradient(low = "white", high = "#CB454A") +
+        labs(title = "Trump vote") 
+p2 + theme_map() + labs(fill = "Percent")
+
+```
+
+
+
+
+## Draw maps
+### Map U.S. state-level data
+
+- For election results, we might prefer a gradient that diverges from a midpoint. 
+  - The `scale_*_gradient2()` function gives us a blue-red spectrum that passes through white by default. 
+  - We can also re-specify the mid-level color along with the `high` and `low` colors. 
+
+```{.r}
+p0 <- ggplot(data = us_states_elec,
+             mapping = aes(x = long, y = lat, group = group, fill = d_points))
+
+p1 <- p0 + geom_polygon(color = "gray90", size = 0.1) +
+    coord_map(projection = "albers", lat0 = 39, lat1 = 45) 
+
+p2 <- p1 + scale_fill_gradient2() + labs(title = "Winning margins") 
+p2 + theme_map() + labs(fill = "Percent")
+
+```
+
+
+
+## Draw maps
+### Map U.S. state-level data
+
+- From the `scale_*_gradient2()` function, we can also re-specify the mid-level color along with the `high` and `low` colors. 
+
+```{.r}
+p3 <- p1 + scale_fill_gradient2(low = "red", 
+                                mid = scales::muted("purple"),
+                                high = "blue", 
+                                breaks = c(-25, 0, 25, 50, 75)) 
+p3 + theme_map() + labs(fill = "Percent", title = "Winning margins")
+
+```
+
+
+
+
+
+## Draw maps
+### Map U.S. state-level data
+
+- If you take a look at the gradient scale for this first “purple America” map, `p3`, you’ll see that it extends very high on the Blue side.
+  - This is because Washington DC is included in the data.
+  
+- If we omit Washington DC, we’ll see that our color scale shifts.
+
+```{.r}
+p0 <- ggplot(data = filter(us_states_elec,
+                           region != "district of columbia"),
+             aes(x = long, y = lat, group = group, fill = d_points))
+
+p3 <- p1 + scale_fill_gradient2(low = "red", 
+                                mid = scales::muted("purple"),
+                                high = "blue", 
+                                breaks = c(-25, 0, 25, 50, 75)) 
+p3 + theme_map() + labs(fill = "Percent", title = "Winning margins", caption = "DC is omitted.")
+```
+
+
+
+
+# Choropleth Maps {background-color="#1c4982"}
+
+
+## Choropleth Maps
+### America’s ur-choropleths
+  
+  - Choropleth maps display divided geographical areas or regions that are colored, shaded or patterned in relation to a data variable.
+
+- County-level US choropleth maps can be aesthetically pleasing, because of the added detail they bring to a national map. 
+
+- The county-level datasets (`county_map` and `county_data`) are included in the `socviz` library.
+
+- The county map data frame, `county_map`, has been processed a little in order to transform it to an *Albers* projection, and also to relocate (and re-scale) Alaska and Hawaii.
+
+
+
+
+## Choropleth Maps
+### America’s ur-choropleths
+  
+```{.r}
+county_map
+
+county_data |>
+  select(id, name, state, pop_dens, pct_black) |>
+  sample_n(5)
+
+county_full <- 
+  left_join(county_map, county_data, by = "id")
+```
+
+- The `id` field is the FIPS code for the county.
+
+- `pop_dens` is population density. 
+
+- `pct_black` is percent of African-American population.
+
+- We merge the data frames using the shared FIPS `id` column.
+
+
+
+
+## Choropleth Maps
+### Map U.S. county-level data 
+
+::: {.panel-tabset}
+## (1)
+```{.r}
+p <- ggplot(data = county_full,
+            mapping = aes(x = long, y = lat,
+                          fill = pop_dens, 
+                          group = group))
+p1 <- p + geom_polygon(color = "gray90", size = 0.05)
+p1
+```
+
+-  `p1` object produces a legible map, but by default it chooses an unordered categorical layout. 
+  - This is because the `pop_dens` variable is not ordered.
+  - `pop_dens` is an un-ordered discrete variable.
+
+
+
+## (2)
+```{.r}
+p1 + coord_equal()
+```
+
+- The use of `coord_equal()` makes sure that the relative scale of our map does not change even if we alter the overall dimensions of the plot.
+
+
+
+:::
+
+
+
+
+
+## Choropleth Maps
+### Map U.S. county-level data 
+
+::: {.panel-tabset}
+## (1)
+```{.r}
+p2 <- p1 + scale_fill_brewer(
+  palette = "Blues",
+  labels = c("0-10", "10-50", "50-100", "100-500",
+             "500-1,000", "1,000-5,000", ">5,000"))
+p2
+```
+
+- We can manually supply the right sort of scale using the `scale_fill_brewer()` function, together with a nicer set of labels. 
+
+
+
+## (2)
+```{.r}
+p2 + labs(fill = "Population per\nsquare mile") +
+  theme_map() +
+  guides(fill = guide_legend(nrow = 1)) + 
+  theme(legend.position = "bottom")
+```
+
+- We can also use the `guides()` function to make sure each element of the key in the *legend* appears on the same row. 
+
+
+
+:::
+
+
+
+## Choropleth Maps
+### Map U.S. county-level data 
+
+- We can now do exactly the same thing for our map of percent African-American population by county. 
+- `pct_black` is an un-ordered factor variable.
+- `table(county_full$pct_black)`
+
+```{.r}
+p <- ggplot(data = county_full,
+            mapping = aes(x = long, y = lat, fill = pct_black, 
+                          group = group))
+p1 <- p + geom_polygon(color = "gray90", size = 0.05) + coord_equal()
+p2 <- p1 + scale_fill_brewer(palette="Greens")
+
+p2 + labs(fill = "US Population, Percent Black") +
+  guides(fill = guide_legend(nrow = 1)) + 
+  theme_map() + theme(legend.position = "bottom")
+
+```
+
+
+
+
+
+## Choropleth Maps
+### Map U.S. county-level data 
+
+::: {.panel-tabset}
+## `pop_dens6` data
+
+-  Let's draw a new county-level choropleths.
+    
+  - We have a `pop_dens6` variable that divides the population density into six categories.
+
+  - We will map the color scale to the value of variable.
+
+
+## Color
+```{.r}
+orange_pal <- RColorBrewer::brewer.pal(n = 6, name = "Oranges")
+orange_pal
+orange_rev <- rev(orange_pal)
+orange_rev
+```
+
+- We use the `RColorBrewer::brewer.pal()` function to manually create two palettes.
+  - The `brewer.pal()` function produces evenly-spaced color schemes. 
+- We use the `rev()` function to reverse the order of a color vector.
+
+
+
+
+## (1)
+```{.r}
+pop_p <- ggplot(data = county_full,
+            mapping = aes(x = long, y = lat,
+                          fill = pop_dens6, 
+                          group = group))
+
+pop_p1 <- pop_p + geom_polygon(color = "gray90", size = 0.05) +
+  coord_equal()
+pop_p2 <- pop_p1 + scale_fill_manual(values = orange_pal)
+
+pop_p2 + labs(title = "Population Density",
+              fill = "People per square mile") +
+    theme_map() + theme(legend.position = "bottom")
+
+```
+
+
+
+
+## (2)
+
+```{.r}
+pop_p2_rev <- pop_p1 + scale_fill_manual(values = orange_rev)
+
+pop_p2_rev + labs(title = "Reverse-coded Population Density",
+              fill = "People per square mile") +
+    theme_map() + theme(legend.position = "bottom")
+
+```
+
+
+:::
+
+  
+
+  
+
+
+
+
+
+
+## Choropleth Maps
+### Map U.S. county-level data 
+::: {.panel-tabset}
+## (1)
+- Let's consider a county map of a continuous variable, such as `per_gop_2016`.
+- Check `class(county_full$per_gop_2016)`.
+
+```{.r}
+gop_p <- ggplot(data = county_full,
+                mapping = aes(x = long, y = lat,
+                              fill = per_gop_2016, 
+                              group = group))
+
+gop_p1 <- gop_p + geom_polygon(color = "gray70", size = 0.05) + coord_equal()
+gop_p1
+```
+
+
+
+## `scale_fill_gradient*`
+- For a continuous variable, we can use `scale_fill_gradient()`, `scale_fill_gradient2()`, or `scale_fill_gradient2()` function:
+  - `scale_fill_gradient()` produces a two-color gradient.
+- `scale_fill_gradient2()` produces a three-color gradient with specified midpoint.
+- `scale_fill_gradientn()` produces an n-color gradient.
+
+- For `scale_fill_gradient2()`, choose the value and color for `midpoint` carefully.
+
+
+
+
+## (2)
+```{.r}
+gop_p2 <- gop_p1 + scale_fill_gradient2( 
+  low = '#2E74C0',  # from party_colors for DEM
+  mid = '#FFFFFF',  # transparent white
+  high = '#CB454A',  # from party_colors for GOP
+  na.value = "grey50",
+  midpoint = .5)
+
+gop_p2 + labs(title = "US Presidential Election 2016",
+              fill = "Trump vote share") +
+  theme_map() + theme(legend.position = "bottom")
+
+```
+
+
+
+
+:::
+
+
+
+
+
+
+## Choropleth Maps
+### Small-multiple maps
+
+::: {.panel-tabset}
+## NY data
+- Sometimes we have geographical data with repeated observations over time.
+- A common case is to have a country- or state-level measure observed over a period of years (Panel data).
+
+- Let's consider consider the poverty rate determined by level of educational attainment in NY.
+
+```{.r}
+NY_socioecon_geo_poverty <- read_csv(
+  'https://bcdanl.github.io/data/NY_socioecon_geo_poverty.csv'
+)
+
+```
+
+
+## viridis
+```{.r}
+library(viridis)
+```
+
+- The `viridis` colors run in low-to-high sequences and combines perceptually uniform colors with easy-to-see, easily-contrasted hues along their scales. 
+
+  - The `scale_fill_viridis_c()` function is for continuous data.
+  - The `scale_fill_viridis_d()` function is for discrete data.
+
+
+
+
+## map
+```{.r}
+p <- ggplot(data = NY_socioecon_geo_poverty,
+            mapping = aes(x = long, y = lat, group = group, 
+                          fill = c04_058 ))
+  
+p1 <- p + geom_polygon(color = "grey", size = 0.1) +
+    coord_map(projection = "albers", lat0 = 39, lat1 = 45) 
+
+p2 <- p1 + scale_fill_viridis_c(option = "plasma") + theme_map() 
+p2
+```
+
+
+
+
+## facet
+```{.r}
+p2 + facet_wrap(~ year, ncol = 3) +
+    theme(legend.position = "bottom",
+          strip.background = element_blank()) +
+    labs(fill = "Poverty rate in NY (%)",
+         title = "Poverty rate for the male population 25 years and over \nfor whom the highest educational attainment is bachelor's degree")
+```
+- We facet the maps just like any other small-multiple with `facet_wrap()`. 
+
+
+:::
+
+
+## Hexbin Maps {background-color="#1c4982"}
+
+
+## Hexbin Maps
+### Statebins 
+
+::: {.panel-tabset}
+## (1)
+- As an alternative to state-level choropleths, we can consider `statebins`.
+
+```{.r}
+library(statebins)  # install.packages("statebins")
+p <- ggplot(election, aes( state = state, fill = pct_trump ) )
+p1 <- p +  geom_statebins(lbl_size = 5,
+                          border_col = "grey90", border_size = 1)
+p2 <- p1 + labs(fill = "Percent Trump") +
+  coord_equal() +
+  theme_statebins( legend_position = c(.45, 1) ) +
+  theme( legend.direction="horizontal" )
+p2
+```
+
+
+
+## (2)
+```{.r}
+p2 + scale_fill_gradient2( 
+  low = '#2E74C0',  # from party_colors for DEM
+  mid = '#FFFFFF',  # transparent white
+  high = '#CB454A',  # from party_colors for GOP
+  na.value = "grey50",
+  midpoint = 50)   # set the midpoint value
+```
+
+:::
+
+
+## Hexbin Maps
+### Statebins 
+
+
+::: {.panel-tabset}
+## (1)
+- Let's remove DC and use `scale_fill_gradient()`.
+```{.r}
+p <- ggplot(data = filter(election, st != "DC")  , 
+            mapping = aes(state = state, fill = pct_clinton)) 
+p1 <- p + geom_statebins(lbl_size = 5,
+                         border_col = "grey90",
+                         border_size = 1)
+```
+
+
+
+## (2)
+```{.r}
+p2 <- p1 + labs(fill = "Percent Clinton") +
+  coord_equal() +
+  theme_statebins( legend_position = c(.45, 1) ) +
+  theme( legend.direction="horizontal" )
+p2
+
+p2 + scale_fill_gradient( 
+    low = '#FFFFFF',  # transparent white
+    high = '#2E74C0',  # from party_colors for DEM
+    na.value = "grey50")   # set the midpoint value
+```
+
+:::
+
+
+## Hexbin Maps
+### Statebins 
+
+::: {.panel-tabset}
+## (1)
+- Let's use `scale_fill_manual()` to `fill` color by `party`.
+
+- `legend_position` allows for adjusting a coordinate for the legend position.
+
+```{.r}
+p <- ggplot(data = election  , 
+            mapping = aes(state = state, fill = party)) 
+p1 <- p + geom_statebins(lbl_size = 5,
+                         border_col = "grey90",
+                         border_size = 1)
+
+```
+
+
+
+## (2)
+
+```{.r}
+p2 <- p1 + labs(fill = "Winner") +
+  coord_equal() +
+  theme_statebins( legend_position = c(.25, 1) ) +
+  theme( legend.direction="horizontal",
+         legend.title = element_text(size=30),
+         legend.text = element_text(size=30) )
+
+p2 + scale_fill_manual( values = c(Republican = "darkred", 
+                                   Democratic = "royalblue"))
+
+```
+
+:::
+
+
+## Hexbin Maps
+### Statebins 
+
+::: {.panel-tabset}
+## (1)
+- Let's discretize a continuous variable using `scale_fill_gradient()` with `breaks`.
+
+```{.r}
+p <- ggplot(data = election  , 
+            mapping = aes(state = state, fill=pct_trump)) 
+p1 <- p + geom_statebins(lbl_size = 5,
+                         border_col = "grey90",
+                         border_size = 1)
+
+```
+
+
+
+## (2)
+
+```{.r}
+p2 <- p1 + labs(fill = "Percent Trump") +
+  coord_equal() +
+  theme_statebins( legend_position = c(.2, 1) ) +
+  theme( legend.direction="horizontal")
+
+p2 + scale_fill_gradient(breaks = c(5, 21, 41, 48, 57),
+                         labels = c("< 5", "5-21", 
+                                    "21-41", "41-58", "> 57"),
+                         low = "#f9ecec", high = "#CB454A") +
+  guides(fill = guide_legend())
+
+```
+
+
+
+:::
