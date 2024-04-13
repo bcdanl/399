@@ -1,0 +1,123 @@
+---
+title: Classwork 8
+subtitle: Map Visualization
+date: 2024-04-12
+execute: 
+  echo: false
+  eval: true
+  warning: false
+  message: false
+  fig-width: 9
+  fig-height: 6
+---
+
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(DT)
+library(rmarkdown)
+library(ggrepel)
+library(ggridges)
+library(RColorBrewer)
+library(viridis)
+library(gridExtra)
+library(gapminder)
+library(socviz)
+
+theme_set(theme_ipsum()+
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.33),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 90,
+                               size = rel(1.33),
+                               margin = margin(0,10,0,0))
+                )
+          )
+```
+
+
+# Loading R packages
+
+```{r}
+#| echo: true
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(socviz)
+```
+
+The following data is for Classwork 8:
+
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+climate_opinion_long <- read_csv(
+  'https://bcdanl.github.io/data/climate_opinion_2021.csv')
+```
+
+```{r}
+#| results: asis
+#| echo: false
+rmarkdown::paged_table(climate_opinion_long) 
+```
+
+<br><br>
+
+# Variable Description
+
+-   `belief`:
+    -   `human`: Estimated percentage who think that global warming is caused mostly by human activities.
+    -   `happening`: Estimated percentage who think that global warming is happening.
+
+
+# Question 1
+
+-   Filter `climate_opinion_long`, so that `climate_opinion_long` has only estimated percentage of people who think that global warming is caused mostly by human activities.
+
+*Answer*:
+
+```{r}
+
+
+```
+
+<br><br>
+
+# Question 2
+-   Join the two data.frames, `socviz::county_map` and the resulting data.frame in Question 1.
+
+
+*Answer*:
+
+```{r}
+
+```
+
+
+<br><br>
+
+# Question 3
+- Replicate the following map.
+  - Do not use `coord_map(projection = "albers", lat0 = 39, lat1 = 45)`.
+
+```{r}
+#| echo: false
+knitr::include_graphics("https://bcdanl.github.io/lec_figs/climate-opinion-map.png")
+```
+
+*Answer*:
+
+```{r}
+
+```
+
+

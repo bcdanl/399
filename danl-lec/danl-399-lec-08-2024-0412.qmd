@@ -1,0 +1,726 @@
+---
+title: Lecture 8
+subtitle: Interactive Visualization; Animated Plots
+format:
+  clean-revealjs:
+    self-contained: true
+    # incremental: true
+    # logo: logo-title-slide.png
+author:
+  - name: Byeong-Hak Choe
+    email: bchoe@geneseo.edu
+    affiliations: SUNY Geneseo
+date: 2024-04-12
+execute: 
+  eval: true
+  echo: true
+  warning: false
+  message: false
+callout-icon: false
+
+from: markdown+emoji
+
+# bibliography: refs.bib
+include-after-body: target-hover.html
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(socviz)
+library(gapminder)
+library(ggrepel)
+library(RColorBrewer)
+library(ggridges)
+library(gridExtra)
+library(viridis)
+
+
+theme_set(theme_fivethirtyeight()+
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.5),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 90,
+                               size = rel(1.5),
+                               margin = margin(0,10,0,0)),
+                axis.text.x = element_text(size = rel(1.5)),
+                axis.text.y = element_text(size = rel(1.5)),
+                strip.text = element_text(size = rel(1.5)),
+                legend.position = "top",
+                legend.text = element_text(size = rel(1.5)),
+                legend.title = element_text(size = rel(1.5))
+                )
+          )
+```
+
+
+# Interactive ggplot {background-color="#1c4982"}
+
+
+
+
+## Interactive ggplot
+###  `plotly::ggplotly()`
+
+::: {.panel-tabset}
+## (1)
+-  `plotly` is an alternative to `ggplot` with a relatively easy to learn syntax for generating many of the same kinds of plots.
+
+- `plotly` is mainly for the interactive figures of visualization.
+
+  - We will focus only on `plotly::ggplotly()`. 
+  
+  - `ggplotly()` interacts with ggplot objects to make those figures interactive.
+
+
+
+## (2)
+```{r, echo=T, eval=F, fig.align='center', fig.height=2.5, fig.width= 2.5, message=FALSE, warning=FALSE}
+# install.packages("plotly")
+library(plotly)
+dat <- data.frame(cond = rep(c("A", "B"), each = 10),
+                  xvar = 1:20 + rnorm(20, sd=3),
+                  yvar = 1:20 + rnorm(20, sd=3))
+
+p <- ggplot(dat, aes(x = xvar, y = yvar)) +
+  geom_point(shape=1)      # Use hollow circles
+fig <- ggplotly(p)
+fig
+```
+
+
+
+
+:::
+
+
+
+
+## Interactive ggplot
+###  `plotly::ggplotly()`
+
+::: {.panel-tabset}
+## data
+- Consider the static relationship between seniority and legislative effectiveness using CCES data.
+    
+  
+```{.r}
+cces <- read_csv(url("https://bcdanl.github.io/data/cces.csv"))
+
+```
+
+
+
+## `recode()`
+
+- We can use `recode()` to create a new variable corresponding to other factor variable.
+  -  Here we summarize the number of Democrats and Republicans in a series of years.
+  -  There are usually 435 seats in total in the House of Representatives.
+
+
+-  Variable `les` is a score for legislative effectiveness.
+    - It measures how productive members of Congress are at making laws.
+    
+  
+```{.r}
+cces <- cces |> 
+  mutate(party = recode(dem, `1` = "Democrat", `0` = "Republican"))
+```
+
+
+
+
+## `ggplotly`
+
+```{.r}
+p <- ggplot(cces, aes(x = seniority, y = les,
+                      color = party))+
+  geom_point()+
+  scale_color_manual(values=c("blue","red")) +
+  labs(x = "Seniority", y = "Leg. Effectiveness")
+
+p1 <- ggplotly(p)
+```
+
+
+
+
+:::
+
+
+
+
+
+## Interactive ggplot
+###  `htmlwidgets::saveWidget()`
+
+- `htmlwidgets::saveWidget()` saves the interactive ggplot object as an `*.html` file.
+
+  
+```{.r}
+# install.packages("htmlwidgets")
+library(htmlwidgets)
+saveWidget(p1, "fig.html")
+```
+
+
+
+
+## Interactive ggplot
+###  `ggiraph`
+
+- `ggiraph` is a R package that allows us to create dynamic ggplot graphs. 
+  - This allows us to add tooltips, hover effects and JavaScript actions to the graphics.    
+  - The package also allows the selection of graphical elements when used in `shiny` applications.
+  
+  
+
+- Interactivity is added to ggplot geometries, legends and theme elements, via the following aesthetics:
+  - `tooltip`: tooltips to be displayed when mouse is over elements.
+  - `onclick`: JavaScript function to be executed when elements are clicked.
+  - `data_id`: `id` to be associated with elements (used for hover and click actions)
+
+
+
+
+## Interactive ggplot
+###  `ggiraph`
+
+::: {.panel-tabset}
+## (1)
+- The things we need to know to create a `ggiraph` interactive graphic:
+
+  - Instead of using `geom_point`, use `geom_point_interactive`.
+  - Provide at least one of the aesthetics, `tooltip`, `data_id` and/or `onclick`, to create interactive elements.
+  - Call function `girafe` with the ggplot object so that the graphic is translated as a web interactive graphics.
+  
+
+
+
+
+## (2)
+```{.r}
+# install.packages("ggiraph")
+library(ggiraph)
+data <- mtcars
+data$carname <- row.names(data)
+
+gg_point <- ggplot(data = data) +
+  geom_point_interactive(aes(x = wt, y = qsec, 
+                             color = disp,
+                             tooltip = carname, 
+                             data_id = carname)) + 
+  theme_minimal()
+
+gg_point
+```
+
+
+
+
+## (3)
+```{.r}
+p2 <- girafe(ggobj = gg_point)
+p2
+
+saveWidget(p2, "girafe_fig.html")
+
+```
+
+
+
+
+:::
+
+
+
+
+
+
+# Animation Plot {background-color="#1c4982"}
+
+
+## gganimate
+- Consider the relationship between *cyl* and *mpg* from `mtcars`.
+
+```{.r}
+data(mtcars)
+
+p <- ggplot(data = mtcars,
+       mapping = aes(x = factor(cyl), y = mpg)) +
+  geom_boxplot()
+
+p
+
+```
+
+
+
+## gganimate
+- Let us consider how the relationship between *cyl* and *mpg* vary by *gear*.
+
+```{.r}
+p + facet_wrap(~gear)
+
+```
+
+
+
+
+## gganimate
+
+- **gganimate** turn our ggplot visualizations into moving images.
+
+  - **gganimate** takes a ggplot figure and creates many different versions of it by changing a single parameter in the data.
+
+```{.r}
+my_anim <- p + 
+  transition_states(gear)
+
+my_anim
+```
+
+
+
+## gganimate
+
+
+```{r, echo = F, eval = T, out.width='100%', fig.align='center'}
+#| echo: false
+#| eval: true
+#| out-width: '100%'
+
+text_tbl <- data.frame(
+  `Name of the function` = c("transition_components", "transition_events", "transition_filter", "transition_layer", "transition_manual", "transition_reveal", "transition_states", "transition_time"),
+  `Labs variable` = c("frame_time",
+"frame_time", 
+"previous_filter, closest_filter, next_filter",
+"previous_layer, closest_layer, next_layer, nlayers",
+"previous_frame, current_frame, next_frame",
+"frame_along",
+"previous_state, closest_state, next_state",
+"frame_time")
+  )
+
+# Create a DT datatable without search box and 'Show entries' dropdown
+DT::datatable(text_tbl, rownames = FALSE,
+              options = list(
+  dom = 't', # This sets the DOM layout without the search box ('f') and 'Show entries' dropdown ('l')
+  paging = FALSE, # Disable pagination
+  columnDefs = list(list(
+    targets = "_all", # Applies to all columns
+    orderable = FALSE # Disables sorting
+  ))
+), callback = htmlwidgets::JS("
+  // Change header background and text color
+  $('thead th').css('background-color', '#1c4982');
+  $('thead th').css('color', 'white');
+
+  // Loop through each row and alternate background color
+  $('tbody tr').each(function(index) {
+    if (index % 2 == 0) {
+      $(this).css('background-color', '#d1dae6'); // Light color for even rows
+    } else {
+      $(this).css('background-color', '#9fb2cb'); // Dark color for odd rows
+    }
+  });
+
+  // Set text color for all rows
+  $('tbody tr').css('color', 'black');
+
+  // Add hover effect
+  $('tbody tr').hover(
+    function() {
+      $(this).css('background-color', '#607fa7'); // Color when mouse hovers over a row
+    }, 
+    function() {
+      var index = $(this).index();
+      if (index % 2 == 0) {
+        $(this).css('background-color', '#d1dae6'); // Restore even row color
+      } else {
+        $(this).css('background-color', '#9fb2cb'); // Restore odd row color
+      }
+    }
+  );
+")
+)
+```
+
+
+## gganimate
+###  `transition_states()`
+
+- `transition_states()` is intended to use primarily with categorical variables. 
+
+  - You can control the link for each transition and the amount of time spent on each of the states using the `transition_length` and `state_length` arguments.
+
+```{.r}
+my_anim2 <- p + 
+  transition_states(gear,
+    transition_length = 3,  # relative length
+    state_length = 2)  # relative length
+
+my_anim2
+```
+
+
+
+
+## gganimate
+### Cooperative Congressional Election Survey
+
+- Cooperative Congressional Election Survey (CCES) is a 50,000+ person national stratified sample survey.
+
+- We can use `recode()` to create a new variable corresponding to other factor variable.
+
+-  Here we summarize the number of Democrats and Republicans in a series of years.
+
+  -  There are usually 435 seats in total in the House of Representatives.
+
+```{.r}
+cces <- read_csv(url("https://bcdanl.github.io/data/cces.csv"))
+cces <- cces |> 
+  mutate(party = recode(dem,`1`="Democrat",`0`="Republican"))
+
+cong_dat <- cces |> 
+  group_by(year, party) |>
+  summarise( seats =n())
+```
+
+
+## gganimate
+### Cooperative Congressional Election Survey
+
+```{.r}
+p <- ggplot(cong_dat, 
+            aes(x = year, y= seats, 
+                fill = party)) +
+  geom_col() +
+  geom_hline(yintercept = 217) +  # threshold for having a majority of seats in the house.
+  scale_fill_manual(values=c("blue","red"))
+
+p
+```
+
+
+
+## gganimate
+### `transition_time()`
+- `transition_time()` is intended for time-series data like hours, minutes, days, weeks months, years, etc.
+
+```{.r}
+anim2 <- p + transition_time(year)
+
+anim2
+```
+
+
+## gganimate
+### Cooperative Congressional Election Survey
+
+- Let's consider a scatter plot of `seniority` against `all_pass`.
+
+  - Variable `seniority` is about how long a member has been in Congress.
+  
+  - Variable `all_pass` is about how many bills a member passed
+
+
+## gganimate
+### Cooperative Congressional Election Survey
+
+```{.r}
+p <- ggplot() + 
+  geom_jitter(data = filter(cces, 
+                            congress==115 & party=="Democrat"),
+              aes(x = seniority, y = all_pass,
+                  color = party) ) +
+  geom_jitter(data = filter(cces, 
+                            congress==115 & party=="Republican"),
+              aes(x = seniority, y = all_pass,
+                  color = party) ) +
+  geom_smooth(data = filter(cces, 
+                            congress==115 & party=="Democrat"),
+              aes(x = seniority, y = all_pass,
+                  color = party) ) +
+  geom_smooth(data = filter(cces, 
+                            congress==115 & party=="Republican"),
+              aes(x = seniority, y = all_pass,
+                  color = party) ) +
+  scale_color_manual(values=c("blue","red"))
+
+p
+```
+
+
+
+## gganimate
+### `transition_layers()`
+
+- `transition_layers()` allow for building up a plot layer by layer with an animation.
+
+```{.r}
+
+anim2 <- p + transition_layers()
+
+anim2
+```
+
+
+
+## gganimate
+### `enter_*()` and `exit_*()`
+
+- `enter_*()` and `exit_*()` allow for controlling the entering and exiting in `gganimate`.
+
+  - `*_fade()` will set the alpha value to zero making the elements fade in/out during the transition.
+
+
+```{.r}
+anim <- ggplot(mtcars, aes(factor(cyl), mpg)) +
+  geom_boxplot() +
+  transition_states(factor(cyl))
+
+# Fade-in, fade-out
+anim1 <- anim +
+  enter_fade() +
+  exit_fade()
+
+anim1
+```
+
+
+## gganimate
+### `shadow_*()`
+::: {.panel-tabset}
+## (1)
+-  `shadow_*()` allows you to retain previous or preview future frames of the animation.
+
+  - `shadow_wake()` shows preceding frames with gradual falloff.
+    - `alpha`	is for transparency modification of the wake.
+    - `wrap` should the shadow wrap around, so that the first frame will get shadows from the end of the animation.
+
+  - There are also `shadow_mark()`, `shadow_null()`, and `shadow_trail()`.
+
+
+
+## (2)
+```{.r}
+p <- ggplot(cong_dat,
+                aes(x = year, y = seats, fill = party)) +
+  geom_bar(stat = "identity") +
+  geom_hline(yintercept = 217) +
+  scale_fill_manual(values = c("blue","red"))
+
+
+anim3 <- p + transition_time(year) +
+  shadow_wake(wake_length = 1,
+              alpha = TRUE,
+              wrap = TRUE)
+
+anim3
+
+```
+
+
+
+:::
+  
+
+
+## gganimate
+### Gapminder
+
+```{.r}
+library(gapminder)
+p <- gapminder |>
+  ggplot() + 
+    geom_point(aes(x = gdpPercap, y = lifeExp, 
+                   color = continent, size = pop), 
+               alpha = 0.75) + 
+  theme_minimal() + theme(legend.position = "top") + 
+  guides(size = "none") + 
+  labs(x = "GDP per Capita", y = "Life Expetancy", color = "") 
+
+```
+
+
+
+## gganimate
+### Gapminder
+
+Here is with `transition_time()`.
+```{.r}
+library(gganimate)
+p +
+  transition_time(year)
+```
+
+
+
+## gganimate
+### `labs(title = "TIME_VARIABLE: {frame_time}")`
+
+- We can indicate the number of frame on the transition using `labs()`
+
+```{.r}
+p +
+  transition_time(year) +
+  labs(title = "Year: {frame_time}")
+```
+
+
+## gganimate
+### With `geom_text()`
+- It is much more visually fascinating to include the data on the same graph with an extra ggplot layer. 
+
+```{.r}
+p +
+  geom_text(aes(x = min(gdpPercap), 
+                y = min(lifeExp), 
+                label = as.factor(year)) , 
+            hjust=-2, vjust = -0.2, alpha = 0.2,  
+            color = "gray", size = 20) +
+  transition_states(as.factor(year), state_length = 0)
+```
+
+- `state_length` allows us to control for how long will pause before changing to the new state.
+
+
+## gganimate
+### `transition_reveal(year)`
+`transition_reveal(year)` is adding each `year` of the data on top of ‘old’ data.
+
+```{.r}
+gapminder |>
+  filter(country == "United States") |>
+  ggplot(aes(x = year, y = pop)) + 
+  geom_point() + geom_line() +
+  theme_minimal() +
+  transition_reveal(year)
+```
+
+
+
+## gganimate
+### `view_follow()`
+
+
+- If we want to better see how the variables grow, it is better to adjust the scale in each frame. 
+  - For this, we can use the `view_follow()` function.
+  
+```{.r}
+gapminder |>
+  filter(country == "United States") |>
+  ggplot(aes(x = year, y = pop)) + 
+  geom_point() + geom_line() + 
+  geom_text(aes(x = min(year), y = min(pop), 
+                label = as.factor(year)) , 
+            hjust=-2, vjust = -0.2, alpha = 0.5,  
+            color = "gray", size = 20) +
+  theme_minimal() +
+  transition_reveal(year) + 
+  view_follow()
+```
+
+
+
+
+## gganimate
+### Bar Chart Race
+
+::: {.panel-tabset}
+## Rendering
+- Frames and duration are the key for a good quality of animation.
+
+
+- We can adjust several key elements of our animations, such as:
+  - The `width` and `height` of the animation to create an animation.
+  - Duration, number of frames, and number of frames per second (`fps`): this will make us the animation see fluently.
+    - The `fps` parameter is recommended to be higher than 12.
+  - Output file format: if we don’t want to create a `gif`, you can also create a video too.
+
+
+
+
+
+## Ranking
+
+- Calculate the ranking of `gdpPercap` for each `year`:
+```{.r}
+gapminder_sum <- gapminder |>
+  group_by(year) |>
+  arrange(year, desc(gdpPercap)) |>
+  mutate(ranking = row_number()) |>
+  filter(ranking <=15)
+
+```
+
+
+
+
+## Races
+
+```{.r}
+anim <- gapminder_sum |>
+  ggplot() +
+  geom_col(aes(x = ranking, y = gdpPercap, fill = country)) +
+  geom_text(aes(x = ranking, y = gdpPercap, label = round(gdpPercap, 0)), 
+            hjust=-0.1) +
+  geom_text(aes(x = ranking, y = 0 , 
+                label = country), hjust=1.1) + 
+  geom_text(aes(x = 15, 
+                y = max(gdpPercap), 
+                label = as.factor(year)), 
+            vjust = 0.2, alpha = 0.5,  color = "gray", size = 20) +
+  coord_flip(clip = "off", expand = FALSE) + 
+  scale_x_reverse() +
+  theme_minimal() + 
+  theme(
+    panel.grid = element_blank(), 
+    legend.position = "none",
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    plot.margin = margin(1, 4, 1, 3, "cm")
+  ) +
+  transition_states(year, state_length = 0, transition_length = 2) +
+  enter_fade() +
+  exit_fade() + 
+  ease_aes('quadratic-in-out') 
+
+p_anim <- animate(anim, 
+                  width = 700, height = 432, 
+                  fps = 25, duration = 15, 
+                  rewind = FALSE)
+p_anim
+```
+
+
+## save
+
+- We can use `anim_save()` to save animation as gif file or video files.
+```{.r}
+animation_to_save <- anim_a  + exit_shrink()
+anim_save("first_saved_animation.gif", animation = p_anim)
+
+```
+
+
+:::
+
+
+
+
+
+
+
+
+
+
+
