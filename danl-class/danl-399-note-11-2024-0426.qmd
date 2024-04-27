@@ -1,0 +1,97 @@
+---
+title: Note 11
+subtitle: Shiny Apps
+author: 
+  - name: Byeong-Hak Choe
+date: 2024-04-26
+
+execute: 
+  echo: true    # true false
+  eval: true    # true false
+  warning: false    # true false
+  message: false    # true false
+  fig-width: 9
+  fig-height: 7
+  
+format: 
+  html:
+    toc: true    # true false
+    number-sections: false    # true false
+    code-fold: false    # true false show       # https://quarto.org/docs/output-formats/html-code.html
+    code-tools: true    # true false
+    highlight-style: atom-one        # atom-one tango espresso   # https://quarto.org/docs/output-formats/html-code.html#highlighting
+    
+---
+
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(DT)
+library(gapminder)
+library(socviz)
+library(ggrepel)
+library(RColorBrewer)
+library(ggridges)
+library(gridExtra)
+library(viridis)
+library(plotly)
+library(ggiraph)
+library(htmlwidgets)
+
+theme_set(theme_ipsum()+
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.33),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 90,
+                               size = rel(1.33),
+                               margin = margin(0,10,0,0))
+                )
+          )
+```
+
+
+
+```{=html}
+<style>iframe{height: 1200px; width: "100%"}</style>
+<iframe height="100%" width="100%" frameborder="no"
+src="https://bclog1.shinyapps.io/any_/">
+</iframe>
+```
+
+
+# Interactive tables
+
+```{r}
+library(gapminder)
+rmarkdown::paged_table(gapminder)
+```
+
+
+```{r}
+DT::datatable(gapminder)
+```
+
+
+
+
+
+```{r}
+beer_mkt <- read_csv("https://bcdanl.github.io/data/beer_markets.csv")
+rmarkdown::paged_table(beer_mkt)
+```
+
+
+```{r}
+DT::datatable(beer_mkt)
+```
+
+
+
