@@ -12,7 +12,7 @@ format:
     # toc-title: Contents
 
 execute:
-  echo: false
+  echo: true
   eval: true
   message: false
   warning: false
@@ -532,9 +532,39 @@ brexit <- read_csv('https://bcdanl.github.io/data/brexit.csv')
 
 - Replicate the following visualization
 
-```{r q4a}
-#| echo: false
-knitr::include_graphics('midterm-figs/figure-html/q4a-1.png')
+```{r a4a}
+#| echo: true
+brexit <- brexit |> 
+  mutate(
+    region = fct_relevel(region, 
+                         "london", "rest_of_south", "midlands_wales", "north", "scot"),
+    region = fct_recode(region, 
+                        London = "london", 
+                        `Rest of South` = "rest_of_south", 
+                        `Midlands / Wales` = "midlands_wales", 
+                        North = "north", 
+                        Scotland = "scot")
+  )
+
+ggplot(brexit, 
+       aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap( ~ region, 
+             nrow = 1, 
+             labeller = label_wrap_gen(width = 12)) +
+  guides(fill = "none") +
+  labs(
+    title = "Was Britain right/wrong to vote to leave EU?",
+    subtitle = "YouGov Survey Results, 2-3 September 2019",
+    caption = "Source: bit.ly/2lCJZVg",
+    x = NULL, y = NULL
+  ) +
+  scale_fill_manual(values = c(
+    "gray",
+    "#67a9cf",
+    "#ef8a62"
+  )) +
+  theme_minimal()
 ```
 
 <br><br>
@@ -545,8 +575,26 @@ knitr::include_graphics('midterm-figs/figure-html/q4a-1.png')
 
 
 ```{r q4b}
-#| echo: false
-knitr::include_graphics('midterm-figs/figure-html/q4b-1.png')
+ggplot(brexit, 
+       aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, scales = 'free_x',
+    nrow = 1, labeller = label_wrap_gen(width = 12),
+    # ___
+  ) +
+  guides(fill = "none") +
+  labs(
+    title = "Was Britain right/wrong to vote to leave EU?",
+    subtitle = "YouGov Survey Results, 2-3 September 2019",
+    caption = "Source: bit.ly/2lCJZVg",
+    x = NULL, y = NULL
+  ) +
+  scale_fill_manual(values = c(
+    "Wrong" = "#ef8a62",
+    "Right" = "#67a9cf",
+    "Don't know" = "gray"
+  )) +
+  theme_minimal()
 ```
 
 <br><br>
@@ -572,8 +620,27 @@ q4 <- brexit |>
 
 
 ```{r q4c}
-#| echo: false
-knitr::include_graphics('midterm-figs/figure-html/q4c-1.png')
+ggplot(q4, aes(y = opinion, x = prop,
+               fill = opinion)) +
+  geom_col() +
+  facet_wrap(~region,
+    nrow = 1, labeller = label_wrap_gen(width = 12),
+    # ___
+  ) +
+  guides(fill = "none") +
+  labs(
+    title = "Was Britain right/wrong to vote to leave EU?",
+    subtitle = "YouGov Survey Results, 2-3 September 2019",
+    caption = "Source: bit.ly/2lCJZVg",
+    x = 'Percent', y = NULL
+  ) +
+  scale_fill_manual(values = c(
+    "Wrong" = "#ef8a62",
+    "Right" = "#67a9cf",
+    "Don't know" = "gray"
+  )) +
+  scale_x_continuous(labels = scales::percent) +
+  theme_minimal()
 ```
 
 <br><br>
@@ -585,7 +652,22 @@ knitr::include_graphics('midterm-figs/figure-html/q4c-1.png')
   - How is the story this visualization telling different than the story the previous plot tells?
 
 ```{r q4d}
-#| echo: false
-knitr::include_graphics('midterm-figs/figure-html/q4d-1.png')
+ggplot(q4, aes(y = region, x = prop,
+               fill = opinion)) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Was Britain right/wrong to vote to leave EU?",
+    subtitle = "YouGov Survey Results, 2-3 September 2019",
+    caption = "Source: bit.ly/2lCJZVg",
+    x = 'Percent', y = NULL, fill = 'Opinion'
+  ) +
+  scale_fill_manual(values = c(
+    "Wrong" = "#ef8a62",
+    "Right" = "#67a9cf",
+    "Don't know" = "gray"
+  )) +
+  scale_x_continuous(labels = scales::percent) +
+  theme_minimal() 
+
 ```
 

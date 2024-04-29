@@ -3441,28 +3441,28 @@
     "href": "danl-399-midterm-makeup-a.html#q1a",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q1a",
-    "text": "Q1a\n\nProvide your R code to create a new data.frame, bank7_1, which contains the observations with only July 1st for each year in the data.frame banks_all."
+    "text": "Q1a\n\nProvide your R code to create a new data.frame, bank7_1, which contains the observations with only July 1st for each year in the data.frame banks_all.\n\n\n\nbank7_1 &lt;- banks_all |&gt; \n  filter(month == \"July\")\n\nbank7_1 &lt;- bank7_1 |&gt; \n  filter(day == 1)"
   },
   {
     "objectID": "danl-399-midterm-makeup-a.html#q1b",
     "href": "danl-399-midterm-makeup-a.html#q1b",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q1b",
-    "text": "Q1b\n\nProvide your R code to calculate the median, mean, and standard deviation of the number of banks in business in each district in the data.frame banks_all."
+    "text": "Q1b\n\nProvide your R code to calculate the median, mean, and standard deviation of the number of banks in business in each district in the data.frame banks_all.\n\n\n\nskim(banks$bib6)\nskim(banks$bib8)"
   },
   {
     "objectID": "danl-399-midterm-makeup-a.html#q1c.",
     "href": "danl-399-midterm-makeup-a.html#q1c.",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q1c.",
-    "text": "Q1c.\n\nProvide the ggplot code to replicate the following ggplot figure that describes how the distribution of the number of banks in business varies by district.\n\nBlue color corresponds to the Sixth district.\nRed color corresponds to the Eighth district."
+    "text": "Q1c.\n\nProvide the ggplot code to replicate the following ggplot figure that describes how the distribution of the number of banks in business varies by district.\n\nBlue color corresponds to the Sixth district.\nRed color corresponds to the Eighth district.\n\n\n\nggplot(banks_all) +\n  geom_freqpoly(aes(x = bib6),\n                 bins = 100, \n                 color = 'blue') +\n  geom_histogram(aes(x = bib8),\n                 bins = 100, \n                 fill = 'red', alpha = .5) +\n  labs(x = \"Number of banks in business\")"
   },
   {
     "objectID": "danl-399-midterm-makeup-a.html#q1d.",
     "href": "danl-399-midterm-makeup-a.html#q1d.",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q1d.",
-    "text": "Q1d.\n\nProvide the ggplot code with the data.frame banks to replicate the following ggplot figure that describes the yearly trend of the number of banks in business for each district.\n\nThe dotted line is from the observation with “counterfactual” district value .\nThe logical condition district != \"counterfactual\" returns TRUE if the value of district is not equal to “counterfactual”.\nThe logical condition district != \"counterfactual\" returns FALSE if the value of district is equal to “counterfactual”.\nThe number of banks in business in this figure was measured on July 1st in each year."
+    "text": "Q1d.\n\nProvide the ggplot code with the data.frame banks to replicate the following ggplot figure that describes the yearly trend of the number of banks in business for each district.\n\nThe dotted line is from the observation with “counterfactual” district value .\nThe logical condition district != \"counterfactual\" returns TRUE if the value of district is not equal to “counterfactual”.\nThe logical condition district != \"counterfactual\" returns FALSE if the value of district is equal to “counterfactual”.\nThe number of banks in business in this figure was measured on July 1st in each year.\n\n\n\nggplot(data = banks |&gt; \n         filter(district != \"counterfactual\"),\n       aes(x = year, y = n_banks)) +\n  geom_line(aes(color = district),\n            show.legend = F) +\n  geom_line(data = banks |&gt; \n              filter(district == \"counterfactual\"),\n            linetype = 2\n            ) +\n  geom_point() +\n  geom_point(data = banks |&gt; \n               filter(district == \"counterfactual\")) +\n  geom_vline(xintercept = 1930 + 5/12, linetype = 3) +\n  geom_label_repel(data = banks |&gt; \n                     filter(year == 1934),\n                   aes(x = 1934, label = district),\n                   box.padding = .75,\n                   nudge_x = .33) +\n  scale_x_continuous(breaks = c(1929, 1930, 1930 + 5/12, 1931, 1932, 1933, 1934, 1935),\n                     label = c('1929', '1930', 'Dec\\n1930', '1931', '1932', '1933', '1934', '1935'),\n                     limits = c(1929,1935)\n                     ) +\n  theme(axis.text.x = element_text(angle = 0))"
   },
   {
     "objectID": "danl-399-midterm-makeup-a.html#q1e.",
@@ -3483,7 +3483,7 @@
     "href": "danl-399-midterm-makeup-a.html#q2a.",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q2a.",
-    "text": "Q2a.\n\nProvide ggplot code to replicate the following visualization that describes (1) the time trend of log10(gdpPercap) for each country and (2) the time trend of log10(gdpPercap) for each continent.\n\nThe time trend of log10(gdpPercap) for each continent, depicted by the blue curve, is from the prediction based on the data points of year and log10(gdpPercap).\nThe time trend of log10(gdpPercap) for each country, depicted by the “grey” curve, is from the data points of year and log10(gdpPercap) for that country."
+    "text": "Q2a.\n\nProvide ggplot code to replicate the following visualization that describes (1) the time trend of log10(gdpPercap) for each country and (2) the time trend of log10(gdpPercap) for each continent.\n\nThe time trend of log10(gdpPercap) for each continent, depicted by the blue curve, is from the prediction based on the data points of year and log10(gdpPercap).\nThe time trend of log10(gdpPercap) for each country, depicted by the “grey” curve, is from the data points of year and log10(gdpPercap) for that country.\n\n\n\np &lt;- ggplot(data = gapminder,\n            mapping = aes( x = year,\n                           y = gdpPercap,\n                           group = country) )\n\np + geom_line(color=\"gray70\", aes(group = country)) +\n    geom_smooth(size = 1.1, method = \"loess\", se = FALSE,\n                aes(group = continent)) +\n    facet_wrap(continent ~.) +\n    scale_y_log10(labels=scales::dollar) +\n    theme(axis.text.x = element_text(angle = 45),\n          axis.title.x = element_text(margin = margin(t = 0, b = 0, l = 0, r = 0)))"
   },
   {
     "objectID": "danl-399-midterm-makeup-a.html#q2b.",
@@ -3497,7 +3497,7 @@
     "href": "danl-399-midterm-makeup-a.html#q2c.",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q2c.",
-    "text": "Q2c.\n\nProvide ggplot code to replicate the following visualization that describes (1) the relationship between log10(gdpPercap) and lifeExp in year 2007, excluding the continent “Oceania”.\n\nThe size of dots varies by pop."
+    "text": "Q2c.\n\nProvide ggplot code to replicate the following visualization that describes (1) the relationship between log10(gdpPercap) and lifeExp in year 2007, excluding the continent “Oceania”.\n\nThe size of dots varies by pop.\n\n\n\np &lt;- ggplot(data = gapminder |&gt; filter(year == 2007) |&gt; filter(continent != \"Oceania\"),\n            mapping = aes( x = gdpPercap,\n                           y = lifeExp,\n                   color = continent) )\n\np + geom_point(alpha = .5, \n               aes(size = pop)) +\n  geom_smooth(se = T, method = lm, aes(fill = continent)) +\n  ggrepel::geom_text_repel(data = gapminder |&gt; filter(year == 2007, \n                                                      country %in% c(\"United States\", \"China\", \"India\", \"Nigeria\") ),\n                           aes(label = country),\n                           box.padding = 3,\n                           nudge_x = .5,\n                           show.legend = F) +\n  guides(color = guide_legend(label.position = \"bottom\",\n                              keywidth = 3, order = 1),\n         size = guide_legend(label.position = \"bottom\",\n                              keywidth = 3, order = 2),\n         fill = guide_legend(label.position = \"bottom\",\n                              keywidth = 3, order = 1),\n         ) +\n  scale_x_log10(labels = scales::comma) +\n  scale_color_brewer(palette = \"Dark2\") + \n  scale_fill_brewer(palette = \"Dark2\") + \n  scale_size_continuous(breaks = c(10^8, 2*10^8, 4*10^8, 6*10^8), labels = scales::comma) +\n  labs(y = \"Life\\nExpectancy\",\n       x = \"GDP per capita\",\n       size = \"Population\",\n       ) +\n  theme(legend.position = \"top\")"
   },
   {
     "objectID": "danl-399-midterm-makeup-a.html#q2d.",
@@ -3525,7 +3525,7 @@
     "href": "danl-399-midterm-makeup-a.html#q3a.",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q3a.",
-    "text": "Q3a.\n\nProvide ggplot code with the titanic_1 data.frame to replicate the following visualization that describes how the distribution of Sex varies by Survived, Age, and Class."
+    "text": "Q3a.\n\nProvide ggplot code with the titanic_1 data.frame to replicate the following visualization that describes how the distribution of Sex varies by Survived, Age, and Class.\n\n\np &lt;- ggplot(data = titanic_1,\n            mapping = aes(x = Survived, fill = Sex))\n\np + geom_bar(position = \"fill\", color = 'black') +\n  facet_grid(Age ~ Class) +\n  scale_y_percent() +\n  scale_fill_manual(values = c('#cd4f39', '#4f632d')) +\n  labs(y = \"Percent\") +\n  guides(color = guide_legend(label.position = \"bottom\",\n                              keywidth = 3)) +\n  theme_minimal() +\n  theme(legend.position = \"bottom\",\n        axis.title.y = element_text(margin = margin(0, 15, 0, 0)))"
   },
   {
     "objectID": "danl-399-midterm-makeup-a.html#q3b.",
@@ -3539,7 +3539,7 @@
     "href": "danl-399-midterm-makeup-a.html#q3c.",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q3c.",
-    "text": "Q3c.\n\nProvide ggplot code with the titanic_2 data.frame to replicate the following visualization that describes how the distribution of age varies by survived, pclass, and sex.\n\nUse the following colors: #4c3642 and #d399e7.\nThe number of bins in each subplot is 25."
+    "text": "Q3c.\n\nProvide ggplot code with the titanic_2 data.frame to replicate the following visualization that describes how the distribution of age varies by survived, pclass, and sex.\n\nUse the following colors: #4c3642 and #d399e7.\nThe number of bins in each subplot is 25.\n\n\n\nggplot(data = titanic_2 |&gt; \n         filter(!is.na(pclass), !is.na(sex)),\n       ) +\n  geom_freqpoly(aes(x = age, y = stat(count / sum(count)), \n                    color = survived ), \n                bins = 20,\n                linewidth = rel(2)) +\n  scale_color_manual(values = c('#4c3642','#d399e7')) +\n  facet_grid(pclass ~ sex) +\n  scale_y_percent() +\n  labs(y = \"Percent\",\n       color = \"Survived?\") +\n  guides(color = guide_legend(reverse = T,\n                              label.position = \"bottom\",\n                              keywidth = 3)) +\n  theme(legend.position = \"top\",\n        axis.title.y = element_text(margin = margin(0, 15, 0, 0)))"
   },
   {
     "objectID": "danl-399-midterm-makeup-a.html#q3d.",
@@ -3553,28 +3553,28 @@
     "href": "danl-399-midterm-makeup-a.html#q4a",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q4a",
-    "text": "Q4a\n\nReplicate the following visualization"
+    "text": "Q4a\n\nReplicate the following visualization\n\n\nbrexit &lt;- brexit |&gt; \n  mutate(\n    region = fct_relevel(region, \n                         \"london\", \"rest_of_south\", \"midlands_wales\", \"north\", \"scot\"),\n    region = fct_recode(region, \n                        London = \"london\", \n                        `Rest of South` = \"rest_of_south\", \n                        `Midlands / Wales` = \"midlands_wales\", \n                        North = \"north\", \n                        Scotland = \"scot\")\n  )\n\nggplot(brexit, \n       aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap( ~ region, \n             nrow = 1, \n             labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n    caption = \"Source: bit.ly/2lCJZVg\",\n    x = NULL, y = NULL\n  ) +\n  scale_fill_manual(values = c(\n    \"gray\",\n    \"#67a9cf\",\n    \"#ef8a62\"\n  )) +\n  theme_minimal()"
   },
   {
     "objectID": "danl-399-midterm-makeup-a.html#q4b",
     "href": "danl-399-midterm-makeup-a.html#q4b",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q4b",
-    "text": "Q4b\n\nReplicate the following visualization\n\nHow is the story this visualization telling different than the story the plot in Q4a?"
+    "text": "Q4b\n\nReplicate the following visualization\n\nHow is the story this visualization telling different than the story the plot in Q4a?\n\n\n\nggplot(brexit, \n       aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, scales = 'free_x',\n    nrow = 1, labeller = label_wrap_gen(width = 12),\n    # ___\n  ) +\n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n    caption = \"Source: bit.ly/2lCJZVg\",\n    x = NULL, y = NULL\n  ) +\n  scale_fill_manual(values = c(\n    \"Wrong\" = \"#ef8a62\",\n    \"Right\" = \"#67a9cf\",\n    \"Don't know\" = \"gray\"\n  )) +\n  theme_minimal()"
   },
   {
     "objectID": "danl-399-midterm-makeup-a.html#q4c",
     "href": "danl-399-midterm-makeup-a.html#q4c",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q4c",
-    "text": "Q4c\n\nFirst, calculate the proportion of wrong, right, and don’t know answers in each region and then plot these proportions (rather than the counts) and then improve axis labeling.\n\n\nq4 &lt;- brexit |&gt; \n  group_by(region, opinion) |&gt;  \n  summarise(n = n()) |&gt; \n  mutate(tot = sum(n),\n         prop = n / tot ) \n\n\nReplicate the following visualization\n\nHow is the story this visualization telling different than the story the plot in Q4b?"
+    "text": "Q4c\n\nFirst, calculate the proportion of wrong, right, and don’t know answers in each region and then plot these proportions (rather than the counts) and then improve axis labeling.\n\n\nq4 &lt;- brexit |&gt; \n  group_by(region, opinion) |&gt;  \n  summarise(n = n()) |&gt; \n  mutate(tot = sum(n),\n         prop = n / tot ) \n\n\nReplicate the following visualization\n\nHow is the story this visualization telling different than the story the plot in Q4b?\n\n\n\nggplot(q4, aes(y = opinion, x = prop,\n               fill = opinion)) +\n  geom_col() +\n  facet_wrap(~region,\n    nrow = 1, labeller = label_wrap_gen(width = 12),\n    # ___\n  ) +\n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n    caption = \"Source: bit.ly/2lCJZVg\",\n    x = 'Percent', y = NULL\n  ) +\n  scale_fill_manual(values = c(\n    \"Wrong\" = \"#ef8a62\",\n    \"Right\" = \"#67a9cf\",\n    \"Don't know\" = \"gray\"\n  )) +\n  scale_x_continuous(labels = scales::percent) +\n  theme_minimal()"
   },
   {
     "objectID": "danl-399-midterm-makeup-a.html#q4d.",
     "href": "danl-399-midterm-makeup-a.html#q4d.",
     "title": "DANL 399: Data Visualization and Presentation",
     "section": "Q4d.",
-    "text": "Q4d.\n\nRecreate the same visualization from the previous exercise, this time dodging the bars for opinion proportions for each region, rather than faceting by region and then improve the legend.\n\nHow is the story this visualization telling different than the story the previous plot tells?"
+    "text": "Q4d.\n\nRecreate the same visualization from the previous exercise, this time dodging the bars for opinion proportions for each region, rather than faceting by region and then improve the legend.\n\nHow is the story this visualization telling different than the story the previous plot tells?\n\n\n\nggplot(q4, aes(y = region, x = prop,\n               fill = opinion)) +\n  geom_col(position = \"dodge\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n    caption = \"Source: bit.ly/2lCJZVg\",\n    x = 'Percent', y = NULL, fill = 'Opinion'\n  ) +\n  scale_fill_manual(values = c(\n    \"Wrong\" = \"#ef8a62\",\n    \"Right\" = \"#67a9cf\",\n    \"Don't know\" = \"gray\"\n  )) +\n  scale_x_continuous(labels = scales::percent) +\n  theme_minimal()"
   },
   {
     "objectID": "danl-lec/danl-399-lec-07-2024-0405.html#draw-maps-1",
