@@ -4002,5 +4002,103 @@
     "title": "Note 11",
     "section": "",
     "text": "Interactive tables\n\nlibrary(gapminder)\nrmarkdown::paged_table(gapminder)\n\n\n\n  \n\n\n\n\nDT::datatable(gapminder)\n\n\n\n\n\n\n\nbeer_mkt &lt;- read_csv(\"https://bcdanl.github.io/data/beer_markets.csv\")\nrmarkdown::paged_table(beer_mkt)\n\n\n\n  \n\n\n\n\nDT::datatable(beer_mkt)\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "danl-399-midterm-a.html",
+    "href": "danl-399-midterm-a.html",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "",
+    "text": "library(knitr)\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(socviz)\nlibrary(ggthemes)\nlibrary(ggrepel)\nlibrary(ggtext)\nlibrary(hrbrthemes)\nlibrary(gapminder)\nlibrary(ggridges)\n\n # Honor Pledges\nI solemnly swear that I will not cheat or engage in any form of academic dishonesty during this exam.\nI will not communicate with other students or use unauthorized materials.\nI will uphold the integrity of this exam and demonstrate my own knowledge and abilities.\nBy taking this pledge, I acknowledge that academic dishonesty undermines the academic process and is a violation of the trust placed in me as a student.\nI accept the consequences of any violation of this promise.\n\nStudent’s Name:\nStudent’s ID:\nStudent’s Signature:"
+  },
+  {
+    "objectID": "danl-399-midterm-a.html#loading-r-packages",
+    "href": "danl-399-midterm-a.html#loading-r-packages",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "",
+    "text": "library(knitr)\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(socviz)\nlibrary(ggthemes)\nlibrary(ggrepel)\nlibrary(ggtext)\nlibrary(hrbrthemes)\nlibrary(gapminder)\nlibrary(ggridges)\n\n # Honor Pledges\nI solemnly swear that I will not cheat or engage in any form of academic dishonesty during this exam.\nI will not communicate with other students or use unauthorized materials.\nI will uphold the integrity of this exam and demonstrate my own knowledge and abilities.\nBy taking this pledge, I acknowledge that academic dishonesty undermines the academic process and is a violation of the trust placed in me as a student.\nI accept the consequences of any violation of this promise.\n\nStudent’s Name:\nStudent’s ID:\nStudent’s Signature:"
+  },
+  {
+    "objectID": "danl-399-midterm-a.html#using-the-power-of-nature-to-clean-the-oceans",
+    "href": "danl-399-midterm-a.html#using-the-power-of-nature-to-clean-the-oceans",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Using The Power of Nature to Clean the Oceans",
+    "text": "Using The Power of Nature to Clean the Oceans\n\n\n\nMr. Trash Wheel\n\n\nMr. Trash Wheel is a semi-autonomous trash interceptor that is placed at the end of a river, stream or other outfall.\nFar too lazy to chase trash around the ocean, Mr. Trash Wheel stays put and waits for the waste to flow to him.\nSustainably powered and built to withstand the biggest storms, Mr. Trash Wheel uses a unique blend of solar and hydro power to pull hundreds of tons of trash out of the water each year."
+  },
+  {
+    "objectID": "danl-399-midterm-a.html#meet-the-mr.-trash-wheel-family",
+    "href": "danl-399-midterm-a.html#meet-the-mr.-trash-wheel-family",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Meet the Mr. Trash Wheel Family",
+    "text": "Meet the Mr. Trash Wheel Family\n\n\n\n\n\n\nMister Trash Wheel\n\n\n\n\nInstalled: May 9, 2014\nLocation: Jones Falls stream, Inner Harbor, Baltimore, MD\n\n\n\n\n\n\n\n\nProfessor Trash Wheel\n\n\n\n\nInstalled: December 4, 2016\nLocation: Harris Creek, Canton neighborhood, Baltimore, MD\n\n\n\n\n\n\n\n\nCaptain Trash Wheel\n\n\n\n\n\nInstalled: June 5, 2018\nLocation: Masonville Cove, Baltimore, MD\n\n\n\n\n\n\n\n\nGwynnda Trash Wheel\n\n\n\n\n\nInstalled: June 3, 2021\nLocation: Gwynns Falls, West Baltimore, MD"
+  },
+  {
+    "objectID": "danl-399-midterm-a.html#part-1",
+    "href": "danl-399-midterm-a.html#part-1",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Part 1",
+    "text": "Part 1\n\nThe following is the data frames for Part 1 in Question 1.\n\n\ntrashwheel &lt;- read_csv('https://bcdanl.github.io/data/trashwheel.csv')\n\n\nVariable Description\n\n\n\n\n\n\n\n\nvariable\ntype\ndescription\n\n\n\n\nName\ncharacter\nName of the Trash Wheel\n\n\nMonth\ncharacter\nMonth\n\n\nYear\nnumeric\nYear\n\n\nDate\ncharacter\nDate (Monthly)\n\n\nWeight\nnumeric\nWeight in tons\n\n\nVolume\nnumeric\nVolume in cubic yards\n\n\nPlasticBottles\nnumeric\nNumber of plastic bottles\n\n\nPolystyrene\nnumeric\nNumber of polystyrene items\n\n\nCigaretteButts\nnumeric\nNumber of cigarette butts\n\n\nGlassBottles\nnumeric\nNumber of glass bottles\n\n\nPlasticBags\nnumeric\nNumber of plastic bags\n\n\nWrappers\nnumeric\nNumber of wrappers\n\n\nSportsBalls\nnumeric\nNumber of sports balls\n\n\nHomesPowered\nnumeric\nHomes Powered - Each ton of trash equates to on average 500 kilowatts of electricity. An average household will use 30 kilowatts per day.\n\n\n\n\n\nQ1a\n\nProvide an R code to calculate mean and standard deviation of Volume for “Mister Trash Wheel”.\n\nAnswer :\n\n\n\nQ1b\n\nProvide a ggplot code to replicate the following ggplot figure that describes how the distribution of Weight varies by Name.\n\nThe number of bins in each subplot below is 15.\n\n\n\nggplot(trashwheel, aes(x = Weight, fill = Name)) +\n  geom_histogram(bins = 15,\n                 show.legend = F) +\n  facet_wrap(Name ~ .)\n\n\n\n\nAnswer :\n\n\n\nQ1c\n\nProvide a comment to describe how the distribution of Weight varies by Name, as visualized in Q1b.\n\nAnswer :\n\n\n\nQ1d\n\nProvide a ggplot code to replicate the following ggplot figure that describes how the daily trend of HomesPowered varies by Name.\n\nThe number of bins in each subplot below is 75.\n\n\n\nggplot(trashwheel, aes(x = Date, y = HomesPowered)) +\n  geom_line(aes(color = Name),\n            show.legend = F) +\n  geom_point(size = .5) +\n  geom_smooth(se = F) +\n  facet_wrap(Name ~ ., scales = \"free\") \n\n\n\n\nAnswer :\n\n\n\nQ1e\n\nProvide a comment to describe how the daily trend of HomesPowered varies by Name, as visualized in Q1d.\n\nAnswer :"
+  },
+  {
+    "objectID": "danl-399-midterm-a.html#part-ii",
+    "href": "danl-399-midterm-a.html#part-ii",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Part II",
+    "text": "Part II\nFor Part II, use the following data.frame, trashwheel_long.\n\ntrashwheel_long &lt;- trashwheel |&gt; \n  ungroup() |&gt; \n  select(Name, Date, PlasticBottles:SportsBalls) |&gt; \n  pivot_longer(cols = PlasticBottles:SportsBalls,\n               values_to = \"Number\",\n               names_to = \"Trash_Type\") |&gt; \n  arrange(Trash_Type, Date)\n\n\nVariable Description\n\n\n\nvariable\ntype\ndescription\n\n\n\n\nName\ncharacter\nName of the Trash Wheel\n\n\nDate\ncharacter\nDate (Monthly)\n\n\nTrash_Type\nnumeric\nType of Trashes\n\n\nNumber\nnumeric\nNumber of trash items\n\n\n\n\n\n\nQ1f\n\nProvide a ggplot code to replicate the following ggplot figure that describes how the daily trend of log10(Number) varies by Trash_Type and Name.\n\n\nggplot(data = trashwheel_long, aes(x = Date, y = log10(Number))) +\n  geom_line(aes(color = Trash_Type), \n            linewidth = .25) +\n  geom_point(size = .1) +\n  geom_smooth(aes(color = Trash_Type), \n              se = F) +\n  facet_wrap(Name ~ ., scales = \"free\") +\n  scale_color_brewer(palette = 'Dark2') +\n  theme(legend.position = \"top\")\n\n\n\n\nAnswer :\n\n\n\nQ1g\n\nProvide a comment to describes how the daily trend of log10(Number) varies by Trash_Type and Name, as visualized in Q1f.\n\nAnswer :\n\n\n\nQ1h\n\nProvide a ggplot code to replicate the following ggplot figure that describes how the distribution of log10(Number) varies by Trash_Type and Name.\n\n\nggplot(trashwheel_long, aes(x = log10(Number), y = Trash_Type)) +\n  geom_boxplot((aes(fill = Trash_Type)), show.legend = F) +\n  facet_wrap(Name ~ ., scales = \"free\") \n\n\n\n\nAnswer :\n\n\n\nQ1i\n\nProvide a comment to describe how the distribution of Number varies by Trash_Type and Name, as visualized in Q1f.\n\nIn your comment, please include how the median Number of “CigaretteButts” varies by Name.\n\n\nAnswer :"
+  },
+  {
+    "objectID": "danl-399-midterm-a.html#q2a",
+    "href": "danl-399-midterm-a.html#q2a",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q2a",
+    "text": "Q2a\n\nReplicate the following ggplot.\n\nUse the color #496d9b for United States, and #fffff0 for the rest of countries.\n\n\n\ngapminder_sum &lt;- gapminder |&gt; \n  group_by(country, continent) |&gt; \n  summarise(lifeExp = median(lifeExp, na.rm = T)) |&gt; \n  filter(continent != 'Oceania') |&gt; \n  mutate(usa = ifelse(country == 'United States', T, F),\n         lifeExp = ifelse(country == 'United States', \n                          paste0(' Mean: ', round(lifeExp, 2)), \n                          NA))\n\n# Set the data and filter to include only observations excluding Oceania\nggplot(data = filter(gapminder, \n                     continent != 'Oceania') |&gt; \n         mutate(usa = ifelse(country == 'United States', T, F)),\n\n       # Set the aesthetics (x-axis and y-axis) to life expectancy and reorder countries by life expectancy\n       aes(x = lifeExp,\n           y = fct_reorder(country, lifeExp))) +\n\n  # Add a layer of points to the plot, setting the color to blue and size to 1.75\n  geom_boxplot(aes(fill = usa), show.legend = F, color = 'grey', linewidth = .25) +\n\n  # Add a layer of text labels to the plot, setting the label to life expectancy, hjust to -.25, and size to 2\n  geom_label(data = gapminder_sum, \n            x = .925*max(gapminder$lifeExp),\n            aes(label = lifeExp), hjust = -.25,\n            size = 2, color = '#496d9b', fontface = 'bold') +\n\n  # Facet the plot by continent, with y-scales free\n  facet_wrap(.~continent, scales = \"free_y\") +\n\n  # Set the x-axis label to NULL (no name) and limit the x-axis to 35-90\n  scale_x_continuous(\n    name = NULL,\n    lim = c(35, 90)\n  ) +\n\n  # Set the y-axis label to NULL (no name)\n  scale_y_discrete(name = NULL) +\n  \n  scale_fill_manual(values = c('#fffff0', '#496d9b')) +\n\n  # Add a title to the plot\n  labs(title = 'Box of Life Expectancy') +\n\n  # Set the theme to minimal\n  theme_minimal() +\n\n  # Customize theme elements: set the y-axis text size, the plot title size and position, and the facet strip text size and font face\n  theme(\n    text = element_text(size=16,  family=\"serif\"),\n    axis.text.y = element_text(size = rel(.75)),\n    plot.title = element_text(size = rel(1.5),\n                              hjust = 0.5,\n                              face = 'bold'),\n    strip.text = element_text(size = rel(1.25),\n                              face = 'bold')\n  )"
+  },
+  {
+    "objectID": "danl-399-midterm-a.html#q2b",
+    "href": "danl-399-midterm-a.html#q2b",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q2b",
+    "text": "Q2b\n\nMake a simple comment on the visualization result.\n\nAny comment that is not made up is okay."
+  },
+  {
+    "objectID": "danl-399-midterm-a.html#q3a",
+    "href": "danl-399-midterm-a.html#q3a",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q3a",
+    "text": "Q3a\n\nReplicate the following ggplot.\n\n\nggplot(political_ideology,\n       aes(\n         x = ideology_score,\n         y = year,\n         group = interaction(party, factor(year))  ,\n         fill = interaction(party, factor(year))\n       )\n) +\n  geom_density_ridges(scale = 5, size = 0.25,\n                      rel_min_height = 0.01,\n                      alpha=0.75, color = \"white\") +\n  geom_vline(xintercept = 0) +\n  scale_x_continuous(\n    name = \"Ideology score\",\n    limits = c(-.8, 1.3),\n    breaks = c(-1,-.75,-.5,-.25,\n               0,\n               .25,.5,.75,1)\n  ) +\n  scale_y_reverse(\n    name = \"Year\",\n    breaks=c(seq(2013, 1963, -10))\n  ) +\n  scale_fill_cyclical(\n    breaks = c(\"DEM.1963\", \"GOP.1963\"),\n    labels = c(`DEM.1963` = \"Democrats  \",\n               `GOP.1963` = \"Republicans\"),\n    values = c(\"#2e74c0\", \"#cb454a\", \n               \"#6c9dd2\", \"#da7c80\"),\n    name = NULL,\n    guide = \"legend\"\n  ) +\n  theme_ipsum() +\n  theme(\n    axis.text.x = element_text(size = rel(1.5)),\n    axis.text.y = element_text(vjust = 0,\n                               size = rel(1.5)),\n    axis.title.x = element_text(size = rel(2)),\n    axis.title.y = element_text(size = rel(2)),\n    legend.position = c(1, 1),\n    legend.justification = c(1, 1),\n    legend.direction = \"horizontal\",\n    legend.background = element_rect(fill = \"white\")\n  )"
+  },
+  {
+    "objectID": "danl-399-midterm-a.html#q3b",
+    "href": "danl-399-midterm-a.html#q3b",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q3b",
+    "text": "Q3b\n\nMake a simple comment on the visualization result in Q3a."
+  },
+  {
+    "objectID": "danl-399-midterm-a.html#q4a",
+    "href": "danl-399-midterm-a.html#q4a",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q4a",
+    "text": "Q4a\n\nReplicate the following visualization\n\n\nbrexit &lt;- brexit |&gt; \n  mutate(\n    region = fct_relevel(region, \n                         \"london\", \"rest_of_south\", \"midlands_wales\", \"north\", \"scot\"),\n    region = fct_recode(region, \n                        London = \"london\", \n                        `Rest of South` = \"rest_of_south\", \n                        `Midlands / Wales` = \"midlands_wales\", \n                        North = \"north\", \n                        Scotland = \"scot\")\n  )\n\nggplot(brexit, \n       aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap( ~ region, \n             nrow = 1, \n             labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n    caption = \"Source: bit.ly/2lCJZVg\",\n    x = NULL, y = NULL\n  ) +\n  scale_fill_manual(values = c(\n    \"gray\",\n    \"#67a9cf\",\n    \"#ef8a62\"\n  )) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "danl-399-midterm-a.html#q4b",
+    "href": "danl-399-midterm-a.html#q4b",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q4b",
+    "text": "Q4b\n\nReplicate the following visualization\n\nHow is the story this visualization telling different than the story the plot in Q4a?\n\n\n\nggplot(brexit, \n       aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, scales = 'free_x',\n    nrow = 1, labeller = label_wrap_gen(width = 12),\n    # ___\n  ) +\n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n    caption = \"Source: bit.ly/2lCJZVg\",\n    x = NULL, y = NULL\n  ) +\n  scale_fill_manual(values = c(\n    \"Wrong\" = \"#ef8a62\",\n    \"Right\" = \"#67a9cf\",\n    \"Don't know\" = \"gray\"\n  )) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "danl-399-midterm-a.html#q4c",
+    "href": "danl-399-midterm-a.html#q4c",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q4c",
+    "text": "Q4c\n\nFirst, calculate the proportion of wrong, right, and don’t know answers in each region and then plot these proportions (rather than the counts) and then improve axis labeling.\n\n\nq4 &lt;- brexit |&gt; \n  group_by(region, opinion) |&gt;  \n  summarise(n = n()) |&gt; \n  mutate(tot = sum(n),\n         prop = n / tot ) \n\n\nReplicate the following visualization\n\nHow is the story this visualization telling different than the story the plot in Q4b?\n\n\n\nggplot(q4, aes(y = opinion, x = prop,\n               fill = opinion)) +\n  geom_col() +\n  facet_wrap(~region,\n    nrow = 1, labeller = label_wrap_gen(width = 12),\n    # ___\n  ) +\n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n    caption = \"Source: bit.ly/2lCJZVg\",\n    x = 'Percent', y = NULL\n  ) +\n  scale_fill_manual(values = c(\n    \"Wrong\" = \"#ef8a62\",\n    \"Right\" = \"#67a9cf\",\n    \"Don't know\" = \"gray\"\n  )) +\n  scale_x_continuous(labels = scales::percent) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "danl-399-midterm-a.html#q4d.",
+    "href": "danl-399-midterm-a.html#q4d.",
+    "title": "DANL 399: Data Visualization and Presentation",
+    "section": "Q4d.",
+    "text": "Q4d.\n\nRecreate the same visualization from the previous exercise, this time dodging the bars for opinion proportions for each region, rather than faceting by region and then improve the legend.\n\nHow is the story this visualization telling different than the story the previous plot tells?\n\n\n\nggplot(q4, aes(y = region, x = prop,\n               fill = opinion)) +\n  geom_col(position = \"dodge\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n    caption = \"Source: bit.ly/2lCJZVg\",\n    x = 'Percent', y = NULL, fill = 'Opinion'\n  ) +\n  scale_fill_manual(values = c(\n    \"Wrong\" = \"#ef8a62\",\n    \"Right\" = \"#67a9cf\",\n    \"Don't know\" = \"gray\"\n  )) +\n  scale_x_continuous(labels = scales::percent) +\n  theme_minimal()"
   }
 ]
