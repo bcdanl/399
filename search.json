@@ -4282,5 +4282,12 @@
     "title": "Lecture 10",
     "section": "Value Boxes",
     "text": "Value Boxes\nicon and color\n\nThe icon used in value boxes can be any of the 2,000 available bootstrap icons.\nThe color can be any CSS color value, however there are some color aliases that are tuned specifically for dashboards that you might consider using by default:\n\n\n\n\nprimary: Blue\nsecondary: Gray\nsuccess: Green\ninfo: Bright Blue\n\n\n\nwarning: Yellow/Orange\ndanger: Red\nlight: Light Gray\ndark: Black"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-10-2024-0503.html#quarto-dashboards-3",
+    "href": "danl-lec/danl-399-lec-10-2024-0503.html#quarto-dashboards-3",
+    "title": "Lecture 10",
+    "section": "Quarto Dashboards",
+    "text": "Quarto Dashboards\n\nQuarto Dashboards requires Quarto version above 1.4.\n\nDownload Quarto"
   }
 ]

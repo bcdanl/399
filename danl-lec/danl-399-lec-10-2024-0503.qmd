@@ -105,6 +105,14 @@ format: dashboard
 # content goes here...
 ```
 
+## Quarto Dashboards
+
+- Quarto Dashboards requires Quarto version above 1.4.
+
+  - [Download Quarto](https://quarto.org/docs/download/)
+
+
+
 ## Dashboard Components
 
 ::: incremental
