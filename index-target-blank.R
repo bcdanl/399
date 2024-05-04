@@ -8,10 +8,15 @@ html_as_text <- readLines("index.html", warn = FALSE)
 system(paste("rm", shQuote("index.html")))
 # Sys.sleep(2)
 
+
 # Next lecture number & dates
-lec_n <- 8   ;  lec_nos <- str_c('0', as.character(1:lec_n))
 lec_dates <- c('0126', '0202', '0209', '0216', 
-               '0223', '0301', '0405', '0412')
+               '0223', '0301', '0405', '0412', 
+               '0503')
+lec_n <- length(lec_dates)
+
+lec_nos <- 1:lec_n
+lec_nos <- sprintf("%02d", lec_nos)
 
 for (i in 1:length(lec_nos)){
   lec_no <- lec_nos[i]
@@ -28,4 +33,3 @@ for (i in 1:length(lec_nos)){
 
 writeLines(html_as_text, 
            "index.html")
-
