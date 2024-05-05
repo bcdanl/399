@@ -4289,5 +4289,12 @@
     "title": "Lecture 10",
     "section": "Quarto Dashboards",
     "text": "Quarto Dashboards\n\nQuarto Dashboards requires Quarto version above 1.4.\n\nDownload Quarto"
+  },
+  {
+    "objectID": "danl-lec/danl-399-lec-10-2024-0503.html#dashboard-basics",
+    "href": "danl-lec/danl-399-lec-10-2024-0503.html#dashboard-basics",
+    "title": "Lecture 10",
+    "section": "Dashboard Basics",
+    "text": "Dashboard Basics\n\nDashboards are composed of cards\nCards are arranged into rows and columns\nPages, tabsets, and sidebars allow more advanced layouts\n\nWith these simple building blocks, it is pretty straightforward to build some cool dashboards…"
   }
 ]

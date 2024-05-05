@@ -113,18 +113,17 @@ format: dashboard
 
 
 
-## Dashboard Components
 
-::: incremental
-1.  **Navigation Bar and Pages** --- Icon, title, and author along with links to sub-pages (if more than one page is defined).
+## Dashboard Basics
 
-2.  **Sidebars, Rows & Columns, and Tabsets** --- Rows and columns using markdown heading (with optional attributes to control height, width, etc.).
-    Sidebars for interactive inputs.
-    Tabsets to further divide content.
+- Dashboards are composed of **cards**
+- Cards are arranged into **rows** and **columns**
+- **Pages**, **tabsets**, and **sidebars** allow more advanced layouts
 
-3.  **Cards (Plots, Tables, Value Boxes, Content)** --- Cards are containers for cell outputs and free form markdown text.
-    The content of cards typically maps to *cells* in your notebook or source document.
-:::
+
+With these simple building blocks, it is pretty straightforward to build some cool dashboards...
+
+
 
 ## Navigation Bar and Pages
 
