@@ -482,49 +482,88 @@ dashboards from <code>.qmd</code> files</p>
 </ul>
 <p>With these simple building blocks, it is pretty straightforward to build some cool dashboards…</p>
 </section>
+<section id="dashboard-basics-1" class="slide level2">
+<h2>Dashboard Basics</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">--- </span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> My Dashboard</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="an">author:</span><span class="co"> Your Name</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="an">format:</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">  dashboard</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">---</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="in">```{r}</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="in">```</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="in">```{r}</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="in">```</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="plots" class="slide level2">
+<h2>Plots</h2>
+<p>Each code chunk makes a card, and can take a title</p>
+<div class="columns">
+<div class="column fragment smaller">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="st">```</span><span class="at">{r}</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="at">#| title: GDP and Life Expectancy</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="at">library(gapminder)</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="at">library(tidyverse)</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="at">ggplot(gapminder, </span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="at">       aes(x = gdpPercap, </span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="at">           y = lifeExp, </span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="at">           color = continent)) +</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="at">  geom_point()</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column fragment">
+<p><img data-src="images/ggplot-gapminder.png" style="width:85.0%"></p>
+</div>
+</div>
+</section>
 <section id="navigation-bar-and-pages" class="slide level2">
 <h2>Navigation Bar and Pages</h2>
 
 <img data-src="images/navigation-toolbar.png" class="r-stretch"><div style="margin-top: 0.7em;">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">--- </span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> "Palmer Penguins"</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="an">author:</span><span class="co"> "Cobblepot Analytics"</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">  dashboard:</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">    logo: images/penguins.png</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co">    nav-buttons: [linkedin, twitter, github]</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co">---</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="fu"># Bills</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="fu"># Flippers</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="fu"># Data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">--- </span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> "Palmer Penguins"</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="an">author:</span><span class="co"> "Cobblepot Analytics"</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">  dashboard:</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">    logo: images/penguins.png</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">    nav-buttons: [linkedin, twitter, github]</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">---</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="fu"># Bills</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="fu"># Flippers</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="fu"># Data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="sidebars-page-level" class="slide level2">
 <h2>Sidebars: Page Level</h2>
 <div class="columns">
 <div class="column">
-<div class="sourceCode" id="cb3" style="margin-top: 45px;"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> "Sidebar"</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="an">format:</span><span class="co"> dashboard</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">---</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>    </span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="fu"># Page 1</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="fu">## {.sidebar}</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="in">```{r}</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="in">```</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="fu">## Column </span></span>
-<span id="cb3-14"><a href="#cb3-14"></a></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="in">```{r}</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="in">```</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="in">```{r}</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5" style="margin-top: 45px;"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="an">title:</span><span class="co"> "Sidebar"</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="an">format:</span><span class="co"> dashboard</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">---</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>    </span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="fu"># Page 1</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="fu">## {.sidebar}</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="in">```{r}</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="in">```</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="fu">## Column </span></span>
+<span id="cb5-14"><a href="#cb5-14"></a></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="in">```{r}</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="in">```</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="in">```{r}</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/chart-input-sidebar.png"></p>
 </div>
@@ -534,24 +573,24 @@ dashboards from <code>.qmd</code> files</p>
 <h2>Sidebars: Global</h2>
 <div class="columns">
 <div class="column">
-<div class="sourceCode" id="cb4" style="margin-top: 45px;"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">---</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> "Global Sidebar"</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="an">format:</span><span class="co"> dashboard</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co">---</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>    </span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="fu"># {.sidebar}</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a></span>
-<span id="cb4-8"><a href="#cb4-8"></a>Sidebar content (e.g. inputs)</span>
-<span id="cb4-9"><a href="#cb4-9"></a></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="fu"># Plot</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="in">```{r}</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="in">```</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="fu"># Data</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="in">```{r}</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6" style="margin-top: 45px;"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> "Global Sidebar"</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="an">format:</span><span class="co"> dashboard</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">---</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>    </span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="fu"># {.sidebar}</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a>Sidebar content (e.g. inputs)</span>
+<span id="cb6-9"><a href="#cb6-9"></a></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="fu"># Plot</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="in">```{r}</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="in">```</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="fu"># Data</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="in">```{r}</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/global-sidebar.png" style="width:80.0%"></p>
 </div>
@@ -561,23 +600,23 @@ dashboards from <code>.qmd</code> files</p>
 <h2>Layout: Rows</h2>
 <div class="columns">
 <div class="column" style="margin-top: 65px;">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">---</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="an">title:</span><span class="co"> "Focal (Top)"</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="an">format:</span><span class="co"> dashboard</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">---</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>    </span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="fu">## Row {height=70%}</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="in">```{r}</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="in">```</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="fu">## Row {height=30%}</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="in">```{r}</span></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="in">```</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a></span>
-<span id="cb5-16"><a href="#cb5-16"></a><span class="in">```{r}</span></span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> "Focal (Top)"</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="an">format:</span><span class="co"> dashboard</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">---</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>    </span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="fu">## Row {height=70%}</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="in">```{r}</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="in">```</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="fu">## Row {height=30%}</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="in">```{r}</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="in">```</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="in">```{r}</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/chart-focal-top.png" style="width:90.0%"></p>
 </div>
@@ -590,25 +629,25 @@ dashboards from <code>.qmd</code> files</p>
 <h2>Layout: Columns</h2>
 <div class="columns">
 <div class="column" style="margin-top: 40px;">
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> "Focal (Top)"</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co">  dashboard:</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co">    orientation: columns</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="co">---</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a>    </span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="fu">## Column {width=60%}</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="in">```{r}</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="in">```</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="fu">## Column {width=40%}</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="in">```{r}</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="in">```</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="in">```{python}</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> "Focal (Top)"</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">  dashboard:</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">    orientation: columns</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">---</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>    </span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="fu">## Column {width=60%}</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="in">```{r}</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="in">```</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="fu">## Column {width=40%}</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="in">```{r}</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="in">```</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="in">```{python}</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/chart-focal-left.png"></p>
 </div>
@@ -621,25 +660,25 @@ dashboards from <code>.qmd</code> files</p>
 <h2>Tabset</h2>
 <div class="columns">
 <div class="column" style="margin-top: 45px;">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> "Palmer Penguins"</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="an">format:</span><span class="co"> dashboard</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">---</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>    </span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="fu">## Row</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="in">```{r}</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="in">```</span></span>
-<span id="cb7-10"><a href="#cb7-10"></a></span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="fu">## Row {.tabset}</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a></span>
-<span id="cb7-13"><a href="#cb7-13"></a><span class="in">```{r}</span></span>
-<span id="cb7-14"><a href="#cb7-14"></a><span class="co">#| title: Chart 2</span></span>
-<span id="cb7-15"><a href="#cb7-15"></a><span class="in">```</span></span>
-<span id="cb7-16"><a href="#cb7-16"></a></span>
-<span id="cb7-17"><a href="#cb7-17"></a><span class="in">```{r}</span></span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="co">#| title: Chart 3</span></span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="an">title:</span><span class="co"> "Palmer Penguins"</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="an">format:</span><span class="co"> dashboard</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">---</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>    </span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="fu">## Row</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="in">```{r}</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="in">```</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="fu">## Row {.tabset}</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="in">```{r}</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a><span class="co">#| title: Chart 2</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a><span class="in">```</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a></span>
+<span id="cb9-17"><a href="#cb9-17"></a><span class="in">```{r}</span></span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="co">#| title: Chart 3</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/chart-tabset-row.png" style="width:87.0%"></p>
 </div>
@@ -648,45 +687,24 @@ dashboards from <code>.qmd</code> files</p>
 <section id="section-9" class="slide level2 no-line" data-background-image="images/dashboards/mynorfolk.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="plots" class="slide level2">
-<h2>Plots</h2>
-<p>Each code chunk makes a card, and can take a title</p>
-<div class="columns">
-<div class="column fragment smaller">
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="st">```</span><span class="at">{r}</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="at">#| title: GDP and Life Expectancy</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="at">library(gapminder)</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="at">library(tidyverse)</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="at">ggplot(gapminder, </span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="at">       aes(x = gdpPercap, </span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="at">           y = lifeExp, </span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="at">           color = continent)) +</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="at">  geom_point()</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column fragment">
-<p><img data-src="images/ggplot-gapminder.png" style="width:85.0%"></p>
-</div>
-</div>
-</section>
 <section id="tables" class="slide level2">
 <h2>Tables</h2>
 <p>Each code chunk makes a card, doesn’t have to have a title</p>
 <div class="columns">
 <div class="column fragment smaller">
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="st">```</span><span class="at">{r}</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="at">library(gapminder)</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="at">library(tidyverse)</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="at">library(gt)</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="at">gapminder |&gt;</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="at">  group_by(continent, year) |&gt;</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="at">  summarize(mean_lifeExp = </span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="at">              round(mean(lifeExp), 1)) |&gt;</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="at">  pivot_wider(names_from = continent, </span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="at">              values_from = mean_lifeExp) |&gt;</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="at">  gt()</span></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="st">```</span><span class="at">{r}</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="at">library(gapminder)</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="at">library(tidyverse)</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="at">library(gt)</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="at">gapminder |&gt;</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="at">  group_by(continent, year) |&gt;</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="at">  summarize(mean_lifeExp = </span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="at">              round(mean(lifeExp), 1)) |&gt;</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="at">  pivot_wider(names_from = continent, </span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="at">              values_from = mean_lifeExp) |&gt;</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="at">  gt()</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <p><img data-src="images/kable-gapminder.png" style="width:85.0%"></p>
 </div>
@@ -701,16 +719,16 @@ dashboards from <code>.qmd</code> files</p>
 <img data-src="images/value-boxes.png" style="width:85.0%" class="r-stretch"></section>
 <section id="value-boxes-1" class="slide level2">
 <h2>Value Boxes</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="st">```</span><span class="at">{r}</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="at">#| content: valuebox</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="at">#| title: "Spam per day"</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="at">list(</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="at">  icon = "trash",</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="at">  color = "danger",</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="at">  value = spam</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a><span class="at">)</span></span>
-<span id="cb10-10"><a href="#cb10-10"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="st">```</span><span class="at">{r}</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="at">#| content: valuebox</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="at">#| title: "Spam per day"</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="at">list(</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="at">  icon = "trash",</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="at">  color = "danger",</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="at">  value = spam</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="at">)</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="value-boxes-2" class="slide level2">
 <h2>Value Boxes</h2>

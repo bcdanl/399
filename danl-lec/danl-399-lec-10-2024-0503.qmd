@@ -124,6 +124,55 @@ format: dashboard
 With these simple building blocks, it is pretty straightforward to build some cool dashboards...
 
 
+## Dashboard Basics 
+
+```` markdown
+--- 
+title: My Dashboard
+author: Your Name
+format:
+  dashboard
+---
+
+```{{r}}
+library(tidyverse)
+```
+
+```{{r}}
+
+```
+
+
+````
+
+
+
+## Plots
+
+Each code chunk makes a card, and can take a title
+
+::: columns
+::: {.column .fragment .smaller}
+```` r
+```{{r}}
+#| title: GDP and Life Expectancy
+
+library(gapminder)
+library(tidyverse)
+ggplot(gapminder, 
+       aes(x = gdpPercap, 
+           y = lifeExp, 
+           color = continent)) +
+  geom_point()
+```
+````
+:::
+
+::: {.column .fragment}
+![](images/ggplot-gapminder.png){width="85%"}
+:::
+:::
+
 
 ## Navigation Bar and Pages
 
@@ -311,31 +360,6 @@ format: dashboard
 
 ##  {.no-line background-image="images/dashboards/mynorfolk.png" background-size="contain"}
 
-## Plots
-
-Each code chunk makes a card, and can take a title
-
-::: columns
-::: {.column .fragment .smaller}
-```` r
-```{{r}}
-#| title: GDP and Life Expectancy
-
-library(gapminder)
-library(tidyverse)
-ggplot(gapminder, 
-       aes(x = gdpPercap, 
-           y = lifeExp, 
-           color = continent)) +
-  geom_point()
-```
-````
-:::
-
-::: {.column .fragment}
-![](images/ggplot-gapminder.png){width="85%"}
-:::
-:::
 
 ## Tables
 
