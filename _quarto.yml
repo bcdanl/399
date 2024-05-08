@@ -14,6 +14,14 @@ website:
     # logo: img/geneseo-logo-squared.png
     pinned: true
     right:
+      - text: ML methods
+        menu: 
+          - text: Linear Regression
+            href: mba-ch1-lm.qmd
+          - text: Logistic Regression
+            href: mba-ch1-logit.qmd
+          - text: Tree-based Methods
+            href: mba-ch7-tree-based-methods.qmd
       - icon: github
         menu: 
         - text: Website Repo
